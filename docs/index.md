@@ -20,6 +20,9 @@
 
 * [**BiocParallel.FutureParam**](https://BiocParallel.FutureParam.futureverse.org)
 
+* [**progressr**](https://progressr.futureverse.org)
+
+
 
 # Uptake of future
 
