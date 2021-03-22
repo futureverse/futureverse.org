@@ -26,9 +26,17 @@
 
 # Uptake of future
 
+<div style="width: 100%; margin-bottom: 3ex;">
 <center>
-<div style="width: 80%; text-align: left;" markdown="1">
-<img src="figures/revdep_over_time_on_CRAN.png" alt="Reverse dependencies on CRAN over time for core future packages"/><br>
-Figure: Number of CRAN packages that depend on <strong>future</strong>, <strong>future.apply</strong>, and <strong>furrr</strong> over time since the first release in June 2015.  Because historical data for reverse dependencies on Bioconductor are hard to track down, they are currently not reported in this graph.
-</div>
+<img src="figures/downloads_over_time_on_CRAN.png" alt="Download ranks on CRAN (four-week averages)" style="width: 58%;"/>
 </center>
+<em>Figure: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> average every four weeks.  The data is based on the RStudio CRAN mirror logs.</em>
+</div>
+
+<div style="width: 100%; margin-bottom: 3ex;">
+<center>
+<img src="figures/revdep_over_time_on_CRAN.png" alt="Reverse dependencies on CRAN over time for core future packages" style="width:50%"/><img src="figures/revdep_over_time_on_CRAN-log.png" alt="Reverse dependencies on CRAN over time for core future packages" style="width:50%"/>
+</center> 
+<em>Figure: Number of CRAN packages that depend on <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> over time since the first release of <strong>future</strong> in June 2015.  Left: The package counts on the linear scale without <strong>foreach</strong>.  Right: The same data on the logarithmic scale to fit also <strong>foreach</strong>.  (Because historical data for reverse dependencies on Bioconductor are hard to track down, they are currently not reported in this graph.)</em>
+</div>
+
