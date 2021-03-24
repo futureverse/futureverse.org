@@ -1,5 +1,43 @@
 # Futureverse
 
+The future framework makes parallel, distributed, asynchronous processing in R simple with minimal efforts while allowing the developer to stay with their favorite coding style.
+
+The goal is to lower the barriers so that anyone can safely speed up their existing R scripts and R packages via parallelization in a worry-free manner and without code clutter.
+
+The future framework is designed to remove and protect against common hurdles and pitfalls that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the future ecosystem.  
+
+By using the well-validated future framework, developers and end-users can remain focused on their analysis without being side-tracked by common parallelization issues - this while automatically benefit from improvements to futures that are added in a backward compatible way at each new release.
+
+
+## Stay with your favorite coding style
+
+No matter if you prefer base R, tidyverse, or any other coding style, you can use futures for parallelization.  Here are a few examples illustrating what it takes to update your existing sequential code so it can run in parallel via futures.
+
+```r
+# Base R style (R & future.apply)
+y <-        lapply(X, slow_fcn)
+y <- future_lapply(X, slow_fcn)
+```
+
+```r
+# Tidyverse style (purrr & furrr)
+y <- X %>%        map(slow_fcn)
+y <- X %>% future_map(slow_fcn)
+```
+
+```r
+# Foreach style (foreach & doFuture)
+y <- foreach(x = X) %do%    slow_fcn(x)
+y <- foreach(x = X) %dopar% slow_fcn(x)
+```
+
+```r
+# Bioconductor style (BiocParallel)
+y <-   lapply(X, slow_fcn)
+y <- bplapply(X, slow_fcn)
+```
+
+
 ## Packages part of the Futureverse
 
 ### The core package
