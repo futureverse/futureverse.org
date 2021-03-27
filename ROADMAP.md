@@ -1,0 +1,59 @@
+# Project Roadmap
+
+## Core Future API
+
+* Support for controlling R options and environment variables via `future()`
+
+* Termination of futures, e.g. `suspend(f)`
+
+* Restarting of failed or terminated futures, e.g. `reset(f)` and `v <- value(f)`.  Also automatic restarting of futures when parallel worker dies.
+
+* Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
+
+* Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as `utils::browser()` and `utils::recover()`
+
+* Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
+
+* MS Windows: Support relaying of UTF-8 output on MS Windows by working around limitations in base R
+
+* Marshaling: Make it possible to parallelize also some of the [object types that are currently "non-exportable"](https://future.futureverse.org/articles/future-4-non-exportable-objects.html), e.g. objects by packages such as **DBI**, **keras**, **ncdf4**, **rstan**, **sparklyr**, **xgboost**, and **xml2**
+
+* Resources: Make it possible to declare "resources" that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc.
+
+* Multiple backends: Send different futures to different backends, based on whic parallel backend can provide the requested resources
+
+* Scheduling: Add generic support for queueing such that futures can be queued on the local computer, on a remote scheduler, or in peer-to-peer scheduler among collaborators
+
+* Flatting nested parallelism: Process nested futures via a common future queue instead of via nested future plans
+
+
+## Map-Reduce Future API
+
+* Develop a **future.mapreduce** package to provide an essential, infrastructure Map-Reduce Future API, e.g. load balancing, chunking, parallel random number generation (RNG), and early stopping.  Packages such as **future.apply**, **furrr**, and **doFuture** are currently implementing their own version of these features.  Consolidating these essentials into a shared utility package will guarantee a consistent behavior for all together with faster deployment of bug fixes and improvements.
+
+* Early stopping, e.g. have `future_lapply(X, FUN)` terminate active futures as soon as one of the `FUN(X[[i]])` calls produces an error.
+
+* Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make `fs <- lapply(X, function(x) future(FUN(x))` and `vs <- value(fs)` automatically as efficient as `future_lapply(X, FUN)` removing the need for custom implementations
+
+
+
+## Parallel backends
+
+* **future.aws.lambda** - resolve futures via the Amazon AWS Lambda
+
+* **future.aws.batch** - resolve futures via the Amazon AWS Batch
+
+* **future.google.function** - resolve futures via the Google Cloud Functions
+
+* **future.clustermq** - resolve futures on a HPC cluster via the **clustermq** package
+
+* **future.sparklyr** - resolve futures in Spark via the **sparkly** package
+
+* **future.p2p** - resolve futures via a peer-to-peer network of trusted collaborators
+
+* **future.sandbox** - resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network
+
+
+
+
+
