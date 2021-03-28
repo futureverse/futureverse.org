@@ -46,7 +46,7 @@ description: "Lots of backward-compatible improvements and extensions ahead"
 
 * **future.aws.batch** - resolve futures via the Amazon AWS Batch
 
-* **future.google.function** - resolve futures via the Google Cloud Functions
+* **future.google.functions** - resolve futures via the Google Cloud Functions
 
 * **future.clustermq** - resolve futures on a HPC cluster via the **clustermq** package
 

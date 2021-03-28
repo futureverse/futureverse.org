@@ -20,7 +20,7 @@ Nearly all parallel processing tasks can be implemented using this low-level API
 Implementations of `apply()`, `by()`, `eapply()`, `lapply()`, `Map()`, `.mapply()`, `mapply()`, `replicate()`, `sapply()`, `tapply()`, and `vapply()` that can be resolved using any future-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. These `future_*apply()` functions come with the same pros and cons as the corresponding **base R** `*apply()` functions but with the additional feature of being able to be processed via the future framework.
 
 * [**furrr**](https://davisvaughan.github.io/furrr/) - _Apply Mapping Functions in Parallel using Futures_<br>
-Implementations of the family of `map()` functions from **purrr** that can be resolved using any **future**-supported backend, e.g. parallel on the local machine or distributed on a compute cluster.
+Implementations of the family of `map()` functions from **purrr** that can be resolved using any **future**-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. (Developed by Davis Vaughan)
 
 * **foreach** with [**doFuture**](https://doFuture.futureverse.org) - _A Universal Foreach Parallel Adapter using the Future API of the **future** Package_<br>
 Provides a `%dopar%` adapter such that any type of futures can be used as backends for the **foreach** framework and its `foreach()` function.
