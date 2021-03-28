@@ -2133,11 +2133,14 @@ Packages
 
 
 <div class="d-article">
+<div>
+<p><img src="images/future.20200115.300dpi.png" style="width: 15ex; padding-left: 2ex; padding-bottom: 1ex; float: right;"/></p>
 <p>The <strong>future</strong> framework makes it easy to parallelize existing R code - often with only a minor change of code. The goal is to lower the barriers so that anyone can safely speed up their existing R code in a worry-free manner.</p>
 <p>The future framework <em>removes common hurdles and protects against pitfalls</em> that follow from adding parallelization. Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem. Just like with sequential R code, <em>output, messages, warnings, and errors works as expected</em> and can be handled using traditional R techniques - regardless how the code is parallelized.</p>
 <p>It is designed so that you as a developer to <em>stay with your favorite coding style</em>, may it be base R or tidyverse, e.g. if you like base R <code>lapply()</code> there is a corresponding <code>future_lapply()</code> in the <strong>future.apply</strong> package and if you like tidyverse <strong>purrr</strong> <code>map()</code> there is a corresponding <code>future_map()</code> in the <strong>furrr</strong> package. If you prefer <code>foreach()</code> from <strong>foreach</strong>, then <strong>doFuture</strong> provides a backend adapter.</p>
 <p>Futures makes your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures.</p>
 <p>Regardless how you use futures in your code, the user can with a single setting switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on an high-performance compute cluster.</p>
+</div>
 <p>Here’s the gist:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession)</span>
@@ -2163,6 +2166,7 @@ Packages
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>doFuture<span class="sc">::</span><span class="fu">registerDoFuture</span>()</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%do%</span>    <span class="fu">slow_fcn</span>(x)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%dopar%</span> <span class="fu">slow_fcn</span>(x)</span></code></pre></div>
+<!--
 <style>
   d-title {
       background-image: url(images/future.20200115.300dpi.png);
@@ -2174,6 +2178,7 @@ Packages
       min-height: 15ex;
   }
 </style>
+-->
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
