@@ -1,0 +1,11 @@
+---
+title: About
+description: Grew out of a need to analyze large-scale data
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+TBD
+

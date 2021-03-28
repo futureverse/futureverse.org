@@ -1,4 +1,7 @@
-# Project Roadmap
+---
+title: Project Roadmap
+description: "Lots of backward-compatible improvements and extensions ahead"
+---
 
 ## Core Future API
 

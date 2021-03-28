@@ -1,44 +1,11 @@
-# Futureverse
+---
+title: "Overview of All Packages"
+description: The future framework with the future package at the code comprises many packages - use the ones that suits your needs
+---
 
-The future framework makes parallel, distributed, asynchronous processing in R simple with minimal efforts while allowing the developer to stay with their favorite coding style.
-
-The goal is to lower the barriers so that anyone can safely speed up their existing R scripts and R packages via parallelization in a worry-free manner and without code clutter.
-
-The future framework is designed to remove and protect against common hurdles and pitfalls that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the future ecosystem.  
-
-By using the well-validated future framework, developers and end-users can remain focused on their analysis without being side-tracked by common parallelization issues - this while automatically benefit from improvements to futures that are added in a backward compatible way at each new release.
-
-
-## Stay with your favorite coding style
-
-No matter if you prefer base R, tidyverse, or any other coding style, you can use futures for parallelization.  Here are a few examples illustrating what it takes to update your existing sequential code so it can run in parallel via futures.
-
-```r
-# Base R style (R & future.apply)
-y <-        lapply(X, slow_fcn)
-y <- future_lapply(X, slow_fcn)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 ```
-
-```r
-# Tidyverse style (purrr & furrr)
-y <- X %>%        map(slow_fcn)
-y <- X %>% future_map(slow_fcn)
-```
-
-```r
-# Foreach style (foreach & doFuture)
-y <- foreach(x = X) %do%    slow_fcn(x)
-y <- foreach(x = X) %dopar% slow_fcn(x)
-```
-
-```r
-# Bioconductor style (BiocParallel)
-y <-   lapply(X, slow_fcn)
-y <- bplapply(X, slow_fcn)
-```
-
-
-## Packages part of the Futureverse
 
 ### The core package
 
@@ -95,32 +62,3 @@ Identifies global ("unknown" or "free") objects in R expressions by code inspect
 
 * [**listenv**](https://listenv.futureverse.org) - _Environments Behaving (Almost) as Lists_<br>
 List environments are environments that have list-like properties. For instance, the elements of a list environment are ordered and can be accessed and iterated over using index subsetting, e.g. `x <- listenv(a = 1, b = 2); for (i in seq_along(x)) x[[i]] <- x[[i]] ^ 2; y <- as.list(x)`.
-
-
-
-## Uptake of future
-
-Since the first CRAN release of **future** in June 2015, its uptake among end-users and package developers have grown steadily.
-During March 2021, **future** was among the top-0.6% most downloaded package on CRAN (Figure 1) and there are 166 packages on CRAN and Bioconductor that directly depend on it (Figure 2).  For map-reduce parallelization packages **future.apply** (top-2.1% most downloaded) and and **furrr** (top 1.4%), the corresponding number of packages are 73 and 44, respectively.
-
-As a reference, the popular **foreach**, release in 2009, was among the top-0.9% most downloaded packages during the same period and it has almost 800 reverse package dependencies on CRAN and Bioconductor.  The number of users that download **future** has grown rapidly whereas the the same number has slowly decreased for the **foreach** package (Figure 1).  Similarly, the number of reverse package dependencies on **future** appear to grow faster than for **foreach** (Figure 2).
-
-_Importantly, the comparison toward **foreach** is only done as a reference for the current demand for parallelization frameworks in R and to show the rapid uptake of the future framework since its release.  It is not a competion because **foreach** can per design be used in companion with the future framework via **doFuture**.  The choice between **foreach** with **doFuture**, **future.apply**, and **furrr** is a matter of preference of coding style - they all rely on futures for parallelization._
-
-
-
-
-<div style="width: 100%; margin-bottom: 3ex;">
-<center>
-<img src="figures/downloads_over_time_on_CRAN.png" alt="Download ranks on CRAN (four-week averages)" style="width: 58%;"/>
-</center>
-<em>Figure 1: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> average every four weeks.  The data is based on the RStudio CRAN mirror logs.</em>
-</div>
-
-<div style="width: 100%; margin-bottom: 3ex;">
-<center>
-<img src="figures/revdep_over_time_on_CRAN.png" alt="Reverse dependencies on CRAN over time for core future packages" style="width:50%"/><img src="figures/revdep_over_time_on_CRAN-log.png" alt="Reverse dependencies on CRAN over time for core future packages" style="width:50%"/>
-</center> 
-<em>Figure 2: Number of CRAN packages that depend on <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> over time since the first release of <strong>future</strong> in June 2015.  Left: The package counts on the linear scale without <strong>foreach</strong>.  Right: The same data on the logarithmic scale to fit also <strong>foreach</strong>.  (Because historical data for reverse dependencies on Bioconductor are hard to track down, they are currently not reported in this graph.)</em>
-</div>
-

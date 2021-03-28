@@ -1,0 +1,85 @@
+name: "futureverse"
+
+title: "Futureverse"
+
+description: |
+  Futureverse
+
+favicon: images/favicon.ico
+
+google_analytics: "G-SB3EQSD9FR"
+
+output_dir: "docs"
+
+exclude:
+  - '*'
+
+include:
+  - figures
+  - images
+  - CNAME
+
+navbar:
+  logo:
+    image: images/logo.png
+    href: index.html
+    
+  right:
+    - text: "Packages"
+      menu:
+        - text: Overview of All Packages
+          href: packages-overview.html
+        - text: "---"
+        - text: Core Future API
+        - text: future (core of the future framework)
+          href: https://future.futureverse.org
+        - text: "---"
+        - text: Map-Reduce Future APIs
+        - text: future.apply (base R apply with futures)
+          href: https://future.apply.futureverse.org
+        - text: furrr (purrr with futures)
+          href: https://davisvaughan.github.io/furrr/
+        - text: doFuture (a foreach adapter)
+          href: https://doFuture.futureverse.org
+        - text: BiocParallel.FutureParam (a BiocParallel addon)
+          href: https://BiocParallel.FutureParam.futureverse.org/
+        - text: "---"
+        - text: Parallel Backends
+        - text: future (built-in, local & remote parallelization)
+          href: https://future.futureverse.org
+        - text: future.batchtools (use HPC scheduler)
+          href: https://future.batchtools.futureverse.org
+        - text: future.callr (local callr parallelization)
+          href: https://future.callr.futureverse.org
+        - text: "---"
+        - text: Utility
+        - text: progressr (progress updates in parallel)
+          href: https://progressr.futureverse.org
+        - text: listenv (Use %<-% for list-like structures)
+          href: https://listenv.futureverse.org
+        - text: parallelly (enhances the parallel package)
+          href: https://parallelly.futureverse.org
+        - text: "---"
+        - text: For low-level developers
+        - text: globals (identify globals)
+          href: https://globals.futureverse.org
+        - text: future.tests (validate future backends)
+          href: https://future.tests.futureverse.org
+    - text: "Blog"
+      href: blog.html
+    - text: "Statistics"
+      href: statistics.html
+    - text: "Validation"
+      href: validation.html
+    - text: "Talks"
+      href: talks.html
+    - text: "Publications"
+      href: publications.html
+    - text: "Roadmap"
+      href: roadmap.html
+    - text: "About"
+      href: about.html
+
+  search: true
+
+output: distill::distill_article
