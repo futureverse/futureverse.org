@@ -32,7 +32,7 @@ plan(multisession)
 y <- slow_fcn(X[1])
 
 ## Evaluate the same R expression in parallel in the background
-f <- future(slow_fcn(X[1])
+f <- future(slow_fcn(X[1]))
 y <- value(f)
 
 ## future.apply: futurized version of base R apply
