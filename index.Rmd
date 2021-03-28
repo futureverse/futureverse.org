@@ -13,13 +13,13 @@ knitr::opts_chunk$set(echo = FALSE)
 The **future** framework makes it easy to parallelize existing R code - often with only a minor change of code.  The goal is to lower the barriers so that anyone can safely speed up their existing R code in a worry-free manner.
 
 The future framework _removes common hurdles and protects against pitfalls_ that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem.
-Just like with sequential R code, _output, messages, warnings, and errors works as expected_ and can be handled using traditional R techniques - regardless how the code is parallelized.
+Just as with sequential R code, _output, messages, warnings, and errors work as expected_ and can be handled using traditional R techniques - regardless how the code is parallelized.
 
-It is designed so that you as a developer to _stay with your favorite coding style_, may it be base R or tidyverse, e.g. if you like base R `lapply()` there is a corresponding `future_lapply()` in the **future.apply** package and if you like tidyverse **purrr** `map()` there is a corresponding `future_map()` in the **furrr** package.  If you prefer `foreach()` from **foreach**, then **doFuture** provides a backend adapter.
+It is designed so that you as a developer can _stay with your favorite coding style_, may it be base R or tidyverse.  If you like base R `lapply()` there is a corresponding `future_lapply()` in the **future.apply** package and if you like tidyverse **purrr** `map()` there is a corresponding `future_map()` in the **furrr** package.  If you prefer `foreach()` from **foreach**, then **doFuture** provides a backend adapter.
 
 Futures makes your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures.
 
-Regardless how you use futures in your code, the user can with a single setting switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on an high-performance compute cluster.
+Regardless how you use futures in your code, the user can with a single setting switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on a high-performance compute (HPC) cluster.
 </div>
 
 Here's the gist:
