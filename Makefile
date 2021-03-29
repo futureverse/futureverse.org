@@ -1,5 +1,7 @@
 SHELL=bash
 
+PACKAGES=globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr
+
 all: build
 
 build:
@@ -14,3 +16,23 @@ images/favicon.ico: images/future.20200115.300dpi.png
 	convert favicon-256.png -resize   64x64 favicon-64.png;  \
 	convert favicon-256.png -resize 128x128 favicon-128.png; \
 	convert favicon-16.png favicon-32.png favicon-64.png favicon-128.png favicon-256.png -colors 256 $@
+
+pkgdown-build:
+	@export R_PROGRESSR_DEMO_DELAY=0; \
+	for pkg in $(PACKAGES); do \
+	    echo "Package $$pkg:"; \
+	    (cd "../$${pkg}"; Rscript -e pkgdown.extras::build_site) \
+	done
+
+pkgdown-deploy:
+	@source ~/.bashrc.d/interactive=true/git-rpkgs.sh; \
+	for pkg in $(PACKAGES); do \
+	    echo "Package $$pkg:"; \
+	    (cd "../$${pkg}"; pkgdown_deploy) \
+	done
+
+pkgdown-cname:
+	@for pkg in $(PACKAGES); do \
+	    printf "Package $$pkg: "; \
+	    (cd "../$${pkg}"; cat docs/CNAME) \
+	done
