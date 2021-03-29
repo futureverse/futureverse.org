@@ -1,6 +1,6 @@
 SHELL=bash
 
-PACKAGES=globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr
+PACKAGES ?= globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr
 
 all: build
 
@@ -35,4 +35,12 @@ pkgdown-cname:
 	@for pkg in $(PACKAGES); do \
 	    printf "Package $$pkg: "; \
 	    (cd "../$${pkg}"; cat docs/CNAME) \
+	done
+
+pkgdown-favicon:
+	@for pkg in $(PACKAGES); do \
+	    if [ ! -d "../$$pkg/pkgdown/favicon" ]; then \
+	        cp -R "../future/pkgdown/favicon" "../$$pkg/pkgdown/favicon"; \
+	        (cd "../$$pkg"; git add "pkgdown/favicon/"; git commit pkgdown/favicon -m "pkgdown: add favicon"; git push); \
+	    fi; \
 	done
