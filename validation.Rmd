@@ -19,7 +19,7 @@ CI), an on R-hub.
 Second, for each new release, these packages undergo full
 reverse-package dependency checks
 using **revdepcheck**.  As of March 2021,
-the **future** package is tested against 166 direct reverse-package
+the **future** package is tested against 170 direct reverse-package
 dependencies available on CRAN and Bioconductor.  These checks are
 performed on Linux with both the default settings and when forcing
 tests to use multisession workers (SOCK clusters), which further

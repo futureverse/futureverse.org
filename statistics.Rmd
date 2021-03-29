@@ -4,7 +4,7 @@ description: "The R community embraces the future framework"
 ---
 
 Since the first CRAN release of **future** in June 2015, its uptake among end-users and package developers have grown steadily.
-During March 2021, **future** was among the top-1.0% most downloaded package on CRAN (Figure 1) and there are 166 packages on CRAN and Bioconductor that directly depend on it (Figure 2).  For map-reduce parallelization packages **future.apply** (top-2.1% most downloaded) and and **furrr** (top 1.4%), the corresponding number of packages are 73 and 44, respectively.
+During March 2021, **future** was among the top-1.0% most downloaded package on CRAN (Figure 1) and there are 170 packages on CRAN and Bioconductor that directly depend on it (Figure 2).  For map-reduce parallelization packages **future.apply** (top-2.1% most downloaded) and and **furrr** (top 1.4%), the corresponding number of packages are 75 and 44, respectively.
 
 <div style="width: 100%; margin-bottom: 3ex;">
 <center>
