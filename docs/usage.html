@@ -2149,6 +2149,17 @@ Image credit: Seurat team
 <p><a href="https://satijalab.org/seurat/"><strong>Seurat</strong></a> is an R package designed for QC, analysis, and exploration of single-cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single-cell transcriptomic measurements, and to integrate diverse types of single-cell data.</p>
 <p><strong>Seurat</strong> uses futures to speed up processing. The future framework makes it possible process large data sets and large number of samples in parallel on the local machine, distributed on multiple machines, or via large-scale high-performance compute (HPC) environments.</p>
 </div>
+<h2 id="shiny---asynchronous-ux-with-futures">Shiny - asynchronous UX with futures</h2>
+<div>
+<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
+<img src="images/shiny-icgc-genome-browser.png"/>
+<figcaption style="font-size: 50%;">
+Image credit: International Cancer Genome Consortium (ICGC) team
+</figcaption>
+</figure>
+<p><a href="https://shiny.rstudio.com/"><strong>Shiny</strong></a> is an R package that makes it easy to build interactive web applications and dashboards directly from R. Shiny apps can run locally, be embedded in an R Markdown document, and be hosted on a webpage - all with a few clicks or commands. The combination of being simple and powerful has made Shiny the most popular solution for web applications in the R community. See the <a href="https://shiny.rstudio.com/gallery/">Shiny Gallery</a> for real-world examples, e.g. the <a href="https://shiny.rstudio.com/gallery/genome-browser.html">Genome Browser</a> by the International Cancer Genome Consortium (ICGC) team.</p>
+<p><strong>Shiny</strong> uses the future framework to provide a non-blocking user interface and to scale up computationally heavy requests. It combines <strong>future</strong> with <strong>promises</strong> to turn a blocking, synchronous web interface into a non-blocking, asynchronous, responsive user experience.</p>
+</div>
 <h2 id="mlr3---next-generation-machine-learning">mlr3 - Next-Generation Machine Learning</h2>
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
@@ -2170,17 +2181,6 @@ Image credit: targets/drake team
 </figure>
 <p>The <a href="https://docs.ropensci.org/targets/"><strong>targets</strong></a> package, and its predecessor <a href="https://docs.ropensci.org/drake/"><strong>drake</strong></a>, is a general-purpose computational engine for statistics and data science that brings together function-oriented programming in R with make-like declarative workflows. It has native support for parallel and distributed computing while preserving reproducibility.</p>
 <p>Both <strong>targets</strong> and <strong>drake</strong> identify targets in the declared dependency graph that can be resolved concurrently, which then can be processed in parallel on the local computer or distributed in the cloud via the future framework.</p>
-</div>
-<h2 id="shiny---asynchronous-ux-with-futures">Shiny - asynchronous UX with futures</h2>
-<div>
-<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
-<img src="images/shiny-icgc-genome-browser.png"/>
-<figcaption style="font-size: 50%;">
-Image credit: International Cancer Genome Consortium (ICGC) team
-</figcaption>
-</figure>
-<p><a href="https://shiny.rstudio.com/"><strong>Shiny</strong></a> is an R package that makes it easy to build interactive web applications and dashboards directly from R. Shiny apps can run locally, be embedded in an R Markdown document, and be hosted on a webpage - all with a few clicks or commands. The combination of being simple and powerful has made Shiny the most popular solution for web applications in the R community. See the <a href="https://shiny.rstudio.com/gallery/">Shiny Gallery</a> for real-world examples, e.g. the <a href="https://shiny.rstudio.com/gallery/genome-browser.html">Genome Browser</a> by the International Cancer Genome Consortium (ICGC) team.</p>
-<p><strong>Shiny</strong> uses the future framework to provide a non-blocking user interface and to scale up computationally heavy requests. It combines <strong>future</strong> with <strong>promises</strong> to turn a blocking, synchronous web interface into a non-blocking, asynchronous, responsive user experience.</p>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
