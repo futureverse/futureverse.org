@@ -1,6 +1,6 @@
 ---
 title: Validation
-description: "Top priorities: correctness, reproducbility, long-term stability, and trust"
+description: "Top priorities: correctness, reproducibility, long-term stability, and trust"
 ---
 
 Since correctness and reproducibility is essential to all data
