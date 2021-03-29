@@ -67,6 +67,8 @@ navbar:
           href: https://future.tests.futureverse.org
     - text: "Blog"
       href: blog.html
+    - text: "Usage"
+      href: usage.html
     - text: "Statistics"
       href: statistics.html
     - text: "Validation"

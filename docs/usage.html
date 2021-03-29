@@ -86,30 +86,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Futureverse</title>
+  <title>Futureverse: Usage</title>
 
-  <meta property="description" itemprop="description" content="A Unifying Parallelization Framework in R for Everyone"/>
+  <meta property="description" itemprop="description" content="Who&#39;s using futures, where, and how?"/>
 
   <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Futureverse"/>
+  <meta property="og:title" content="Futureverse: Usage"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A Unifying Parallelization Framework in R for Everyone"/>
+  <meta property="og:description" content="Who&#39;s using futures, where, and how?"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Futureverse"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Futureverse"/>
-  <meta property="twitter:description" content="A Unifying Parallelization Framework in R for Everyone"/>
+  <meta property="twitter:title" content="Futureverse: Usage"/>
+  <meta property="twitter:description" content="Who&#39;s using futures, where, and how?"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Futureverse"]},{"type":"character","attributes":{},"value":["A Unifying Parallelization Framework in R for Everyone"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Usage"]},{"type":"character","attributes":{},"value":["Who's using futures, where, and how?"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2061,7 +2061,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Futureverse","description":"A Unifying Parallelization Framework in R for Everyone","authors":[]}
+{"title":"Usage","description":"Who's using futures, where, and how?","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2126,61 +2126,63 @@ Packages
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Futureverse</h1>
+<h1>Usage</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>A Unifying Parallelization Framework in R for Everyone</p>
+<p>Who’s using futures, where, and how?</p>
 </div>
 
 
 <div class="d-article">
-<div>
-<p><img src="images/future.20200115.300dpi.png" style="width: 15ex; padding-left: 2ex; padding-top: 1ex; padding-bottom: 1ex; float: right;"/></p>
-<p>The <strong>future</strong> framework makes it easy to parallelize existing R code - often with only a minor change of code. The goal is to lower the barriers so that anyone can safely speed up their existing R code in a worry-free manner.</p>
-<p>The future framework <em>removes common hurdles and protects against pitfalls</em> that follow from adding parallelization. Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem. Just as with sequential R code, <em>output, messages, warnings, and errors work as expected</em> and can be handled using traditional R techniques - regardless how the code is parallelized.</p>
-<p>It is designed so that you as a developer can <em>stay with your favorite coding style</em>, may it be base R or tidyverse. If you like base R <code>lapply()</code> there is a corresponding <code>future_lapply()</code> in the <strong>future.apply</strong> package and if you like tidyverse <strong>purrr</strong> <code>map()</code> there is a corresponding <code>future_map()</code> in the <strong>furrr</strong> package. If you prefer <code>foreach()</code> from <strong>foreach</strong>, then <strong>doFuture</strong> provides a backend adapter.</p>
-<p>Futures makes your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures.</p>
-<p>Regardless how you use futures in your code, the user can with a single setting switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on a high-performance compute (HPC) cluster.</p>
-</div>
-<p>Here’s the gist:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Evaluate an R expression sequentially</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">slow_fcn</span>(X[<span class="dv">1</span>])</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Evaluate the same R expression in parallel in the background</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">future</span>(<span class="fu">slow_fcn</span>(X[<span class="dv">1</span>]))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">value</span>(f)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">## future.apply: futurized version of base R apply</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future.apply)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span>        <span class="fu">lapply</span>(X, slow_fcn)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">future_lapply</span>(X, slow_fcn)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## furrr: futurized version of purrr</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X <span class="sc">%&gt;%</span> <span class="fu">map</span>(slow_fcn)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X <span class="sc">%&gt;%</span> <span class="fu">future_map</span>(slow_fcn)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="do">## foreach: futurized version</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>doFuture<span class="sc">::</span><span class="fu">registerDoFuture</span>()</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%do%</span>    <span class="fu">slow_fcn</span>(x)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%dopar%</span> <span class="fu">slow_fcn</span>(x)</span></code></pre></div>
-<!--
-<style>
-  d-title {
-      background-image: url(images/future.20200115.300dpi.png);
-      background-repeat: no-repeat;
-      background-origin: content-box;
-      background-position: calc(100% - 4ex);
-      background-size2: contain;
-      background-size: 15ex;
-      min-height: 15ex;
-  }
-</style>
+<p>If we look at our main R packages repositories, <a href="https://cran.r-project.org/">CRAN</a> (~18,000 packages) and <a href="https://bioconductor.org">Bioconductor</a> (~2,000 packages), we find that the future framework is used by R packages spanning a wide range of areas, e.g. statistics, modeling &amp; prediction, time-series analysis &amp; forecasting, life sciences, drug analysis, clinical trials, disease modeling, cancer research, computational biology, genomics, bioinformatics, biomarker discovery, epidemiology, ecology, economics &amp; finance, spatial, geospatial &amp; satellite analysis, and natural language processing. That is just a sample based on published R packages - we can only guess how futures are used by users at the R prompt, in users’ R scripts, non-published R packages, Shiny applications, and R pipelines running internally in the industry and academia.</p>
+<p>There are two major use cases of the future framework: (i) performance improvement through parallelization, and (ii) non-blocking, asynchronous user experience (UX). Below are some prominent examples.</p>
+<!-- For speeding up R scripts, R packages, and R code via parallelization and distributed processing, the most common use is via **future** directly, or via **future.apply** (parallelized base R apply functions), **furrr** (parallelized tidyverse **purrr** functions), and **doFuture** (parallelized **foreach** functions).
 -->
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="seurat-large-scale-single-cell-genomics">Seurat: Large-Scale Single-Cell Genomics</h2>
+<div>
+<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
+<img src="images/seurat-sc.data3-1.png"/>
+<figcaption style="font-size: 50%;">
+Image credit: Seurat team
+</figcaption>
+</figure>
+<p><a href="https://satijalab.org/seurat/"><strong>Seurat</strong></a> is an R package designed for QC, analysis, and exploration of single-cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single-cell transcriptomic measurements, and to integrate diverse types of single-cell data.</p>
+<p><strong>Seurat</strong> uses futures to speed up processing. The future framework makes it possible process large data sets and large number of samples in parallel on the local machine, distributed on multiple machines, or via large-scale high-performance compute (HPC) environments.</p>
+</div>
+<h2 id="mlr3---next-generation-machine-learning">mlr3 - Next-Generation Machine Learning</h2>
+<div>
+<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
+<img src="images/mlr3-pipe_action.svg"/>
+<figcaption style="font-size: 50%;">
+Image credit: ml3r team
+</figcaption>
+</figure>
+<p>The <a href="https://mlr3.mlr-org.com/"><strong>mlr3</strong></a> ecosystem provides efficient, object-oriented building blocks for machine learning (ML) for tasks, learners, resamplings, and measures. It supports large-scale, out-of-memory data processing.</p>
+<p><strong>mlr3</strong> uses futures to speed up processing. The future framework is used in different ML steps, e.g. resampling of learners can be performed much faster when run in parallel. The framework makes sure proper parallel random-number generation (RNG) is used and guarantees reproducible results.</p>
+</div>
+<h2 id="draketargets---pipeline-toolkit-for-reproducible-computation-at-scale">Drake/Targets - Pipeline Toolkit for Reproducible Computation at Scale</h2>
+<div>
+<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
+<img src="images/drake-example-graph.png"/>
+<figcaption style="font-size: 50%;">
+Image credit: targets/drake team
+</figcaption>
+</figure>
+<p>The <a href="https://docs.ropensci.org/targets/"><strong>targets</strong></a> package, and its predecessor <a href="https://docs.ropensci.org/drake/"><strong>drake</strong></a>, is a general-purpose computational engine for statistics and data science that brings together function-oriented programming in R with make-like declarative workflows. It has native support for parallel and distributed computing while preserving reproducibility.</p>
+<p>Both <strong>targets</strong> and <strong>drake</strong> identify targets in the declared dependency graph that can be resolved concurrently, which then can be processed in parallel on the local computer or distributed in the cloud via the future framework.</p>
+</div>
+<h2 id="shiny---asynchronous-ux-with-futures">Shiny - asynchronous UX with futures</h2>
+<div>
+<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
+<img src="images/shiny-icgc-genome-browser.png"/>
+<figcaption style="font-size: 50%;">
+Image credit: International Cancer Genome Consortium (ICGC) team
+</figcaption>
+</figure>
+<p><a href="https://shiny.rstudio.com/"><strong>Shiny</strong></a> is an R package that makes it easy to build interactive web applications and dashboards directly from R. Shiny apps can run locally, be embedded in an R Markdown document, and be hosted on a webpage - all with a few clicks or commands. The combination of being simple and powerful has made Shiny the most popular solution for web applications in the R community. See the <a href="https://shiny.rstudio.com/gallery/">Shiny Gallery</a> for real-world examples, e.g. the <a href="https://shiny.rstudio.com/gallery/genome-browser.html">Genome Browser</a> by the International Cancer Genome Consortium (ICGC) team.</p>
+<p><strong>Shiny</strong> uses the future framework to provide a non-blocking user interface and to scale up computationally heavy requests. It combines <strong>future</strong> with <strong>promises</strong> to turn a blocking, synchronous web interface into a non-blocking, asynchronous, responsive user experience.</p>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
