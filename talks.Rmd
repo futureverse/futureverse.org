@@ -1,6 +1,6 @@
 ---
 title: Talks
-description: Presentations on futures with slides and recorded video
+description: Presentations on futures with slides and recorded videos
 ---
 
 * Henrik Bengtsson, [Future: A Simple, Extendable, Generic Framework for Parallel Processing in R](https://www.jottr.org/2020/12/19/future-eurobioc2020-slides/), European Bioconductor Meeting 2020, 2020-12-19 (35 minutes)

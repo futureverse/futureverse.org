@@ -1,6 +1,6 @@
 ---
 title: Blog Posts
-description: Updates, explanations, tips and tricks on futures
+description: Updates, tips & tricks, and explanations on futures
 ---
 
 * [future.BatchJobs - End-of-Life Announcement](https://www.jottr.org/2021/01/08/future.batchjobs-end-of-life-announcement/), jottr.org, 2021-01-08
