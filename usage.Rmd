@@ -42,7 +42,7 @@ The combination of being simple and powerful has made Shiny the most popular sol
 </div>
 
 
-## mlr3: Next-Generation Machine Learning
+## Mlr3: Next-Generation Machine Learning
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
