@@ -28,7 +28,7 @@ There are two major use cases of the future framework: (i) performance improveme
 
 
 
-## Shiny - asynchronous UX with futures
+## Shiny: Scalable, Asynchronous UX
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
@@ -42,7 +42,7 @@ The combination of being simple and powerful has made Shiny the most popular sol
 </div>
 
 
-## mlr3 - Next-Generation Machine Learning
+## mlr3: Next-Generation Machine Learning
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
@@ -55,7 +55,7 @@ The [**mlr3**](https://mlr3.mlr-org.com/) ecosystem provides efficient, object-o
 </div>
 
 
-## Drake/Targets - Pipeline Toolkit for Reproducible Computation at Scale
+## Drake/Targets: Pipeline Toolkit for Reproducible Computation at Scale
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
