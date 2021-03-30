@@ -71,8 +71,8 @@ navbar:
       href: usage.html
     - text: "Statistics"
       href: statistics.html
-    - text: "Validation"
-      href: validation.html
+    - text: "Quality"
+      href: quality.html
     - text: "Talks"
       href: talks.html
     - text: "Publications"
