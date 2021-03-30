@@ -1,8 +1,13 @@
 SHELL=bash
 
+FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd validation.Rmd
+
 PACKAGES ?= globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr
 
 all: build
+
+spell:
+	hunspell -H $(FILES)
 
 build:
 	module load pandoc; \
