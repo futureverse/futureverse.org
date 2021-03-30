@@ -71,7 +71,7 @@ also indirect, reverse dependencies, which further increases the
 validation of the _Future API_ and the future ecosystem at large.
 
 The packages underlying the future ecosystem are well maintained and
-are continously updated and improved.  For example, the **future**
+are continuously updated and improved.  For example, the **future**
 package is updated approximately six times per year, the
 **future.apply** and **doFuture** packages three times per year, and
 the infrastructure packages **globals** and **parallelly** three to
@@ -81,4 +81,4 @@ existing R code in production that rely on futures.  In the very rare
 case when an existing feature had to be removed, it has been done via
 deprecation process taking place over several release cycles working
 closely with existing package developers to assure a smooth transition
-and with informative warnings messages to end-users where needed.
+and with informative warning messages to end-users where needed.
