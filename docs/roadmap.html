@@ -2155,6 +2155,7 @@ Packages
 <li><p>Develop more efficient chunking of large objects in map-reduce calls. This can be achieved by introducing a mechanism or a syntax to declare that part of the code should be processed prior to being parallelized, e.g. further subsetting of and validation of input data before distributing them to parallel workers</p></li>
 <li><p>Early stopping, e.g. have <code>future_lapply(X, FUN)</code> terminate active futures as soon as one of the <code>FUN(X[[i]])</code> calls produces an error</p></li>
 <li><p>Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make <code>fs &lt;- lapply(X, function(x) future(FUN(x))</code> and <code>vs &lt;- value(fs)</code> automatically as efficient as <code>future_lapply(X, FUN)</code> removing the need for custom implementations</p></li>
+<li><p>Robustness of foreach: Implement bug fixes and outstanding <strong>foreach</strong> feature requests in the <strong>doFuture</strong> adapter until resolved upstream. For example, add options to make <code>foreach()</code> use proper parallel RNG even when the develop has forgotten to use <code>%doRNG%</code>.</p></li>
 </ul>
 <h2 id="parallel-backends">Parallel backends</h2>
 <ul>
