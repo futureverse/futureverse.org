@@ -86,30 +86,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Futureverse: Project Roadmap</title>
+  <title>Futureverse: Quality, Validation &amp; Maintenance</title>
 
-  <meta property="description" itemprop="description" content="Lots of backward-compatible improvements and extensions ahead"/>
+  <meta property="description" itemprop="description" content="Top priorities: correctness, reproducibility, long-term stability, and trust"/>
 
   <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Futureverse: Project Roadmap"/>
+  <meta property="og:title" content="Futureverse: Quality, Validation &amp; Maintenance"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Lots of backward-compatible improvements and extensions ahead"/>
+  <meta property="og:description" content="Top priorities: correctness, reproducibility, long-term stability, and trust"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Futureverse"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Futureverse: Project Roadmap"/>
-  <meta property="twitter:description" content="Lots of backward-compatible improvements and extensions ahead"/>
+  <meta property="twitter:title" content="Futureverse: Quality, Validation &amp; Maintenance"/>
+  <meta property="twitter:description" content="Top priorities: correctness, reproducibility, long-term stability, and trust"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Project Roadmap"]},{"type":"character","attributes":{},"value":["Lots of backward-compatible improvements and extensions ahead"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Quality, Validation & Maintenance"]},{"type":"character","attributes":{},"value":["Top priorities: correctness, reproducibility, long-term stability, and trust"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2061,7 +2061,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Project Roadmap","description":"Lots of backward-compatible improvements and extensions ahead","authors":[]}
+{"title":"Quality, Validation & Maintenance","description":"Top priorities: correctness, reproducibility, long-term stability, and trust","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2126,50 +2126,23 @@ Packages
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Project Roadmap</h1>
+<h1>Quality, Validation &amp; Maintenance</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>Lots of backward-compatible improvements and extensions ahead</p>
+<p>Top priorities: correctness, reproducibility, long-term stability, and trust</p>
 </div>
 
 
 <div class="d-article">
-<h2 id="core-future-api">Core Future API</h2>
-<ul>
-<li><p>Support for controlling R options and environment variables via <code>future()</code></p></li>
-<li><p>Termination of futures, e.g. <code>suspend(f)</code>. Since not all backends can support termination, the design should be such that failed termination attempts must not affect the workflow and its results</p></li>
-<li><p>Restarting of failed or terminated futures, e.g. <code>reset(f)</code> and <code>v &lt;- value(f)</code>. Also automatic restarting of futures when parallel worker dies</p></li>
-<li><p>Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies</p></li>
-<li><p>Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as <code>utils::browser()</code> and <code>utils::recover()</code></p></li>
-<li><p>Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance</p></li>
-<li><p>MS Windows: Support relaying of UTF-8 output on MS Windows by working around limitations in base R</p></li>
-<li><p>Marshaling: Make it possible to parallelize also some of the <a href="https://future.futureverse.org/articles/future-4-non-exportable-objects.html">object types that are currently “non-exportable”</a>, e.g. objects by packages such as <strong>DBI</strong>, <strong>keras</strong>, <strong>ncdf4</strong>, <strong>rstan</strong>, <strong>sparklyr</strong>, <strong>xgboost</strong>, and <strong>xml2</strong></p></li>
-<li><p>Resources: Make it possible to declare “resources” that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc.</p></li>
-<li><p>Multiple backends: Send different futures to different backends, based on whic parallel backend can provide the requested resources</p></li>
-<li><p>Scheduling: Add generic support for queueing such that futures can be queued on the local computer, on a remote scheduler, or in peer-to-peer scheduler among collaborators</p></li>
-<li><p>Flatting nested parallelism: Process nested futures via a common future queue instead of via nested future plans</p></li>
-</ul>
-<h2 id="map-reduce-future-api">Map-Reduce Future API</h2>
-<ul>
-<li><p>Develop a <strong>future.mapreduce</strong> package to provide an essential, infrastructure Map-Reduce Future API, e.g. load balancing, chunking, parallel random number generation (RNG), and early stopping. Packages such as <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doFuture</strong> are currently implementing their own version of these features. Consolidating these essentials into a shared utility package will guarantee a consistent behavior for all together with faster deployment of bug fixes and improvements</p></li>
-<li><p>Develop more efficient chunking of large objects in map-reduce calls. This can be achieved by introducing a mechanism or a syntax to declare that part of the code should be processed prior to being parallelized, e.g. further subsetting of and validation of input data before distributing them to parallel workers</p></li>
-<li><p>Early stopping, e.g. have <code>future_lapply(X, FUN)</code> terminate active futures as soon as one of the <code>FUN(X[[i]])</code> calls produces an error</p></li>
-<li><p>Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make <code>fs &lt;- lapply(X, function(x) future(FUN(x))</code> and <code>vs &lt;- value(fs)</code> automatically as efficient as <code>future_lapply(X, FUN)</code> removing the need for custom implementations</p></li>
-</ul>
-<h2 id="parallel-backends">Parallel backends</h2>
-<ul>
-<li><p><strong>future.aws.lambda</strong> - resolve futures via the Amazon AWS Lambda</p></li>
-<li><p><strong>future.aws.batch</strong> - resolve futures via the Amazon AWS Batch</p></li>
-<li><p><strong>future.google.functions</strong> - resolve futures via the Google Cloud Functions</p></li>
-<li><p><strong>future.clustermq</strong> - resolve futures on a HPC cluster via the <strong>clustermq</strong> package</p></li>
-<li><p><strong>future.sparklyr</strong> - resolve futures in Spark via the <strong>sparkly</strong> package</p></li>
-<li><p><strong>future.p2p</strong> - resolve futures via a peer-to-peer network of trusted collaborators</p></li>
-<li><p><strong>future.sandbox</strong> - resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network</p></li>
-</ul>
-<h2 id="miscellaneous">Miscellaneous</h2>
-<ul>
-<li>Consider relicensing code to a permissive license, where possible</li>
-</ul>
+<p>Since correctness and reproducibility is essential to all data processing, validation is a top priority and part of the design and implementation throughout the future ecosystem. Several types of testing are performed.</p>
+<p>First, all the essential core packages part of the future framework, <strong>future</strong>, <strong>parallelly</strong>, <strong>globals</strong>, and <strong>listenv</strong>, implement a rich set of package tests. These are validated regularly across the wide-range of operating systems (Linux, Solaris, macOS, and MS Windows) and R versions available on CRAN, on continuous integration (CI) services (GitHub Actions, Travis CI, and AppVeyor CI), an on R-hub.</p>
+<p>Second, for each new release, these packages undergo full reverse-package dependency checks using <strong>revdepcheck</strong>. As of March 2021, the <strong>future</strong> package is tested against 170 direct reverse-package dependencies available on CRAN and Bioconductor. These checks are performed on Linux with both the default settings and when forcing tests to use multisession workers (SOCK clusters), which further validates that globals and packages are identified correctly.</p>
+<div>
+<p><img src="images/future.tests-screencast.gif" style="width: 50%; padding-left: 2ex; padding-bottom: 1ex; float: right;"/> Third, a suite of <em>Future API conformance tests</em> available in the <strong>future.tests</strong> package validates the correctness of all future backends. Any new future backend developed, must pass these tests to comply with the <em>Future API</em>. By conforming to this API, the end-user can trust that the backend will produce the same correct and reproducible results as any other backend, including the ones that the developer have tested on. Also, by making it the responsibility of the developer to assert that their new future backend conforms to the <em>Future API</em>, we relieve other developers from having to test that their future-based software works on all backends. It would be a daunting task for a developer to validate the correctness of their software with all existing backends. Even if they would achieve that, there may be additional third-party future backends that they are not aware of, that they do not have the possibility to test with, or that yet have not been developed.</p>
+</div>
+<p>Fourth, since <strong>foreach</strong> is used by a large number of essential CRAN packages, it provides an excellent opportunity for supplementary validation. Specifically, we dynamically tweak the examples of <strong>foreach</strong> and popular CRAN packages <strong>caret</strong>, <strong>glmnet</strong>, <strong>NMF</strong>, <strong>plyr</strong>, and <strong>TSP</strong> to use the <strong>doFuture</strong> adaptor. This allows us to run these examples with a variety of future backends to validate that the examples produce no run-time errors, which indirectly validates the backends as well as the <em>Future API</em>. In the past, these types of tests helped to identify and resolve corner cases where automatic identification of global variables would fail. As a side note, several of these foreach-based examples fail when using a parallel foreach adaptor because they do not properly export globals or declare package dependencies. The exception is when using the sequential <em>doSEQ</em> adaptor (default), fork-based ones such as <strong>doMC</strong>, or the generic <strong>doFuture</strong>, which supports any future backend and relies on the future framework for handling globals and packages.</p>
+<p>Analogously to above reverse-dependency checks of each new release, CRAN and Bioconductor continuously run checks on all these direct, but also indirect, reverse dependencies, which further increases the validation of the <em>Future API</em> and the future ecosystem at large.</p>
+<p>The packages underlying the future ecosystem are well maintained and are continuously updated and improved. For example, the <strong>future</strong> package is updated approximately six times per year, the <strong>future.apply</strong> and <strong>doFuture</strong> packages three times per year, and the infrastructure packages <strong>globals</strong> and <strong>parallelly</strong> three to six times a year. The policy is to fix bugs as soon as possible and avoid breaking updates to maintain full backward compatibility with existing R code in production that rely on futures. In the very rare case when an existing feature had to be removed, it has been done via deprecation process taking place over several release cycles working closely with existing package developers to assure a smooth transition and with informative warning messages to end-users where needed.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -7,9 +7,9 @@ description: "Lots of backward-compatible improvements and extensions ahead"
 
 * Support for controlling R options and environment variables via `future()`
 
-* Termination of futures, e.g. `suspend(f)`
+* Termination of futures, e.g. `suspend(f)`.  Since not all backends can support termination, the design should be such that failed termination attempts must not affect the workflow and its results
 
-* Restarting of failed or terminated futures, e.g. `reset(f)` and `v <- value(f)`.  Also automatic restarting of futures when parallel worker dies.
+* Restarting of failed or terminated futures, e.g. `reset(f)` and `v <- value(f)`.  Also automatic restarting of futures when parallel worker dies
 
 * Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
 
@@ -32,9 +32,11 @@ description: "Lots of backward-compatible improvements and extensions ahead"
 
 ## Map-Reduce Future API
 
-* Develop a **future.mapreduce** package to provide an essential, infrastructure Map-Reduce Future API, e.g. load balancing, chunking, parallel random number generation (RNG), and early stopping.  Packages such as **future.apply**, **furrr**, and **doFuture** are currently implementing their own version of these features.  Consolidating these essentials into a shared utility package will guarantee a consistent behavior for all together with faster deployment of bug fixes and improvements.
+* Develop a **future.mapreduce** package to provide an essential, infrastructure Map-Reduce Future API, e.g. load balancing, chunking, parallel random number generation (RNG), and early stopping.  Packages such as **future.apply**, **furrr**, and **doFuture** are currently implementing their own version of these features.  Consolidating these essentials into a shared utility package will guarantee a consistent behavior for all together with faster deployment of bug fixes and improvements
 
-* Early stopping, e.g. have `future_lapply(X, FUN)` terminate active futures as soon as one of the `FUN(X[[i]])` calls produces an error.
+* Develop more efficient chunking of large objects in map-reduce calls.  This can be achieved by introducing a mechanism or a syntax to declare that part of the code should be processed prior to being parallelized, e.g. further subsetting of and validation of input data before distributing them to parallel workers
+
+* Early stopping, e.g. have `future_lapply(X, FUN)` terminate active futures as soon as one of the `FUN(X[[i]])` calls produces an error
 
 * Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make `fs <- lapply(X, function(x) future(FUN(x))` and `vs <- value(fs)` automatically as efficient as `future_lapply(X, FUN)` removing the need for custom implementations
 
@@ -58,5 +60,6 @@ description: "Lots of backward-compatible improvements and extensions ahead"
 
 
 
+## Miscellaneous
 
-
+* Consider relicensing code to a permissive license, where possible

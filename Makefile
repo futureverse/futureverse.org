@@ -1,10 +1,10 @@
 SHELL=bash
 
-FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd validation.Rmd
+FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd
 
 PACKAGES ?= globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr
 
-all: build
+all: spell build
 
 spell:
 	hunspell -H $(FILES)
@@ -12,6 +12,9 @@ spell:
 build:
 	module load pandoc; \
 	Rscript -e "rmarkdown::render_site()"
+
+view:
+	xdg-open docs/index.html
 
 images/favicon.ico: images/future.20200115.300dpi.png
 	cd images/; \
