@@ -25,4 +25,3 @@ As a reference, the popular **foreach**, release in 2009, was among the top-0.9%
 
 Importantly, the comparison toward **foreach** is only done as a reference for the current demand for parallelization frameworks in R and to show the rapid uptake of the future framework since its release.  It is not a competition because **foreach** can per design be used in companion with the future framework via **doFuture**.  The choice between **foreach** with **doFuture**, **future.apply**, and **furrr** is a matter of preference of coding style - they all rely on futures for parallelization.
 
-
