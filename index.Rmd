@@ -47,6 +47,7 @@ y <- X %>% map(slow_fcn)
 y <- X %>% future_map(slow_fcn)
 
 ## foreach: futurized version
+library(foreach)
 doFuture::registerDoFuture()
 y <- foreach(x = X) %do%    slow_fcn(x)
 y <- foreach(x = X) %dopar% slow_fcn(x)
