@@ -29,7 +29,6 @@ pkgdown-build:
 	@export R_PROGRESSR_DEMO_DELAY=0; \
 	for pkg in $(PACKAGES); do \
 	    echo "Package $$pkg:"; \
-	    (cd "../$${pkg}/pkgdown"; Rscript -e R.rsp::rfile *.rsp); \
 	    (cd "../$${pkg}"; Rscript -e pkgdown.extras::build_site); \
 	done
 

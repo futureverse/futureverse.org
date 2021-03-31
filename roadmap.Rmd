@@ -1,6 +1,7 @@
 ---
 title: Project Roadmap
 description: "Lots of backward-compatible improvements and extensions ahead"
+preview: images/site_preview.png
 ---
 
 ## Core Future API

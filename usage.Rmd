@@ -1,6 +1,7 @@
 ---
 title: Usage
 description: Who's using futures, where, and how?
+preview: images/site_preview.png
 ---
 
 ```{r setup, include=FALSE}

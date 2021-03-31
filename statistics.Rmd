@@ -1,6 +1,7 @@
 ---
 title: "Statistics"
 description: "The R community embraces the future framework"
+preview: images/site_preview.png
 ---
 
 Since the first CRAN release of **future** in June 2015, its uptake among end-users and package developers have grown steadily.

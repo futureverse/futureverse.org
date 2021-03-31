@@ -1,6 +1,7 @@
 ---
 title: Futureverse
 description: A Unifying Parallelization Framework in R for Everyone
+preview: images/site_preview.png
 ---
 
 ```{r setup, include=FALSE}

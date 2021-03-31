@@ -1,6 +1,7 @@
 ---
 title: About
 description: Grew out of a need to analyze large-scale data
+preview: images/site_preview.png
 ---
 
 ```{r setup, include=FALSE}

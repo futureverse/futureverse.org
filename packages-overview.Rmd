@@ -1,6 +1,7 @@
 ---
 title: "Overview of All Packages"
 description: The future framework with the future package at the code comprises many packages - use the ones that suits your needs
+preview: images/site_preview.png
 ---
 
 ```{r setup, include=FALSE}
