@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ### The core package
 
 * [**future**](https://future.futureverse.org) - _Unified Parallel and Distributed Processing in R for Everyone_<br>
-This is the core package of the future framework.  It implements the Future API, which comprise three basic functions - `future()`, `resolved()`, and `value()`, is designed to unify parallel processing in R at the lowest possible level. It provides a standard for building richer, higher-level parallel frontends without having to worry about and re-implement common, critical tasks such as identifying global variables and packages, parallel RNG, and relaying of output and conditions - cumbersome tasks that are often essential to parallel processing.
+This is the core package of the future framework.  It implements the Future API, which comprises three basic functions - `future()`, `resolved()`, and `value()`, is designed to unify parallel processing in R at the lowest possible level. It provides a standard for building richer, higher-level parallel frontends without having to worry about and re-implement common, critical tasks such as identifying global variables and packages, parallel RNG, and relaying of output and conditions - cumbersome tasks that are often essential to parallel processing.
 Nearly all parallel processing tasks can be implemented using this low-level API. But, most users and package developers use the futures via higher-level map-reduce functions provided by **future.apply**, **furrr**, and **foreach** with **doFuture**.
 
 

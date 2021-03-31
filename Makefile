@@ -2,7 +2,7 @@ SHELL=bash
 
 FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd
 
-PACKAGES ?= globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr
+PACKAGES ?= globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr BiocParallel.FutureParam
 
 all: spell build
 
@@ -29,7 +29,8 @@ pkgdown-build:
 	@export R_PROGRESSR_DEMO_DELAY=0; \
 	for pkg in $(PACKAGES); do \
 	    echo "Package $$pkg:"; \
-	    (cd "../$${pkg}"; Rscript -e pkgdown.extras::build_site) \
+	    (cd "../$${pkg}/pkgdown"; Rscript -e R.rsp::rfile *.rsp); \
+	    (cd "../$${pkg}"; Rscript -e pkgdown.extras::build_site); \
 	done
 
 pkgdown-deploy:
@@ -51,4 +52,9 @@ pkgdown-favicon:
 	        cp -R "../future/pkgdown/favicon" "../$$pkg/pkgdown/favicon"; \
 	        (cd "../$$pkg"; git add "pkgdown/favicon/"; git commit pkgdown/favicon -m "pkgdown: add favicon"; git push); \
 	    fi; \
+	done
+
+pkgdown-ymlrsp: ../listenv/pkgdown/_pkgdown.yml.rsp
+	for pkg in $(PACKAGES); do \
+            cp "$<" "../$$pkg/pkgdown/_pkgdown.yml.rsp"; \
 	done
