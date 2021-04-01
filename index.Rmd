@@ -43,7 +43,7 @@ y <- future_lapply(X, slow_fcn)
 
 ## furrr: futurized version of purrr
 library(furrr)
-y <- X %>% map(slow_fcn)
+y <- X %>%        map(slow_fcn)
 y <- X %>% future_map(slow_fcn)
 
 ## foreach: futurized version
