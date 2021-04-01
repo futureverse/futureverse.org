@@ -2162,7 +2162,7 @@ Packages
 <li><p>Develop more efficient chunking of large objects in map-reduce calls. This can be achieved by introducing a mechanism or a syntax to declare that part of the code should be processed prior to being parallelized, e.g. further subsetting of and validation of input data before distributing them to parallel workers</p></li>
 <li><p>Early stopping, e.g. have <code>future_lapply(X, FUN)</code> terminate active futures as soon as one of the <code>FUN(X[[i]])</code> calls produces an error [<a href="https://github.com/HenrikBengtsson/future/issues/213">future#FR213</a>, <a href="https://github.com/HenrikBengtsson/future.apply/issues/75">future.apply#FR75</a>]</p></li>
 <li><p>Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make <code>fs &lt;- lapply(X, function(x) future(FUN(x))</code> and <code>vs &lt;- value(fs)</code> automatically as efficient as <code>future_lapply(X, FUN)</code> removing the need for custom implementations</p></li>
-<li><p>Robustness of foreach: Implement bug fixes and outstanding <strong>foreach</strong> feature requests in the <strong>doFuture</strong> adapter until resolved upstream. For example, add options to make <code>foreach()</code> use proper parallel RNG even when the develop has forgotten to use <code>%doRNG%</code>. [<a href="https://github.com/HenrikBengtsson/doFuture/issues/61">doFuture#61</a>]</p></li>
+<li><p>Robustness of foreach: Implement bug fixes and outstanding <strong>foreach</strong> feature requests in the <strong>doFuture</strong> adapter until resolved upstream. For example, add options to make <code>foreach()</code> use proper parallel RNG even when the develop has forgotten to use <code>%doRNG%</code> [<a href="https://github.com/HenrikBengtsson/doFuture/issues/61">doFuture#61</a>]</p></li>
 </ul>
 <h2 id="parallel-backends">Parallel backends</h2>
 <p>Below are a list of future backends that are planned.</p>
@@ -2173,7 +2173,7 @@ Packages
 <li><p><strong>future.clustermq</strong> - a backend to resolve futures on a HPC cluster via the <strong>clustermq</strong> package [<a href="https://github.com/HenrikBengtsson/future/issues/204">future#FR204</a>, <a href="https://github.com/HenrikBengtsson/future/issues/267">future#FR267</a>]</p></li>
 <li><p><strong>future.sparklyr</strong> - a backend to resolve futures in Spark via the <strong>sparkly</strong> package [<a href="https://github.com/HenrikBengtsson/future/issues/286">future#286</a>]</p></li>
 <li><p><strong>future.p2p</strong> - a backend to resolve futures via a peer-to-peer network of trusted collaborators</p></li>
-<li><p><strong>future.sandbox</strong> - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via <strong>parallelly</strong>.</p></li>
+<li><p><strong>future.sandbox</strong> - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via <strong>parallelly</strong></p></li>
 </ul>
 <h2 id="miscellaneous">Miscellaneous</h2>
 <ul>

@@ -57,7 +57,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 
 * Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make `fs <- lapply(X, function(x) future(FUN(x))` and `vs <- value(fs)` automatically as efficient as `future_lapply(X, FUN)` removing the need for custom implementations
 
-* Robustness of foreach: Implement bug fixes and outstanding **foreach** feature requests in the **doFuture** adapter until resolved upstream.  For example, add options to make `foreach()` use proper parallel RNG even when the develop has forgotten to use `%doRNG%`.
+* Robustness of foreach: Implement bug fixes and outstanding **foreach** feature requests in the **doFuture** adapter until resolved upstream.  For example, add options to make `foreach()` use proper parallel RNG even when the develop has forgotten to use `%doRNG%`
   [[doFuture#61]]
 
 
@@ -84,7 +84,7 @@ Below are a list of future backends that are planned.
   
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
 
-* **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**.
+* **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
 
 
 
