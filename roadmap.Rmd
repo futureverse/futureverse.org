@@ -65,15 +65,15 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 
 Below are a list of future backends that are planned.
 
-* **future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda.
+* **future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda service.
   We have working group of several people actively working on this
   [[future#FR423]]
 
-* **future.aws.batch** - a backend to resolve futures via the Amazon AWS Batch.
+* **future.aws.batch** - a backend to resolve futures via the Amazon AWS Batch service.
   We have working group of several people actively working on this
   [[future#FR423]]
 
-* **future.google.functions** - a backend to resolve futures via the Google Cloud Functions.
+* **future.google.functions** - a backend to resolve futures via the Google Cloud Functions service.
   Work on this will start when a stable **future.aws.lambda** prototype has been established
 
 * **future.clustermq** - a backend to resolve futures on a HPC cluster via the **clustermq** package
