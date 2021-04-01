@@ -32,7 +32,7 @@ plan(multisession)
 ## Evaluate an R expression sequentially
 y <- slow_fcn(X[1])
 
-## Evaluate the same R expression in parallel in the background
+## Evaluate it in parallel in the background
 f <- future(slow_fcn(X[1]))
 y <- value(f)
 
