@@ -54,15 +54,15 @@ navbar:
         - text: future.callr (local callr parallelization)
           href: https://future.callr.futureverse.org
         - text: "---"
-        - text: Utility
-        - text: progressr (progress updates in parallel)
-          href: https://progressr.futureverse.org
+        - text: Utilities
         - text: listenv (Use %<-% for list-like structures)
           href: https://listenv.futureverse.org
-        - text: parallelly (enhances the parallel package)
-          href: https://parallelly.futureverse.org
+        - text: progressr (progress updates in parallel)
+          href: https://progressr.futureverse.org
         - text: "---"
         - text: For low-level developers
+        - text: parallelly (enhances the parallel package)
+          href: https://parallelly.futureverse.org
         - text: globals (identify globals)
           href: https://globals.futureverse.org
         - text: future.tests (validate future backends)
