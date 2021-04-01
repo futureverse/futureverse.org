@@ -19,7 +19,7 @@ There are two major use cases of the future framework: (i) performance improveme
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
-<img src="images/seurat-sc.data3-1.png"/>
+<img src="images/seurat-sc.data3-1.png" alt="A two-dimensional, UMAP-space, scatter plot displaying individual cells grouped into 23 well-seperated subclasses that are color and label annotated."/>
 <figcaption style="font-size: 50%;">Image credit: Seurat team</figcaption>
 </figure>
 [**Seurat**](https://satijalab.org/seurat/) is an R package designed for QC, analysis, and exploration of single-cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single-cell transcriptomic measurements, and to integrate diverse types of single-cell data.
