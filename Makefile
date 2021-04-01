@@ -16,14 +16,14 @@ build:
 view:
 	xdg-open docs/index.html
 
-images/favicon.ico: images/future.20200115.300dpi.png
+images/favicon.ico: images/logo.png
 	cd images/; \
-	convert $< -resize 256x256 -transparent white favicon-256.png; \
+	convert $(<F) -resize 256x256 -transparent white favicon-256.png; \
 	convert favicon-256.png -resize   16x16 favicon-16.png;  \
 	convert favicon-256.png -resize   32x32 favicon-32.png;  \
 	convert favicon-256.png -resize   64x64 favicon-64.png;  \
 	convert favicon-256.png -resize 128x128 favicon-128.png; \
-	convert favicon-16.png favicon-32.png favicon-64.png favicon-128.png favicon-256.png -colors 256 $@
+	convert favicon-16.png favicon-32.png favicon-64.png favicon-128.png favicon-256.png -colors 256 $(@F)
 
 pkgdown-build:
 	@export R_PROGRESSR_DEMO_DELAY=0; \
