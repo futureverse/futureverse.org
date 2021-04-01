@@ -2,7 +2,7 @@ SHELL=bash
 
 FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd
 
-PACKAGES ?= globals listenv parallelly future future.apply future.tests future.callr future.batchtools doFuture progressr BiocParallel.FutureParam
+PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.tests globals listenv parallelly progressr
 
 all: spell build
 

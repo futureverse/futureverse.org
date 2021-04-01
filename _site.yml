@@ -40,7 +40,7 @@ navbar:
         - text: future.apply (base R apply with futures)
           href: https://future.apply.futureverse.org
         - text: furrr (purrr with futures)
-          href: https://davisvaughan.github.io/furrr/
+          href: https://furrr.futureverse.org
         - text: doFuture (a foreach adapter)
           href: https://doFuture.futureverse.org
         - text: BiocParallel.FutureParam (a BiocParallel addon)
