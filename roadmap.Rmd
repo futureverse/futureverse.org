@@ -31,11 +31,12 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#FR473]]
 
 * Marshaling: Make it possible to parallelize also some of the [object types that are currently "non-exportable"](https://future.futureverse.org/articles/future-4-non-exportable-objects.html), e.g. objects by packages such as **DBI**, **keras**, **ncdf4**, **rstan**, **sparklyr**, **xgboost**, and **xml2**
+  [Project: **[marshall]**]
 
 * Resources: Make it possible to declare "resources" that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc.  This will also make it possible to work with semi-persistent "sticky" globals
   [[doFuture#FR63], [future#FR181], [future#FR301], [future#FR346], [future#FR430], [future#FR450], [parallelly#18]]
 
-* Multiple backends: Send different futures to different backends, based on whic parallel backend can provide the requested resources
+* Multiple backends: Send different futures to different backends, based on which parallel backend can provide the requested resources
 
 * Scheduling: Add generic support for queueing such that futures can be queued on the local computer, on a remote scheduler, or in peer-to-peer scheduler among collaborators
   [[future#FR256], [future.apply#FR63], [future.batchtools#FR23]]
@@ -134,3 +135,5 @@ Below are a list of future backends that are planned.
 [parallelly#18]: https://github.com/HenrikBengtsson/parallelly/issues/18
 [parallelly#32]: https://github.com/HenrikBengtsson/parallelly/issues/32
 [parallelly#33]: https://github.com/HenrikBengtsson/parallelly/issues/33
+
+[marshall]: https://github.com/HenrikBengtsson/marshal
