@@ -19,7 +19,7 @@ There are two major use cases of the future framework: (i) performance improveme
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
-<img src="images/seurat-sc.data3-1.png" alt="A two-dimensional, UMAP-space, scatter plot displaying individual cells grouped into 23 well-seperated subclasses that are color and label annotated."/>
+<img src="images/seurat-sc.data3-1.png" alt="A two-dimensional, UMAP-space, scatter plot displaying individual cells grouped into 23 well-separated subclasses that are color and label annotated."/>
 <figcaption style="font-size: 50%;">Image credit: Seurat team</figcaption>
 </figure>
 [**Seurat**](https://satijalab.org/seurat/) is an R package designed for QC, analysis, and exploration of single-cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single-cell transcriptomic measurements, and to integrate diverse types of single-cell data.
@@ -33,7 +33,7 @@ There are two major use cases of the future framework: (i) performance improveme
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
-<img src="images/shiny-icgc-genome-browser.png"/>
+<img src="images/shiny-icgc-genome-browser.png" alt="Thumbnail of the Shiny ICGC Genome Browser webpage. There is a title banner on top above two panels. In the left-hand side panel, there is a circular plot showing the 24 human chromosomes laid out on the circumference. Interacting genes are connected with edges, creating a web of connections across the plane of the circle but also short loops back to the same chromosome. In the right-hand side panel, there is a table that appears to list the genes of interest with some kind of values."/>
 <figcaption style="font-size: 50%;">Image credit: International Cancer Genome Consortium (ICGC) team</figcaption>
 </figure>
 [**Shiny**](https://shiny.rstudio.com/) is an R package that makes it easy to build interactive web applications and dashboards directly from R.  Shiny apps can run locally, be embedded in an R Markdown document, and be hosted on a webpage - all with a few clicks or commands.
