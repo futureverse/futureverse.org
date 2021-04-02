@@ -16,6 +16,9 @@ build:
 view:
 	xdg-open docs/index.html
 
+stats:
+	Rscript R/revdep_over_time.R
+
 images/favicon.ico: images/logo.png
 	cd images/; \
 	convert $(<F) -resize 256x256 -transparent white favicon-256.png; \
