@@ -47,7 +47,7 @@ The combination of being simple and powerful has made Shiny the most popular sol
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
-<img src="images/mlr3-pipe_action.svg"/>
+<img src="images/mlr3-pipe_action.svg" alt="A schematic outline of a ML pipeline. On top, there is a left-to-right pipeline with 'Training Data' as input, with steps 'Scaling', 'Factor Encoding', 'Median Imputation', and a final 'Learner' state. At the bottom, there is a similar pipeline but with 'New Data' as the input.  In each of the corresponding steps, there is a arrow coming from the top pipeline indicating pre-learned parameters.  After the 'New Data' has flown through all steps, the output is a 'Prediction'."/>
 <figcaption style="font-size: 50%;">Image credit: ml3r team</figcaption>
 </figure>
 The [**mlr3**](https://mlr3.mlr-org.com/) ecosystem provides efficient, object-oriented building blocks for machine learning (ML) for tasks, learners, resamplings, and measures. It supports large-scale, out-of-memory data processing.    
