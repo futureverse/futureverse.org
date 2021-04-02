@@ -30,15 +30,15 @@ cran_all_downloads <- function(..., packages = cran_package_names(), chunk_size 
 #' @importFrom future.apply future_vapply
 #' @importFrom progressr progressor
 #' @importFrom utils file_test
-cran_all_downloads_by_week <- function(weeks, path = file.path("cranlogs", "weeks")) {
+cran_all_downloads_by_week <- function(weeks, path = file.path("cranlogs", "per-day")) {
   stopifnot(is.character(weeks), !anyNA(weeks))
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
   nweeks <- length(weeks)
   p <- progressr::progressor(along = weeks)
   pathnames <- vapply(weeks, FUN = function(week) {
     pathname <- file.path(path, sprintf("%s-per-day.tsv.gz", week))
-    p(sprintf("D: %s",week))
     if (!utils::file_test("-f", pathname)) {
+      p(sprintf("D: %s", week))
       from <- ISOweek::ISOweek2date(sprintf("%s-1", week))
       to <- from + 6L
       stopifnot(length(unique(format(c(from, to), format = "%G-W%V"))) == 1L)
@@ -46,6 +46,8 @@ cran_all_downloads_by_week <- function(weeks, path = file.path("cranlogs", "week
       pathnameT <- sprintf("%s.tmp", pathname)
       write.table(all, file = gzfile(pathnameT), sep = "\t", quote = FALSE, row.names = FALSE)
       file.rename(pathnameT, pathname)
+    } else {
+      p(sprintf("d: %s", week))
     }
     pathname
   }, FUN.VALUE = NA_character_)
@@ -53,15 +55,15 @@ cran_all_downloads_by_week <- function(weeks, path = file.path("cranlogs", "week
 } ## cran_all_downloads_by_week()
 
 
-cran_all_downloads_sum_by_week <- function(pathnames) {
+cran_all_downloads_sum_by_week <- function(pathnames, path = file.path("cranlogs", "per-week")) {
+  dir.create(path, recursive = TRUE, showWarnings = FALSE)
   p <- progressr::progressor(along = pathnames)
   pathnames <- vapply(pathnames, FUN = function(src_pathname) {
     stopifnot(utils::file_test("-f", src_pathname))
     week <- gsub("-per.*", "", basename(src_pathname))
-    p(sprintf("S: %s",week))
-    pathname <- file.path(dirname(src_pathname),
-                          sprintf("%s-per-week.tsv.gz", week))
+    pathname <- file.path(path, sprintf("%s-per-week.tsv.gz", week))
     if (!utils::file_test("-f", pathname)) {
+      p(sprintf("S: %s", week))
       col_types <- cols(
         date = col_date(format = ""),
         count = col_integer(),
@@ -79,20 +81,30 @@ cran_all_downloads_sum_by_week <- function(pathnames) {
       pathnameT <- sprintf("%s.tmp", pathname)
       write.table(data, file = gzfile(pathnameT), sep = "\t", quote = FALSE, row.names = FALSE)
       file.rename(pathnameT, pathname)
+    } else {
+      p(sprintf("s: %s", week))
     }
     pathname
   }, FUN.VALUE = NA_character_)
 } # cran_all_downloads_sum_by_week()
 
-cran_all_download_rank_by_week <- function(pathnames) {
-  p <- progressr::progressor(along = pathnames)
-  future_vapply(pathnames, FUN = function(src_pathname) {
+cran_all_download_rank_by_week <- function(pathnames, path = file.path("cranlogs", "per-week-with-ranks")) {
+  dir.create(path, recursive = TRUE, showWarnings = FALSE)
+
+  stopifnot(all(utils::file_test("-f", pathnames)))
+
+  weeks <- gsub("-per.*", "", basename(pathnames))
+  pathnames_out <- file.path(path, sprintf("%s-per-week-with_ranks.tsv.gz", weeks))
+  todo <- which(!utils::file_test("-f", pathnames_out))
+  
+  p <- progressr::progressor(along = todo)
+  future_vapply(pathnames_out[todo], FUN = function(src_pathname) {
     stopifnot(utils::file_test("-f", src_pathname))
     week <- gsub("-per.*", "", basename(src_pathname))
-    p(sprintf("R: %s",week))
-    pathname <- file.path(dirname(src_pathname),
+    pathname <- file.path(path,
                           sprintf("%s-per-week-with_ranks.tsv.gz", week))
     if (!utils::file_test("-f", pathname)) {
+      p(sprintf("R: %s",week))
       col_types <- cols(
         week_of = col_date(format = ""),
         count   = col_integer(),
@@ -106,9 +118,14 @@ cran_all_download_rank_by_week <- function(pathnames) {
       pathnameT <- sprintf("%s.tmp", pathname)
       write.table(data, file = gzfile(pathnameT), sep = "\t", quote = FALSE, row.names = FALSE)
       file.rename(pathnameT, pathname)
+    } else {
+      p(sprintf("r: %s",week))
     }
     pathname
   }, FUN.VALUE = NA_character_, future.chunk.size = 1L)
+  stopifnot(all(utils::file_test("-f", pathnames_out)))
+  
+  pathnames_out
 } # cran_all_download_rank_by_week()
 
 read_final_cran_stats <- function(pathnames) {
@@ -148,6 +165,7 @@ pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_we
 
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
 
+
 pkgs <- c("future", "future.apply", "furrr", "foreach")
 counts <- subset(data, package %in% pkgs)
 counts <- select(counts, week_of, package, fraction)
@@ -165,9 +183,13 @@ counts4 <- group_modify(counts, function(data, package) {
 })
 
 
+all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture")
+colors <- scales::hue_pal()(length(all_pkgs))
+names(colors) <- all_pkgs
 
 gg <- ggplot(counts4, aes(x = week_of, y = fraction, color = package))
 gg <- gg + geom_line(size = 1.2)
+gg <- gg + scale_colour_manual(values = colors)
 #gg <- gg + geom_smooth(method = "loess", span = 0.1)
 #gg <- gg + geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE)
 gg <- gg + labs(x = "Date", y = "Download ranks on CRAN (four-week averages)")
