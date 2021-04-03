@@ -60,7 +60,7 @@ The [**mlr3**](https://mlr3.mlr-org.com/) ecosystem provides efficient, object-o
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
-<img src="images/drake-example-graph.png"/>
+<img src="images/drake-example-graph.png" alt="A drake dependency graph with a file 'raw_data_x.xlsx' node to the left, that a 'raw_data' node depends on, which in turn two nodes 'fit' and 'hist' depends on.  The following 'report' node depend on the latter two nodes, and the last is the file 'report.html' output node. There is a legend to the left explaining how the states of the nodes are represented as colors and shapes."/>
 <figcaption style="font-size: 50%;">Image credit: targets/drake team</figcaption>
 </figure>
 The [**targets**](https://docs.ropensci.org/targets/) package, and its predecessor [**drake**](https://docs.ropensci.org/drake/), is a general-purpose computational engine for statistics and data science that brings together function-oriented programming in R with make-like declarative workflows.  It has native support for parallel and distributed computing while preserving reproducibility.
