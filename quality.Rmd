@@ -27,7 +27,12 @@ tests to use multisession workers (SOCK clusters), which further
 validates that globals and packages are identified correctly.
 
 <div>
-<img src="images/future.tests-screencast.gif" style="width: 50%; padding-left: 2ex; padding-bottom: 1ex; float: right;"/>
+<img src="images/future.tests-screencast.gif" alt="A screencast
+animation of future.tests running in the terminal. It starts with the
+command-line call, followed by tests being run one by one filling up
+the screen. After 30-or-so tests, the program completes with the
+results: 0 errors, 0 timeouts." style="width: 50%; padding-left: 2ex;
+padding-bottom: 1ex; float: right;"/>
 Third, a suite of _Future API conformance tests_ available in the
 **future.tests** package validates the
 correctness of all future backends.  Any new future backend developed,
