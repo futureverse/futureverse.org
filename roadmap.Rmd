@@ -16,7 +16,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#93], [future#FR213], [future.batchtools#FR27], [parallelly#33]]
 
 * Restarting of failed or terminated futures, e.g. `reset(f)` and `v <- value(f)`.  Also automatic restarting of futures when parallel worker dies
-  [[future#FR188], [future#205], [parallelly#32]]
+  [[future#FR188], [future#205], [future.callr#FR11], [parallelly#32]]
 
 * Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
   [[future#477], [future#479]]
@@ -129,8 +129,10 @@ Below are a list of future backends that are planned.
 [future.apply#FR63]: https://github.com/HenrikBengtsson/future.apply/issues/63
 [future.apply#FR75]: https://github.com/HenrikBengtsson/future.apply/issues/75
 
-[future.batchtools#FR23]:  https://github.com/HenrikBengtsson/future.batchtools/issues/23
-[future.batchtools#FR27]:  https://github.com/HenrikBengtsson/future.batchtools/issues/27
+[future.batchtools#FR23]: https://github.com/HenrikBengtsson/future.batchtools/issues/23
+[future.batchtools#FR27]: https://github.com/HenrikBengtsson/future.batchtools/issues/27
+
+[future.callr#FR11]: https://github.com/HenrikBengtsson/future.callr/issues/11
 
 [parallelly#18]: https://github.com/HenrikBengtsson/parallelly/issues/18
 [parallelly#32]: https://github.com/HenrikBengtsson/parallelly/issues/32
