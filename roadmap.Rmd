@@ -4,7 +4,7 @@ description: "Lots of backward-compatible improvements and extensions ahead"
 preview: images/site_preview.png
 ---
 
-Below are some^[This list is manual curated and may not be comprehensive.  Please see the issue trackers of the different package repositories for a more up-to-date view.] of the bigger milestones on the roadmap.  The issues linked that are examples of feature requests from end-users are prefixed 'FR', which will be resolved by the other non-FR issues.
+Below are some^[This list is manual curated and may not be comprehensive.  Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. <https://github.com/HenrikBengtsson/future/milestones>.] of the bigger milestones on the roadmap.  The issues linked that are examples of feature requests from end-users are prefixed 'FR', which will be resolved by the other non-FR issues.
 
 
 ## Core Future API
