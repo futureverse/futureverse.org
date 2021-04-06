@@ -4,6 +4,7 @@ FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roa
 
 PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.tests globals listenv parallelly progressr
 
+
 all: spell build
 
 spell:
@@ -51,12 +52,12 @@ pkgdown-cname:
 pkgdown-favicon:
 	@for pkg in $(PACKAGES); do \
 	    if [ ! -d "../$$pkg/pkgdown/favicon" ]; then \
-	        cp -R "../future/pkgdown/favicon" "../$$pkg/pkgdown/favicon"; \
+	        cp -R ".pkgdown/favicon" "../$$pkg/pkgdown/favicon"; \
 	        (cd "../$$pkg"; git add "pkgdown/favicon/"; git commit pkgdown/favicon -m "pkgdown: add favicon"; git push); \
 	    fi; \
 	done
 
-pkgdown-ymlrsp: ../listenv/pkgdown/_pkgdown.yml.rsp
+pkgdown-ymlrsp: .pkgdown/_pkgdown.yml.rsp
 	for pkg in $(PACKAGES); do \
             cp "$<" "../$$pkg/pkgdown/_pkgdown.yml.rsp"; \
 	done
