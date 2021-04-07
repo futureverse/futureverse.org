@@ -73,18 +73,19 @@ Below are a list of future backends that are planned.
   We have working group of several people actively working on this
   [[future#FR423]]
 
-* **future.google.functions** - a backend to resolve futures via the Google Cloud Functions service.
-  Work on this will start when a stable **future.aws.lambda** prototype has been established
-
 * **future.clustermq** - a backend to resolve futures on a HPC cluster via the **clustermq** package
   [[future#FR204], [future#FR267]]
 
-* **future.sparklyr** - a backend to resolve futures in Spark via the **sparklyr** package
-  [[future#FR286], [sparklyr#FR1935]]
+* **future.google.functions** - a backend to resolve futures via the Google Cloud Functions service.
+  Work on this will start when a stable **future.aws.lambda** prototype has been established
   
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
 
 * **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
+
+* **future.sparklyr** - a backend to resolve futures in Spark via the **sparklyr** package
+  [[future#FR286], [sparklyr#FR1935]]
+  
 
 
 
