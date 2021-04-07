@@ -6,36 +6,47 @@ pkgs <- Sys.getenv("PACKAGES", "BiocParallel.FutureParam doFuture future future.
 pkgs <- unlist(strsplit(pkgs, split = "[,[:space:]]", fixed = FALSE))
 pkgs <- gsub("(^[[:space:]]+|[[:space:]]+$)", "", pkgs)
 pkgs <- sort(unique(pkgs))
+
+list_pkgs <- function(pkgs, prefix, fmtstr = "%s", collapse = ",\n") {
+  if (is.numeric(prefix)) {
+    prefix <- paste(rep(" ", times = prefix), collapse = "")
+  }
+  pkgs <- sprintf(fmtstr, pkgs)
+  pkgs <- sprintf("%s%s", prefix, dQuote(pkgs, q = FALSE))
+  if (!is.null(collapse)) pkgs <- paste(pkgs, collapse = collapse)
+  pkgs
+}
 %>
 {
   "index_name": "futureverse",
   "start_urls": [
-<% for (pkg in pkgs) { %>  
     {
-      "url": "https://<%= pkg %>.futureverse.org/index.html",
+      "url": "https://(?P<project>.*?).futureverse.org/index.html",
       "selectors_key": "homepage",
-      "tags": [
-        "<%= pkg %>",
-        "homepage"
-      ]
+      "variables": {
+        "project": [
+<%= list_pkgs(pkgs, prefix = "          ") %>
+        ]
+      }
     },
     {
-      "url": "https://<%= pkg %>.futureverse.org/reference",
+      "url": "https://(?P<project>.*?).futureverse.org/reference",
       "selectors_key": "reference",
-      "tags": [
-        "<%= pkg %>",
-        "reference"
-      ]
+      "variables": {
+        "project": [
+<%= list_pkgs(pkgs, prefix = "          ") %>
+        ]
+      }
     },
     {
-      "url": "https://<%= pkg %>.futureverse.org/articles",
+      "url": "https://(?P<project>.*?).futureverse.org/articles",
       "selectors_key": "articles",
-      "tags": [
-        "<%= pkg %>",
-        "articles"
-      ]
-    }<%= if (pkg != pkgs[length(pkgs)]) "," %>
-<% } %>
+      "variables": {
+        "project": [
+<%= list_pkgs(pkgs, prefix = "          ") %>
+        ]
+      }
+    }
   ],
   "stop_urls": [
     "/reference/$",
@@ -44,7 +55,7 @@ pkgs <- sort(unique(pkgs))
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    <%= paste(dQuote(sprintf("https://%s.futureverse.org/sitemap.xml", pkgs)), collapse = ",\n    ") %>
+<%= list_pkgs(pkgs, fmtstr = "https://%s.futureverse.org/sitemap.xml", prefix = "    ") %>
   ],
   "selectors": {
     "homepage": {
@@ -98,15 +109,11 @@ pkgs <- sort(unique(pkgs))
       "text": ".contents p, .contents li, .usage, .template-article .contents .pre"
     }
   },
-  "selectors_exclude": [
-    ".dont-index"
-    ],
+  "selectors_exclude": [".dont-index"],
   "min_indexed_level": 2,
   "custom_settings": {
     "separatorsToIndex": "_",
-    "attributesForFaceting": [
-      "tags"
-    ],
+    "attributesForFaceting": ["project"],
     "attributesToRetrieve": [
       "hierarchy",
       "content",
@@ -115,8 +122,6 @@ pkgs <- sort(unique(pkgs))
       "url_without_anchor"
     ]
   },
-  "conversation_id": [
-    "1470006595"
-  ],
-  "nb_hits": 1341
+  "conversation_id": ["1470006595"],
+  "nb_hits": 3329
 }
