@@ -79,8 +79,8 @@ Below are a list of future backends that are planned.
 * **future.clustermq** - a backend to resolve futures on a HPC cluster via the **clustermq** package
   [[future#FR204], [future#FR267]]
 
-* **future.sparklyr** - a backend to resolve futures in Spark via the **sparkly** package
-  [[future#286]]
+* **future.sparklyr** - a backend to resolve futures in Spark via the **sparklyr** package
+  [[future#FR286], [sparklyr#FR1935]]
   
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
 
@@ -108,7 +108,7 @@ Below are a list of future backends that are planned.
 [future#FR213]: https://github.com/HenrikBengtsson/future/issues/213
 [future#253]: https://github.com/HenrikBengtsson/future/issues/253
 [future#FR256]: https://github.com/HenrikBengtsson/future/issues/256
-[future#286]: https://github.com/HenrikBengtsson/future/issues/286
+[future#FR286]: https://github.com/HenrikBengtsson/future/issues/286
 [future#FR301]: https://github.com/HenrikBengtsson/future/issues/301
 [future#FR346]: https://github.com/HenrikBengtsson/future/issues/346
 [future#FR361]: https://github.com/HenrikBengtsson/future/issues/361
@@ -139,3 +139,5 @@ Below are a list of future backends that are planned.
 [parallelly#33]: https://github.com/HenrikBengtsson/parallelly/issues/33
 
 [marshall]: https://github.com/HenrikBengtsson/marshal
+
+[sparklyr#FR1935]: https://github.com/sparklyr/sparklyr/issues/1935
