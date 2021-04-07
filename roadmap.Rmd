@@ -81,6 +81,9 @@ Below are a list of future backends that are planned.
   
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
 
+* **future.redis** - a backend to resolve futures via Reddis.
+  [[future#FR151]]
+
 * **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
 
 * **future.sparklyr** - a backend to resolve futures in Spark via the **sparklyr** package
@@ -101,6 +104,7 @@ Below are a list of future backends that are planned.
 [future#93]:  https://github.com/HenrikBengtsson/future/issues/93
 [future#134]: https://github.com/HenrikBengtsson/future/issues/134
 [future#142]: https://github.com/HenrikBengtsson/future/issues/142
+[future#FR151]: https://github.com/HenrikBengtsson/future/issues/151
 [future#FR181]: https://github.com/HenrikBengtsson/future/issues/181
 [future#FR188]: https://github.com/HenrikBengtsson/future/issues/188
 [future#FR204]: https://github.com/HenrikBengtsson/future/issues/204
