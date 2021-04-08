@@ -11,6 +11,8 @@ handlers(handler_progress(
 pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture")
 dates <- c(seq(as.Date("2015-06-19"), Sys.Date(), by=7), Sys.Date())
 stats <- revdep_over_time(dates, pkgs = pkgs)
+message("Number of CRAN reverse dependencies:")
+print(tail(stats))
 
 library(ggplot2)
 counts_all <- tidyr::gather(stats, package, count, -1, factor_key = TRUE)
