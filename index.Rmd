@@ -2,6 +2,7 @@
 title: Futureverse
 description: A Unifying Parallelization Framework in R for Everyone
 preview: images/site_preview.png
+bibliography: futureverse.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -21,9 +22,11 @@ It is designed so that you as a developer can _stay with your favorite coding st
 Futures makes your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures.
 
 Regardless how you use futures in your code, the user can with a single setting switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on a high-performance compute (HPC) cluster.
+
+For further details and motivations, see @bengtsson-future.
 </div>
 
-Here's the gist:
+Here's the gist of how to use it:
 
 ```r
 library(future)
@@ -65,3 +68,5 @@ y <- foreach(x = X) %dopar% slow_fcn(x)
   }
 </style>
 -->
+
+
