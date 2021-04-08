@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 <div>
 <img src="images/logo.png" alt="The hexlogo of the future package. A left-facing arrow with the text future underneath - both in bold style filled with yellow-to-orange vertical gradient. The background is dark blue with teeny star-shaped symbols in distance resembling looking deep out in the universe. The hexlogo is surrounded by a light-blue border." style="width: 15ex; padding-left: 2ex; padding-top: 1ex; padding-bottom: 1ex; float: right;"/> 
 
-The **future** framework makes it easy to parallelize existing R code - often with only a minor change of code.  The goal is to lower the barriers so that anyone can safely speed up their existing R code in a worry-free manner.
+The **future** framework makes it easy to parallelize existing R code - often with only a minor change of code.  The goal is to lower the barriers so that anyone can safely speed up their existing R code in a worry-free manner.  As it is a cross-platform solution that requires no additional setups or technical skills, anyone can be up and running within a few minutes.
 
 The future framework _removes common hurdles and protects against pitfalls_ that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem.
 Just as with sequential R code, _output, messages, warnings, and errors work as expected_ and can be handled using traditional R techniques - regardless how the code is parallelized.
