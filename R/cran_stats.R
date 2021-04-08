@@ -55,13 +55,16 @@ cran_all_downloads_by_week <- function(weeks, path = file.path("cranlogs", "per-
 } ## cran_all_downloads_by_week()
 
 
-cran_all_downloads_sum_by_week <- function(pathnames, path = file.path("cranlogs", "per-week")) {
+#' @importFrom stats median
+cran_all_downloads_summarize_by_week <- function(pathnames, method = c("sum", "mean", "median"), path = file.path("cranlogs", "per-week")) {
+  method <- match.arg(method)
+  fcn <- switch(method, sum = sum, mean = mean, median = stats::median)
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
   p <- progressr::progressor(along = pathnames)
   pathnames <- vapply(pathnames, FUN = function(src_pathname) {
     stopifnot(utils::file_test("-f", src_pathname))
     week <- gsub("-per.*", "", basename(src_pathname))
-    pathname <- file.path(path, sprintf("%s-per-week.tsv.gz", week))
+    pathname <- file.path(path, sprintf("%s-%s-per-week.tsv.gz", week, method))
     if (!utils::file_test("-f", pathname)) {
       p(sprintf("S: %s", week))
       col_types <- cols(
@@ -74,7 +77,7 @@ cran_all_downloads_sum_by_week <- function(pathnames, path = file.path("cranlogs
       weeks <- unique(format(from, format = "%G-W%V"))
       stopifnot(all(weeks == weeks[1]))
       data <- group_by(data, package)
-      data <- summarize(data, count = as.integer(sum(count)))
+      data <- summarize(data, count = as.integer(fcn(count)))
       data$week_of <- min(from)
       from <- NULL
       data <- select(data, week_of, package, count)
@@ -96,13 +99,15 @@ cran_all_download_rank_by_week <- function(pathnames, path = file.path("cranlogs
   weeks <- gsub("-per.*", "", basename(pathnames))
   pathnames_out <- file.path(path, sprintf("%s-per-week-with_ranks.tsv.gz", weeks))
   todo <- which(!utils::file_test("-f", pathnames_out))
-  
+
   p <- progressr::progressor(along = todo)
-  future_vapply(pathnames_out[todo], FUN = function(src_pathname) {
+  future_vapply(pathnames[todo], FUN = function(src_pathname) {
     stopifnot(utils::file_test("-f", src_pathname))
-    week <- gsub("-per.*", "", basename(src_pathname))
+    pattern <- "^([[:digit:]]+-W[[:digit:]]+)-([[:alnum:]]+-per-week).*"
+    week <- gsub(pattern, "\\1", basename(src_pathname))
+    what <- gsub(pattern, "\\2", basename(src_pathname))
     pathname <- file.path(path,
-                          sprintf("%s-per-week-with_ranks.tsv.gz", week))
+                          sprintf("%s-%s-with_ranks.tsv.gz", week, what))
     if (!utils::file_test("-f", pathname)) {
       p(sprintf("R: %s",week))
       col_types <- cols(
@@ -159,8 +164,9 @@ handlers(handler_progress(format = ":spin :current/:total (:message) [:bar] :per
 dates <- seq(as.Date("2015-06-19") + 3L, Sys.Date(), by = 7L)
 weeks <- unique(format(dates, format = "%G-W%V"))
 
+method <- "median"
 pathnames_per_day <- cran_all_downloads_by_week(weeks)
-pathnames_per_week <- cran_all_downloads_sum_by_week(pathnames_per_day)
+pathnames_per_week <- cran_all_downloads_summarize_by_week(pathnames_per_day, method = method)
 pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_week)
 
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
@@ -181,6 +187,9 @@ counts4 <- group_modify(counts, function(data, package) {
   })
   do.call(rbind, res)
 })
+
+message(sprintf("CRAN ranks last four week (average '%s' per week):", method))
+print(head(arrange(counts4, desc(week_of))))
 
 
 all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture")
