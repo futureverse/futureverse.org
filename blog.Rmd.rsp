@@ -24,6 +24,9 @@ preview: images/site_preview.png
  background-size:contain;
  background-position:center
 }
+.listItem .itemImage img {
+ width: 100%;
+}
 .listItem .itemDetails {
  width:100%;
  font-size:.875rem;
@@ -81,7 +84,7 @@ preview: images/site_preview.png
 <% blog_post <- function(title, url, date, author = "Henrik Bengtsson", description = "", image = "") { %>
 <div class="listItem">
  <div class="itemImage">
-  <a href="<%= url %>"><img src="<%= image %>" style="width: 100%;"/></a>
+  <a href="<%= url %>"><img src="<%= image %>"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
