@@ -7,6 +7,9 @@ preview: images/site_preview.png
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## About the project lead
+
 The project lead, Henrik Bengtsson, has a MSc in Computer Science and a PhD in Mathematical Statistics.  He is an associate professor at the Department of Epidemiology & Biostatistics, at University of California San Francisco (UCSF) and affiliated with the UCSF Helen Diller Family Comprehensive Cancer Center.
 
 Henrik is one of forty members of the [R Foundation](https://www.r-project.org/foundation/) - a non-profit organization that supports the R Project, its continued development of the R language, and the R community around it.  Through this work, he is also a member of the [R Consortium Infrastructure Software Committee (ISC)](https://www.r-consortium.org/projects), which supports research & development activities related to R through a grant program with financial support from leading industry investors.
