@@ -4,6 +4,9 @@ description: Updates, tips & tricks, and explanations on futures
 preview: images/site_preview.png
 ---
 
+* [Using Kubernetes and the Future Package to Easily Parallelize R in the Cloud ](https://www.jottr.org/2021/04/08/future-and-kubernetes/), jottr.org, 2021-04-08  
+  _Guest post by Chris Paciorek, Department of Statistics, University of California at Berkeley_
+
 * [future.BatchJobs - End-of-Life Announcement](https://www.jottr.org/2021/01/08/future.batchjobs-end-of-life-announcement/), jottr.org, 2021-01-08
 
 * [future 1.20.1 - The Future Just Got a Bit Brighter](https://www.jottr.org/2020/11/06/future-1.20.1-the-future-just-got-a-bit-brighter/), jottr.org, 2020-11-06
