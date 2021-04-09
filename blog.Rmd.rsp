@@ -1,0 +1,235 @@
+---
+title: Blog Posts
+description: Updates, tips & tricks, and explanations on futures
+preview: images/site_preview.png
+---
+
+<style>
+/* Borrowed from https://www.tidyverse.org/blog/ */
+.listItem {
+ display:flex;
+ justify-content:flex-start;
+ display:-ms-flexbox;
+ -ms-flex-pack:start;
+ display:-webkit-box;
+ display:-webkit-flex;
+ -webkit-justify-content:flex-start;
+ margin-bottom:30px
+}
+.listItem .itemImage {
+ flex-shrink:0;
+ width:150px;
+ height:150px;
+ margin:0 30px 15px 0;
+ background-size:contain;
+ background-position:center
+}
+.listItem .itemDetails {
+ width:100%;
+ font-size:.875rem;
+ line-height:20px
+}
+.listItem .itemDetails .itemHeader {
+ display:flex;
+ justify-content:space-between;
+ display:-ms-flexbox;
+ -ms-flex-pack:justify;
+ display:-webkit-box;
+ display:-webkit-flex;
+ -webkit-justify-content:space-between;
+ align-items:flex-start;
+ line-height:30px;
+ margin-bottom:3px
+}
+.listItem .itemDetails .itemHeader .itemTitle {
+ font-size:20px;
+ display:block
+}
+.listItem .itemDetails .itemHeader .itemActions {
+ flex-shrink:0;
+ height:30px
+}
+.listItem .itemDetails .itemMeta .itemDescription {
+ margin-bottom:.375rem;
+ white-space:pre-line
+}
+.listItem .itemDetails .itemMeta .itemDate,
+.listItem .itemDetails .itemMeta .itemInfo {
+ font-size:.875rem;
+ color:grey
+}
+.listItem .itemDetails .itemMeta .itemDate .created,
+.listItem .itemDetails .itemMeta .itemDate .updated,
+.listItem .itemDetails .itemMeta .itemInfo .created,
+.listItem .itemDetails .itemMeta .itemInfo .updated {
+ display:inline-block
+}
+.listItem .itemDetails .itemMeta .itemDate .created,
+.listItem .itemDetails .itemMeta .itemInfo .created {
+ padding-right:20px
+}
+.listItem .itemDetails .itemMeta .itemInfo .forkedFrom {
+ display:inline-block
+}
+.listItem .itemDetails .itemMeta .itemInfo .updated {
+ padding-right:20px
+}
+</style>
+
+
+
+<% blog_post <- function(title, url, date, author = "Henrik Bengtsson", description = "", image = "") { %>
+<div class="listItem">
+ <div class="itemImage">
+  <a href="<%= url %>"><img src="<%= image %>" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="<%= url %>"><%= title %></a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author"><%= author %></div>
+   <% if (nzchar(description)) { %><div class="itemDescription"><%= description %></div><% } %>
+   <div class="itemDate"><%= date %></div>
+  </div>
+ </div>
+</div>
+<% } ## blog_post() %>
+
+
+<% blog_post(
+        title = "Using Kubernetes and the Future Package to Easily Parallelize R in the Cloud",
+          url = "https://www.jottr.org/2021/04/08/future-and-kubernetes/",
+         date = "2021-04-08",
+       author = "Chris Paciorek",
+  description = "A guest post by Chris Paciorek, Department of Statistics, University of California at Berkeley.",
+        image = "https://www.jottr.org/post/k8s.png"
+) %>
+
+<% blog_post(
+        title = "future.BatchJobs - End-of-Life Announcement",
+          url = "https://www.jottr.org/2021/01/08/future.batchjobs-end-of-life-announcement/",
+         date = "2021-01-08",
+        image = "https://www.jottr.org/post/sign_out_of_service_do_not_use.png"
+) %>
+
+<% blog_post(
+        title = "future 1.20.1 - The Future Just Got a Bit Brighter",
+          url = "https://www.jottr.org/2020/11/06/future-1.20.1-the-future-just-got-a-bit-brighter/",
+         date = "2020-11-06",
+        image = "https://www.jottr.org/post/sparkles-through-space.gif"
+) %>
+
+<% blog_post(
+        title = "parallelly, future - Cleaning Up Around the House",
+          url = "https://www.jottr.org/2020/11/04/parallelly-future-cleaning-up-around-the-house/",
+         date = "2020-11-04",
+        image = "images/parallelly_future.png"
+) %>
+
+
+<% blog_post(
+        title = "Trust the Future",
+          url = "https://www.jottr.org/2020/11/04/trust-the-future/",
+         date = "2020-11-04",
+        image = "https://www.jottr.org/post/you_dont_have_to_worry_about_your_future.jpg"
+) %>
+
+<% blog_post(
+        title = "future 1.19.1 - Making Sure Proper Random Numbers are Produced in Parallel Processing",
+          url = "https://www.jottr.org/2020/09/22/push-for-statical-sound-rng/",
+         date = "2020-09-22",
+        image = "https://www.jottr.org/post/Digital_rain_animation_medium_letters_clear.gif"
+) %>
+
+<% blog_post(
+        title = "Detect When the Random Number Generator Was Used",
+          url = "https://www.jottr.org/2020/09/21/detect-when-the-random-number-generator-was-used/",
+         date = "2020-09-21",
+        image = "https://www.jottr.org/post/DistortedRecentEland_50pct.gif"
+) %>
+
+<% blog_post(
+        title = "future and future.apply - Some Recent Improvements",
+          url = "https://www.jottr.org/2020/07/11/future-future.apply-recent-improvements/",
+         date = "2020-07-11"
+) %>
+
+<% blog_post(
+        title = "future 1.15.0 - Lazy Futures are Now Launched if Queried",
+          url = "https://www.jottr.org/2019/11/09/resolved-launches-lazy-futures/",
+         date = "2019-11-09",
+        image = "https://www.jottr.org/post/lazy_dog_in_park.gif"
+) %>
+
+<% blog_post(
+        title = "Parallelize a For-Loop by Rewriting it as an Lapply Call",
+          url = "https://www.jottr.org/2019/01/11/parallelize-a-for-loop-by-rewriting-it-as-an-lapply-call/",
+         date = "2019-01-11",
+        image = "https://www.jottr.org/post/Honolulu_IFSS_Teletype1964.jpg"
+) %>
+
+<% blog_post(
+        title = "Maintenance Updates of Future Backends and doFuture",
+          url = "https://www.jottr.org/2019/01/07/maintenance-updates-of-future-backends-and-dofuture/",
+         date = "2019-01-07",
+        image = "https://www.jottr.org/post/the-future-is-now.gif"
+) %>
+
+<% blog_post(
+        title = "future 1.9.0 - Output from The Future",
+          url = "https://www.jottr.org/2018/07/23/output-from-the-future/",
+         date = "2018-07-23",
+        image = "https://www.jottr.org/post/Signaling_by_Napoleonic_semaphore_line.jpg"
+         
+) %>
+
+<% blog_post(
+        title = "future.apply - Parallelize Any Base R Apply Function",
+          url = "https://www.jottr.org/2018/06/23/future.apply_1.0.0/",
+         date = "2018-06-23",
+        image = "https://www.jottr.org/post/future.apply_1.0.0-htop_32cores.png"
+) %>
+
+<% blog_post(
+        title = "future 1.8.0: Preparing for a Shiny Future",
+          url = "https://www.jottr.org/2018/04/12/future-results/",
+         date = "2018-04-12",
+        image = "https://www.jottr.org/post/retro-shiny-future-small.png"
+) %>
+
+<% blog_post(
+        title = "The Many-Faced Future",
+          url = "https://www.jottr.org/2017/06/05/many-faced-future/",
+         date = "2017-06-05",
+        image = "https://www.jottr.org/post/julia_sets.gif"
+) %>
+
+<% blog_post(
+        title = "doFuture: A Universal Foreach Adaptor Ready to be Used by 1,000+ Packages",
+          url = "https://www.jottr.org/2017/03/18/dofuture/",
+         date = "2017-03-18",
+        image = "https://www.jottr.org/post/programmer_next_to_62500_punch_cards_SAGE.jpg"
+) %>
+
+<% blog_post(
+        title = "future 1.3.0: Reproducible RNGs, future_lapply() and More",
+          url = "https://www.jottr.org/2017/02/19/future-rng/",
+         date = "2017-02-19",
+        image = "https://www.jottr.org/post/funny_car_magnet_animated.gif"
+) %>
+
+<% blog_post(
+        title = "High-Performance Compute in R Using Futures ",
+          url = "https://www.jottr.org/2016/10/22/future-hpc/",
+         date = "2016-10-22",
+        image = "https://www.jottr.org/post/future_mainframe_red.jpg"
+) %>
+
+<% blog_post(
+        title = "Remote Processing Using Futures",
+          url = "https://www.jottr.org/2016/10/11/future-remotes/",
+         date = "2016-10-11",
+        image = "https://www.jottr.org/post/early_days_video_call.jpg"
+) %>

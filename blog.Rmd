@@ -4,43 +4,402 @@ description: Updates, tips & tricks, and explanations on futures
 preview: images/site_preview.png
 ---
 
-* [Using Kubernetes and the Future Package to Easily Parallelize R in the Cloud ](https://www.jottr.org/2021/04/08/future-and-kubernetes/), jottr.org, 2021-04-08  
-  _Guest post by Chris Paciorek, Department of Statistics, University of California at Berkeley_
+<style>
+/* Borrowed from https://www.tidyverse.org/blog/ */
+.listItem {
+ display:flex;
+ justify-content:flex-start;
+ display:-ms-flexbox;
+ -ms-flex-pack:start;
+ display:-webkit-box;
+ display:-webkit-flex;
+ -webkit-justify-content:flex-start;
+ margin-bottom:30px
+}
+.listItem .itemImage {
+ flex-shrink:0;
+ width:150px;
+ height:150px;
+ margin:0 30px 15px 0;
+ background-size:contain;
+ background-position:center
+}
+.listItem .itemDetails {
+ width:100%;
+ font-size:.875rem;
+ line-height:20px
+}
+.listItem .itemDetails .itemHeader {
+ display:flex;
+ justify-content:space-between;
+ display:-ms-flexbox;
+ -ms-flex-pack:justify;
+ display:-webkit-box;
+ display:-webkit-flex;
+ -webkit-justify-content:space-between;
+ align-items:flex-start;
+ line-height:30px;
+ margin-bottom:3px
+}
+.listItem .itemDetails .itemHeader .itemTitle {
+ font-size:20px;
+ display:block
+}
+.listItem .itemDetails .itemHeader .itemActions {
+ flex-shrink:0;
+ height:30px
+}
+.listItem .itemDetails .itemMeta .itemDescription {
+ margin-bottom:.375rem;
+ white-space:pre-line
+}
+.listItem .itemDetails .itemMeta .itemDate,
+.listItem .itemDetails .itemMeta .itemInfo {
+ font-size:.875rem;
+ color:grey
+}
+.listItem .itemDetails .itemMeta .itemDate .created,
+.listItem .itemDetails .itemMeta .itemDate .updated,
+.listItem .itemDetails .itemMeta .itemInfo .created,
+.listItem .itemDetails .itemMeta .itemInfo .updated {
+ display:inline-block
+}
+.listItem .itemDetails .itemMeta .itemDate .created,
+.listItem .itemDetails .itemMeta .itemInfo .created {
+ padding-right:20px
+}
+.listItem .itemDetails .itemMeta .itemInfo .forkedFrom {
+ display:inline-block
+}
+.listItem .itemDetails .itemMeta .itemInfo .updated {
+ padding-right:20px
+}
+</style>
 
-* [future.BatchJobs - End-of-Life Announcement](https://www.jottr.org/2021/01/08/future.batchjobs-end-of-life-announcement/), jottr.org, 2021-01-08
-
-* [future 1.20.1 - The Future Just Got a Bit Brighter](https://www.jottr.org/2020/11/06/future-1.20.1-the-future-just-got-a-bit-brighter/), jottr.org, 2020-11-06
-
-* [parallelly, future - Cleaning Up Around the House](https://www.jottr.org/2020/11/04/parallelly-future-cleaning-up-around-the-house/), jottr.org, 2020-11-04
-
-* [Trust the Future](https://www.jottr.org/2020/11/04/trust-the-future/), jottr.org, 2020-11-04
-
-* [future 1.19.1 - Making Sure Proper Random Numbers are Produced in Parallel Processing](https://www.jottr.org/2020/09/22/push-for-statical-sound-rng/), jottr.org, 2020-09-22
-
-* [Detect When the Random Number Generator Was Used](https://www.jottr.org/2020/09/21/detect-when-the-random-number-generator-was-used/), jottr.org, 2020-09-21
-
-* [future and future.apply - Some Recent Improvements](https://www.jottr.org/2020/07/11/future-future.apply-recent-improvements/), jottr.org, 2020-07-11
-
-* [future 1.15.0 - Lazy Futures are Now Launched if Queried](https://www.jottr.org/2019/11/09/resolved-launches-lazy-futures/), jottr.org, 2019-11-09
-
-* [Parallelize a For-Loop by Rewriting it as an Lapply Call ](https://www.jottr.org/2019/01/11/parallelize-a-for-loop-by-rewriting-it-as-an-lapply-call/), jottr.org, 2019-01-11
-
-* [Maintenance Updates of Future Backends and doFuture](https://www.jottr.org/2019/01/07/maintenance-updates-of-future-backends-and-dofuture/), jottr.org, 2019-01-07
-
-* [future 1.9.0 - Output from The Future](https://www.jottr.org/2018/07/23/output-from-the-future/), jottr.org, 2018-07-23
-
-* [future.apply - Parallelize Any Base R Apply Function](https://www.jottr.org/2018/06/23/future.apply_1.0.0/), jottr.org, 2018-06-23
-
-* [future 1.8.0: Preparing for a Shiny Future](https://www.jottr.org/2018/04/12/future-results/), jottr.org, 2018-04-12
-
-* [The Many-Faced Future](https://www.jottr.org/2017/06/05/many-faced-future/), jottr.org, 2017-06-05
-
-* [doFuture: A Universal Foreach Adaptor Ready to be Used by 1,000+ Packages](https://www.jottr.org/2017/03/18/dofuture/), jottr.org, 2017-03-18
-
-* [future 1.3.0: Reproducible RNGs, future_lapply() and More](https://www.jottr.org/2017/02/19/future-rng/), jottr.org, 2017-02-19
-
-* [High-Performance Compute in R Using Futures ](https://www.jottr.org/2016/10/22/future-hpc/), jottr.org, 2016-10-22
-
-* [Remote Processing Using Futures](https://www.jottr.org/2016/10/11/future-remotes/), jottr.org, 2016-10-11
 
 
+
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2021/04/08/future-and-kubernetes/"><img src="https://www.jottr.org/post/k8s.png" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2021/04/08/future-and-kubernetes/">Using Kubernetes and the Future Package to Easily Parallelize R in the Cloud</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Chris Paciorek</div>
+   <div class="itemDescription">A guest post by Chris Paciorek, Department of Statistics, University of California at Berkeley.</div>
+   <div class="itemDate">2021-04-08</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2021/01/08/future.batchjobs-end-of-life-announcement/"><img src="https://www.jottr.org/post/sign_out_of_service_do_not_use.png" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2021/01/08/future.batchjobs-end-of-life-announcement/">future.BatchJobs - End-of-Life Announcement</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2021-01-08</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2020/11/06/future-1.20.1-the-future-just-got-a-bit-brighter/"><img src="https://www.jottr.org/post/sparkles-through-space.gif" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2020/11/06/future-1.20.1-the-future-just-got-a-bit-brighter/">future 1.20.1 - The Future Just Got a Bit Brighter</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2020-11-06</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2020/11/04/parallelly-future-cleaning-up-around-the-house/"><img src="images/parallelly_future.png" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2020/11/04/parallelly-future-cleaning-up-around-the-house/">parallelly, future - Cleaning Up Around the House</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2020-11-04</div>
+  </div>
+ </div>
+</div>
+
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2020/11/04/trust-the-future/"><img src="https://www.jottr.org/post/you_dont_have_to_worry_about_your_future.jpg" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2020/11/04/trust-the-future/">Trust the Future</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2020-11-04</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2020/09/22/push-for-statical-sound-rng/"><img src="https://www.jottr.org/post/Digital_rain_animation_medium_letters_clear.gif" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2020/09/22/push-for-statical-sound-rng/">future 1.19.1 - Making Sure Proper Random Numbers are Produced in Parallel Processing</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2020-09-22</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2020/09/21/detect-when-the-random-number-generator-was-used/"><img src="https://www.jottr.org/post/DistortedRecentEland_50pct.gif" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2020/09/21/detect-when-the-random-number-generator-was-used/">Detect When the Random Number Generator Was Used</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2020-09-21</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2020/07/11/future-future.apply-recent-improvements/"><img src="" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2020/07/11/future-future.apply-recent-improvements/">future and future.apply - Some Recent Improvements</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2020-07-11</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2019/11/09/resolved-launches-lazy-futures/"><img src="https://www.jottr.org/post/lazy_dog_in_park.gif" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2019/11/09/resolved-launches-lazy-futures/">future 1.15.0 - Lazy Futures are Now Launched if Queried</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2019-11-09</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2019/01/11/parallelize-a-for-loop-by-rewriting-it-as-an-lapply-call/"><img src="https://www.jottr.org/post/Honolulu_IFSS_Teletype1964.jpg" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2019/01/11/parallelize-a-for-loop-by-rewriting-it-as-an-lapply-call/">Parallelize a For-Loop by Rewriting it as an Lapply Call</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2019-01-11</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2019/01/07/maintenance-updates-of-future-backends-and-dofuture/"><img src="https://www.jottr.org/post/the-future-is-now.gif" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2019/01/07/maintenance-updates-of-future-backends-and-dofuture/">Maintenance Updates of Future Backends and doFuture</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2019-01-07</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2018/07/23/output-from-the-future/"><img src="https://www.jottr.org/post/Signaling_by_Napoleonic_semaphore_line.jpg" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2018/07/23/output-from-the-future/">future 1.9.0 - Output from The Future</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2018-07-23</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2018/06/23/future.apply_1.0.0/"><img src="https://www.jottr.org/post/future.apply_1.0.0-htop_32cores.png" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2018/06/23/future.apply_1.0.0/">future.apply - Parallelize Any Base R Apply Function</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2018-06-23</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2018/04/12/future-results/"><img src="https://www.jottr.org/post/retro-shiny-future-small.png" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2018/04/12/future-results/">future 1.8.0: Preparing for a Shiny Future</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2018-04-12</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2017/06/05/many-faced-future/"><img src="https://www.jottr.org/post/julia_sets.gif" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2017/06/05/many-faced-future/">The Many-Faced Future</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2017-06-05</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2017/03/18/dofuture/"><img src="https://www.jottr.org/post/programmer_next_to_62500_punch_cards_SAGE.jpg" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2017/03/18/dofuture/">doFuture: A Universal Foreach Adaptor Ready to be Used by 1,000+ Packages</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2017-03-18</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2017/02/19/future-rng/"><img src="https://www.jottr.org/post/funny_car_magnet_animated.gif" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2017/02/19/future-rng/">future 1.3.0: Reproducible RNGs, future_lapply() and More</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2017-02-19</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2016/10/22/future-hpc/"><img src="https://www.jottr.org/post/future_mainframe_red.jpg" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2016/10/22/future-hpc/">High-Performance Compute in R Using Futures </a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2016-10-22</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2016/10/11/future-remotes/"><img src="https://www.jottr.org/post/early_days_video_call.jpg" style="width: 100%;"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2016/10/11/future-remotes/">Remote Processing Using Futures</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2016-10-11</div>
+  </div>
+ </div>
+</div>
