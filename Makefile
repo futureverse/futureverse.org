@@ -11,6 +11,7 @@ spell:
 	hunspell -H $(FILES)
 
 build:
+	Rscript -e R.rsp::rfile blog.Rmd.rsp --postprocess=FALSE
 	module load pandoc; \
 	Rscript -e "rmarkdown::render_site()"
 
