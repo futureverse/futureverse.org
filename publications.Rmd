@@ -4,6 +4,6 @@ description: An article on futures
 preview: images/site_preview.png
 ---
 
-H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, [The R Journal](https://journal.r-project.org/), 2021 (accepted February 2021; to appear) [[PDF (preprint)](https://arxiv.org/pdf/2008.00553.pdf)]
+H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, [The R Journal](https://journal.r-project.org/), 2021 (accepted February 2021; to appear) [[PDF](https://raw.githubusercontent.com/HenrikBengtsson/article-bengtsson-future/master/release/bengtsson-future.pdf)]
 
 
