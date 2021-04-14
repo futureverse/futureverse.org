@@ -18,8 +18,14 @@ build:
 view:
 	xdg-open docs/index.html
 
-stats:
+
+stats: stats-revdeps stats-downloads
+
+stats-revdeps:
 	Rscript R/revdep_over_time.R
+
+stats-downloads:
+	Rscript R/cran_stats.R
 
 images/favicon.ico: images/logo.png
 	cd images/; \
