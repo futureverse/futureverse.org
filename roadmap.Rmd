@@ -73,12 +73,12 @@ Below are a list of future backends that are planned.
   We have working group of several people actively working on this
   [[future#FR423]]
 
+* **future.google.cloud.functions** - a backend to resolve futures via the Google Cloud Functions service.
+  Work on this will start when a stable **future.aws.lambda** prototype has been established
+  
 * **future.clustermq** - a backend to resolve futures on a HPC cluster via the **clustermq** package
   [[future#FR204], [future#FR267]]
 
-* **future.google.functions** - a backend to resolve futures via the Google Cloud Functions service.
-  Work on this will start when a stable **future.aws.lambda** prototype has been established
-  
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
 
 * **future.redis** - a backend to resolve futures via Reddis.
