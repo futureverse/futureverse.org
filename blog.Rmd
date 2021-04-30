@@ -85,9 +85,27 @@ preview: images/site_preview.png
 
 
 
+
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/k8s.png"><img src="images/k8s.png"/></a>
+  <a href="https://www.jottr.org/2021/04/30/parallelly-1.25.0/"><img src="images/nasa-climate-ice-core-small.png"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2021/04/30/parallelly-1.25.0/">parallelly 1.25.0: availableCores(omit=n) and, finally, built-in SSH support for MS Windows 10 users</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2021-04-30</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2021/04/08/future-and-kubernetes/"><img src="images/k8s.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -104,7 +122,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/sign_out_of_service_do_not_use.png"><img src="images/sign_out_of_service_do_not_use.png"/></a>
+  <a href="https://www.jottr.org/2021/01/08/future.batchjobs-end-of-life-announcement/"><img src="images/sign_out_of_service_do_not_use.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -121,7 +139,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/sparkles-through-space.png"><img src="images/sparkles-through-space.png"/></a>
+  <a href="https://www.jottr.org/2020/11/06/future-1.20.1-the-future-just-got-a-bit-brighter/"><img src="images/sparkles-through-space.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -138,7 +156,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/parallelly_future.png"><img src="images/parallelly_future.png"/></a>
+  <a href="https://www.jottr.org/2020/11/04/parallelly-future-cleaning-up-around-the-house/"><img src="images/parallelly_future.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -156,7 +174,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/you_dont_have_to_worry_about_your_future.png"><img src="images/you_dont_have_to_worry_about_your_future.png"/></a>
+  <a href="https://www.jottr.org/2020/11/04/trust-the-future/"><img src="images/you_dont_have_to_worry_about_your_future.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -173,7 +191,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/Digital_rain_animation_medium_letters_clear.png"><img src="images/Digital_rain_animation_medium_letters_clear.png"/></a>
+  <a href="https://www.jottr.org/2020/09/22/push-for-statical-sound-rng/"><img src="images/Digital_rain_animation_medium_letters_clear.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -190,7 +208,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/DistortedRecentEland_50pct.png"><img src="images/DistortedRecentEland_50pct.png"/></a>
+  <a href="https://www.jottr.org/2020/09/21/detect-when-the-random-number-generator-was-used/"><img src="images/DistortedRecentEland_50pct.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -207,7 +225,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href=""><img src=""/></a>
+  <a href="https://www.jottr.org/2020/07/11/future-future.apply-recent-improvements/"><img src=""/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -224,7 +242,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/lazy_dog_in_park.png"><img src="images/lazy_dog_in_park.png"/></a>
+  <a href="https://www.jottr.org/2019/11/09/resolved-launches-lazy-futures/"><img src="images/lazy_dog_in_park.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -241,7 +259,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/Honolulu_IFSS_Teletype1964.png"><img src="images/Honolulu_IFSS_Teletype1964.png"/></a>
+  <a href="https://www.jottr.org/2019/01/11/parallelize-a-for-loop-by-rewriting-it-as-an-lapply-call/"><img src="images/Honolulu_IFSS_Teletype1964.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -258,7 +276,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/the-future-is-now.png"><img src="images/the-future-is-now.png"/></a>
+  <a href="https://www.jottr.org/2019/01/07/maintenance-updates-of-future-backends-and-dofuture/"><img src="images/the-future-is-now.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -275,7 +293,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/Signaling_by_Napoleonic_semaphore_line.png"><img src="images/Signaling_by_Napoleonic_semaphore_line.png"/></a>
+  <a href="https://www.jottr.org/2018/07/23/output-from-the-future/"><img src="images/Signaling_by_Napoleonic_semaphore_line.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -292,7 +310,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/future.apply_1.0.0-htop_32cores.png"><img src="images/future.apply_1.0.0-htop_32cores.png"/></a>
+  <a href="https://www.jottr.org/2018/06/23/future.apply_1.0.0/"><img src="images/future.apply_1.0.0-htop_32cores.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -309,7 +327,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/retro-shiny-future-small.png"><img src="images/retro-shiny-future-small.png"/></a>
+  <a href="https://www.jottr.org/2018/04/12/future-results/"><img src="images/retro-shiny-future-small.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -326,7 +344,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/julia_sets.png"><img src="images/julia_sets.png"/></a>
+  <a href="https://www.jottr.org/2017/06/05/many-faced-future/"><img src="images/julia_sets.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -343,7 +361,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/programmer_next_to_62500_punch_cards_SAGE.png"><img src="images/programmer_next_to_62500_punch_cards_SAGE.png"/></a>
+  <a href="https://www.jottr.org/2017/03/18/dofuture/"><img src="images/programmer_next_to_62500_punch_cards_SAGE.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -360,7 +378,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/funny_car_magnet_animated.png"><img src="images/funny_car_magnet_animated.png"/></a>
+  <a href="https://www.jottr.org/2017/02/19/future-rng/"><img src="images/funny_car_magnet_animated.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -377,7 +395,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/future_mainframe_red.png"><img src="images/future_mainframe_red.png"/></a>
+  <a href="https://www.jottr.org/2016/10/22/future-hpc/"><img src="images/future_mainframe_red.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
@@ -394,7 +412,7 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="images/early_days_video_call.png"><img src="images/early_days_video_call.png"/></a>
+  <a href="https://www.jottr.org/2016/10/11/future-remotes/"><img src="images/early_days_video_call.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
