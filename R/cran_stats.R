@@ -163,6 +163,8 @@ handlers(handler_progress(format = ":spin :current/:total (:message) [:bar] :per
 ## Get (week, from, to) since beginning of 'future'
 dates <- seq(as.Date("2015-06-19") + 3L, Sys.Date(), by = 7L)
 weeks <- unique(format(dates, format = "%G-W%V"))
+## Drop current week
+weeks <- weeks[-length(weeks)]
 
 method <- "median"
 pathnames_per_day <- cran_all_downloads_by_week(weeks)
