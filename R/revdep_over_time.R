@@ -1,4 +1,5 @@
 library(revdepcheck.extras)
+library(ggplot2)
 library(progressr)
 future::plan("multicore")
 
@@ -14,9 +15,11 @@ stats <- revdep_over_time(dates, pkgs = pkgs)
 message("Number of CRAN reverse dependencies:")
 print(tail(stats))
 
-library(ggplot2)
 counts_all <- tidyr::gather(stats, package, count, -1, factor_key = TRUE)
 counts_all <- subset(counts_all, count > 1)
+counts_all <- subset(counts_all, !(package == "foreach" & count < 10))
+excl_dates <- unique(subset(counts_all, date > "2018-01-01" & count <= 3)$date)
+counts_all <- subset(counts_all, ! date %in% excl_dates)
 
 ncolors <- length(levels(counts_all$package))
 colors <- scales::hue_pal()(ncolors)
