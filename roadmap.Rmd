@@ -81,7 +81,7 @@ Below are a list of future backends that are planned.
 
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
 
-* **future.redis** - a backend to resolve futures via Reddis.
+* **future.rrd** - a backend to resolve futures via Redis using the **rrd** package
   [[future#FR151]]
 
 * **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
