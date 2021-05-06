@@ -27,7 +27,7 @@ navbar:
     href: index.html
     
   right:
-    - text: "Packages"
+    - text: "Packages & Docs"
       menu:
         - text: Overview of All Packages
           href: packages-overview.html
