@@ -84,6 +84,6 @@ navbar:
     - text: "About"
       href: about.html
 
-  search: true
+  search: false
 
 output: distill::distill_article
