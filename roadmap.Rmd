@@ -94,6 +94,8 @@ Below are a list of future backends that are planned.
 
 ## Miscellaneous
 
+* Internationalization (i18n): Make all error and warning messages translatable via R's `gettext()` framework.  Invite community to provide message translations.
+
 * Consider relicensing code to a permissive license, where possible
 
 
