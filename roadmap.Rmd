@@ -41,7 +41,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 * Scheduling: Add generic support for queueing such that futures can be queued on the local computer, on a remote scheduler, or in peer-to-peer scheduler among collaborators
   [[future#FR256], [future.apply#FR63], [future.batchtools#FR23]]
 
-* Flatting nested parallelism: Process nested futures via a common future queue instead of via nested future plans
+* Flattening nested parallelism: Process nested futures via a common future queue instead of via nested future plans
   [[future#FR361]]
 
 
