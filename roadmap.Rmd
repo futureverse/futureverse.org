@@ -66,7 +66,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 
 ## Parallel backends
 
-Below are a list of future backends that are planned.
+Below is a list of future backends that are planned.
 
 * **future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda service.
   We have working group of several people actively working on this
