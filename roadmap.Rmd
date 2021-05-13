@@ -60,6 +60,9 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 * Robustness of foreach: Implement bug fixes and outstanding **foreach** feature requests in the **doFuture** adapter until resolved upstream.  For example, add options to make `foreach()` use proper parallel RNG even when the develop has forgotten to use `%doRNG%`
   [[doFuture#61]]
 
+* Generic support for progress updates for common map-reduce functions, e.g. `y <- lapply(X, slow_fcn) %progress% TRUE` and `y <- X %>% future_map(slow_fcn) %progress% TRUE`
+  [[progressr#FR85], [progressr#113]]
+
 
 ## Parallel backends
 
@@ -144,6 +147,9 @@ Below are a list of future backends that are planned.
 [parallelly#18]: https://github.com/HenrikBengtsson/parallelly/issues/18
 [parallelly#32]: https://github.com/HenrikBengtsson/parallelly/issues/32
 [parallelly#33]: https://github.com/HenrikBengtsson/parallelly/issues/33
+
+[progressr#FR85]: https://github.com/HenrikBengtsson/progressr/issues/85
+[progressr#113]: https://github.com/HenrikBengtsson/progressr/issues/113
 
 [marshall]: https://github.com/HenrikBengtsson/marshal
 
