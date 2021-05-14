@@ -31,7 +31,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#FR473]]
 
 * Marshaling: Make it possible to parallelize also some of the [object types that are currently "non-exportable"](https://future.futureverse.org/articles/future-4-non-exportable-objects.html), e.g. objects by packages such as **DBI**, **keras**, **ncdf4**, **rstan**, **sparklyr**, **xgboost**, and **xml2**
-  [Project: **[marshall]**]
+  [Project: **[marshal]**]
 
 * Resources: Make it possible to declare "resources" that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc.  This will also make it possible to work with semi-persistent "sticky" globals
   [[doFuture#FR63], [future#FR181], [future#FR301], [future#FR346], [future#FR430], [future#FR450], [parallelly#18]]
@@ -87,7 +87,7 @@ Below is a list of future backends that are planned.
 * **future.rrq** - a backend to resolve futures via a Redis queue using the **rrq** package
   [[future#FR151]]
 
-* **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
+* **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, ...) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
 
 * **future.sparklyr** - a backend to resolve futures in Spark via the **sparklyr** package
   [[future#FR286], [sparklyr#FR1935]]
@@ -151,6 +151,6 @@ Below is a list of future backends that are planned.
 [progressr#FR85]: https://github.com/HenrikBengtsson/progressr/issues/85
 [progressr#113]: https://github.com/HenrikBengtsson/progressr/issues/113
 
-[marshall]: https://github.com/HenrikBengtsson/marshal
+[marshal]: https://github.com/HenrikBengtsson/marshal
 
 [sparklyr#FR1935]: https://github.com/sparklyr/sparklyr/issues/1935
