@@ -69,22 +69,23 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 Below is a list of future backends that are planned.
 
 * **future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda service.
-  We have working group of several people actively working on this
+  A group of several people is actively working on this since the end of 2020
   [[future#FR423]]
 
 * **future.aws.batch** - a backend to resolve futures via the Amazon AWS Batch service.
   We have working group of several people actively working on this
   [[future#FR423]]
 
-* **future.google.cloud.functions** - a backend to resolve futures via the Google Cloud Functions service.
-  Work on this will start when a stable **future.aws.lambda** prototype has been established
-  
 * **future.clustermq** - a backend to resolve futures on a HPC cluster via the **clustermq** package
   [[future#FR204], [future#FR267]]
 
+* **future.google.cloud.functions** - a backend to resolve futures via the Google Cloud Functions service.
+  Work on this will start when a stable **future.aws.lambda** prototype has been established
+  
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
 
 * **future.rrq** - a backend to resolve futures via a Redis queue using the **rrq** package
+  The **future** and **rrq** maintainers are working on this since April 2021
   [[future#FR151]]
 
 * **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, ...) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
