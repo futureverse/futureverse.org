@@ -2,7 +2,9 @@ SHELL=bash
 
 FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd
 
-PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.tests globals listenv parallelly progressr
+PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.tests globals listenv marshal parallelly progressr
+
+DOMAIN ?= futureverse.org
 
 
 all: spell build
@@ -53,7 +55,7 @@ pkgdown-deploy:
 pkgdown-cname:
 	@for pkg in $(PACKAGES); do \
 	    printf "Package $$pkg: "; \
-	    (cd "../$${pkg}"; cat docs/CNAME) \
+	    (cd "../$${pkg}"; echo "$$pkg.$(DOMAIN)" > docs/CNAME) \
 	done
 
 pkgdown-favicon:
@@ -66,5 +68,6 @@ pkgdown-favicon:
 
 pkgdown-ymlrsp: .pkgdown/_pkgdown.yml.rsp
 	for pkg in $(PACKAGES); do \
+	    mkdir -p "../$$pkg/pkgdown"; \
             cp "$<" "../$$pkg/pkgdown/_pkgdown.yml.rsp"; \
 	done
