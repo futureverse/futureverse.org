@@ -152,6 +152,6 @@ Below is a list of future backends that are planned.
 [progressr#FR85]: https://github.com/HenrikBengtsson/progressr/issues/85
 [progressr#113]: https://github.com/HenrikBengtsson/progressr/issues/113
 
-[marshal]: https://github.com/HenrikBengtsson/marshal
+[marshal]: https://marshal.futureverse.org
 
 [sparklyr#FR1935]: https://github.com/sparklyr/sparklyr/issues/1935

@@ -1853,6 +1853,7 @@ Packages &amp; Docs
 <a href="https://parallelly.futureverse.org">parallelly (enhances the parallel package)</a>
 <a href="https://globals.futureverse.org">globals (identify globals)</a>
 <a href="https://future.tests.futureverse.org">future.tests (validate future backends)</a>
+<a href="https://marshal.futureverse.org">marshal (export non-exportable objects)</a>
 </div>
 </div>
 <a href="blog.html">Blog</a>
@@ -1908,6 +1909,7 @@ Packages &amp; Docs
 <h3 id="supporting-packages">Supporting packages</h3>
 <ul>
 <li><p><strong><a href="https://parallelly.futureverse.org">parallelly</a></strong> - <em>Enhancing the parallel Package</em><br> Utility functions that enhance the <strong>parallel</strong> package and support the built-in parallel backends of the <strong>future</strong> package.</p></li>
+<li><p><strong><a href="https://marshal.futureverse.org">marshal</a></strong> - <em>Framework to Marshal Objects to be Used in Another R Process</em><br> <em>PROTOTYPE</em>: Some types of R objects can be used only in the R session they were created. If used as-is in another R process, such objects often result in an immediate error or in obscure and hard-to-troubleshoot outcomes. Because of this, they cannot be saved to file and re-used at a later time. They can also not be exported to a worker in parallel processing. These objects are sometimes referred to as non-exportable or non-serializable objects. One solution to this problem is to use “marshalling” to encode the R object into an exportable representation that then can be used to re-create a copy of that object in another R process.</p></li>
 <li><p><strong><a href="https://globals.futureverse.org">globals</a></strong> - <em>Identify Global Objects in R Expressions</em><br> Identifies global (“unknown” or “free”) objects in R expressions by code inspection using various strategies (ordered, liberal, or conservative). The objective of this package is to make it as simple as possible to identify global objects for the purpose of exporting them in parallel, distributed compute environments.</p></li>
 <li><p><strong><a href="https://listenv.futureverse.org">listenv</a></strong> - <em>Environments Behaving (Almost) as Lists</em><br> List environments are environments that have list-like properties. For instance, the elements of a list environment are ordered and can be accessed and iterated over using index subsetting, e.g. <code>x &lt;- listenv(a = 1, b = 2);</code> <code>for (i in seq_along(x)) x[[i]] &lt;- x[[i]] ^ 2;</code> <code>y &lt;- as.list(x)</code>.</p></li>
 </ul>

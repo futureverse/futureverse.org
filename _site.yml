@@ -67,6 +67,8 @@ navbar:
           href: https://globals.futureverse.org
         - text: future.tests (validate future backends)
           href: https://future.tests.futureverse.org
+        - text: marshal (export non-exportable objects)
+          href: https://marshal.futureverse.org
     - text: "Blog"
       href: blog.html
     - text: "Usage"
