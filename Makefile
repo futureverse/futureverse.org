@@ -38,6 +38,19 @@ images/favicon.ico: images/logo.png
 	convert favicon-256.png -resize 128x128 favicon-128.png; \
 	convert favicon-16.png favicon-32.png favicon-64.png favicon-128.png favicon-256.png -colors 256 $(@F)
 
+docsearch: .docsearch/futureverse.json
+
+.docsearch/futureverse.json: .docsearch/futureverse.json.rsp
+	cd "$(@D)"; \
+	Rscript -e R.rsp::rfile "$(<F)"
+
+pkgdown-refresh:
+	@source ~/.bashrc.d/interactive=true/git-rpkgs.sh; \
+	for pkg in $(PACKAGES); do \
+	    echo "Package $$pkg:"; \
+	    (cd "../$${pkg}"; pkgdown_refresh); \
+	done
+
 pkgdown-build:
 	@export R_PROGRESSR_DEMO_DELAY=0; \
 	for pkg in $(PACKAGES); do \
