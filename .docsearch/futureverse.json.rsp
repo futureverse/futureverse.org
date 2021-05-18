@@ -2,7 +2,7 @@
 # https://github.com/algolia/docsearch-configs/blob/master/configs/futureverse.json
 options(useFancyQuotes = FALSE)
 
-pkgs <- Sys.getenv("PACKAGES", "BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.tests globals listenv parallelly progressr")
+pkgs <- Sys.getenv("PACKAGES", "BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.tests globals listenv marshal parallelly progressr")
 pkgs <- unlist(strsplit(pkgs, split = "[,[:space:]]", fixed = FALSE))
 pkgs <- gsub("(^[[:space:]]+|[[:space:]]+$)", "", pkgs)
 pkgs <- sort(unique(pkgs))
