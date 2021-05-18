@@ -51,7 +51,7 @@ pkgdown-refresh:
 	    (cd "../$${pkg}"; pkgdown_refresh); \
 	done
 
-pkgdown-build:
+pkgdown-build: pkgdown-ymlrsp
 	@export R_PROGRESSR_DEMO_DELAY=0; \
 	for pkg in $(PACKAGES); do \
 	    echo "Package $$pkg:"; \
