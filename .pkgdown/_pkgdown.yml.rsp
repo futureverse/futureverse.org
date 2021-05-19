@@ -18,7 +18,7 @@ home:
     href: https://github.com/HenrikBengtsson/<%= pkg %>/milestones
   - text: The Futureverse Project
     href: https://www.futureverse.org/
-  - text: Futureverse User Forum
+  - text: Futureverse User Forum (new!)
     href: https://github.com/HenrikBengtsson/future/discussions
 
 navbar:

@@ -174,7 +174,7 @@ pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_we
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
 
 
-pkgs <- c("future", "future.apply", "furrr", "foreach")
+pkgs <- c("future", "future.apply", "furrr", "foreach", "doFuture", "progressr")
 counts <- subset(data, package %in% pkgs)
 counts <- select(counts, week_of, package, fraction)
 counts <- mutate(counts, package = factor(package, levels = pkgs))
@@ -194,7 +194,7 @@ message(sprintf("CRAN ranks last four week (average '%s' per week):", method))
 print(head(arrange(counts4, desc(week_of))))
 
 
-all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture")
+all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
 colors <- scales::hue_pal()(length(all_pkgs))
 names(colors) <- all_pkgs
 

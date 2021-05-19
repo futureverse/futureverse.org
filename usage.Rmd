@@ -1,6 +1,6 @@
 ---
 title: Usage
-description: Who's using futures, where, and how?
+description: Who're using futures, where, and how?
 preview: images/site_preview.png
 ---
 
