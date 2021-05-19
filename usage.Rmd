@@ -11,8 +11,6 @@ If we look at our main R packages repositories, [CRAN](https://cran.r-project.or
 
 There are two major use cases of the future framework: (i) performance improvement through parallelization, and (ii) non-blocking, asynchronous user experience (UX).  Below are some prominent examples.
 
-<!-- For speeding up R scripts, R packages, and R code via parallelization and distributed processing, the most common use is via **future** directly, or via **future.apply** (parallelized base R apply functions), **furrr** (parallelized tidyverse **purrr** functions), and **doFuture** (parallelized **foreach** functions).
--->
 
 
 ## EpiNow2: Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters
