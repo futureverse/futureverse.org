@@ -15,6 +15,19 @@ There are two major use cases of the future framework: (i) performance improveme
 -->
 
 
+## EpiNow2: Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters
+
+<div>
+<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
+<img src="images/EpiNow2-COVID-dashboard.png" alt="Screenshot of the COVID-19 website dashboard with a world map annotated with colors indicating the trend of COVID infections in different regions"/>
+<figcaption style="font-size: 50%;">Image credit: EpiNow2 team</figcaption>
+</figure>
+[**EpiNow2**](https://epiforecasts.io/EpiNow2/) is an R package to estimate real-time case counts and time-varying epidemiological parameters, such as [current trends of COVID-19 incidents](https://epiforecasts.io/covid/) in different regions around the globe.
+
+**EpiNow2** uses futures to speed up processing.  The future framework is used to estimate incident rates in different regions concurrently as well as running Markov Chain Monte Carlo (MCMC) in parallel.
+</div>
+
+
 ## Seurat: Large-Scale Single-Cell Genomics
 
 <div>

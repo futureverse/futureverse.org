@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Futureverse: Usage</title>
 
-  <meta property="description" itemprop="description" content="Who&#39;s using futures, where, and how?"/>
+  <meta property="description" itemprop="description" content="Who&#39;re using futures, where, and how?"/>
 
   <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico"/>
 
@@ -96,7 +96,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Futureverse: Usage"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Who&#39;s using futures, where, and how?"/>
+  <meta property="og:description" content="Who&#39;re using futures, where, and how?"/>
   <meta property="og:image" content="https://www.futureverse.org/./images/site_preview.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="628"/>
@@ -106,7 +106,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary_large_image"/>
   <meta property="twitter:title" content="Futureverse: Usage"/>
-  <meta property="twitter:description" content="Who&#39;s using futures, where, and how?"/>
+  <meta property="twitter:description" content="Who&#39;re using futures, where, and how?"/>
   <meta property="twitter:image" content="https://www.futureverse.org/./images/site_preview.png"/>
   <meta property="twitter:image:width" content="1200"/>
   <meta property="twitter:image:height" content="628"/>
@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview"]}},"value":[{"type":"character","attributes":{},"value":["Usage"]},{"type":"character","attributes":{},"value":["Who's using futures, where, and how?"]},{"type":"character","attributes":{},"value":["images/site_preview.png"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview"]}},"value":[{"type":"character","attributes":{},"value":["Usage"]},{"type":"character","attributes":{},"value":["Who're using futures, where, and how?"]},{"type":"character","attributes":{},"value":["images/site_preview.png"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1808,7 +1808,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Usage","description":"Who's using futures, where, and how?","authors":[]}
+{"title":"Usage","description":"Who're using futures, where, and how?","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1876,7 +1876,7 @@ Packages &amp; Docs
 <h1>Usage</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>Who’s using futures, where, and how?</p>
+<p>Who’re using futures, where, and how?</p>
 </div>
 
 
@@ -1885,6 +1885,17 @@ Packages &amp; Docs
 <p>There are two major use cases of the future framework: (i) performance improvement through parallelization, and (ii) non-blocking, asynchronous user experience (UX). Below are some prominent examples.</p>
 <!-- For speeding up R scripts, R packages, and R code via parallelization and distributed processing, the most common use is via **future** directly, or via **future.apply** (parallelized base R apply functions), **furrr** (parallelized tidyverse **purrr** functions), and **doFuture** (parallelized **foreach** functions).
 -->
+<h2 id="epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters">EpiNow2: Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters</h2>
+<div>
+<figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
+<img src="images/EpiNow2-COVID-dashboard.png" alt="Screenshot of the COVID-19 website dashboard with a world map annotated with colors indicating the trend of COVID infections in different regions"/>
+<figcaption style="font-size: 50%;">
+Image credit: EpiNow2 team
+</figcaption>
+</figure>
+<p><a href="https://epiforecasts.io/EpiNow2/"><strong>EpiNow2</strong></a> is an R package to estimate real-time case counts and time-varying epidemiological parameters, such as <a href="https://epiforecasts.io/covid/">current trends of COVID-19 incidents</a> in different regions around the globe.</p>
+<p><strong>EpiNow2</strong> uses futures to speed up processing. The future framework is used to estimate incident rates in different regions concurrently as well as running Markov Chain Monte Carlo (MCMC) in parallel.</p>
+</div>
 <h2 id="seurat-large-scale-single-cell-genomics">Seurat: Large-Scale Single-Cell Genomics</h2>
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
