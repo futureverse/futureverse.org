@@ -47,7 +47,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 
 ## Map-Reduce Future API
 
-* Develop a **future.mapreduce** package to provide an essential, infrastructure Map-Reduce Future API, e.g. load balancing, chunking, parallel random number generation (RNG), and early stopping.  Packages such as **future.apply**, **furrr**, and **doFuture** are currently implementing their own version of these features.  Consolidating these essentials into a shared utility package will guarantee a consistent behavior for all together with faster deployment of bug fixes and improvements
+* Develop a **[future.mapreduce]** package to provide an essential, infrastructure Map-Reduce Future API, e.g. load balancing, chunking, parallel random number generation (RNG), and early stopping.  Packages such as **future.apply**, **furrr**, and **doFuture** are currently implementing their own version of these features.  Consolidating these essentials into a shared utility package will guarantee a consistent behavior for all together with faster deployment of bug fixes and improvements
   [[future.apply#20], [future.apply#FR32], [future.apply#FR44], [future.apply#59], [future.apply#FR60]]
   
 * Develop more efficient chunking of large objects in map-reduce calls.  This can be achieved by introducing a mechanism or a syntax to declare that part of the code should be processed prior to being parallelized, e.g. further subsetting of and validation of input data before distributing them to parallel workers
@@ -152,6 +152,10 @@ Below is a list of future backends that are planned.
 [progressr#FR85]: https://github.com/HenrikBengtsson/progressr/issues/85
 [progressr#113]: https://github.com/HenrikBengtsson/progressr/issues/113
 
+[sparklyr#FR1935]: https://github.com/sparklyr/sparklyr/issues/1935
+
+
+[future.mapreduce]: https://future.mapreduce.futureverse.org
 [marshal]: https://marshal.futureverse.org
 
-[sparklyr#FR1935]: https://github.com/sparklyr/sparklyr/issues/1935
+
