@@ -33,9 +33,9 @@ There are two major use cases of the future framework: (i) performance improveme
 <img src="images/seurat-sc.data3-1.png" alt="A two-dimensional, UMAP-space, scatter plot displaying individual cells grouped into 23 well-separated subclasses that are color and label annotated."/>
 <figcaption style="font-size: 50%;">Image credit: Seurat team</figcaption>
 </figure>
-[**Seurat**](https://satijalab.org/seurat/) is an R package designed for QC, analysis, and exploration of single-cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single-cell transcriptomic measurements, and to integrate diverse types of single-cell data.
+[**Seurat**](https://satijalab.org/seurat/) is an R package designed for QC, analysis, and exploration of single-cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single-cell transcriptomic measurements, and to integrate diverse types of single-cell data. [**Azimuth**](https://satijalab.org/azimuth/) is Seurat-based web application, e.g. [HuBMAP - NIH Human Biomolecular Atlas Project](https://azimuth.hubmapconsortium.org/)
 
-**Seurat** uses futures to speed up processing.  The future framework makes it possible process large data sets and large number of samples in parallel on the local machine, distributed on multiple machines, or via large-scale high-performance compute (HPC) environments.
+**Seurat** uses futures to speed up processing.  The future framework makes it possible process large data sets and large number of samples in parallel on the local machine, distributed on multiple machines, or via large-scale high-performance compute (HPC) environments.  **Azimuth** uses futures to provide a non-blocking web interface.
 </div>
 
 
