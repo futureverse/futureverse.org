@@ -1,6 +1,7 @@
 <%
-pkgs <- c("globals", "listenv", "parallelly", "future", "future.apply", "furrr", "future.tests", "future.callr", "future.batchtools", "doFuture", "progressr", "BiocParallel.FutureParam", "marshal")
-pkgs <- sort(pkgs)
+pkgs <- c("globals", "listenv", "parallelly", "future", "future.apply", "furrr", "future.tests", "future.callr", "future.batchtools", "doFuture", "progressr", "BiocParallel.FutureParam")
+pkgs_extra <- c("future.mapreduce", "marshal")
+pkgs <- c(sort(pkgs), pkgs_extra)
 urls <- sprintf("https://%s.futureverse.org", pkgs)
 names(urls) <- pkgs
 
@@ -32,7 +33,7 @@ navbar:
       text: Packages
       menu:
 <% for (name in names(urls)) { %>
-      - text: <%= name %>
+      - text: <%= name %> <% if (name %in% pkgs_extra) { %>(experimental)<% } %>
         href: <%= urls[name] %>
 <% } %>
     cran:
