@@ -19,7 +19,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#FR188], [future#205], [future.callr#FR11], [parallelly#32]]
 
 * Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
-  [[future#477], [future#479]]
+  [~~[future#477]~~, ~~[future#479]~~; implemented in **future** 1.22.0 (next release)]
 
 * Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as `utils::browser()` and `utils::recover()`
   [[future#253]]
@@ -61,7 +61,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[doFuture#61]]
 
 * Generic support for progress updates for common map-reduce functions, e.g. `y <- lapply(X, slow_fcn) %progress% TRUE` and `y <- X %>% future_map(slow_fcn) %progress% TRUE`
-  [[progressr#FR85], [progressr#113]]
+  [[progressr#FR85], ~~[progressr#113]~~]
 
 
 ## Parallel backends
