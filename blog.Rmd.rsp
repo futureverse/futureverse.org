@@ -121,6 +121,13 @@ if (nzchar(image)) {
 <% } ## blog_post() %>
 
 
+<% blog_post(
+        title = "parallelly 1.26.0: Fast, concurrent setup of parallel workers (finally)",
+          url = "https://www.jottr.org/2021/06/10/parallelly-1.26.0/",
+         date = "2021-06-10",
+        image = "https://www.jottr.org/post/parallelly_faster_setup_of_cluster.png"
+) %>
+
 
 <% blog_post(
         title = "parallelly 1.25.0: availableCores(omit=n) and, finally, built-in SSH support for MS Windows 10 users",
