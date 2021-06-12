@@ -122,6 +122,14 @@ if (nzchar(image)) {
 
 
 <% blog_post(
+        title = "progressr 0.8.0: RStudio's progress bar, Shiny progress updates, and absolute progress",
+          url = "https://www.jottr.org/2021/06/11/progressr-0.8.0/",
+         date = "2021-06-11",
+        image = "https://www.jottr.org/post/progressr-rstudio.png"
+) %>
+
+
+<% blog_post(
         title = "parallelly 1.26.0: Fast, concurrent setup of parallel workers (finally)",
           url = "https://www.jottr.org/2021/06/10/parallelly-1.26.0/",
          date = "2021-06-10",
