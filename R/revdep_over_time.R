@@ -21,8 +21,9 @@ counts_all <- subset(counts_all, !(package == "foreach" & count < 10))
 excl_dates <- unique(subset(counts_all, date > "2018-01-01" & count <= 4)$date)
 counts_all <- subset(counts_all, ! date %in% excl_dates)
 
-ncolors <- length(levels(counts_all$package))
-colors <- scales::hue_pal()(ncolors)
+counts_all <- subset(counts_all, package %in% c("foreach", "future", "future.apply", "furrr"))
+ncolors <- length(unique(counts_all$package))
+colors <- scales::hue_pal()(ncolors+1)[-1]
 names(colors) <- pkgs
 
 ## Non-log scale
