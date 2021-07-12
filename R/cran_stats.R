@@ -174,7 +174,7 @@ pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_we
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
 
 
-pkgs <- c("future", "future.apply", "furrr", "foreach", "doFuture", "progressr")
+pkgs <- c("foreach", "future", "future.apply", "furrr") #, "doFuture", "progressr")
 counts <- subset(data, package %in% pkgs)
 counts <- select(counts, week_of, package, fraction)
 counts <- mutate(counts, package = factor(package, levels = pkgs))
@@ -195,7 +195,8 @@ print(head(arrange(counts4, desc(week_of))))
 
 
 all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
-colors <- scales::hue_pal()(length(all_pkgs))
+all_pkgs <- pkgs
+colors <- scales::hue_pal()(length(all_pkgs)+1)[-1]
 names(colors) <- all_pkgs
 
 gg <- ggplot(counts4, aes(x = week_of, y = fraction, color = package))
