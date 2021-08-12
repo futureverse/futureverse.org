@@ -21,13 +21,16 @@ counts_all <- subset(counts_all, !(package == "foreach" & count < 10))
 excl_dates <- unique(subset(counts_all, date > "2018-01-01" & count <= 4)$date)
 counts_all <- subset(counts_all, ! date %in% excl_dates)
 
-counts_all <- subset(counts_all, package %in% c("foreach", "future", "future.apply", "furrr"))
+pkgs <- c("foreach", "future", "future.apply", "furrr")
+counts_all <- subset(counts_all, package %in% pkgs)
 ncolors <- length(unique(counts_all$package))
 colors <- scales::hue_pal()(ncolors+1)[-1]
 names(colors) <- pkgs
 
 ## Non-log scale
 counts <- subset(counts_all, package %in% c("future", "future.apply", "furrr"))
+print(counts)
+
 gg <- ggplot(counts, aes(x = date, y = count, color = package))
 gg <- gg + geom_line(size = 1.2)
 gg <- gg + scale_colour_manual(values = colors)
