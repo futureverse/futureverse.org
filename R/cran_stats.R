@@ -174,7 +174,9 @@ pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_we
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
 
 
-pkgs <- c("foreach", "future", "future.apply", "furrr") #, "doFuture", "progressr")
+all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
+
+pkgs <- setdiff(all_pkgs, "parallel") ## 'parallel' is part of R
 counts <- subset(data, package %in% pkgs)
 counts <- select(counts, week_of, package, fraction)
 counts <- mutate(counts, package = factor(package, levels = pkgs))
@@ -191,15 +193,15 @@ counts4 <- group_modify(counts, function(data, package) {
 })
 
 message(sprintf("CRAN ranks last four week (average '%s' per week):", method))
-print(head(arrange(counts4, desc(week_of))))
+print(head(arrange(counts4, desc(week_of)), n = 2*length(pkgs)))
 
 
-all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
-all_pkgs <- pkgs
-colors <- scales::hue_pal()(length(all_pkgs)+1)[-1]
-names(colors) <- all_pkgs
+pkgs <- c("foreach", "future", "future.apply", "furrr")
+colors <- scales::hue_pal()(length(pkgs)+1)[-1]
+names(colors) <- pkgs
 
-gg <- ggplot(counts4, aes(x = week_of, y = fraction, color = package))
+counts4b <- subset(counts4, package %in% pkgs)
+gg <- ggplot(counts4b, aes(x = week_of, y = fraction, color = package))
 gg <- gg + geom_line(size = 1.2)
 gg <- gg + scale_colour_manual(values = colors)
 #gg <- gg + geom_smooth(method = "loess", span = 0.1)
@@ -210,4 +212,3 @@ gg <- gg + theme(legend.position = c(0.88, 0.15))
 gg <- gg + scale_y_reverse(labels = scales::percent)
 gg <- gg + coord_cartesian(ylim = c(0.20, 0))
 ggsave(gg, filename = "downloads_over_time_on_CRAN.png", width = 7.5, height = 6)
-
