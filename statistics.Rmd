@@ -5,7 +5,7 @@ preview: images/site_preview.png
 ---
 
 Since the first CRAN release of **future** in June 2015, its uptake among end-users and package developers have grown steadily.
-During March 2021, **future** was among the top-1.0% most downloaded package on CRAN (Figure 1) and there are 170 packages on CRAN and Bioconductor that directly depend on it (Figure 2).  For map-reduce parallelization packages **future.apply** (top-2.1% most downloaded) and and **furrr** (top 1.4%), the corresponding number of packages are 75 and 44, respectively.  If we consider recursive dependencies too, that is, packages that use the **future** package either directly or indirectly via another package, then there are more than 18,500 CRAN and Bioconductor packages (87%) out of 21,000 that rely on the future framework for their processing.
+During October 2021, **future** was among the top-1.1% most downloaded package on CRAN (Figure 1) and there are 210 packages on CRAN and Bioconductor that directly depend on it (Figure 2).  For map-reduce parallelization packages **future.apply** (top-1.3% most downloaded) and and **furrr** (top 1.8%), the corresponding number of packages are 85 and 53, respectively.  If we consider recursive dependencies too, that is, packages that use the **future** package either directly or indirectly via another package, then 93% of the ~18,500 CRAN and the ~2,000 Bioconductor packages rely on the future framework for their processing.
 
 <div style="width: 100%; margin-bottom: 3ex;">
 <center>
@@ -15,7 +15,7 @@ During March 2021, **future** was among the top-1.0% most downloaded package on 
 </div>
 
 
-As a reference, the popular **foreach**, released in 2009, was among the top-0.9% most downloaded packages during the same period and it has almost 800 reverse package dependencies on CRAN and Bioconductor.  The number of users that download **future** has grown rapidly whereas the the same number has slowly decreased for the **foreach** package (Figure 1).  Similarly, the number of reverse package dependencies on **future** appear to grow faster than for **foreach** (Figure 2).
+As a reference, the popular **foreach**, released in 2009, was among the top-1.0% most downloaded packages during the same period and it has 738 reverse package dependencies on CRAN and Bioconductor.  The number of users that download **future** has grown rapidly whereas the the same number has slowly decreased for the **foreach** package (Figure 1).  Similarly, the number of reverse package dependencies on **future** appear to grow faster than for **foreach** (Figure 2).
 
 <div style="width: 100%; margin-bottom: 3ex;">
 <center>
@@ -25,4 +25,3 @@ As a reference, the popular **foreach**, released in 2009, was among the top-0.9
 </div>
 
 Importantly, the comparison toward **foreach** is only done as a reference for the current demand for parallelization frameworks in R and to show the rapid uptake of the future framework since its release.  It is not a competition because **foreach** can per design be used in companion with the future framework via **doFuture**.  The choice between **foreach** with **doFuture**, **future.apply**, and **furrr** is a matter of preference of coding style - they all rely on futures for parallelization.
-
