@@ -37,11 +37,11 @@ counts <- subset(counts_all, package %in% plot_pkgs)
 counts <- subset(counts_all, ! package %in% c(exclude, "foreach"))
 gg <- ggplot(counts, aes(x = date, y = count, color = package))
 gg <- gg + geom_line(size = 1.2)
-gg <- gg + scale_colour_manual(values = colors)
+#gg <- gg + scale_colour_manual(values = colors)
+gg <- gg + scale_colour_manual(values = colors, aesthetics = c("color"))
 gg <- gg + labs(x = "Date", y = "Number of reverse dependencies on CRAN")
 gg <- gg + guides(col = guide_legend(title = "Package:"))
 gg <- gg + theme(legend.position = c(0.14, 0.85))
-gg <- gg + scale_colour_manual(values = colors, aesthetics = c("color"))
 ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = 7.5, height = 6)
 
 
