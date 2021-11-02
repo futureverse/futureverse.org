@@ -4,6 +4,10 @@ description: Presentations on futures with slides and recorded videos
 preview: images/site_preview.png
 ---
 
+<!--
+* Henrik Bengtsson, [Future - Simple, Scalable Parallelization in R for the Biomedical Community](), CZI EOSS 2021, 2021-11-02 (10 minutes)
+-->
+
 * Henrik Bengtsson, [Future: A Simple, Extendable, Generic Framework for Parallel Processing in R](https://www.jottr.org/2020/12/19/future-eurobioc2020-slides/), European Bioconductor Meeting 2020, 2020-12-19 (35 minutes)
 
 * Henrik Bengtsson, [Future: Simple, Friendly Parallel Processing for R](https://www.jottr.org/2020/11/12/future-nycmeetup-slides/), New York Open Statistical Programming Meetup, 2020-11-12 (67 minutes)
