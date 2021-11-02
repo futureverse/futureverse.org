@@ -14,6 +14,7 @@ handlers(handler_progress(
 all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture")
 plot_pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
 exclude <- "doParallel"
+exclude <- c(exclude, "foreach")
 
 ## Count package dependencies
 pkgs <- all_pkgs
@@ -32,6 +33,9 @@ ncolors <- length(unique(counts_all$package))
 colors <- scales::hue_pal()(ncolors+1)[-1]
 names(colors) <- pkgs
 
+image_dims <- c(7.5, 6.0)
+#image_dims <- 0.7*image_dims
+
 ## Non-log scale
 counts <- subset(counts_all, package %in% plot_pkgs)
 counts <- subset(counts_all, ! package %in% c(exclude, "foreach"))
@@ -42,7 +46,7 @@ gg <- gg + scale_colour_manual(values = colors, aesthetics = c("color"))
 gg <- gg + labs(x = "Date", y = "Number of reverse dependencies on CRAN")
 gg <- gg + guides(col = guide_legend(title = "Package:"))
 gg <- gg + theme(legend.position = c(0.14, 0.85))
-ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = 7.5, height = 6)
+ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
 
 
 ## Log scale
@@ -55,7 +59,7 @@ gg <- gg + labs(x = "Date", y = "Number of reverse dependencies on CRAN")
 gg <- gg + guides(col = guide_legend(title = "Package:"))
 gg <- gg + scale_y_log10()
 gg <- gg + theme(legend.position = c(0.88, 0.15))
-ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = 7.5, height = 6)
+ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = image_dims[1], height = image_dims[2])
 
 message("Number of reverse dependencies:")
 print(tail(stats, n = 20L))

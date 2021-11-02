@@ -197,8 +197,13 @@ print(head(arrange(counts4, desc(week_of)), n = 2*length(pkgs)))
 
 
 pkgs <- c("foreach", "future", "future.apply", "furrr")
+exclude <- NULL
+pkgs <- setdiff(pkgs, exclude)
 colors <- scales::hue_pal()(length(pkgs)+1)[-1]
 names(colors) <- pkgs
+
+image_dims <- c(7.5, 6.0)
+#image_dims <- 0.7*image_dims
 
 counts4b <- subset(counts4, package %in% pkgs)
 gg <- ggplot(counts4b, aes(x = week_of, y = fraction, color = package))
@@ -209,6 +214,7 @@ gg <- gg + scale_colour_manual(values = colors)
 gg <- gg + labs(x = "Date", y = "Download ranks on CRAN (four-week averages)")
 gg <- gg + guides(col = guide_legend(title = "Package:"))
 gg <- gg + theme(legend.position = c(0.88, 0.15))
+#gg <- gg + theme(legend.position = c(0.14, 0.85))
 gg <- gg + scale_y_reverse(labels = scales::percent)
 gg <- gg + coord_cartesian(ylim = c(0.20, 0))
-ggsave(gg, filename = "downloads_over_time_on_CRAN.png", width = 7.5, height = 6)
+ggsave(gg, filename = "downloads_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
