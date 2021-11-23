@@ -91,7 +91,7 @@ preview: images/site_preview.png
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
-   <div class="itemTitle"><a href="https://www.jottr.org/2021/06/11/progressr-0.8.0/">progressr 0.8.0: RStudio's progress bar, Shiny progress updates, and absolute progress</a>
+   <div class="itemTitle"><a href="https://www.jottr.org/2021/06/11/progressr-0.8.0/">progressr 0.8.0: RStudio's Progress Bar, Shiny Progress Updates, and Absolute Progress</a>
    </div>
   </div>
   <div class="itemMeta">
@@ -109,7 +109,7 @@ preview: images/site_preview.png
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
-   <div class="itemTitle"><a href="https://www.jottr.org/2021/06/10/parallelly-1.26.0/">parallelly 1.26.0: Fast, concurrent setup of parallel workers (finally)</a>
+   <div class="itemTitle"><a href="https://www.jottr.org/2021/06/10/parallelly-1.26.0/">parallelly 1.26.0: Fast, Concurrent Setup of Parallel Workers (Finally)</a>
    </div>
   </div>
   <div class="itemMeta">
@@ -127,7 +127,7 @@ preview: images/site_preview.png
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
-   <div class="itemTitle"><a href="https://www.jottr.org/2021/04/30/parallelly-1.25.0/">parallelly 1.25.0: availableCores(omit=n) and, finally, built-in SSH support for MS Windows 10 users</a>
+   <div class="itemTitle"><a href="https://www.jottr.org/2021/04/30/parallelly-1.25.0/">parallelly 1.25.0: availableCores(omit=n) and, Finally, Built-in SSH Support for MS Windows 10 Users</a>
    </div>
   </div>
   <div class="itemMeta">
