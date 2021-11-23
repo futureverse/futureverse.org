@@ -122,7 +122,14 @@ if (nzchar(image)) {
 
 
 <% blog_post(
-        title = "progressr 0.8.0: RStudio's progress bar, Shiny progress updates, and absolute progress",
+        title = "parallelly 1.29.0: New Skills and Less Communication Latency on Linux",
+          url = "https://www.jottr.org/2021/11/22/parallelly-1.29.0/",
+         date = "2021-11-22",
+        image = "https://www.jottr.org/post/parallelly-logo.png"
+) %>
+
+<% blog_post(
+        title = "progressr 0.8.0: RStudio's Progress Bar, Shiny Progress Updates, and Absolute Progress",
           url = "https://www.jottr.org/2021/06/11/progressr-0.8.0/",
          date = "2021-06-11",
         image = "https://www.jottr.org/post/progressr-rstudio.png"
@@ -130,7 +137,7 @@ if (nzchar(image)) {
 
 
 <% blog_post(
-        title = "parallelly 1.26.0: Fast, concurrent setup of parallel workers (finally)",
+        title = "parallelly 1.26.0: Fast, Concurrent Setup of Parallel Workers (Finally)",
           url = "https://www.jottr.org/2021/06/10/parallelly-1.26.0/",
          date = "2021-06-10",
         image = "https://www.jottr.org/post/parallelly_faster_setup_of_cluster.png"
@@ -138,7 +145,7 @@ if (nzchar(image)) {
 
 
 <% blog_post(
-        title = "parallelly 1.25.0: availableCores(omit=n) and, finally, built-in SSH support for MS Windows 10 users",
+        title = "parallelly 1.25.0: availableCores(omit=n) and, Finally, Built-in SSH Support for MS Windows 10 Users",
           url = "https://www.jottr.org/2021/04/30/parallelly-1.25.0/",
          date = "2021-04-30",
         image = "https://www.jottr.org/post/nasa-climate-ice-core-small.jpg"
