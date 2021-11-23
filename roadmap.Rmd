@@ -16,11 +16,10 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#93], [future#FR213], [future.batchtools#FR27], [parallelly#33]]
 
 * Restarting of failed or terminated futures, e.g. `reset(f)` and `v <- value(f)`.  Also automatic restarting of futures when parallel worker dies
-  [[future#FR188], [future#205], [future.callr#FR11], [parallelly#32]]
-<!--
+  [[future#FR188], [future#205], [future.callr#FR11], ~~[parallelly#32]~~]
+
 * Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
-  [~~[future#477]~~, ~~[future#479]~~; implemented in **future** 1.22.0 (next release)]
--->
+  [~~[future#477]~~, ~~[future#479]~~; implemented in **future** 1.22.0]
 
 * Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as `utils::browser()` and `utils::recover()`
   [[future#253]]
@@ -29,7 +28,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#59], [future#142], [future#FR437]]
 
 * MS Windows: Support relaying of UTF-8 output on MS Windows by working around limitations in base R
-  [~~[future#FR473]~~; implemented in **future** 1.23.0 (next release)]
+  [~~[future#FR473]~~; implemented in **future** 1.23.0]
 
 * Marshaling: Make it possible to parallelize also some of the [object types that are currently "non-exportable"](https://future.futureverse.org/articles/future-4-non-exportable-objects.html), e.g. objects by packages such as **DBI**, **keras**, **ncdf4**, **rstan**, **sparklyr**, **xgboost**, and **xml2**
   [Project: **[marshal]**]
