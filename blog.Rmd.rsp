@@ -122,6 +122,13 @@ if (nzchar(image)) {
 
 
 <% blog_post(
+        title = "Future Improvements During 2021",
+          url = "https://www.jottr.org/2022/01/07/future-during-2021/",
+         date = "2022-01-07",
+        image = "https://www.jottr.org/post/paragliding_mount_tamalpais_20220101.jpg"
+) %>
+
+<% blog_post(
         title = "parallelly 1.29.0: New Skills and Less Communication Latency on Linux",
           url = "https://www.jottr.org/2021/11/22/parallelly-1.29.0/",
          date = "2021-11-22",
