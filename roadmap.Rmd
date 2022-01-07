@@ -25,7 +25,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#253]]
 
 * Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
-  [[future#59], [future#142], [future#FR437]]
+  [[future#59], [future#142], ~~[future#FR437]~~]
 
 * MS Windows: Support relaying of UTF-8 output on MS Windows by working around limitations in base R
   [~~[future#FR473]~~; implemented in **future** 1.23.0]
@@ -34,7 +34,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [Project: **[marshal]**]
 
 * Resources: Make it possible to declare "resources" that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc.  This will also make it possible to work with semi-persistent "sticky" globals
-  [[doFuture#FR63], [future#FR181], [future#FR301], [future#FR346], [future#FR430], [future#FR450], [parallelly#18]]
+  [[doFuture#FR63], [future#FR181], [future#FR301], [future#FR346], [future#FR430], [future#FR450], ~~[parallelly#18]~~]
 
 * Multiple backends: Send different futures to different backends, based on which parallel backend can provide the requested resources
 
