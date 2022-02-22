@@ -87,11 +87,11 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
-  <a href="https://www.jottr.org/2022/02/22/future-1.24.0-forwarding-rng-state-also-for-individual-futures/"><img src="images/xkcd_221-random_number.png"/></a>
+  <a href="https://www.jottr.org/2022/02/22/future-1.24.0-forwarding-rng-state-also-for-stand-alone-futures/"><img src="images/xkcd_221-random_number.png"/></a>
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
-   <div class="itemTitle"><a href="https://www.jottr.org/2022/02/22/future-1.24.0-forwarding-rng-state-also-for-individual-futures/">future 1.24.0: Forwarding RNG State also for Stand-Alone Futures</a>
+   <div class="itemTitle"><a href="https://www.jottr.org/2022/02/22/future-1.24.0-forwarding-rng-state-also-for-stand-alone-futures/">future 1.24.0: Forwarding RNG State also for Stand-Alone Futures</a>
    </div>
   </div>
   <div class="itemMeta">
