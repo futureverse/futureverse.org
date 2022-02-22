@@ -122,7 +122,7 @@ if (nzchar(image)) {
 
 
 <% blog_post(
-        title = "future 1.24.0: Forwarding RNG State also for Individual Futures",
+        title = "future 1.24.0: Forwarding RNG State also for Stand-Alone Futures",
           url = "https://www.jottr.org/2022/02/22/future-1.24.0-forwarding-rng-state-also-for-individual-futures/",
          date = "2022-02-22",
         image = "https://www.jottr.org/post/xkcd_221-random_number.png"
