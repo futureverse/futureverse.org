@@ -122,6 +122,13 @@ if (nzchar(image)) {
 
 
 <% blog_post(
+        title = "future 1.24.0: Forwarding RNG State also for Individual Futures",
+          url = "https://www.jottr.org/2022/02/22/future-1.24.0-forwarding-rng-state-also-for-individual-futures/",
+         date = "2022-02-22",
+        image = "https://www.jottr.org/post/xkcd_221-random_number.png"
+) %>
+
+<% blog_post(
         title = "Future Improvements During 2021",
           url = "https://www.jottr.org/2022/01/07/future-during-2021/",
          date = "2022-01-07",
