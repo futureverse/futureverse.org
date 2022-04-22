@@ -122,6 +122,13 @@ if (nzchar(image)) {
 
 
 <% blog_post(
+        title = "parallelly 1.31.1: Better at Inferring Number of CPU Cores with Cgroups and Linux Containers",
+          url = "https://www.jottr.org/2022/04/22/parallelly-1.31.1/",
+         date = "2022-04-22",
+        image = "https://www.jottr.org/post/parallelly-logo.png"
+) %>
+
+<% blog_post(
         title = "future 1.24.0: Forwarding RNG State also for Stand-Alone Futures",
           url = "https://www.jottr.org/2022/02/22/future-1.24.0-forwarding-rng-state-also-for-stand-alone-futures/",
          date = "2022-02-22",
@@ -149,14 +156,12 @@ if (nzchar(image)) {
         image = "https://www.jottr.org/post/progressr-rstudio.png"
 ) %>
 
-
 <% blog_post(
         title = "parallelly 1.26.0: Fast, Concurrent Setup of Parallel Workers (Finally)",
           url = "https://www.jottr.org/2021/06/10/parallelly-1.26.0/",
          date = "2021-06-10",
         image = "https://www.jottr.org/post/parallelly_faster_setup_of_cluster.png"
 ) %>
-
 
 <% blog_post(
         title = "parallelly 1.25.0: availableCores(omit=n) and, Finally, Built-in SSH Support for MS Windows 10 Users",
