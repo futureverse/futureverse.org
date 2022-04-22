@@ -83,6 +83,22 @@ preview: images/site_preview.png
 
 
 
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2022/04/22/parallelly-1.31.1/"><img src="images/parallelly-logo.png"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2022/04/22/parallelly-1.31.1/">parallelly 1.31.1: Better at Inferring Number of CPU Cores with Cgroups and Linux Containers</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2022-04-22</div>
+  </div>
+ </div>
+</div>
 
 
 <div class="listItem">
