@@ -83,6 +83,8 @@ preview: images/site_preview.png
 
 
 
+
+
 <div class="listItem">
  <div class="itemImage">
   <a href="https://www.jottr.org/2022/04/22/parallelly-1.31.1/"><img src="images/parallelly-logo.png"/></a>
@@ -99,7 +101,6 @@ preview: images/site_preview.png
   </div>
  </div>
 </div>
-
 
 <div class="listItem">
  <div class="itemImage">
@@ -169,7 +170,6 @@ preview: images/site_preview.png
  </div>
 </div>
 
-
 <div class="listItem">
  <div class="itemImage">
   <a href="https://www.jottr.org/2021/06/10/parallelly-1.26.0/"><img src="images/parallelly_faster_setup_of_cluster.png"/></a>
@@ -186,7 +186,6 @@ preview: images/site_preview.png
   </div>
  </div>
 </div>
-
 
 <div class="listItem">
  <div class="itemImage">
