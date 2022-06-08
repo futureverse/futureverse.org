@@ -122,6 +122,13 @@ if (nzchar(image)) {
 
 
 <% blog_post(
+        title = "parallelly 1.32.0: makeClusterPSOCK() Didn't Work with Chinese and Korean Locales",
+          url = "https://www.jottr.org/2022/06/08/parallelly-1.32.0-makeclusterpsock-didnt-work-with-chinese-and-korean-locales/",
+         date = "2022-06-08",
+        image = "https://www.jottr.org/post/parallelly-logo.png"
+) %>
+
+<% blog_post(
         title = "progressr 0.10.1: Plyr Now Supports Progress Updates also in Parallel",
           url = "https://www.jottr.org/2022/06/03/progressr-0.10.1/",
          date = "2022-06-03",
