@@ -122,6 +122,13 @@ if (nzchar(image)) {
 
 
 <% blog_post(
+        title = "parallelly: Support for Fujitsu Technical Computing Suite High-Performance Compute (HPC) Environments",
+          url = "https://www.jottr.org/2022/06/09/parallelly-support-for-fujitsu-technical-computing-suite-high-performance-compute-hpc-environments/",
+         date = "2022-06-09",
+        image = "https://www.jottr.org/post/parallelly-logo.png"
+) %>
+
+<% blog_post(
         title = "parallelly 1.32.0: makeClusterPSOCK() Didn't Work with Chinese and Korean Locales",
           url = "https://www.jottr.org/2022/06/08/parallelly-1.32.0-makeclusterpsock-didnt-work-with-chinese-and-korean-locales/",
          date = "2022-06-08",
