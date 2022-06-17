@@ -21,13 +21,16 @@ view:
 	xdg-open docs/index.html
 
 
-stats: stats-revdeps stats-downloads
+stats: stats-revdep-over-time stats-downloads
 
-stats-revdeps:
+stats-revdep-over-time:
 	R_PROGRESSR_ENABLE=true Rscript R/revdep_over_time.R
 
 stats-downloads:
 	R_PROGRESSR_ENABLE=true Rscript R/cran_stats.R
+
+stats-revdep:
+	R_PROGRESSR_ENABLE=true Rscript R/revdep.R
 
 images/favicon.ico: images/logo.png
 	cd images/; \
