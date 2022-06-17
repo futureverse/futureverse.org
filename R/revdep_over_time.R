@@ -47,7 +47,8 @@ gg <- ggplot(counts, aes(x = date, y = count, color = package))
 gg <- gg + scale_colour_manual(values = colors, aesthetics = c("color"))
 gg <- gg_modify(gg)
 image_dims <- attr(gg, "image_dims")
-ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
+pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
+message("Wrote: ", pathname)
 
 
 ## Log scale
@@ -57,7 +58,8 @@ gg <- gg + scale_colour_manual(values = colors)
 gg <- gg + scale_y_log10()
 gg <- gg_modify(gg, legend = "lower-right")
 image_dims <- attr(gg, "image_dims")
-ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = image_dims[1], height = image_dims[2])
+pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = image_dims[1], height = image_dims[2])
+message("Wrote: ", pathname)
 
 message("Number of reverse dependencies:")
 print(tail(stats, n = 20L))
