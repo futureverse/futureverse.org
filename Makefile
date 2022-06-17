@@ -24,10 +24,10 @@ view:
 stats: stats-revdeps stats-downloads
 
 stats-revdeps:
-	Rscript R/revdep_over_time.R
+	R_PROGRESSR_ENABLE=true Rscript R/revdep_over_time.R
 
 stats-downloads:
-	Rscript R/cran_stats.R
+	R_PROGRESSR_ENABLE=true Rscript R/cran_stats.R
 
 images/favicon.ico: images/logo.png
 	cd images/; \
