@@ -4,7 +4,7 @@ description: Presentations on futures with slides and recorded videos
 preview: images/site_preview.png
 ---
 
-* [upcoming] Henrik Bengtsson, [Futureverse: Profile Parallel Code](https://user2022.r-project.org/program/tutorials/#futureverse-parallelization-in-r), useR! 2022, 2022-06-22 (15+5 minutes)
+* [upcoming] Henrik Bengtsson, Futureverse: Profile Parallel Code, [Session 21, Parallel Computing](https://user2022.r-project.org/program/talks/#session-21-parallel-computing), useR! 2022, 2022-06-22 (15+5 minutes)
 
 * Henrik Bengtsson, [Future - Simple, Scalable Parallelization in R for the Biomedical Community](https://docs.google.com/presentation/d/18gxBd5Bgn0GNDyl5MlCt_s7b6gTUEcJV9c2xSLC11Nk/view#slide=id.gf778290f24_0_165), CZI EOSS 2021, 2021-11-02 (10 minutes)
 
