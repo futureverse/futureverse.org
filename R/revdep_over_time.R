@@ -47,6 +47,7 @@ gg <- ggplot(counts, aes(x = date, y = count, color = package))
 gg <- gg + scale_colour_manual(values = colors, aesthetics = c("color"))
 gg <- gg_modify(gg)
 image_dims <- attr(gg, "image_dims")
+gg <- gg + scale_colour_manual(values = colors[-1], aesthetics = c("color"))
 pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
 
