@@ -1,13 +1,13 @@
 SHELL=bash
 
-FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd
+FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd tutorials.Rmd
 
 PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.mapreduce future.tests globals listenv marshal parallelly progressr
 
 DOMAIN ?= futureverse.org
 
 
-all: spell build
+all: spell build tutorials
 
 spell:
 	hunspell -H $(FILES)
@@ -16,6 +16,9 @@ build:
 	Rscript -e R.rsp::rfile blog.Rmd.rsp --postprocess=FALSE
 	module load pandoc; \
 	Rscript -e "rmarkdown::render_site()"
+
+tutorials:
+	Rscript -e "rmarkdown::render('tutorials.Rmd')"
 
 view:
 	xdg-open docs/index.html
