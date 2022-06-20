@@ -64,14 +64,16 @@ and understand how the **future** framework:
 Ahead of time, before attending the tutorial, please install the following R packages:
 
 ```r
-install.packages("future")         # ~ 30 sec
-install.packages("future.apply")   # ~ 15 sec
-install.packages("doFuture")       # ~ 15 sec
-install.packages("doRNG")          # ~ 15 sec
-install.packages("furrr")          # ~ 60 sec
-install.packages("future.callr")   # ~ 30 sec
-install.packages("progressr")      # ~ 15 sec
-install.packages("progress")       # ~ 15 sec
+install.packages("future")         # ~ 30 secs
+install.packages("future.apply")   # ~ 15 secs
+install.packages("furrr")          # ~ 60 secs
+install.packages("foreach")        # ~ 10 secs
+install.packages("doFuture")       # ~ 15 secs
+install.packages("doRNG")          # ~ 15 secs
+install.packages("plyr")           # ~ 60 secs
+install.packages("future.callr")   # ~ 30 secs
+install.packages("progressr")      # ~ 15 secs
+install.packages("progress")       # ~ 15 secs
 ```
 
 The time estimates are when install the package from source on a fresh Linux R setup with a 1 Gbit/s internet connection.  It's faster when installing from binaries on macOS and MS Windows.
