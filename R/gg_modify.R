@@ -1,6 +1,6 @@
 #' @import ggplot2
 #' @export
-gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upper-left", "lower-right"), image_dims = attr(gg, "image_dims")) {
+gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upper-left", "lower-right", "none"), image_dims = attr(gg, "image_dims")) {
   mode <- match.arg(mode, choices = c("presentation", "website"))
   legend <- match.arg(legend)
   
@@ -25,8 +25,10 @@ gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upp
   gg <- gg + guides(col = guide_legend(title = "Package:"))
   if (legend == "lower-right") {
     gg <- gg + theme(legend.position = c(0.84, 0.15))
-  } else {
+  } else if (legend == "upper-left") {
     gg <- gg + theme(legend.position = c(0.15, 0.85))
+  } else if (legend == "none") {
+    gg <- gg + theme(legend.position = "none")
   }
 
   if (mode == "presentation") {
