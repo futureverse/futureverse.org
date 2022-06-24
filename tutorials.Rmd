@@ -89,7 +89,7 @@ preview: images/site_preview.png
 <div class="listItem">
  <div class="itemDetails">
   <div class="itemHeader">
-   <div class="itemTitle"><a href="https://henrikbengtsson.github.io/future-tutorial-user2022/">Tutorial: An Introduction to Futureverse for Parallel Processing in R (useR! 2022)</a>
+   <div class="itemTitle"><a href="https://henrikbengtsson.github.io/future-tutorial-user2022/">An Introduction to Futureverse for Parallel Processing in R (useR! 2022)</a>
    </div>
   </div>
   <div class="itemMeta">
