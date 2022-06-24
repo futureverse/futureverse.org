@@ -19,6 +19,7 @@ build:
 
 tutorials:
 	Rscript -e "rmarkdown::render('tutorials.Rmd')"
+	cp tutorials.html docs/
 
 view:
 	xdg-open docs/index.html

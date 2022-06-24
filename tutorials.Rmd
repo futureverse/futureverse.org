@@ -4,6 +4,108 @@ description: Tutorials on Using Futures
 preview: images/site_preview.png
 ---
 
+
+<style>
+/* Borrowed from https://www.tidyverse.org/blog/ */
+.listItem {
+ display:flex;
+ justify-content:flex-start;
+ display:-ms-flexbox;
+ -ms-flex-pack:start;
+ display:-webkit-box;
+ display:-webkit-flex;
+ -webkit-justify-content:flex-start;
+ margin-bottom:30px
+}
+.listItem .itemImage {
+ flex-shrink:0;
+ width:150px;
+ height:150px;
+ margin:0 30px 15px 0;
+ background-size:contain;
+ background-position:center
+}
+.listItem .itemImage img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover
+}
+.listItem .itemDetails {
+ width:100%;
+ font-size:.875rem;
+ line-height:20px
+}
+.listItem .itemDetails .itemHeader {
+ display:flex;
+ justify-content:space-between;
+ display:-ms-flexbox;
+ -ms-flex-pack:justify;
+ display:-webkit-box;
+ display:-webkit-flex;
+ -webkit-justify-content:space-between;
+ align-items:flex-start;
+ line-height:30px;
+ margin-bottom:3px
+}
+.listItem .itemDetails .itemHeader .itemTitle {
+ font-size:20px;
+ display:block
+}
+.listItem .itemDetails .itemHeader .itemActions {
+ flex-shrink:0;
+ height:30px
+}
+.listItem .itemDetails .itemMeta .itemDescription {
+ margin-bottom:.375rem;
+ white-space:pre-line
+}
+.listItem .itemDetails .itemMeta .itemDate,
+.listItem .itemDetails .itemMeta .itemInfo {
+ font-size:.875rem;
+ color:grey;
+}
+.listItem .itemDetails .itemMeta .itemInfo li {
+ margin-bottom: 0.1em;
+}
+.listItem .itemDetails .itemMeta .itemDate .created,
+.listItem .itemDetails .itemMeta .itemDate .updated,
+.listItem .itemDetails .itemMeta .itemInfo .created,
+.listItem .itemDetails .itemMeta .itemInfo .updated {
+ display:inline-block
+}
+.listItem .itemDetails .itemMeta .itemDate .created,
+.listItem .itemDetails .itemMeta .itemInfo .created {
+ padding-right:20px
+}
+.listItem .itemDetails .itemMeta .itemInfo .forkedFrom {
+ display:inline-block
+}
+.listItem .itemDetails .itemMeta .itemInfo .updated {
+ padding-right:20px
+}
+</style>
+
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2022/06/23/future-user2022-slides/"><img src="images/BengtssonH_20220622-Future-useR2022_slide18.png"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://henrikbengtsson.github.io/future-tutorial-user2022/">Tutorial: An Introduction to Futureverse for Parallel Processing in R (useR! 2022)</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   <div class="itemInfo">
+Location: useR! 2022 conference, online, June 20-24, 2022
+   </div>
+   <div class="itemDate">2022-06-20</div>
+  </div>
+ </div>
+</div>
+
+
 # Tutorial: An Introduction to Futureverse for Parallel Processing in R
 
 * Where: online, useR! 2022 conference (June 20-24, 2022)
