@@ -77,6 +77,8 @@ navbar:
       href: statistics.html
     - text: "Quality"
       href: quality.html
+    - text: "Tutorials"
+      href: tutorials.html
     - text: "Talks"
       href: talks.html
     - text: "Publications"

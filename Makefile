@@ -7,7 +7,7 @@ PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchto
 DOMAIN ?= futureverse.org
 
 
-all: spell build tutorials
+all: spell build
 
 spell:
 	hunspell -H $(FILES)
@@ -16,10 +16,6 @@ build:
 	Rscript -e R.rsp::rfile blog.Rmd.rsp --postprocess=FALSE
 	module load pandoc; \
 	Rscript -e "rmarkdown::render_site()"
-
-tutorials:
-	Rscript -e "rmarkdown::render('tutorials.Rmd')"
-	cp tutorials.html docs/
 
 view:
 	xdg-open docs/index.html
