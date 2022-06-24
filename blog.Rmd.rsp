@@ -120,6 +120,12 @@ if (nzchar(image)) {
 </div>
 <% } ## blog_post() %>
 
+<% blog_post(
+        title = "useR! 2022: My 'Futureverse: Profile Parallel Code' Slides",
+          url = "https://www.jottr.org/2022/06/23/future-user2022-slides/",
+         date = "2022-06-24",
+        image = "https://www.jottr.org/post/BengtssonH_20220622-Future-useR2022_slide18.png"
+) %>
 
 <% blog_post(
         title = "parallelly: Support for Fujitsu Technical Computing Suite High-Performance Compute (HPC) Environments",
