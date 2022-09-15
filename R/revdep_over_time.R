@@ -2,6 +2,7 @@ suppressPackageStartupMessages({
   library(revdepcheck.extras)
   library(tidyr)
   library(dplyr)
+  library(tibble)
   library(ggplot2)
   library(progressr)
 })
@@ -28,7 +29,17 @@ dates <- c(seq(as.Date("2015-06-19"), Sys.Date(), by=7), Sys.Date())
 stats <- revdep_over_time(dates, pkgs = pkgs)
 
 counts_all <- tidyr::gather(stats, package, count, -1, factor_key = TRUE)
-counts_all <- subset(counts_all, count > 2)
+counts_all <- as_tibble(counts_all)
+counts_all <- group_by(counts_all, package)
+
+repeat {
+  counts_all <- mutate(counts_all, diff = count - lag(count), change = diff / count)
+  drop <- which(counts_all$change < -2)
+  if (length(drop) == 0) break
+  counts_all <- counts_all[-drop, ]
+}
+
+counts_all <- subset(counts_all, count >= 2)
 counts_all <- subset(counts_all, !(package == "foreach" & count < 10))
 excl_dates <- unique(subset(counts_all, date > "2018-01-01" & count <= 4)$date)
 counts_all <- subset(counts_all, ! date %in% excl_dates)
