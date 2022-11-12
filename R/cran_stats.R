@@ -64,7 +64,7 @@ image_dims <- c(7.5, 6.0)
 
 counts4b <- subset(counts4, package %in% pkgs)
 gg <- ggplot(counts4b, aes(x = week_of, y = fraction, color = package))
-gg <- gg + geom_line(size = 1.2)
+gg <- gg + geom_line(linewidth = 1.2)
 gg <- gg + scale_colour_manual(values = colors)
 #gg <- gg + geom_smooth(method = "loess", span = 0.1)
 #gg <- gg + geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE)

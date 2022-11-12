@@ -10,10 +10,10 @@ gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upp
   }
 
   ## Defaults
-  gg <- gg + geom_line(size = 1.2)
+  gg <- gg + geom_line(linewidth = 1.2)
   gg <- gg + labs(x = "", y = "Number of reverse dependencies")
 
-  gg <- gg + geom_line(size = 2.0)
+  gg <- gg + geom_line(linewidth = 2.0)
   gg <- gg + theme(
     axis.text       = element_text(size = 20, colour = "black"),
     axis.title      = element_text(size = 20, colour = "black",
@@ -32,7 +32,7 @@ gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upp
   }
 
   if (mode == "presentation") {
-    gg <- gg + geom_line(size = 2.0)
+    gg <- gg + geom_line(linewidth = 2.0)
     gg <- gg + theme(
       axis.text       = element_text(size = 20, colour = "black"),
       axis.title      = element_text(size = 20, colour = "black",
