@@ -14,7 +14,11 @@ future::plan("multisession", workers = 3)
 #future::plan("sequential")
 
 handlers(global = TRUE)
-handlers(handler_progress(format = ":spin :current/:total (:message) [:bar] :percent in :elapsed ETA: :eta"))
+if (packageVersion("progressr") >= "0.11.0-9011" && requireNamespace("cli", quietly = TRUE)) {
+  handlers(handler_cli(format = "{cli::pb_spin} {cli::pb_current}/{cli::pb_total} {cli::pb_bar} {cli::pb_percent} {cli::pb_status} {cli::pb_eta}"))
+} else if (requireNamespace("progress", quietly = TRUE)) {
+  handlers(handler_progress(format = ":spin :current/:total (:message) [:bar] :percent in :elapsed ETA: :eta"))
+}
 
 
 ## Get (week, from, to) since beginning of 'future'
