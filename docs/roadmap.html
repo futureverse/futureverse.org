@@ -536,6 +536,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1608,15 +1609,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1815,7 +1822,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1916,213 +1923,77 @@ Packages &amp; Docs
 
 
 <div class="d-article">
-<p>Below are some<a href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a> of the bigger milestones on the
-roadmap. The issues linked that are examples of feature requests from
-end-users are prefixed ‘FR’, which will be resolved by the other non-FR
-issues.</p>
+<p>Below are some<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of the bigger milestones on the roadmap. The issues linked that are examples of feature requests from end-users are prefixed ‘FR’, which will be resolved by the other non-FR issues.</p>
 <h2 id="core-future-api">Core Future API</h2>
 <ul>
-<li><p>Support for controlling R options and environment variables via
-<code>future()</code> [<a
-href="https://github.com/HenrikBengtsson/future/issues/480">future#480</a>]</p></li>
-<li><p>Termination of futures, e.g. <code>suspend(f)</code>. Since not
-all backends can support termination, the design should be such that
-failed termination attempts must not affect the workflow and its results
-[<a
-href="https://github.com/HenrikBengtsson/future/issues/93">future#93</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/213">future#FR213</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.batchtools/issues/27">future.batchtools#FR27</a>,
-<a
-href="https://github.com/HenrikBengtsson/parallelly/issues/33">parallelly#33</a>]</p></li>
-<li><p>Restarting of failed or terminated futures,
-e.g. <code>reset(f)</code> and <code>v &lt;- value(f)</code>. Also
-automatic restarting of futures when parallel worker dies [<a
-href="https://github.com/HenrikBengtsson/future/issues/188">future#FR188</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/205">future#205</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.callr/issues/11">future.callr#FR11</a>,
-<del><a
-href="https://github.com/HenrikBengtsson/parallelly/issues/32">parallelly#32</a></del>]</p></li>
-<li><p>Troubleshooting: Even more informative error message when futures
-fails, e.g. include information on globals and packages involved if a
-parallel worker dies [<del><a
-href="https://github.com/HenrikBengtsson/future/issues/477">future#477</a></del>,
-<del><a
-href="https://github.com/HenrikBengtsson/future/issues/479">future#479</a></del>;
-implemented in <strong>future</strong> 1.22.0]</p></li>
-<li><p>Troubleshooting: Improve debugging of future that produce errors,
-e.g. capture call frames in parallel workers and let user inspect them
-via tools such as <code>utils::browser()</code> and
-<code>utils::recover()</code> [<a
-href="https://github.com/HenrikBengtsson/future/issues/253">future#253</a>]</p></li>
-<li><p>Performance: Add built-in speed and memory profiling tools to
-help developers and users identify bottle necks and improve overall
-performance [<a
-href="https://github.com/HenrikBengtsson/future/issues/59">future#59</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/142">future#142</a>,
-<del><a
-href="https://github.com/HenrikBengtsson/future/issues/437">future#FR437</a></del>]</p></li>
-<li><p>MS Windows: Support relaying of UTF-8 output on MS Windows by
-working around limitations in base R [<del><a
-href="https://github.com/HenrikBengtsson/future/issues/473">future#FR473</a></del>;
-implemented in <strong>future</strong> 1.23.0]</p></li>
-<li><p>Marshaling: Make it possible to parallelize also some of the <a
-href="https://future.futureverse.org/articles/future-4-non-exportable-objects.html">object
-types that are currently “non-exportable”</a>, e.g. objects by packages
-such as <strong>DBI</strong>, <strong>keras</strong>,
-<strong>ncdf4</strong>, <strong>rstan</strong>,
-<strong>sparklyr</strong>, <strong>xgboost</strong>, and
-<strong>xml2</strong> [Project: <strong><a
-href="https://marshal.futureverse.org">marshal</a></strong>]</p></li>
-<li><p>Resources: Make it possible to declare “resources” that a future
-requires in order to be resolved, e.g. minimal memory requirements,
-access to the local file system, a specific operating system, internet
-access, sandboxed, etc. This will also make it possible to work with
-semi-persistent “sticky” globals [<a
-href="https://github.com/HenrikBengtsson/doFuture/issues/63">doFuture#FR63</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/181">future#FR181</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/301">future#FR301</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/346">future#FR346</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/430">future#FR430</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/450">future#FR450</a>,
-<del><a
-href="https://github.com/HenrikBengtsson/parallelly/issues/18">parallelly#18</a></del>]</p></li>
-<li><p>Multiple backends: Send different futures to different backends,
-based on which parallel backend can provide the requested
-resources</p></li>
-<li><p>Scheduling: Add generic support for queueing such that futures
-can be queued on the local computer, on a remote scheduler, or in
-peer-to-peer scheduler among collaborators [<a
-href="https://github.com/HenrikBengtsson/future/issues/256">future#FR256</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.apply/issues/63">future.apply#FR63</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.batchtools/issues/23">future.batchtools#FR23</a>]</p></li>
-<li><p>Flattening nested parallelism: Process nested futures via a
-common future queue instead of via nested future plans [<a
-href="https://github.com/HenrikBengtsson/future/issues/361">future#FR361</a>]</p></li>
+<li><p>Support for controlling R options and environment variables via <code>future()</code>
+[<a href="https://github.com/HenrikBengtsson/future/issues/480">future#480</a>]</p></li>
+<li><p>Termination of futures, e.g. <code>suspend(f)</code>. Since not all backends can support termination, the design should be such that failed termination attempts must not affect the workflow and its results
+[<a href="https://github.com/HenrikBengtsson/future/issues/93">future#93</a>, <a href="https://github.com/HenrikBengtsson/future/issues/213">future#FR213</a>, <a href="https://github.com/HenrikBengtsson/future.batchtools/issues/27">future.batchtools#FR27</a>, <a href="https://github.com/HenrikBengtsson/parallelly/issues/33">parallelly#33</a>]</p></li>
+<li><p>Restarting of failed or terminated futures, e.g. <code>reset(f)</code> and <code>v &lt;- value(f)</code>. Also automatic restarting of futures when parallel worker dies
+[<a href="https://github.com/HenrikBengtsson/future/issues/188">future#FR188</a>, <a href="https://github.com/HenrikBengtsson/future/issues/205">future#205</a>, <a href="https://github.com/HenrikBengtsson/future.callr/issues/11">future.callr#FR11</a>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/32">parallelly#32</a></del>]</p></li>
+<li><p>Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
+[<del><a href="https://github.com/HenrikBengtsson/future/issues/477">future#477</a></del>, <del><a href="https://github.com/HenrikBengtsson/future/issues/479">future#479</a></del>; implemented in <strong>future</strong> 1.22.0]</p></li>
+<li><p>Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as <code>utils::browser()</code> and <code>utils::recover()</code>
+[<a href="https://github.com/HenrikBengtsson/future/issues/253">future#253</a>]</p></li>
+<li><p>Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
+[<a href="https://github.com/HenrikBengtsson/future/issues/59">future#59</a>, <a href="https://github.com/HenrikBengtsson/future/issues/142">future#142</a>, <del><a href="https://github.com/HenrikBengtsson/future/issues/437">future#FR437</a></del>]</p></li>
+<li><p>MS Windows: Support relaying of UTF-8 output on MS Windows by working around limitations in base R
+[<del><a href="https://github.com/HenrikBengtsson/future/issues/473">future#FR473</a></del>; implemented in <strong>future</strong> 1.23.0]</p></li>
+<li><p>Marshaling: Make it possible to parallelize also some of the <a href="https://future.futureverse.org/articles/future-4-non-exportable-objects.html">object types that are currently “non-exportable”</a>, e.g. objects by packages such as <strong>DBI</strong>, <strong>keras</strong>, <strong>ncdf4</strong>, <strong>rstan</strong>, <strong>sparklyr</strong>, <strong>xgboost</strong>, and <strong>xml2</strong>
+[Project: <strong><a href="https://marshal.futureverse.org">marshal</a></strong>]</p></li>
+<li><p>Resources: Make it possible to declare “resources” that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc. This will also make it possible to work with semi-persistent “sticky” globals
+[<a href="https://github.com/HenrikBengtsson/doFuture/issues/63">doFuture#FR63</a>, <a href="https://github.com/HenrikBengtsson/future/issues/181">future#FR181</a>, <a href="https://github.com/HenrikBengtsson/future/issues/301">future#FR301</a>, <a href="https://github.com/HenrikBengtsson/future/issues/346">future#FR346</a>, <a href="https://github.com/HenrikBengtsson/future/issues/430">future#FR430</a>, <a href="https://github.com/HenrikBengtsson/future/issues/450">future#FR450</a>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/18">parallelly#18</a></del>]</p></li>
+<li><p>Multiple backends: Send different futures to different backends, based on which parallel backend can provide the requested resources</p></li>
+<li><p>Scheduling: Add generic support for queueing such that futures can be queued on the local computer, on a remote scheduler, or in peer-to-peer scheduler among collaborators
+[<a href="https://github.com/HenrikBengtsson/future/issues/256">future#FR256</a>, <a href="https://github.com/HenrikBengtsson/future.apply/issues/63">future.apply#FR63</a>, <a href="https://github.com/HenrikBengtsson/future.batchtools/issues/23">future.batchtools#FR23</a>]</p></li>
+<li><p>Flattening nested parallelism: Process nested futures via a common future queue instead of via nested future plans
+[<a href="https://github.com/HenrikBengtsson/future/issues/361">future#FR361</a>]</p></li>
 </ul>
 <h2 id="map-reduce-future-api">Map-Reduce Future API</h2>
 <ul>
-<li><p>Develop a <strong><a
-href="https://future.mapreduce.futureverse.org">future.mapreduce</a></strong>
-package to provide an essential, infrastructure Map-Reduce Future API,
-e.g. load balancing, chunking, parallel random number generation (RNG),
-and early stopping. Packages such as <strong>future.apply</strong>,
-<strong>furrr</strong>, and <strong>doFuture</strong> are currently
-implementing their own version of these features. Consolidating these
-essentials into a shared utility package will guarantee a consistent
-behavior for all together with faster deployment of bug fixes and
-improvements [<a
-href="https://github.com/HenrikBengtsson/future.apply/issues/20">future.apply#20</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.apply/issues/32">future.apply#FR32</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.apply/issues/44">future.apply#FR44</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.apply/issues/59">future.apply#59</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.apply/issues/60">future.apply#FR60</a>]</p></li>
-<li><p>Develop more efficient chunking of large objects in map-reduce
-calls. This can be achieved by introducing a mechanism or a syntax to
-declare that part of the code should be processed prior to being
-parallelized, e.g. further subsetting of and validation of input data
-before distributing them to parallel workers</p></li>
-<li><p>Early stopping, e.g. have <code>future_lapply(X, FUN)</code>
-terminate active futures as soon as one of the <code>FUN(X[[i]])</code>
-calls produces an error [<a
-href="https://github.com/HenrikBengtsson/future/issues/213">future#FR213</a>,
-<a
-href="https://github.com/HenrikBengtsson/future.apply/issues/75">future.apply#FR75</a>]</p></li>
-<li><p>Automatic map-reduce: Support for merging of many futures into
-chunks of futures to be processed more efficiently with less total
-overhead. This could make
-<code>fs &lt;- lapply(X, function(x) future(FUN(x))</code> and
-<code>vs &lt;- value(fs)</code> automatically as efficient as
-<code>future_lapply(X, FUN)</code> removing the need for custom
-implementations</p></li>
-<li><p>Robustness of foreach: Implement bug fixes and outstanding
-<strong>foreach</strong> feature requests in the
-<strong>doFuture</strong> adapter until resolved upstream. For example,
-add options to make <code>foreach()</code> use proper parallel RNG even
-when the develop has forgotten to use <code>%doRNG%</code> [<a
-href="https://github.com/HenrikBengtsson/doFuture/issues/61">doFuture#61</a>]</p></li>
-<li><p>Generic support for progress updates for common map-reduce
-functions, e.g. <code>y &lt;- lapply(X, slow_fcn) %progress% TRUE</code>
-and <code>y &lt;- X %&gt;% future_map(slow_fcn) %progress% TRUE</code>
-[<a
-href="https://github.com/HenrikBengtsson/progressr/issues/85">progressr#FR85</a>,
-<del><a
-href="https://github.com/HenrikBengtsson/progressr/issues/113">progressr#113</a></del>]</p></li>
+<li><p>Develop a <strong><a href="https://future.mapreduce.futureverse.org">future.mapreduce</a></strong> package to provide an essential, infrastructure Map-Reduce Future API, e.g. load balancing, chunking, parallel random number generation (RNG), and early stopping. Packages such as <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doFuture</strong> are currently implementing their own version of these features. Consolidating these essentials into a shared utility package will guarantee a consistent behavior for all together with faster deployment of bug fixes and improvements
+[<a href="https://github.com/HenrikBengtsson/future.apply/issues/20">future.apply#20</a>, <a href="https://github.com/HenrikBengtsson/future.apply/issues/32">future.apply#FR32</a>, <a href="https://github.com/HenrikBengtsson/future.apply/issues/44">future.apply#FR44</a>, <a href="https://github.com/HenrikBengtsson/future.apply/issues/59">future.apply#59</a>, <a href="https://github.com/HenrikBengtsson/future.apply/issues/60">future.apply#FR60</a>]</p></li>
+<li><p>Develop more efficient chunking of large objects in map-reduce calls. This can be achieved by introducing a mechanism or a syntax to declare that part of the code should be processed prior to being parallelized, e.g. further subsetting of and validation of input data before distributing them to parallel workers</p></li>
+<li><p>Early stopping, e.g. have <code>future_lapply(X, FUN)</code> terminate active futures as soon as one of the <code>FUN(X[[i]])</code> calls produces an error
+[<a href="https://github.com/HenrikBengtsson/future/issues/213">future#FR213</a>, <a href="https://github.com/HenrikBengtsson/future.apply/issues/75">future.apply#FR75</a>]</p></li>
+<li><p>Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make <code>fs &lt;- lapply(X, function(x) future(FUN(x))</code> and <code>vs &lt;- value(fs)</code> automatically as efficient as <code>future_lapply(X, FUN)</code> removing the need for custom implementations</p></li>
+<li><p>Robustness of foreach: Implement bug fixes and outstanding <strong>foreach</strong> feature requests in the <strong>doFuture</strong> adapter until resolved upstream. For example, add options to make <code>foreach()</code> use proper parallel RNG even when the develop has forgotten to use <code>%doRNG%</code>
+[<a href="https://github.com/HenrikBengtsson/doFuture/issues/61">doFuture#61</a>]</p></li>
+<li><p>Generic support for progress updates for common map-reduce functions, e.g. <code>y &lt;- lapply(X, slow_fcn) %progress% TRUE</code> and <code>y &lt;- X %&gt;% future_map(slow_fcn) %progress% TRUE</code>
+[<a href="https://github.com/HenrikBengtsson/progressr/issues/85">progressr#FR85</a>, <del><a href="https://github.com/HenrikBengtsson/progressr/issues/113">progressr#113</a></del>]</p></li>
 </ul>
 <h2 id="parallel-backends">Parallel backends</h2>
 <p>Below is a list of future backends that are planned.</p>
 <ul>
-<li><p><strong>future.aws.lambda</strong> - a backend to resolve futures
-via the Amazon AWS Lambda service. A group of several people is actively
-working on this since the end of 2020 [<a
-href="https://github.com/HenrikBengtsson/future/issues/423">future#FR423</a>]</p></li>
-<li><p><strong>future.aws.batch</strong> - a backend to resolve futures
-via the Amazon AWS Batch service. We have working group of several
-people actively working on this [<a
-href="https://github.com/HenrikBengtsson/future/issues/423">future#FR423</a>]</p></li>
-<li><p><strong>future.clustermq</strong> - a backend to resolve futures
-on a HPC cluster via the <strong>clustermq</strong> package [<a
-href="https://github.com/HenrikBengtsson/future/issues/204">future#FR204</a>,
-<a
-href="https://github.com/HenrikBengtsson/future/issues/267">future#FR267</a>]</p></li>
-<li><p><strong>future.google.cloud.functions</strong> - a backend to
-resolve futures via the Google Cloud Functions service. Work on this
-will start when a stable <strong>future.aws.lambda</strong> prototype
-has been established</p></li>
-<li><p><strong>future.p2p</strong> - a backend to resolve futures via a
-peer-to-peer network of trusted collaborators</p></li>
-<li><p><strong>future.rrq</strong> - a backend to resolve futures via a
-Redis queue using the <strong>rrq</strong> package The
-<strong>future</strong> and <strong>rrq</strong> maintainers are working
-on this since April 2021 [<a
-href="https://github.com/HenrikBengtsson/future/issues/151">future#FR151</a>]</p></li>
-<li><p><strong>future.sandbox</strong> - a backend to resolve untrusted
-futures via locked-down, sandboxed Linux containers (Docker,
-Singularity, …) without access to the hosts file system or network. This
-can already be partially achieved by low-level container setups via
-<strong>parallelly</strong></p></li>
-<li><p><strong>future.sparklyr</strong> - a backend to resolve futures
-in Spark via the <strong>sparklyr</strong> package [<a
-href="https://github.com/HenrikBengtsson/future/issues/286">future#FR286</a>,
-<a
-href="https://github.com/sparklyr/sparklyr/issues/1935">sparklyr#FR1935</a>]</p></li>
+<li><p><strong>future.aws.lambda</strong> - a backend to resolve futures via the Amazon AWS Lambda service.
+A group of several people is actively working on this since the end of 2020
+[<a href="https://github.com/HenrikBengtsson/future/issues/423">future#FR423</a>]</p></li>
+<li><p><strong>future.aws.batch</strong> - a backend to resolve futures via the Amazon AWS Batch service.
+We have working group of several people actively working on this
+[<a href="https://github.com/HenrikBengtsson/future/issues/423">future#FR423</a>]</p></li>
+<li><p><strong>future.clustermq</strong> - a backend to resolve futures on a HPC cluster via the <strong>clustermq</strong> package
+[<a href="https://github.com/HenrikBengtsson/future/issues/204">future#FR204</a>, <a href="https://github.com/HenrikBengtsson/future/issues/267">future#FR267</a>]</p></li>
+<li><p><strong>future.google.cloud.functions</strong> - a backend to resolve futures via the Google Cloud Functions service.
+Work on this will start when a stable <strong>future.aws.lambda</strong> prototype has been established</p></li>
+<li><p><strong>future.p2p</strong> - a backend to resolve futures via a peer-to-peer network of trusted collaborators</p></li>
+<li><p><strong>future.rrq</strong> - a backend to resolve futures via a Redis queue using the <strong>rrq</strong> package
+The <strong>future</strong> and <strong>rrq</strong> maintainers are working on this since April 2021
+[<a href="https://github.com/HenrikBengtsson/future/issues/151">future#FR151</a>]</p></li>
+<li><p><strong>future.sandbox</strong> - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, …) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via <strong>parallelly</strong></p></li>
+<li><p><strong>future.sparklyr</strong> - a backend to resolve futures in Spark via the <strong>sparklyr</strong> package
+[<a href="https://github.com/HenrikBengtsson/future/issues/286">future#FR286</a>, <a href="https://github.com/sparklyr/sparklyr/issues/1935">sparklyr#FR1935</a>]</p></li>
 </ul>
 <h2 id="miscellaneous">Miscellaneous</h2>
 <ul>
-<li><p>Internationalization (i18n): Make all error and warning messages
-translatable via R’s <code>gettext()</code> framework. Invite community
-to provide message translations.</p></li>
-<li><p>Consider relicensing code to a permissive license, where
-possible</p></li>
+<li><p>Internationalization (i18n): Make all error and warning messages translatable via R’s <code>gettext()</code> framework. Invite community to provide message translations.</p></li>
+<li><p>Consider relicensing code to a permissive license, where possible</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<section class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>This list is manual curated and may
-not be comprehensive. Please see the issue trackers and milestones of
-the different package repositories for a more up-to-date view, e.g. <a
-href="https://github.com/HenrikBengtsson/future/milestones"
-class="uri">https://github.com/HenrikBengtsson/future/milestones</a>.<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>This list is manual curated and may not be comprehensive. Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. <a href="https://github.com/HenrikBengtsson/future/milestones" class="uri">https://github.com/HenrikBengtsson/future/milestones</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <!--radix_placeholder_article_footer-->

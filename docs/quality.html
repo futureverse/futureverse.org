@@ -536,6 +536,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1608,15 +1609,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1815,7 +1822,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1911,92 +1918,90 @@ Packages &amp; Docs
 <h1>Quality, Validation &amp; Maintenance</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>Top priorities: correctness, reproducibility, long-term stability,
-and trust</p>
+<p>Top priorities: correctness, reproducibility, long-term stability, and trust</p>
 </div>
 
 
 <div class="d-article">
 <p>Since correctness and reproducibility is essential to all data
 processing, validation is a top priority and part of the design and
-implementation throughout the future ecosystem. Several types of testing
-are performed.</p>
+implementation throughout the future ecosystem. Several types of
+testing are performed.</p>
 <p>First, all the essential core packages part of the future framework,
-<strong>future</strong>, <strong>parallelly</strong>,
-<strong>globals</strong>, and <strong>listenv</strong>, implement a rich
-set of package tests. These are validated regularly across the
-wide-range of operating systems (Linux, Solaris, macOS, and MS Windows)
-and R versions available on CRAN, on continuous integration (CI)
-services (GitHub Actions, Travis CI, and AppVeyor CI), an on R-hub.</p>
+<strong>future</strong>, <strong>parallelly</strong>, <strong>globals</strong>, and <strong>listenv</strong>,
+implement a rich set of package tests. These are validated regularly
+across the wide-range of operating systems (Linux, Solaris, macOS, and
+MS Windows) and R versions available on CRAN, on continuous
+integration (CI) services (GitHub Actions, Travis CI, and AppVeyor
+CI), an on R-hub.</p>
 <p>Second, for each new release, these packages undergo full
-reverse-package dependency checks using <strong>revdepcheck</strong>. As
-of October 2021, the <strong>future</strong> package is tested against
-210 direct reverse-package dependencies available on CRAN and
-Bioconductor. These checks are performed on Linux with both the default
-settings and when forcing tests to use multisession workers (SOCK
-clusters), which further validates that globals and packages are
-identified correctly.</p>
+reverse-package dependency checks
+using <strong>revdepcheck</strong>. As of October 2021,
+the <strong>future</strong> package is tested against 210 direct reverse-package
+dependencies available on CRAN and Bioconductor. These checks are
+performed on Linux with both the default settings and when forcing
+tests to use multisession workers (SOCK clusters), which further
+validates that globals and packages are identified correctly.</p>
 <div>
 <p><img src="images/future.tests-screencast.gif" alt="A screencast
 animation of future.tests running in the terminal. It starts with the
 command-line call, followed by tests being run one by one filling up
 the screen. After 30-or-so tests, the program completes with the
 results: 0 errors, 0 timeouts." style="width: 50%; padding-left: 2ex;
-padding-bottom: 1ex; float: right;"/> Third, a suite of <em>Future API
-conformance tests</em> available in the <strong>future.tests</strong>
-package validates the correctness of all future backends. Any new future
-backend developed, must pass these tests to comply with the <em>Future
-API</em>. By conforming to this API, the end-user can trust that the
-backend will produce the same correct and reproducible results as any
-other backend, including the ones that the backend developer have tested
-on. Also, by making it the responsibility of the backend developer to
-assert that their new future backend conforms to the <em>Future
-API</em>, we relieve other developers from having to test that their
-future-based software works on all backends. It would be a daunting task
-for a developer to validate the correctness of their software with all
-existing backends. Even if they would achieve that, there may be
-additional third-party future backends that they are not aware of, that
-they do not have the possibility to test with, or that yet have not been
+padding-bottom: 1ex; float: right;"/>
+Third, a suite of <em>Future API conformance tests</em> available in the
+<strong>future.tests</strong> package validates the correctness of all future
+backends. Any new future backend developed, must pass these tests to
+comply with the <em>Future API</em>. By conforming to this API, the end-user
+can trust that the backend will produce the same correct and
+reproducible results as any other backend, including the ones that the
+backend developer have tested on. Also, by making it the
+responsibility of the backend developer to assert that their new
+future backend conforms to the <em>Future API</em>, we relieve other
+developers from having to test that their future-based software works
+on all backends. It would be a daunting task for a developer to
+validate the correctness of their software with all existing
+backends. Even if they would achieve that, there may be additional
+third-party future backends that they are not aware of, that they do
+not have the possibility to test with, or that yet have not been
 developed.</p>
 </div>
-<p>Fourth, since <strong>foreach</strong> is used by a large number of
-essential CRAN packages, it provides an excellent opportunity for
-supplementary validation. Specifically, we dynamically tweak the
-examples of <strong>foreach</strong> and popular CRAN packages
-<strong>caret</strong>, <strong>glmnet</strong>, <strong>NMF</strong>,
-<strong>plyr</strong>, and <strong>TSP</strong> to use the
-<strong>doFuture</strong> adaptor. This allows us to run these examples
-with a variety of future backends to validate that the examples produce
-no run-time errors, which indirectly validates the backends as well as
-the <em>Future API</em>. In the past, these types of tests helped to
-identify and resolve corner cases where automatic identification of
-global variables would fail. As a side note, several of these
-foreach-based examples fail when using a parallel foreach adaptor
-because they do not properly export globals or declare package
-dependencies. The exception is when using the sequential <em>doSEQ</em>
-adaptor (default), fork-based ones such as <strong>doMC</strong>, or the
-generic <strong>doFuture</strong>, which supports any future backend and
-relies on the future framework for handling globals and packages.</p>
+<p>Fourth, since <strong>foreach</strong> is used by a large number of essential
+CRAN packages, it provides an excellent opportunity for supplementary
+validation. Specifically, we dynamically tweak the examples of
+<strong>foreach</strong> and popular CRAN packages <strong>caret</strong>,
+<strong>glmnet</strong>, <strong>NMF</strong>, <strong>plyr</strong>, and <strong>TSP</strong> to use
+the <strong>doFuture</strong> adaptor. This allows us
+to run these examples with a variety of future backends to validate
+that the examples produce no run-time errors, which indirectly
+validates the backends as well as the <em>Future API</em>. In the past,
+these types of tests helped to identify and resolve corner cases where
+automatic identification of global variables would fail. As a side
+note, several of these foreach-based examples fail when using a
+parallel foreach adaptor because they do not properly export globals
+or declare package dependencies. The exception is when using the
+sequential
+<em>doSEQ</em> adaptor (default), fork-based ones such as <strong>doMC</strong>, or
+the generic <strong>doFuture</strong>, which supports any future backend and
+relies on the future framework for handling globals and
+packages.</p>
 <p>Analogously to above reverse-dependency checks of each new release,
 CRAN and Bioconductor continuously run checks on all these direct, but
 also indirect, reverse dependencies, which further increases the
-validation of the <em>Future API</em> and the future ecosystem at
-large.</p>
+validation of the <em>Future API</em> and the future ecosystem at large.</p>
 <p>The packages underlying the future ecosystem are well maintained and
-are continuously updated and improved. For example, the
-<strong>future</strong> package is updated approximately six times per
-year, the <strong>future.apply</strong> and <strong>doFuture</strong>
-packages three times per year, and the infrastructure packages
-<strong>globals</strong> and <strong>parallelly</strong> three to six
-times a year. The policy is to fix bugs as soon as possible and avoid
-breaking updates to maintain full backward compatibility with existing R
-code in production that rely on futures. In the very rare case when an
-existing feature had to be removed, it has been done via deprecation
-process taking place over several release cycles working closely with
-existing package developers to assure a smooth transition and with
-informative warning messages to end-users where needed.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+are continuously updated and improved. For example, the <strong>future</strong>
+package is updated approximately six times per year, the
+<strong>future.apply</strong> and <strong>doFuture</strong> packages three times per year, and
+the infrastructure packages <strong>globals</strong> and <strong>parallelly</strong> three to
+six times a year. The policy is to fix bugs as soon as possible and
+avoid breaking updates to maintain full backward compatibility with
+existing R code in production that rely on futures. In the very rare
+case when an existing feature had to be removed, it has been done via
+deprecation process taking place over several release cycles working
+closely with existing package developers to assure a smooth transition
+and with informative warning messages to end-users where needed.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

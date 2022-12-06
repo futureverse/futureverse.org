@@ -536,6 +536,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1608,15 +1609,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1815,7 +1822,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1916,27 +1923,9 @@ Packages &amp; Docs
 
 
 <div class="d-article">
-<p>If we look at our two main R package repositories, <a
-href="https://cran.r-project.org/">CRAN</a> and <a
-href="https://bioconductor.org">Bioconductor</a>, we find that the
-future framework is used by R packages spanning a wide range of areas,
-e.g. statistics, modeling &amp; prediction, time-series analysis &amp;
-forecasting, life sciences, drug analysis, clinical trials, disease
-modeling, cancer research, computational biology, genomics,
-bioinformatics, biomarker discovery, epidemiology, ecology, economics
-&amp; finance, spatial, geospatial &amp; satellite analysis, and natural
-language processing. That is just a sample based on published R packages
-- we can only guess how futures are used by users at the R prompt, in
-users’ R scripts, non-published R packages, Shiny applications, and R
-pipelines running internally in the industry and academia.</p>
-<p>There are two major use cases of the future framework: (i)
-performance improvement through parallelization, and (ii) non-blocking,
-asynchronous user experience (UX). Below are some prominent
-examples.</p>
-<h2
-id="epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters">EpiNow2:
-Estimate Real-Time Case Counts and Time-Varying Epidemiological
-Parameters</h2>
+<p>If we look at our two main R package repositories, <a href="https://cran.r-project.org/">CRAN</a> and <a href="https://bioconductor.org">Bioconductor</a>, we find that the future framework is used by R packages spanning a wide range of areas, e.g. statistics, modeling &amp; prediction, time-series analysis &amp; forecasting, life sciences, drug analysis, clinical trials, disease modeling, cancer research, computational biology, genomics, bioinformatics, biomarker discovery, epidemiology, ecology, economics &amp; finance, spatial, geospatial &amp; satellite analysis, and natural language processing. That is just a sample based on published R packages - we can only guess how futures are used by users at the R prompt, in users’ R scripts, non-published R packages, Shiny applications, and R pipelines running internally in the industry and academia.</p>
+<p>There are two major use cases of the future framework: (i) performance improvement through parallelization, and (ii) non-blocking, asynchronous user experience (UX). Below are some prominent examples.</p>
+<h2 id="epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters">EpiNow2: Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters</h2>
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
 <img src="images/EpiNow2-COVID-dashboard.png" alt="Screenshot of the COVID-19 website dashboard with a world map annotated with colors indicating the trend of COVID infections in different regions"/>
@@ -1944,19 +1933,10 @@ Parameters</h2>
 Image credit: EpiNow2 team
 </figcaption>
 </figure>
-<p><a
-href="https://epiforecasts.io/EpiNow2/"><strong>EpiNow2</strong></a> is
-an R package to estimate real-time case counts and time-varying
-epidemiological parameters, such as <a
-href="https://epiforecasts.io/covid/">current trends of COVID-19
-incidents</a> in different regions around the globe.</p>
-<p><strong>EpiNow2</strong> uses futures to speed up processing. The
-future framework is used to estimate incident rates in different regions
-concurrently as well as running Markov Chain Monte Carlo (MCMC) in
-parallel.</p>
+<p><a href="https://epiforecasts.io/EpiNow2/"><strong>EpiNow2</strong></a> is an R package to estimate real-time case counts and time-varying epidemiological parameters, such as <a href="https://epiforecasts.io/covid/">current trends of COVID-19 incidents</a> in different regions around the globe.</p>
+<p><strong>EpiNow2</strong> uses futures to speed up processing. The future framework is used to estimate incident rates in different regions concurrently as well as running Markov Chain Monte Carlo (MCMC) in parallel.</p>
 </div>
-<h2 id="seurat-large-scale-single-cell-genomics">Seurat: Large-Scale
-Single-Cell Genomics</h2>
+<h2 id="seurat-large-scale-single-cell-genomics">Seurat: Large-Scale Single-Cell Genomics</h2>
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
 <img src="images/seurat-sc.data3-1.png" alt="A two-dimensional, UMAP-space, scatter plot displaying individual cells grouped into 23 well-separated subclasses that are color and label annotated."/>
@@ -1964,24 +1944,10 @@ Single-Cell Genomics</h2>
 Image credit: Seurat team
 </figcaption>
 </figure>
-<p><a href="https://satijalab.org/seurat/"><strong>Seurat</strong></a>
-is an R package designed for QC, analysis, and exploration of
-single-cell RNA-seq data. Seurat aims to enable users to identify and
-interpret sources of heterogeneity from single-cell transcriptomic
-measurements, and to integrate diverse types of single-cell data. <a
-href="https://satijalab.org/azimuth/"><strong>Azimuth</strong></a> is a
-Seurat-based web application, e.g. <a
-href="https://azimuth.hubmapconsortium.org/">HuBMAP - NIH Human
-Biomolecular Atlas Project</a></p>
-<p><strong>Seurat</strong> uses futures to speed up processing. The
-future framework makes it possible to process large data sets and large
-number of samples in parallel on the local machine, distributed on
-multiple machines, or via large-scale high-performance compute (HPC)
-environments. <strong>Azimuth</strong> uses futures to provide a
-non-blocking web interface.</p>
+<p><a href="https://satijalab.org/seurat/"><strong>Seurat</strong></a> is an R package designed for QC, analysis, and exploration of single-cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single-cell transcriptomic measurements, and to integrate diverse types of single-cell data. <a href="https://satijalab.org/azimuth/"><strong>Azimuth</strong></a> is a Seurat-based web application, e.g. <a href="https://azimuth.hubmapconsortium.org/">HuBMAP - NIH Human Biomolecular Atlas Project</a></p>
+<p><strong>Seurat</strong> uses futures to speed up processing. The future framework makes it possible to process large data sets and large number of samples in parallel on the local machine, distributed on multiple machines, or via large-scale high-performance compute (HPC) environments. <strong>Azimuth</strong> uses futures to provide a non-blocking web interface.</p>
 </div>
-<h2 id="shiny-scalable-asynchronous-ux">Shiny: Scalable, Asynchronous
-UX</h2>
+<h2 id="shiny-scalable-asynchronous-ux">Shiny: Scalable, Asynchronous UX</h2>
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
 <img src="images/shiny-icgc-genome-browser.png" alt="Thumbnail of the Shiny ICGC Genome Browser webpage. There is a title banner on top above two panels. In the left-hand side panel, there is a circular plot showing the 24 human chromosomes laid out on the circumference. Interacting genes are connected with edges, creating a web of connections across the plane of the circle but also short loops back to the same chromosome. In the right-hand side panel, there is a table that appears to list the genes of interest with some kind of values."/>
@@ -1989,25 +1955,11 @@ UX</h2>
 Image credit: International Cancer Genome Consortium (ICGC) team
 </figcaption>
 </figure>
-<p><a href="https://shiny.rstudio.com/"><strong>Shiny</strong></a> is an
-R package that makes it easy to build interactive web applications and
-dashboards directly from R. Shiny apps can run locally, be embedded in
-an R Markdown document, and be hosted on a webpage - all with a few
-clicks or commands. The combination of being simple and powerful has
-made Shiny the most popular solution for web applications in the R
-community. See the <a href="https://shiny.rstudio.com/gallery/">Shiny
-Gallery</a> for real-world examples, e.g. the <a
-href="https://shiny.rstudio.com/gallery/genome-browser.html">Genome
-Browser</a> by the International Cancer Genome Consortium (ICGC)
-team.</p>
-<p><strong>Shiny</strong> uses the future framework to provide a
-non-blocking user interface and to scale up computationally heavy
-requests. It combines <strong>future</strong> with
-<strong>promises</strong> to turn a blocking, synchronous web interface
-into a non-blocking, asynchronous, responsive user experience.</p>
+<p><a href="https://shiny.rstudio.com/"><strong>Shiny</strong></a> is an R package that makes it easy to build interactive web applications and dashboards directly from R. Shiny apps can run locally, be embedded in an R Markdown document, and be hosted on a webpage - all with a few clicks or commands.
+The combination of being simple and powerful has made Shiny the most popular solution for web applications in the R community. See the <a href="https://shiny.rstudio.com/gallery/">Shiny Gallery</a> for real-world examples, e.g. the <a href="https://shiny.rstudio.com/gallery/genome-browser.html">Genome Browser</a> by the International Cancer Genome Consortium (ICGC) team.</p>
+<p><strong>Shiny</strong> uses the future framework to provide a non-blocking user interface and to scale up computationally heavy requests. It combines <strong>future</strong> with <strong>promises</strong> to turn a blocking, synchronous web interface into a non-blocking, asynchronous, responsive user experience.</p>
 </div>
-<h2 id="mlr3-next-generation-machine-learning">Mlr3: Next-Generation
-Machine Learning</h2>
+<h2 id="mlr3-next-generation-machine-learning">Mlr3: Next-Generation Machine Learning</h2>
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
 <img src="images/mlr3-pipe_action.svg" alt="A schematic outline of a ML pipeline. On top, there is a left-to-right pipeline with 'Training Data' as input, with steps 'Scaling', 'Factor Encoding', 'Median Imputation', and a final 'Learner' state. At the bottom, there is a similar pipeline but with 'New Data' as the input.  In each of the corresponding steps, there is a arrow coming from the top pipeline indicating pre-learned parameters.  After the 'New Data' has flown through all steps, the output is a 'Prediction'."/>
@@ -2015,19 +1967,10 @@ Machine Learning</h2>
 Image credit: ml3r team
 </figcaption>
 </figure>
-<p>The <a href="https://mlr3.mlr-org.com/"><strong>mlr3</strong></a>
-ecosystem provides efficient, object-oriented building blocks for
-machine learning (ML) for tasks, learners, resamplings, and measures. It
-supports large-scale, out-of-memory data processing.</p>
-<p><strong>mlr3</strong> uses futures to speed up processing. The future
-framework is used in different ML steps, e.g. resampling of learners can
-be performed much faster when run in parallel. The framework makes sure
-proper parallel random-number generation (RNG) is used and guarantees
-reproducible results.</p>
+<p>The <a href="https://mlr3.mlr-org.com/"><strong>mlr3</strong></a> ecosystem provides efficient, object-oriented building blocks for machine learning (ML) for tasks, learners, resamplings, and measures. It supports large-scale, out-of-memory data processing.</p>
+<p><strong>mlr3</strong> uses futures to speed up processing. The future framework is used in different ML steps, e.g. resampling of learners can be performed much faster when run in parallel. The framework makes sure proper parallel random-number generation (RNG) is used and guarantees reproducible results.</p>
 </div>
-<h2
-id="draketargets-pipeline-toolkit-for-reproducible-computation-at-scale">Drake/Targets:
-Pipeline Toolkit for Reproducible Computation at Scale</h2>
+<h2 id="draketargets-pipeline-toolkit-for-reproducible-computation-at-scale">Drake/Targets: Pipeline Toolkit for Reproducible Computation at Scale</h2>
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
 <img src="images/drake-example-graph.png" alt="A drake dependency graph with a file 'raw_data_x.xlsx' node to the left, that a 'raw_data' node depends on, which in turn two nodes 'fit' and 'hist' depends on.  The following 'report' node depend on the latter two nodes, and the last is the file 'report.html' output node. There is a legend to the left explaining how the states of the nodes are represented as colors and shapes."/>
@@ -2035,21 +1978,10 @@ Pipeline Toolkit for Reproducible Computation at Scale</h2>
 Image credit: targets/drake team
 </figcaption>
 </figure>
-<p>The <a
-href="https://docs.ropensci.org/targets/"><strong>targets</strong></a>
-package, and its predecessor <a
-href="https://docs.ropensci.org/drake/"><strong>drake</strong></a>, is a
-general-purpose computational engine for statistics and data science
-that brings together function-oriented programming in R with make-like
-declarative workflows. It has native support for parallel and
-distributed computing while preserving reproducibility.</p>
-<p>Both <strong>targets</strong> and <strong>drake</strong> identify
-targets in the declared dependency graph that can be resolved
-concurrently, which then can be processed in parallel on the local
-computer or distributed in the cloud via the future framework.</p>
+<p>The <a href="https://docs.ropensci.org/targets/"><strong>targets</strong></a> package, and its predecessor <a href="https://docs.ropensci.org/drake/"><strong>drake</strong></a>, is a general-purpose computational engine for statistics and data science that brings together function-oriented programming in R with make-like declarative workflows. It has native support for parallel and distributed computing while preserving reproducibility.</p>
+<p>Both <strong>targets</strong> and <strong>drake</strong> identify targets in the declared dependency graph that can be resolved concurrently, which then can be processed in parallel on the local computer or distributed in the cloud via the future framework.</p>
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

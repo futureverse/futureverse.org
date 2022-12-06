@@ -121,6 +121,13 @@ if (nzchar(image)) {
 <% } ## blog_post() %>
 
 <% blog_post(
+        title = "Please Avoid detectCores() in your R Packages",
+          url = "https://www.jottr.org/2022/12/05/avoid-detectcores/",
+         date = "2022-12-05",
+        image = "https://www.jottr.org/post/detectCores_bad_vs_good.png"
+) %>
+
+<% blog_post(
         title = "useR! 2022: My 'Futureverse: Profile Parallel Code' Slides",
           url = "https://www.jottr.org/2022/06/23/future-user2022-slides/",
          date = "2022-06-24",

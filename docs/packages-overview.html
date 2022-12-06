@@ -536,6 +536,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1608,15 +1609,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1815,7 +1822,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1911,167 +1918,59 @@ Packages &amp; Docs
 <h1>Overview of All Packages</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>The future framework with the future package at the code comprises
-many packages - use the ones that suits your needs</p>
+<p>The future framework with the future package at the code comprises many packages - use the ones that suits your needs</p>
 </div>
 
 
 <div class="d-article">
 <h3 id="the-core-package">The core package</h3>
 <ul>
-<li><strong><a href="https://future.futureverse.org">future</a></strong>
-- <em>Unified Parallel and Distributed Processing in R for
-Everyone</em><br> This is the core package of the future framework. It
-implements the Future API, which comprises three basic functions -
-<code>future()</code>, <code>resolved()</code>, and
-<code>value()</code>, is designed to unify parallel processing in R at
-the lowest possible level. It provides a standard for building richer,
-higher-level parallel frontends without having to worry about and
-re-implement common, critical tasks such as identifying global variables
-and packages, parallel RNG, and relaying of output and conditions -
-cumbersome tasks that are often essential to parallel processing. Nearly
-all parallel processing tasks can be implemented using this low-level
-API. But, most users and package developers use the futures via
-higher-level map-reduce functions provided by
-<strong>future.apply</strong>, <strong>furrr</strong>, and
-<strong>foreach</strong> with <strong>doFuture</strong>.</li>
+<li><strong><a href="https://future.futureverse.org">future</a></strong> - <em>Unified Parallel and Distributed Processing in R for Everyone</em><br>
+This is the core package of the future framework. It implements the Future API, which comprises three basic functions - <code>future()</code>, <code>resolved()</code>, and <code>value()</code>, is designed to unify parallel processing in R at the lowest possible level. It provides a standard for building richer, higher-level parallel frontends without having to worry about and re-implement common, critical tasks such as identifying global variables and packages, parallel RNG, and relaying of output and conditions - cumbersome tasks that are often essential to parallel processing.
+Nearly all parallel processing tasks can be implemented using this low-level API. But, most users and package developers use the futures via higher-level map-reduce functions provided by <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> with <strong>doFuture</strong>.</li>
 </ul>
-<h3
-id="parallel-map-reduce-functions-for-popular-programming-style">Parallel
-map-reduce functions for popular programming style</h3>
+<h3 id="parallel-map-reduce-functions-for-popular-programming-style">Parallel map-reduce functions for popular programming style</h3>
 <ul>
-<li><p><strong><a
-href="https://future.apply.futureverse.org">future.apply</a></strong> -
-<em>Apply Function to Elements in Parallel using Future</em><br>
-Implementations of <code>apply()</code>, <code>by()</code>,
-<code>eapply()</code>, <code>lapply()</code>, <code>Map()</code>,
-<code>.mapply()</code>, <code>mapply()</code>, <code>replicate()</code>,
-<code>sapply()</code>, <code>tapply()</code>, and <code>vapply()</code>
-that can be resolved using any future-supported backend, e.g. parallel
-on the local machine or distributed on a compute cluster. These
-<code>future_*apply()</code> functions come with the same pros and cons
-as the corresponding <strong>base R</strong> <code>*apply()</code>
-functions but with the additional feature of being able to be processed
-via the future framework.</p></li>
-<li><p><strong><a
-href="https://furrr.futureverse.org/">furrr</a></strong> - <em>Apply
-Mapping Functions in Parallel using Futures</em><br> Implementations of
-the family of <code>map()</code> functions from <strong>purrr</strong>
-that can be resolved using any <strong>future</strong>-supported
-backend, e.g. parallel on the local machine or distributed on a compute
-cluster. (Developed by Davis Vaughan)</p></li>
-<li><p><strong>foreach</strong> with <strong><a
-href="https://doFuture.futureverse.org">doFuture</a></strong> - <em>A
-Universal Foreach Parallel Adapter using the Future API of the
-<strong>future</strong> Package</em><br> Provides a <code>%dopar%</code>
-adapter such that any type of futures can be used as backends for the
-<strong>foreach</strong> framework and its <code>foreach()</code>
-function.</p></li>
-<li><p><strong>BiocParallel</strong> with <strong><a
-href="https://BiocParallel.FutureParam.futureverse.org">BiocParallel.FutureParam</a></strong>
-- <em>Use Futures with BiocParallel</em><br> A ‘BiocParallelParam’ class
-for using futures with the <strong>BiocParallel</strong> framework,
-e.g. <code>BiocParallel::register(FutureParam())</code>. An alternative,
-is to use <code>BiocParallel::register(DoParam())</code> in combination
-of <strong>doFuture</strong>.</p></li>
+<li><p><strong><a href="https://future.apply.futureverse.org">future.apply</a></strong> - <em>Apply Function to Elements in Parallel using Future</em><br>
+Implementations of <code>apply()</code>, <code>by()</code>, <code>eapply()</code>, <code>lapply()</code>, <code>Map()</code>, <code>.mapply()</code>, <code>mapply()</code>, <code>replicate()</code>, <code>sapply()</code>, <code>tapply()</code>, and <code>vapply()</code> that can be resolved using any future-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. These <code>future_*apply()</code> functions come with the same pros and cons as the corresponding <strong>base R</strong> <code>*apply()</code> functions but with the additional feature of being able to be processed via the future framework.</p></li>
+<li><p><strong><a href="https://furrr.futureverse.org/">furrr</a></strong> - <em>Apply Mapping Functions in Parallel using Futures</em><br>
+Implementations of the family of <code>map()</code> functions from <strong>purrr</strong> that can be resolved using any <strong>future</strong>-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. (Developed by Davis Vaughan)</p></li>
+<li><p><strong>foreach</strong> with <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong> - <em>A Universal Foreach Parallel Adapter using the Future API of the <strong>future</strong> Package</em><br>
+Provides a <code>%dopar%</code> adapter such that any type of futures can be used as backends for the <strong>foreach</strong> framework and its <code>foreach()</code> function.</p></li>
+<li><p><strong>BiocParallel</strong> with <strong><a href="https://BiocParallel.FutureParam.futureverse.org">BiocParallel.FutureParam</a></strong> - <em>Use Futures with BiocParallel</em><br>
+A ‘BiocParallelParam’ class for using futures with the <strong>BiocParallel</strong> framework, e.g. <code>BiocParallel::register(FutureParam())</code>. An alternative, is to use <code>BiocParallel::register(DoParam())</code> in combination of <strong>doFuture</strong>.</p></li>
 </ul>
-<h3 id="choosing-how-and-where-to-parallelize">Choosing how and where to
-parallelize</h3>
+<h3 id="choosing-how-and-where-to-parallelize">Choosing how and where to parallelize</h3>
 <ul>
-<li><p><strong><a
-href="https://future.futureverse.org">future</a></strong> - the
-<strong>future</strong> package has a set of built-in parallel backends
-that build upon the <strong>parallel</strong> package,
-e.g. <code>multicore</code>, <code>multisession</code>, and
-<code>cluster</code>.</p></li>
-<li><p><strong><a
-href="https://future.batchtools.futureverse.org">future.batchtools</a></strong>
-- <em>A Future API for Parallel and Distributed Processing using
-batchtools</em><br> Implementation of the Future API on top of the
-<strong>batchtools</strong> package. This allows you to process futures,
-as defined by the <strong>future</strong> package, in parallel out of
-the box, not only on your local machine or ad-hoc cluster of machines,
-but also via high-performance compute (HPC) job schedulers such as LSF,
-OpenLava, Slurm, SGE, and TORQUE/PBS,
-e.g. <code>y &lt;- future.apply::future_lapply(files, FUN = process)</code>.</p></li>
-<li><p><strong><a
-href="https://future.callr.futureverse.org">future.callr</a></strong> -
-<em>A Future API for Parallel Processing using callr</em><br>
-Implementation of the Future API on top of the <strong>callr</strong>
-package. This allows you to process futures, as defined by the
-<strong>future</strong> package, in parallel out of the box, on your
-local (Linux, macOS, Windows, …) machine. Contrary to backends relying
-on the <strong>parallel</strong> package
-(e.g. <code>future::multisession</code>), the <code>callr</code> backend
-provided here can run more than 125 parallel R processes.</p></li>
+<li><p><strong><a href="https://future.futureverse.org">future</a></strong> - the <strong>future</strong> package has a set of built-in parallel backends that build upon the <strong>parallel</strong> package, e.g. <code>multicore</code>, <code>multisession</code>, and <code>cluster</code>.</p></li>
+<li><p><strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> - <em>A Future API for Parallel and Distributed Processing using batchtools</em><br>
+Implementation of the Future API on top of the <strong>batchtools</strong> package. This allows you to process futures, as defined by the <strong>future</strong> package, in parallel out of the box, not only on your local machine or ad-hoc cluster of machines, but also via high-performance compute (HPC) job schedulers such as LSF, OpenLava, Slurm, SGE, and TORQUE/PBS, e.g. <code>y &lt;- future.apply::future_lapply(files, FUN = process)</code>.</p></li>
+<li><p><strong><a href="https://future.callr.futureverse.org">future.callr</a></strong> - <em>A Future API for Parallel Processing using callr</em><br>
+Implementation of the Future API on top of the <strong>callr</strong> package. This allows you to process futures, as defined by the <strong>future</strong> package, in parallel out of the box, on your local (Linux, macOS, Windows, …) machine. Contrary to backends relying on the <strong>parallel</strong> package (e.g. <code>future::multisession</code>), the <code>callr</code> backend provided here can run more than 125 parallel R processes.</p></li>
 </ul>
 <h3 id="reporting-on-progress">Reporting on progress</h3>
 <ul>
-<li><strong><a
-href="https://progressr.futureverse.org">progressr</a></strong> - <em>An
-Inclusive, Unifying API for Progress Updates</em><br>A minimal, unifying
-API for scripts and packages to report progress updates from anywhere
-including when using parallel processing. The package is designed such
-that the developer can to focus on what progress should be reported on
-without having to worry about how to present it. The end user has full
-control of how, where, and when to render these progress updates,
-including via progress bars of the popular <strong>progress</strong>
-package. The future ecosystem support <strong>progressr</strong> at its
-core and many of the backends can report progress in a near-live
-fashion.</li>
+<li><strong><a href="https://progressr.futureverse.org">progressr</a></strong> - <em>An Inclusive, Unifying API for Progress Updates</em><br>A
+minimal, unifying API for scripts and packages to report progress updates from anywhere including when using parallel processing. The package is designed such that the developer can to focus on what progress should be reported on without having to worry about how to present it. The end user has full control of how, where, and when to render these progress updates, including via progress bars of the popular <strong>progress</strong> package.
+The future ecosystem support <strong>progressr</strong> at its core and many of the backends can report progress in a near-live fashion.</li>
 </ul>
 <h3 id="validation">Validation</h3>
 <ul>
-<li><strong><a
-href="https://future.tests.futureverse.org">future.tests</a></strong> -
-<em>Test Suite for Future API Backends</em><br> Backends implementing
-the Future API, as defined by the <strong>future</strong> package,
-should use the tests provided by this package to validate that they meet
-the minimal requirements of the Future API. The tests can be performed
-easily from within R or from outside of R from the command line making
-it easy to include them package tests and in Continuous Integration (CI)
-pipelines.</li>
+<li><strong><a href="https://future.tests.futureverse.org">future.tests</a></strong> - <em>Test Suite for Future API Backends</em><br>
+Backends implementing the Future API, as defined by the <strong>future</strong> package, should use the tests provided by this package to validate that they meet the minimal requirements of the Future API. The tests can be performed easily from within R or from outside of R from the command line making it easy to include them package tests and in Continuous Integration (CI) pipelines.</li>
 </ul>
 <h3 id="supporting-packages">Supporting packages</h3>
 <ul>
-<li><p><strong><a
-href="https://parallelly.futureverse.org">parallelly</a></strong> -
-<em>Enhancing the parallel Package</em><br> Utility functions that
-enhance the <strong>parallel</strong> package and support the built-in
-parallel backends of the <strong>future</strong> package.</p></li>
-<li><p><strong><a
-href="https://marshal.futureverse.org">marshal</a></strong> -
-<em>Framework to Marshal Objects to be Used in Another R
-Process</em><br> <em>PROTOTYPE</em>: Some types of R objects can be used
-only in the R session they were created. If used as-is in another R
-process, such objects often result in an immediate error or in obscure
-and hard-to-troubleshoot outcomes. Because of this, they cannot be saved
-to file and re-used at a later time. They can also not be exported to a
-worker in parallel processing. These objects are sometimes referred to
-as non-exportable or non-serializable objects. One solution to this
-problem is to use “marshaling” to encode the R object into an exportable
-representation that then can be used to re-create a copy of that object
-in another R process.</p></li>
-<li><p><strong><a
-href="https://globals.futureverse.org">globals</a></strong> -
-<em>Identify Global Objects in R Expressions</em><br> Identifies global
-(“unknown” or “free”) objects in R expressions by code inspection using
-various strategies (ordered, liberal, or conservative). The objective of
-this package is to make it as simple as possible to identify global
-objects for the purpose of exporting them in parallel, distributed
-compute environments.</p></li>
-<li><p><strong><a
-href="https://listenv.futureverse.org">listenv</a></strong> -
-<em>Environments Behaving (Almost) as Lists</em><br> List environments
-are environments that have list-like properties. For instance, the
-elements of a list environment are ordered and can be accessed and
-iterated over using index subsetting,
-e.g. <code>x &lt;- listenv(a = 1, b = 2);</code>
-<code>for (i in seq_along(x)) x[[i]] &lt;- x[[i]] ^ 2;</code>
-<code>y &lt;- as.list(x)</code>.</p></li>
+<li><p><strong><a href="https://parallelly.futureverse.org">parallelly</a></strong> - <em>Enhancing the parallel Package</em><br>
+Utility functions that enhance the <strong>parallel</strong> package and support the built-in parallel backends of the <strong>future</strong> package.</p></li>
+<li><p><strong><a href="https://marshal.futureverse.org">marshal</a></strong> - <em>Framework to Marshal Objects to be Used in Another R Process</em><br>
+<em>PROTOTYPE</em>: Some types of R objects can be used only in the R session they were created. If used as-is in another R process, such objects often result in an immediate error or in obscure and hard-to-troubleshoot outcomes. Because of this, they cannot be saved to file and re-used at a later time. They can also not be exported to a worker in parallel processing. These objects are sometimes referred to as non-exportable or non-serializable objects. One solution to this problem is to use “marshaling” to encode the R object into an exportable representation that then can be used to re-create a copy of that object in another R process.</p></li>
+<li><p><strong><a href="https://globals.futureverse.org">globals</a></strong> - <em>Identify Global Objects in R Expressions</em><br>
+Identifies global (“unknown” or “free”) objects in R expressions by code inspection using various strategies (ordered, liberal, or conservative). The objective of this package is to make it as simple as possible to identify global objects for the purpose of exporting them in parallel, distributed compute environments.</p></li>
+<li><p><strong><a href="https://listenv.futureverse.org">listenv</a></strong> - <em>Environments Behaving (Almost) as Lists</em><br>
+List environments are environments that have list-like properties. For instance, the elements of a list environment are ordered and can be accessed and iterated over using index subsetting, e.g. <code>x &lt;- listenv(a = 1, b = 2);</code> <code>for (i in seq_along(x)) x[[i]] &lt;- x[[i]] ^ 2;</code> <code>y &lt;- as.list(x)</code>.</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
