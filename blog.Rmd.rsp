@@ -121,6 +121,13 @@ if (nzchar(image)) {
 <% } ## blog_post() %>
 
 <% blog_post(
+        title = "progressr 0.13.0: cli + progressr = ♥",
+          url = "https://www.jottr.org/2023/01/10/progressr-0.13.0/",
+         date = "2023-01-10",
+        image = "https://www.jottr.org/post/three_in_chinese.gif"
+) %>
+
+<% blog_post(
         title = "Please Avoid detectCores() in your R Packages",
           url = "https://www.jottr.org/2022/12/05/avoid-detectcores/",
          date = "2022-12-05",
