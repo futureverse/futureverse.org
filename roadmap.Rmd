@@ -18,17 +18,11 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 * Restarting of failed or terminated futures, e.g. `reset(f)` and `v <- value(f)`.  Also automatic restarting of futures when parallel worker dies
   [[future#FR188], [future#205], [future.callr#FR11], ~~[parallelly#32]~~]
 
-* Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
-  [~~[future#477]~~, ~~[future#479]~~; implemented in **future** 1.22.0]
-
 * Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as `utils::browser()` and `utils::recover()`
   [[future#253]]
 
 * Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
   [[future#59], [future#142], ~~[future#FR437]~~]
-
-* MS Windows: Support relaying of UTF-8 output on MS Windows by working around limitations in base R
-  [~~[future#FR473]~~; implemented in **future** 1.23.0]
 
 * Marshaling: Make it possible to parallelize also some of the [object types that are currently "non-exportable"](https://future.futureverse.org/articles/future-4-non-exportable-objects.html), e.g. objects by packages such as **DBI**, **keras**, **ncdf4**, **rstan**, **sparklyr**, **xgboost**, and **xml2**
   [Project: **[marshal]**]
@@ -66,7 +60,16 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 
 ## Parallel backends
 
-Below is a list of future backends that are planned.
+Below is a list of future backends that are worked on or in the plans:
+
+* **[future.clustermq]** - a backend to resolve futures on a HPC cluster via the **clustermq** package
+  [[future#FR204], [future#FR267]]
+
+* **[future.redis]** - a backend to resolve futures via a Redis queue using the **redux** package
+  [[future#FR151]]
+
+* **[future.rrq]** - a backend to resolve futures via a Redis queue using the **rrq** package
+  [[future#FR151]]
 
 * **future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda service.
   A group of several people is actively working on this since the end of 2020
@@ -76,17 +79,10 @@ Below is a list of future backends that are planned.
   We have working group of several people actively working on this
   [[future#FR423]]
 
-* **future.clustermq** - a backend to resolve futures on a HPC cluster via the **clustermq** package
-  [[future#FR204], [future#FR267]]
-
 * **future.google.cloud.functions** - a backend to resolve futures via the Google Cloud Functions service.
   Work on this will start when a stable **future.aws.lambda** prototype has been established
   
 * **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
-
-* **future.rrq** - a backend to resolve futures via a Redis queue using the **rrq** package
-  The **future** and **rrq** maintainers are working on this since April 2021
-  [[future#FR151]]
 
 * **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, ...) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
 
@@ -127,9 +123,6 @@ Below is a list of future backends that are planned.
 [future#FR430]: https://github.com/HenrikBengtsson/future/issues/430
 [future#FR437]: https://github.com/HenrikBengtsson/future/issues/437
 [future#FR450]: https://github.com/HenrikBengtsson/future/issues/450
-[future#FR473]: https://github.com/HenrikBengtsson/future/issues/473
-[future#477]: https://github.com/HenrikBengtsson/future/issues/477
-[future#479]: https://github.com/HenrikBengtsson/future/issues/479
 [future#480]: https://github.com/HenrikBengtsson/future/issues/480
 
 [future.apply#20]: https://github.com/HenrikBengtsson/future.apply/issues/20
@@ -157,5 +150,6 @@ Below is a list of future backends that are planned.
 
 [future.mapreduce]: https://future.mapreduce.futureverse.org
 [marshal]: https://marshal.futureverse.org
-
-
+[future.clustermq]: https://github.com/HenrikBengtsson/future.clustermq
+[future.rrq]: https://github.com/HenrikBengtsson/future.rrq
+[future.redis]: https://github.com/bwlewis/future.redis

@@ -1932,14 +1932,10 @@ Packages &amp; Docs
 [<a href="https://github.com/HenrikBengtsson/future/issues/93">future#93</a>, <a href="https://github.com/HenrikBengtsson/future/issues/213">future#FR213</a>, <a href="https://github.com/HenrikBengtsson/future.batchtools/issues/27">future.batchtools#FR27</a>, <a href="https://github.com/HenrikBengtsson/parallelly/issues/33">parallelly#33</a>]</p></li>
 <li><p>Restarting of failed or terminated futures, e.g. <code>reset(f)</code> and <code>v &lt;- value(f)</code>. Also automatic restarting of futures when parallel worker dies
 [<a href="https://github.com/HenrikBengtsson/future/issues/188">future#FR188</a>, <a href="https://github.com/HenrikBengtsson/future/issues/205">future#205</a>, <a href="https://github.com/HenrikBengtsson/future.callr/issues/11">future.callr#FR11</a>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/32">parallelly#32</a></del>]</p></li>
-<li><p>Troubleshooting: Even more informative error message when futures fails, e.g. include information on globals and packages involved if a parallel worker dies
-[<del><a href="https://github.com/HenrikBengtsson/future/issues/477">future#477</a></del>, <del><a href="https://github.com/HenrikBengtsson/future/issues/479">future#479</a></del>; implemented in <strong>future</strong> 1.22.0]</p></li>
 <li><p>Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as <code>utils::browser()</code> and <code>utils::recover()</code>
 [<a href="https://github.com/HenrikBengtsson/future/issues/253">future#253</a>]</p></li>
 <li><p>Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
 [<a href="https://github.com/HenrikBengtsson/future/issues/59">future#59</a>, <a href="https://github.com/HenrikBengtsson/future/issues/142">future#142</a>, <del><a href="https://github.com/HenrikBengtsson/future/issues/437">future#FR437</a></del>]</p></li>
-<li><p>MS Windows: Support relaying of UTF-8 output on MS Windows by working around limitations in base R
-[<del><a href="https://github.com/HenrikBengtsson/future/issues/473">future#FR473</a></del>; implemented in <strong>future</strong> 1.23.0]</p></li>
 <li><p>Marshaling: Make it possible to parallelize also some of the <a href="https://future.futureverse.org/articles/future-4-non-exportable-objects.html">object types that are currently “non-exportable”</a>, e.g. objects by packages such as <strong>DBI</strong>, <strong>keras</strong>, <strong>ncdf4</strong>, <strong>rstan</strong>, <strong>sparklyr</strong>, <strong>xgboost</strong>, and <strong>xml2</strong>
 [Project: <strong><a href="https://marshal.futureverse.org">marshal</a></strong>]</p></li>
 <li><p>Resources: Make it possible to declare “resources” that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc. This will also make it possible to work with semi-persistent “sticky” globals
@@ -1964,22 +1960,23 @@ Packages &amp; Docs
 [<a href="https://github.com/HenrikBengtsson/progressr/issues/85">progressr#FR85</a>, <del><a href="https://github.com/HenrikBengtsson/progressr/issues/113">progressr#113</a></del>]</p></li>
 </ul>
 <h2 id="parallel-backends">Parallel backends</h2>
-<p>Below is a list of future backends that are planned.</p>
+<p>Below is a list of future backends that are worked on or in the plans:</p>
 <ul>
+<li><p><strong><a href="https://github.com/HenrikBengtsson/future.clustermq">future.clustermq</a></strong> - a backend to resolve futures on a HPC cluster via the <strong>clustermq</strong> package
+[<a href="https://github.com/HenrikBengtsson/future/issues/204">future#FR204</a>, <a href="https://github.com/HenrikBengtsson/future/issues/267">future#FR267</a>]</p></li>
+<li><p><strong><a href="https://github.com/bwlewis/future.redis">future.redis</a></strong> - a backend to resolve futures via a Redis queue using the <strong>redux</strong> package
+[<a href="https://github.com/HenrikBengtsson/future/issues/151">future#FR151</a>]</p></li>
+<li><p><strong><a href="https://github.com/HenrikBengtsson/future.rrq">future.rrq</a></strong> - a backend to resolve futures via a Redis queue using the <strong>rrq</strong> package
+[<a href="https://github.com/HenrikBengtsson/future/issues/151">future#FR151</a>]</p></li>
 <li><p><strong>future.aws.lambda</strong> - a backend to resolve futures via the Amazon AWS Lambda service.
 A group of several people is actively working on this since the end of 2020
 [<a href="https://github.com/HenrikBengtsson/future/issues/423">future#FR423</a>]</p></li>
 <li><p><strong>future.aws.batch</strong> - a backend to resolve futures via the Amazon AWS Batch service.
 We have working group of several people actively working on this
 [<a href="https://github.com/HenrikBengtsson/future/issues/423">future#FR423</a>]</p></li>
-<li><p><strong>future.clustermq</strong> - a backend to resolve futures on a HPC cluster via the <strong>clustermq</strong> package
-[<a href="https://github.com/HenrikBengtsson/future/issues/204">future#FR204</a>, <a href="https://github.com/HenrikBengtsson/future/issues/267">future#FR267</a>]</p></li>
 <li><p><strong>future.google.cloud.functions</strong> - a backend to resolve futures via the Google Cloud Functions service.
 Work on this will start when a stable <strong>future.aws.lambda</strong> prototype has been established</p></li>
 <li><p><strong>future.p2p</strong> - a backend to resolve futures via a peer-to-peer network of trusted collaborators</p></li>
-<li><p><strong>future.rrq</strong> - a backend to resolve futures via a Redis queue using the <strong>rrq</strong> package
-The <strong>future</strong> and <strong>rrq</strong> maintainers are working on this since April 2021
-[<a href="https://github.com/HenrikBengtsson/future/issues/151">future#FR151</a>]</p></li>
 <li><p><strong>future.sandbox</strong> - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, …) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via <strong>parallelly</strong></p></li>
 <li><p><strong>future.sparklyr</strong> - a backend to resolve futures in Spark via the <strong>sparklyr</strong> package
 [<a href="https://github.com/HenrikBengtsson/future/issues/286">future#FR286</a>, <a href="https://github.com/sparklyr/sparklyr/issues/1935">sparklyr#FR1935</a>]</p></li>
