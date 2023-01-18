@@ -124,7 +124,7 @@ if (nzchar(image)) {
         title = "parallelly 1.34.0: Support for CGroups v2, Killing Parallel Workers, and more",
           url = "https://www.jottr.org/2023/01/18/parallelly-1.34.0-support-for-cgroups-v2-killing-parallel-workers-and-more/",
          date = "2023-01-18",
-        image = "https://www.jottr.org/post/three_in_chinese.gif"
+        image = "https://www.jottr.org/post/parallelly-logo.png"
 ) %>
 
 <% blog_post(
