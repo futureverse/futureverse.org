@@ -121,6 +121,13 @@ if (nzchar(image)) {
 <% } ## blog_post() %>
 
 <% blog_post(
+        title = "parallelly 1.34.0: Support for CGroups v2, Killing Parallel Workers, and more",
+          url = "https://www.jottr.org/2023/01/18/parallelly-1.34.0-support-for-cgroups-v2-killing-parallel-workers-and-more/",
+         date = "2023-01-18",
+        image = "https://www.jottr.org/post/three_in_chinese.gif"
+) %>
+
+<% blog_post(
         title = "progressr 0.13.0: cli + progressr = ♥",
           url = "https://www.jottr.org/2023/01/10/progressr-0.13.0/",
          date = "2023-01-10",

@@ -86,6 +86,23 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
+  <a href="https://www.jottr.org/2023/01/18/parallelly-1.34.0-support-for-cgroups-v2-killing-parallel-workers-and-more/"><img src="images/three_in_chinese.png"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2023/01/18/parallelly-1.34.0-support-for-cgroups-v2-killing-parallel-workers-and-more/">parallelly 1.34.0: Support for CGroups v2, Killing Parallel Workers, and more</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2023-01-18</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
   <a href="https://www.jottr.org/2023/01/10/progressr-0.13.0/"><img src="images/three_in_chinese.png"/></a>
  </div>
  <div class="itemDetails">
