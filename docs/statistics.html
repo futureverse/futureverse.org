@@ -1822,7 +1822,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1923,26 +1923,69 @@ Packages &amp; Docs
 
 
 <div class="d-article">
-<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers have grown steadily.
-During May 2022, <strong>future</strong> was among the top-0.9% most downloaded package on CRAN (Figure 1) and there are 225 packages on CRAN that directly depend on it (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-1.3% most downloaded) and and <strong>furrr</strong> (top 1.8%), the corresponding number of packages are 105 and 63, respectively. If we consider recursive dependencies too, that is, packages that use the <strong>future</strong> package either directly or indirectly via another package, then 83% of all ~18,500 CRAN packages may rely on the future framework for their processing.
+<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake
+among end-users and package developers have grown steadily. During
+January 2023, <strong>future</strong> was among the top-0.9% most downloaded
+package on CRAN (Figure 1) and there are 257 packages on CRAN that
+directly depend on it (Figure 2). For map-reduce parallelization
+packages <strong>future.apply</strong> (top-1.3% most downloaded) and and <strong>furrr</strong>
+(top 1.5%), the corresponding number of packages are 114 and 78,
+respectively. If we consider recursive dependencies too, that is,
+packages that use the <strong>future</strong> package either directly or indirectly
+via another package, then 85% of all ~19,000 CRAN packages may rely on
+the future framework for their processing.</p>
 <!--
 pkgs <- revdepcheck:::cran_revdeps("future")
 pkgs <- tools::package_dependencies("future", which="all", reverse=TRUE, recursive=TRUE)
---></p>
+-->
 <div style="width: 100%; margin-bottom: 3ex;">
 <center>
-<img src="figures/downloads_over_time_on_CRAN.png" alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to mid of 2022 and the ranks for 0 to 20%. Lines for package 'foreach', 'future', 'future.apply', and 'furrr' are displayed in different colors. The foreach curve is the highest but decreases slowly, whereas the other three are rapidly increasing toward the level of foreach." style="width: 70%;"/>
+<img src="figures/downloads_over_time_on_CRAN.png" alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to beginning of 2023 and the ranks for 0 to 20%. Lines for package 'foreach', 'future', 'future.apply', and 'furrr' are displayed in different colors. The foreach curve is the highest but decreases slowly, whereas the other three are rapidly increasing toward the level of foreach." style="width: 70%;"/>
 </center>
-<p><em>Figure 1: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> averaged every four weeks. <strong>future</strong> is among the top-0.9% most downloaded packages on CRAN. The data are based on the RStudio CRAN mirror logs. There are approximately 150 million package downloads per month from the RStudio CRAN mirror alone. Since none of the other CRAN mirrors provide statistics, it is impossible to know the total amount of package installations. <!-- [https://cranlogs.r-pkg.org/downloads/total/last-month] --></em></p>
+<p><em></p>
+<p>Figure 1: The download percentile ranks for <strong>future</strong>,
+<strong>future.apply</strong>, <strong>furrr</strong>, and
+<strong>foreach</strong> averaged every four weeks.
+<strong>future</strong> is among the top-0.9% most downloaded packages
+on CRAN. The data are based on the RStudio CRAN mirror logs. There
+are approximately 150 million package downloads per month from the
+RStudio CRAN mirror alone. Since none of the other CRAN mirrors
+provide statistics, it is impossible to know the total amount of
+package installations.</p>
+<!-- [https://cranlogs.r-pkg.org/downloads/total/last-month] -->
+<p></em></p>
 </div>
-<p>As a reference, the popular <strong>foreach</strong>, released in 2009, was among the top-1.0% most downloaded packages during the same period and it has 771 reverse package dependencies on CRAN. The number of users that download <strong>future</strong> has grown rapidly whereas the the same number has slowly decreased for the <strong>foreach</strong> package (Figure 1). Similarly, the number of reverse package dependencies on <strong>future</strong> appear to grow faster than for <strong>foreach</strong> (Figure 2).</p>
+<p>As a reference, the popular <strong>foreach</strong>, released in 2009, was among
+the top-1.0% most downloaded packages during the same period and it
+has 817 reverse package dependencies on CRAN. The number of users
+that download <strong>future</strong> has grown rapidly whereas the the same number
+has slowly decreased for the <strong>foreach</strong> package (Figure 1).
+Similarly, the number of reverse package dependencies on <strong>future</strong>
+appear to grow faster than for <strong>foreach</strong> (Figure 2).</p>
 <div style="width: 100%; margin-bottom: 3ex;">
 <center>
-<img src="figures/revdep_over_time_on_CRAN.png" alt="A line graph with 2015-2022 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis. Rapidly growing curves for three packages, 'future', 'future.apply', and 'furrr', are shown with 'future' increasing the fastest." style="width:50%"/><img src="figures/revdep_over_time_on_CRAN-log.png" alt="A line graph with 2015-2022 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis, which is on the logarithmic scale. Curves for four packages, 'foreach', 'future', 'future.apply', and 'furrr', are shown, where foreach has more dependencies but with a lower slope than the others during recent years." style="width:50%"/>
+<img src="figures/revdep_over_time_on_CRAN.png" alt="A line graph with 2015-2023 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis. Rapidly growing curves for three packages, 'future', 'future.apply', and 'furrr', are shown with 'future' increasing the fastest." style="width:50%"/><img src="figures/revdep_over_time_on_CRAN-log.png" alt="A line graph with 2015-2023 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis, which is on the logarithmic scale. Curves for four packages, 'foreach', 'future', 'future.apply', and 'furrr', are shown, where foreach has more dependencies but with a lower slope than the others during recent years." style="width:50%"/>
 </center>
-<p><em>Figure 2: Number of CRAN packages that depend on <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> over time since the first release of <strong>future</strong> in June 2015. Left: The package counts on the linear scale without <strong>foreach</strong>. Right: The same data on the logarithmic scale to fit also <strong>foreach</strong>. (Because historical data for reverse dependencies on Bioconductor are hard to track down, they are currently not reported in these graphs.)</em></p>
+<p><em></p>
+<p>Figure 2: Number of CRAN packages that depend on
+<strong>future</strong>, <strong>future.apply</strong>,
+<strong>furrr</strong>, and <strong>foreach</strong> over time since
+the first release of <strong>future</strong> in June 2015. Left: The
+package counts on the linear scale without <strong>foreach</strong>.
+Right: The same data on the logarithmic scale to fit also
+<strong>foreach</strong>. (Because historical data for reverse
+dependencies on Bioconductor are hard to track down, they are
+currently not reported in these graphs.)</p>
+<p></em></p>
 </div>
-<p>Importantly, the comparison toward <strong>foreach</strong> is only done as a reference for the current demand for parallelization frameworks in R and to show the rapid uptake of the future framework since its release. It is not a competition because <strong>foreach</strong> can per design be used in companion with the future framework via <strong>doFuture</strong>. The choice between <strong>foreach</strong> with <strong>doFuture</strong>, <strong>future.apply</strong>, and <strong>furrr</strong> is a matter of preference of coding style - they all rely on futures for parallelization.</p>
+<p>Importantly, the comparison toward <strong>foreach</strong> is only done as a
+reference for the current demand for parallelization frameworks in R
+and to show the rapid uptake of the future framework since its
+release. It is not a competition because <strong>foreach</strong> can per design
+be used in companion with the future framework via <strong>doFuture</strong>. The
+choice between <strong>foreach</strong> with <strong>doFuture</strong>, <strong>future.apply</strong>, and
+<strong>furrr</strong> is a matter of preference of coding style - they all rely on
+futures for parallelization.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
