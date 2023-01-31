@@ -1956,7 +1956,7 @@ Packages &amp; Docs
 <li><p>Automatic map-reduce: Support for merging of many futures into chunks of futures to be processed more efficiently with less total overhead. This could make <code>fs &lt;- lapply(X, function(x) future(FUN(x))</code> and <code>vs &lt;- value(fs)</code> automatically as efficient as <code>future_lapply(X, FUN)</code> removing the need for custom implementations</p></li>
 <li><p>Robustness of foreach: Implement bug fixes and outstanding <strong>foreach</strong> feature requests in the <strong>doFuture</strong> adapter until resolved upstream. For example, add options to make <code>foreach()</code> use proper parallel RNG even when the develop has forgotten to use <code>%doRNG%</code>
 [<a href="https://github.com/HenrikBengtsson/doFuture/issues/61">doFuture#61</a>]</p></li>
-<li><p>Generic support for progress updates for common map-reduce functions, e.g. <code>y &lt;- lapply(X, slow_fcn) %progress% TRUE</code> and <code>y &lt;- X %&gt;% future_map(slow_fcn) %progress% TRUE</code>
+<li><p>Generic support for progress updates for common map-reduce functions, e.g. <code>y &lt;- lapply(X, slow_fcn) %progress% TRUE</code> and <code>y &lt;- X |&gt; future_map(slow_fcn) %progress% TRUE</code>
 [<a href="https://github.com/HenrikBengtsson/progressr/issues/85">progressr#FR85</a>, <del><a href="https://github.com/HenrikBengtsson/progressr/issues/113">progressr#113</a></del>]</p></li>
 </ul>
 <h2 id="parallel-backends">Parallel backends</h2>

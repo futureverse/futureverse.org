@@ -54,7 +54,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 * Robustness of foreach: Implement bug fixes and outstanding **foreach** feature requests in the **doFuture** adapter until resolved upstream.  For example, add options to make `foreach()` use proper parallel RNG even when the develop has forgotten to use `%doRNG%`
   [[doFuture#61]]
 
-* Generic support for progress updates for common map-reduce functions, e.g. `y <- lapply(X, slow_fcn) %progress% TRUE` and `y <- X %>% future_map(slow_fcn) %progress% TRUE`
+* Generic support for progress updates for common map-reduce functions, e.g. `y <- lapply(X, slow_fcn) %progress% TRUE` and `y <- X |> future_map(slow_fcn) %progress% TRUE`
   [[progressr#FR85], ~~[progressr#113]~~]
 
 
