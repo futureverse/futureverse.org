@@ -16,11 +16,29 @@ cran_all_downloads <- function(..., packages = cran_package_names(), chunk_size 
   p <- progressr::progressor(along = chunks)
   stats <- future_lapply(chunks, FUN = function(pkgs) {
     p()
-    cranlogs::cran_downloads(..., packages = pkgs)
+    res <- tryCatch({
+      cranlogs::cran_downloads(..., packages = pkgs)
+    }, error = identity)
+    if (inherits(res, "error")) {
+      utils::str(list(...))
+      return(NULL)
+      stats <- lapply(pkgs, FUN = function(pkg) {
+        tryCatch({
+          cranlogs::cran_downloads(..., packages = pkg)
+        }, error = function(ex) {
+          warning(sprintf("Failed to retrieve CRAN download stats for package '%s'", pkg))
+          NULL
+        })
+      })
+      res <- do.call(rbind, stats)
+    }
+    res
   })
   stats <- do.call(rbind, stats)
-  stats$count <- as.integer(stats$count)
-  stats <- subset(stats, count > 0)
+  if (nrow(stats) > 0) {
+    stats$count <- as.integer(stats$count)
+    stats <- subset(stats, count > 0)
+  }
   stats <- tibble::as_tibble(stats)
   stats
 } # cran_all_downloads()
