@@ -17,7 +17,7 @@ The **future** framework makes it easy to parallelize existing R code - often wi
 The future framework _removes common hurdles and protects against pitfalls_ that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem.
 Just as with sequential R code, _output, messages, warnings, and errors work as expected_ and can be handled using traditional R techniques - regardless how the code is parallelized.
 
-It is designed so that you as a developer can _stay with your favorite coding style_, may it be base R or tidyverse.  If you like base R `lapply()` there is a corresponding `future_lapply()` in the **future.apply** package and if you like tidyverse **purrr** `map()` there is a corresponding `future_map()` in the **furrr** package.  If you prefer `foreach()` from **foreach**, then **doFuture** provides a backend adapter.
+It is designed so that you as a developer can _stay with your favorite coding style_, may it be base R or tidyverse.  If you like base R `lapply()` there is a corresponding `future_lapply()` in the **future.apply** package and if you like tidyverse **purrr** `map()` there is a corresponding `future_map()` in the **furrr** package.  If you prefer `foreach()` from **foreach**, then you can do so via **doFuture**.
 
 Futures makes your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures.
 
@@ -49,7 +49,12 @@ library(furrr)
 y <- X |>        map(slow_fcn)
 y <- X |> future_map(slow_fcn)
 
-## foreach: futurized version
+## foreach: futurized version (modern)
+library(foreach)
+y <- foreach(x = X) %do%       slow_fcn(x)
+y <- foreach(x = X) %dofuture% slow_fcn(x)
+
+## foreach: futurized version (traditional)
 library(foreach)
 doFuture::registerDoFuture()
 y <- foreach(x = X) %do%    slow_fcn(x)
@@ -68,5 +73,4 @@ y <- foreach(x = X) %dopar% slow_fcn(x)
   }
 </style>
 -->
-
 

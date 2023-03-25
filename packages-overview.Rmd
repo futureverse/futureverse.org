@@ -23,8 +23,8 @@ Implementations of `apply()`, `by()`, `eapply()`, `lapply()`, `Map()`, `.mapply(
 * **[furrr]** - _Apply Mapping Functions in Parallel using Futures_<br>
 Implementations of the family of `map()` functions from **purrr** that can be resolved using any **future**-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. (Developed by Davis Vaughan)
 
-* **foreach** with **[doFuture]** - _A Universal Foreach Parallel Adapter using the Future API of the **future** Package_<br>
-Provides a `%dopar%` adapter such that any type of futures can be used as backends for the **foreach** framework and its `foreach()` function.
+* **foreach** with **[doFuture]** - _Use Foreach to Parallelize via the Future Framework_<br>
+The **doFuture** package combines the best of **foreach** and **future** and offers two alternative solution: (i) the traditional `foreach(...) %dopar% { ... }` solution together via `registerDoFuture()`, and (ii) the modern `foreach(...) %dofuture% { ... }` by itself.
 
 * **BiocParallel** with **[BiocParallel.FutureParam]** - _Use Futures with BiocParallel_<br>
 A 'BiocParallelParam' class for using futures with the **BiocParallel** framework, e.g. `BiocParallel::register(FutureParam())`.   An alternative, is to use `BiocParallel::register(DoParam())` in combination of **doFuture**.
