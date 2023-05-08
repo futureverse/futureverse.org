@@ -11,8 +11,10 @@ handlers(global = TRUE)
 pkgs <- c("future", "future.apply", "furrr", "doFuture", "globals", "progressr")
 pkg <- "future"
 
+n_generations <- 4L
+
 if (!exists("deps", mode = "list")) deps <- list()
-for (kk in 1:4) {
+for (kk in seq_len(n_generations)) {
   message("Generation #", kk)
 
   if (length(deps) < kk || length(pkgs <- deps[[kk]]) == 0L) {
