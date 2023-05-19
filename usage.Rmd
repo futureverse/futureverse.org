@@ -67,7 +67,7 @@ The [**mlr3**](https://mlr3.mlr-org.com/) ecosystem provides efficient, object-o
 </div>
 
 
-## Drake/Targets: Pipeline Toolkit for Reproducible Computation at Scale
+## Targets: Pipeline Toolkit for Reproducible Computation at Scale
 
 <div>
 <figure style="width: 45%; float: right; text-align: right; margin: 0; margin-left: 2ex;">
@@ -78,5 +78,3 @@ The [**targets**](https://docs.ropensci.org/targets/) package, and its predecess
 
 Both **targets** and **drake** identify targets in the declared dependency graph that can be resolved concurrently, which then can be processed in parallel on the local computer or distributed in the cloud via the future framework.
 </div>
-
-
