@@ -4,6 +4,8 @@ description: Presentations on futures with slides and recorded videos
 preview: images/site_preview.png
 ---
 
+* Henrik Bengtsson, [Futureverse - A Unifying Parallelization Framework in R for Everyone](https://www.jottr.org/2023/05/22/future-yegrug-2023-slides/), Edmonton R User Group Meetup (YEGRUG), 2023-05-22 (60 minutes)
+
 * Henrik Bengtsson, [Futureverse: Profile Parallel Code](https://www.jottr.org/2022/06/23/future-user2022-slides/), useR! 2022, 2022-06-22 (25 minutes)
 
 * Henrik Bengtsson, [Future - Simple, Scalable Parallelization in R for the Biomedical Community](https://docs.google.com/presentation/d/18gxBd5Bgn0GNDyl5MlCt_s7b6gTUEcJV9c2xSLC11Nk/view#slide=id.gf778290f24_0_165), CZI EOSS 2021, 2021-11-02 (10 minutes)
