@@ -43,8 +43,6 @@ navbar:
           href: https://furrr.futureverse.org
         - text: doFuture (a foreach adapter)
           href: https://doFuture.futureverse.org
-        - text: BiocParallel.FutureParam (a BiocParallel addon)
-          href: https://BiocParallel.FutureParam.futureverse.org/
         - text: "---"
         - text: Parallel Backends
         - text: future (built-in, local & remote parallelization)
@@ -57,18 +55,24 @@ navbar:
         - text: Utilities
         - text: listenv (Use %<-% for list-like structures)
           href: https://listenv.futureverse.org
+        - text: parallelly (enhances the parallel package)
+          href: https://parallelly.futureverse.org
         - text: progressr (progress updates in parallel)
           href: https://progressr.futureverse.org
         - text: "---"
         - text: For low-level developers
-        - text: parallelly (enhances the parallel package)
-          href: https://parallelly.futureverse.org
         - text: globals (identify globals)
           href: https://globals.futureverse.org
         - text: future.tests (validate future backends)
           href: https://future.tests.futureverse.org
+        - text: "---"
+        - text: Experimental
         - text: marshal (export non-exportable objects)
           href: https://marshal.futureverse.org
+        - text: future.tools (tools for working with futures)
+          href: https://future.tools.futureverse.org
+        - text: BiocParallel.FutureParam (a BiocParallel addon)
+          href: https://BiocParallel.FutureParam.futureverse.org/
     - text: "Blog"
       href: blog.html
     - text: "Usage"

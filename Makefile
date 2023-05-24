@@ -2,7 +2,7 @@ SHELL=bash
 
 FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd tutorials.Rmd
 
-PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.mapreduce future.tests globals listenv marshal parallelly progressr
+PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.mapreduce future.tests future.tools globals listenv marshal parallelly progressr
 
 DOMAIN ?= futureverse.org
 
