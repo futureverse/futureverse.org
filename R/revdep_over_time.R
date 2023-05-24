@@ -22,7 +22,8 @@ options(ggmode = c("presentation", "website")[2])
 ## All packages of interest
 all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture")
 plot_pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
-exclude <- "doParallel"
+exclude <- NULL
+exclude <- c(exclude, "doParallel")
 ## exclude <- c(exclude, "foreach")
 
 ## Count package dependencies

@@ -57,8 +57,9 @@ message(sprintf("CRAN ranks last four week (average '%s' per week):", method))
 print(head(arrange(counts4, desc(week_of)), n = 2*length(pkgs)))
 
 
-pkgs <- c("foreach", "future", "future.apply", "furrr")
+pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
 exclude <- NULL
+exclude <- c(exclude, "doParallel")
 pkgs <- setdiff(pkgs, exclude)
 colors <- scales::hue_pal()(length(pkgs)+1)[-1]
 names(colors) <- pkgs
