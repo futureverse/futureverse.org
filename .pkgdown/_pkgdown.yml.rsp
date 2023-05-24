@@ -27,7 +27,7 @@ navbar:
     right: [futureverse, pkgs, cran, github]
   components:
     futureverse:
-      icon: fas fa-fast-backward
+      icon: fas fa-home
       href: https://www.futureverse.org/
     pkgs:
       text: Packages
