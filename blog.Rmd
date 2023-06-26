@@ -90,24 +90,7 @@ preview: images/site_preview.png
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
-   <div class="itemTitle"><a href="https://www.jottr.org/2023/06/26/dofuture/">%dofuture% - a better foreach() parallelization operator than %dopar% </a>
-   </div>
-  </div>
-  <div class="itemMeta">
-   <div class="author">Henrik Bengtsson</div>
-   
-   <div class="itemDate">2023-06-26</div>
-  </div>
- </div>
-</div>
-
-<div class="listItem">
- <div class="itemImage">
-  <a href="https://www.jottr.org/2023/06/26/dofuture/"><img src="images/dopar-to-dofuture.png"/></a>
- </div>
- <div class="itemDetails">
-  <div class="itemHeader">
-   <div class="itemTitle"><a href="https://www.jottr.org/2023/06/26/dofuture/">%dofuture% - a better foreach() parallelization operator than %dopar% </a>
+   <div class="itemTitle"><a href="https://www.jottr.org/2023/06/26/dofuture/">%dofuture% - a Better foreach() Parallelization Pperator than %dopar% </a>
    </div>
   </div>
   <div class="itemMeta">
