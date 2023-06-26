@@ -37,6 +37,8 @@ data <- read_final_cran_stats(pathnames_per_week_with_ranks)
 
 all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
 
+## all_pkgs <- c("matrixStats")
+
 pkgs <- setdiff(all_pkgs, "parallel") ## 'parallel' is part of R
 counts <- subset(data, package %in% pkgs)
 counts <- select(counts, week_of, package, fraction)
