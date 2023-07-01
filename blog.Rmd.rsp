@@ -121,7 +121,14 @@ if (nzchar(image)) {
 <% } ## blog_post() %>
 
 <% blog_post(
-        title = "%dofuture% - a Better foreach() Parallelization Pperator than %dopar% ",
+        title = "parallelly: Querying, Killing and Cloning Parallel Workers Running Locally or Remotely",
+          url = "https://www.jottr.org/2023/07/01/parallelly-managing-workers/",
+         date = "2023-07-01",
+        image = "https://www.jottr.org/post/parallelly-logo.png"
+) %>
+
+<% blog_post(
+        title = "%dofuture% - a Better foreach() Parallelization Pperator than %dopar%",
           url = "https://www.jottr.org/2023/06/26/dofuture/",
          date = "2023-06-26",
         image = "https://www.jottr.org/post/dopar-to-dofuture.png"
