@@ -1895,9 +1895,10 @@ Packages &amp; Docs
 <a href="https://future.tests.futureverse.org">future.tests (validate future backends)</a>
 <hr/>
 <span class="nav-dropdown-header">Experimental</span>
-<a href="https://marshal.futureverse.org">marshal (export non-exportable objects)</a>
 <a href="https://future.tools.futureverse.org">future.tools (tools for working with futures)</a>
+<a href="https://future.mirai.futureverse.org">future.mirai (parallelize via mirai)</a>
 <a href="https://BiocParallel.FutureParam.futureverse.org/">BiocParallel.FutureParam (a BiocParallel addon)</a>
+<a href="https://marshal.futureverse.org">marshal (export non-exportable objects)</a>
 </div>
 </div>
 <a href="blog.html">Blog</a>
@@ -1950,6 +1951,8 @@ A ‘BiocParallelParam’ class for using futures with the <strong>BiocParallel<
 Implementation of the Future API on top of the <strong>batchtools</strong> package. This allows you to process futures, as defined by the <strong>future</strong> package, in parallel out of the box, not only on your local machine or ad-hoc cluster of machines, but also via high-performance compute (HPC) job schedulers such as LSF, OpenLava, Slurm, SGE, and TORQUE/PBS, e.g. <code>y &lt;- future.apply::future_lapply(files, FUN = process)</code>.</p></li>
 <li><p><strong><a href="https://future.callr.futureverse.org">future.callr</a></strong> - <em>A Future API for Parallel Processing using callr</em><br>
 Implementation of the Future API on top of the <strong>callr</strong> package. This allows you to process futures, as defined by the <strong>future</strong> package, in parallel out of the box, on your local (Linux, macOS, Windows, …) machine. Contrary to backends relying on the <strong>parallel</strong> package (e.g. <code>future::multisession</code>), the <code>callr</code> backend provided here can run more than 125 parallel R processes.</p></li>
+<li><p><strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong> - <em>A Future API for Parallel Processing using mirai</em> [BETA]<br>
+Implementation of the Future API on top of the <strong>mirai</strong> package. This allows you to process futures, as defined by the <strong>future</strong> package, in parallel out of the box, on local and remote machines. The <strong>mirai</strong> package implements distributed computing via local or network resources and supports Transport Layer Security over TCP/IP for remote connections.</p></li>
 </ul>
 <h3 id="reporting-on-progress">Reporting on progress</h3>
 <ul>
@@ -1966,12 +1969,12 @@ Backends implementing the Future API, as defined by the <strong>future</strong> 
 <ul>
 <li><p><strong><a href="https://parallelly.futureverse.org">parallelly</a></strong> - <em>Enhancing the parallel Package</em><br>
 Utility functions that enhance the <strong>parallel</strong> package and support the built-in parallel backends of the <strong>future</strong> package.</p></li>
-<li><p><strong><a href="https://marshal.futureverse.org">marshal</a></strong> - <em>Framework to Marshal Objects to be Used in Another R Process</em><br>
-<em>PROTOTYPE</em>: Some types of R objects can be used only in the R session they were created. If used as-is in another R process, such objects often result in an immediate error or in obscure and hard-to-troubleshoot outcomes. Because of this, they cannot be saved to file and re-used at a later time. They can also not be exported to a worker in parallel processing. These objects are sometimes referred to as non-exportable or non-serializable objects. One solution to this problem is to use “marshaling” to encode the R object into an exportable representation that then can be used to re-create a copy of that object in another R process.</p></li>
 <li><p><strong><a href="https://globals.futureverse.org">globals</a></strong> - <em>Identify Global Objects in R Expressions</em><br>
 Identifies global (“unknown” or “free”) objects in R expressions by code inspection using various strategies (ordered, liberal, or conservative). The objective of this package is to make it as simple as possible to identify global objects for the purpose of exporting them in parallel, distributed compute environments.</p></li>
 <li><p><strong><a href="https://listenv.futureverse.org">listenv</a></strong> - <em>Environments Behaving (Almost) as Lists</em><br>
 List environments are environments that have list-like properties. For instance, the elements of a list environment are ordered and can be accessed and iterated over using index subsetting, e.g. <code>x &lt;- listenv(a = 1, b = 2);</code> <code>for (i in seq_along(x)) x[[i]] &lt;- x[[i]] ^ 2;</code> <code>y &lt;- as.list(x)</code>.</p></li>
+<li><p><strong><a href="https://marshal.futureverse.org">marshal</a></strong> - <em>Framework to Marshal Objects to be Used in Another R Process</em><br>
+<em>PROTOTYPE</em>: Some types of R objects can be used only in the R session they were created. If used as-is in another R process, such objects often result in an immediate error or in obscure and hard-to-troubleshoot outcomes. Because of this, they cannot be saved to file and re-used at a later time. They can also not be exported to a worker in parallel processing. These objects are sometimes referred to as non-exportable or non-serializable objects. One solution to this problem is to use “marshaling” to encode the R object into an exportable representation that then can be used to re-create a copy of that object in another R process.</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
