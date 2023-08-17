@@ -33,13 +33,32 @@ stats-revdep:
 	R_PROGRESSR_ENABLE=true Rscript R/revdep.R
 
 images/favicon.ico: images/logo.png
-	cd images/; \
+	cd $(<D); \
 	convert $(<F) -resize 256x256 -transparent white favicon-256.png; \
 	convert favicon-256.png -resize   16x16 favicon-16.png;  \
 	convert favicon-256.png -resize   32x32 favicon-32.png;  \
 	convert favicon-256.png -resize   64x64 favicon-64.png;  \
 	convert favicon-256.png -resize 128x128 favicon-128.png; \
 	convert favicon-16.png favicon-32.png favicon-64.png favicon-128.png favicon-256.png -colors 256 $(@F)
+
+## INSTRUCTIONS:
+## 1. Download first slide of Google Slides 'futureverse.org-site_preview_text' as a PNG (https://docs.google.com/presentation/d/1IE6--kN7ZrLutcroxvUrtu-2Fnr139iELN6R6fbwkeE/edit#slide=id.p)
+## 2. Move file to images/
+## 3. Call 'make site_preview'
+site_preview: images/site_preview.png
+
+images/site_preview.png: images/logo.png images/futureverse.org-site_preview_text.png
+	tf1=$$(mktemp --suffix=.png); \
+	tf2=$$(mktemp --suffix=.png); \
+	tf3=$$(mktemp --suffix=.png); \
+	convert "$(word 2,$^)" -trim "$$tf1"; \
+	h=$$(identify -format "%[fx:h]" "$$tf1") ;\
+	convert "$<" -trim -resize "x$${h}" "$$tf2"; \
+	montage "$$tf2" "$$tf1" -tile 2x1 -geometry +30+30 "$$tf3"; \
+	montage "$$tf3" -geometry 1200x628 "$$tf1"; \
+	mv "$$tf1" "$@"; \
+	rm "$$tf2" "$$tf3"
+
 
 docsearch: .docsearch/futureverse.json
 
