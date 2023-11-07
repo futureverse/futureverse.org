@@ -31,9 +31,9 @@ Figure 1: The download percentile ranks for <strong>future</strong>,
 <strong>future.apply</strong>, <strong>furrr</strong>, and
 <strong>foreach</strong> averaged every four weeks.
 <strong>future</strong> is among the top-0.8% most downloaded packages
-on CRAN. The data are based on the RStudio CRAN mirror logs.  There
+on CRAN. The data are based on the Posit CRAN mirror logs.  There
 are approximately 150 million package downloads per month from the
-RStudio CRAN mirror alone.  Since none of the other CRAN mirrors
+Posit CRAN mirror alone.  Since none of the other CRAN mirrors
 provide statistics, it is impossible to know the total amount of
 package installations.
 
