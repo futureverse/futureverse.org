@@ -41,7 +41,7 @@ pkgs <- all_pkgs
 
 from <- first_release[["future"]]
 until <- Sys.Date()
-until <- as.Date("2023-04-30")
+#until <- as.Date("2023-10-31")
 
 dates <- c(seq(from, until, by = 7), until)
 stats <- revdep_over_time(dates, pkgs = pkgs)
@@ -79,6 +79,7 @@ gg <- gg_modify(gg, legend = "upper-left")
 #gg <- gg_modify(gg, legend = "none")
 image_dims <- attr(gg, "image_dims")
 gg <- gg + scale_colour_manual(values = colors[-1], aesthetics = c("color"))
+gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
 
@@ -90,6 +91,7 @@ gg <- gg + scale_colour_manual(values = colors)
 gg <- gg + scale_y_log10()
 gg <- gg_modify(gg, legend = "lower-right")
 #gg <- gg_modify(gg, legend = "none")
+gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 image_dims <- attr(gg, "image_dims")
 pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)

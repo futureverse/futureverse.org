@@ -48,7 +48,9 @@ counts <- group_by(counts, package)
 ## Average every four weeks (assuming there are no missing entries)
 counts4 <- group_modify(counts, function(data, package) {
   chunks <- parallel::splitIndices(nrow(data), nrow(data)/4)
+  p <- progressor(along = chunks)
   res <- lapply(chunks, FUN = function(chunk) {
+    p()
     t <- data[chunk, ]
     data.frame(week_of = t$week_of[1], fraction = mean(t$fraction, na.rm = TRUE))
   })
@@ -80,10 +82,12 @@ gg <- gg_modify(gg, legend = "lower-right")
 image_dims <- attr(gg, "image_dims")
 gg <- gg + labs(x = "", y = "Download rank (4-week avg.)")
 gg <- gg + coord_cartesian(ylim = c(0.20, 0))
+gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 pathname <- ggsave(gg, filename = "downloads_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
 
 
 gg <- gg + coord_cartesian(ylim = c(0.03, 0))
+gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 pathname <- ggsave(gg, filename = "downloads_over_time_on_CRAN-zoom.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
