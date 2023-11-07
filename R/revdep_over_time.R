@@ -38,7 +38,12 @@ first_release <- as.Date(c(
 
 ## Count package dependencies
 pkgs <- all_pkgs
-dates <- c(seq(first_release[["future"]], Sys.Date(), by=7), Sys.Date())
+
+from <- first_release[["future"]]
+until <- Sys.Date()
+until <- as.Date("2023-04-30")
+
+dates <- c(seq(from, until, by = 7), until)
 stats <- revdep_over_time(dates, pkgs = pkgs)
 
 counts_all <- tidyr::gather(stats, package, count, -1, factor_key = TRUE)
