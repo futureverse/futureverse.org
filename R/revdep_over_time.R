@@ -26,9 +26,19 @@ exclude <- NULL
 exclude <- c(exclude, "doParallel")
 ## exclude <- c(exclude, "foreach")
 
+first_release <- as.Date(c(
+       "foreach" = "2009-06-27",
+        "doSNOW" = "2009-08-21",
+    "doParallel" = "2011-12-07",
+        "future" = "2015-06-19",
+      "doFuture" = "2016-06-25",
+  "future.apply" = "2018-01-15",
+         "furrr" = "2018-05-16"
+))
+
 ## Count package dependencies
 pkgs <- all_pkgs
-dates <- c(seq(as.Date("2015-06-19"), Sys.Date(), by=7), Sys.Date())
+dates <- c(seq(first_release[["future"]], Sys.Date(), by=7), Sys.Date())
 stats <- revdep_over_time(dates, pkgs = pkgs)
 
 counts_all <- tidyr::gather(stats, package, count, -1, factor_key = TRUE)
@@ -42,10 +52,10 @@ repeat {
   counts_all <- counts_all[-drop, ]
 }
 
-counts_all <- subset(counts_all, count >= 2)
-counts_all <- subset(counts_all, !(package == "foreach" & count < 10))
-excl_dates <- unique(subset(counts_all, date > "2018-01-01" & count <= 4)$date)
-counts_all <- subset(counts_all, ! date %in% excl_dates)
+## Drop "false" data points
+for (pkg in names(first_release)) {
+  counts_all <- subset(counts_all, !(package == pkg & date < first_release[pkg]))
+}
 
 pkgs <- setdiff(plot_pkgs, exclude)
 counts_all <- subset(counts_all, package %in% pkgs)
