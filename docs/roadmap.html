@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -1847,7 +1847,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1909,6 +1909,7 @@ Packages &amp; Docs
 <a href="https://future.futureverse.org">future (built-in, local &amp; remote parallelization)</a>
 <a href="https://future.batchtools.futureverse.org">future.batchtools (use HPC scheduler)</a>
 <a href="https://future.callr.futureverse.org">future.callr (local callr parallelization)</a>
+<a href="https://future.mirai.futureverse.org">future.mirai (parallelize via mirai)</a>
 <hr/>
 <span class="nav-dropdown-header">Utilities</span>
 <a href="https://listenv.futureverse.org">listenv (Use %&lt;-% for list-like structures)</a>
@@ -1921,7 +1922,6 @@ Packages &amp; Docs
 <hr/>
 <span class="nav-dropdown-header">Experimental</span>
 <a href="https://future.tools.futureverse.org">future.tools (tools for working with futures)</a>
-<a href="https://future.mirai.futureverse.org">future.mirai (parallelize via mirai)</a>
 <a href="https://BiocParallel.FutureParam.futureverse.org/">BiocParallel.FutureParam (a BiocParallel addon)</a>
 <a href="https://marshal.futureverse.org">marshal (export non-exportable objects)</a>
 </div>
@@ -2017,12 +2017,12 @@ Work on this will start when a stable <strong>future.aws.lambda</strong> prototy
 <li><p>Consider relicensing code to a permissive license, where possible</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1"><p>This list is manual curated and may not be comprehensive. Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. <a href="https://github.com/HenrikBengtsson/future/milestones" class="uri">https://github.com/HenrikBengtsson/future/milestones</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</aside>
+</section>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

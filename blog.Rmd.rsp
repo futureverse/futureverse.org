@@ -128,7 +128,7 @@ if (nzchar(image)) {
 ) %>
 
 <% blog_post(
-        title = "%dofuture% - a Better foreach() Parallelization Pperator than %dopar%",
+        title = "%dofuture% - a Better foreach() Parallelization Operator than %dopar%",
           url = "https://www.jottr.org/2023/06/26/dofuture/",
          date = "2023-06-26",
         image = "https://www.jottr.org/post/dopar-to-dofuture.png"

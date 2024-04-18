@@ -51,6 +51,8 @@ navbar:
           href: https://future.batchtools.futureverse.org
         - text: future.callr (local callr parallelization)
           href: https://future.callr.futureverse.org
+        - text: future.mirai (parallelize via mirai)
+          href: https://future.mirai.futureverse.org
         - text: "---"
         - text: Utilities
         - text: listenv (Use %<-% for list-like structures)
@@ -69,8 +71,6 @@ navbar:
         - text: Experimental
         - text: future.tools (tools for working with futures)
           href: https://future.tools.futureverse.org
-        - text: future.mirai (parallelize via mirai)
-          href: https://future.mirai.futureverse.org
         - text: BiocParallel.FutureParam (a BiocParallel addon)
           href: https://BiocParallel.FutureParam.futureverse.org/
         - text: marshal (export non-exportable objects)
