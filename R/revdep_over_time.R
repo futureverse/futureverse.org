@@ -45,6 +45,12 @@ until <- Sys.Date()
 
 dates <- c(seq(from, until, by = 7), until)
 stats <- revdep_over_time(dates, pkgs = pkgs)
+stats0 <- stats
+for (kk in which(sapply(stats, FUN = is.integer))) {
+  x <- stats[[kk]]
+  x[is.na(x) | x <= 1L] <- NA_integer_
+  stats[[kk]] <- x
+}
 
 counts_all <- tidyr::gather(stats, package, count, -1, factor_key = TRUE)
 counts_all <- as_tibble(counts_all)
