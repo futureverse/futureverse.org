@@ -1,0 +1,58 @@
+---
+title: "Parallel Backends"
+description: "Quickly change how and where your parallel code runs"
+preview: images/site_preview.png
+---
+
+By default, future-based code runs sequentially, but with a _single
+line of code_, we easily switch to run the exact same code in
+parallel. The most common approach is to parallelize on the local
+machine, but we have also the option to harness the CPUs of other
+local or remote machines.  For example, to parallelize on the local
+machine, the end-user can call:
+
+```r
+plan(multisession)
+```
+
+After this, **future.apply**, **furrr**, and **doFuture**, or any
+package that use these, will run the code in parallel.
+
+To switch back to sequential processing, we can call:
+
+```r
+plan(sequential)
+```
+
+If you have Secure Shell (SSH) access to other machines on your local
+network, or remote machines, call:
+
+```r
+plan(cluster, workers = c("n1", "n1", "n2", "remote.server.org"))
+```
+
+This will set up four parallel workers, where two run on the local
+'n1' machine, another on the local 'n2' machine, and the fourth on the
+remote 'remote.server.org' machine.
+
+In addition to the above built-in parallel backends, more are provided
+by other R packages, as show in the table below.
+
+| Parallel backend       | Description
+|:-----------------------|:----------------------------------------------
+| `sequential`           | Run future-based code sequentially (default).
+| `multisession`         | Parallelize on the local machine via persistent background R processes.
+| `cluster`              | Parallelize across local and remote machines via persistent background R processes.
+| `multicore`            | Parallelize on the local machine via transient, forked R processes.
+| `callr`                | Parallelize on the local machine via transient background R processes. Available in the **future.callr** package.
+| `mirai_multisession`   | Parallelize on the local machine via persistent background R processes. Available in the **future.mirai** package.
+| `mirai_cluster`        | Parallelize across local and remote machines via persistent background R processes. Available in the **future.mirai** package.
+| `batchtools_pbs`       | Parallelize via the high-performance-compute (HPC) scheduler PBS. Available in the **future.batchtools** package.
+| `batchtools_sge`       | Parallelize via the high-performance-compute (HPC) scheduler SGE. Available in the **future.batchtools** package.
+| `batchtools_slurm`     | Parallelize via the high-performance-compute (HPC) scheduler Slurm. Available in the **future.batchtools** package.
+
+It is straightforward to implement new backends that leverage other
+ways to harness available compute resources. As soon as a new backend
+has been validated to be compliant with the Future API specifications,
+which can be done by the **future.tests** package, then it can be used
+anywhere future-based code is used.
