@@ -1,6 +1,6 @@
 SHELL=bash
 
-FILES ?= about.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd statistics.Rmd talks.Rmd usage.Rmd quality.Rmd tutorials.Rmd
+FILES ?= about.Rmd backends.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd talks.Rmd usage.Rmd quality.Rmd tutorials.Rmd
 
 PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.mirai future.mapreduce future.tests future.tools futureverse globals listenv marshal parallelly progressr
 
