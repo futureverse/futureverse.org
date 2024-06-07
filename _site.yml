@@ -79,6 +79,8 @@ navbar:
       href: blog.html
     - text: "Use & Stats"
       href: usage.html
+    - text: "Parallel Backends"
+      href: backends.html
     - text: "Quality"
       href: quality.html
     - text: "Tutorials"
