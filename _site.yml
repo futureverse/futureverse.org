@@ -77,10 +77,8 @@ navbar:
           href: https://marshal.futureverse.org
     - text: "Blog"
       href: blog.html
-    - text: "Usage"
+    - text: "Use & Stats"
       href: usage.html
-    - text: "Statistics"
-      href: statistics.html
     - text: "Quality"
       href: quality.html
     - text: "Tutorials"
