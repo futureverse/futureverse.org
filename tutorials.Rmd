@@ -89,6 +89,23 @@ preview: images/site_preview.png
 <div class="listItem">
  <div class="itemDetails">
   <div class="itemHeader">
+   <div class="itemTitle"><a href="https://henrikbengtsson.github.io/future-tutorial-raukr2024/">Futureverse: A Unifying Parallelization Framework in R for Everyone (RaukR 2024)</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   <div class="itemInfo">
+Location: RaukR Summer School 2024, Advanced R for Bioinformatics, Visby, Sweden, June 10-20, 2024
+   </div>
+   <div class="itemDate">2024-06-12, 2024-06-17</div>
+  </div>
+ </div>
+</div>
+
+
+<div class="listItem">
+ <div class="itemDetails">
+  <div class="itemHeader">
    <div class="itemTitle"><a href="https://henrikbengtsson.github.io/course-stanford-futureverse-2023/">Futureverse - A Unifying Parallelization Framework in R for Everyone: STATS/BIODS 352: Topics in Computing for Data Science, Bridging Methodology and Practice, Stanford University, 2023</a>
    </div>
   </div>
