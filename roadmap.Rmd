@@ -38,6 +38,10 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 * Flattening nested parallelism: Process nested futures via a common future queue instead of via nested future plans
   [[future#FR361]]
 
+* Random number generation: Support for custom, alternative RNGs other
+  than the built-in L'Ecuyer-CMRG algorithm.
+
+
 
 ## Map-Reduce Future API
 
