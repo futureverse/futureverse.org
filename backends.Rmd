@@ -15,9 +15,9 @@ machine, the end-user can call:
 plan(multisession)
 ```
 
-After this, all of Futureverse, including **future.apply**, **furrr**,
-and **doFuture**, and any package that use these, will run the code in
-parallel.
+After this, all of Futureverse, including **[future.apply]**,
+**[furrr]**, and **[doFuture]**, and any package that use these, will
+run the code in parallel.
 
 To switch back to sequential processing, we can call:
 
@@ -45,17 +45,29 @@ by other R packages, as show in the table below.
 | `multisession`         | Parallelize on the local machine via persistent background R processes.
 | `cluster`              | Parallelize across local and remote machines via persistent background R processes.
 | `multicore`            | Parallelize on the local machine via transient, forked R processes.
-| `callr`                | Parallelize on the local machine via transient background R processes. Available in the **future.callr** package.
-| `mirai_multisession`   | Parallelize on the local machine via persistent background R processes. Available in the **future.mirai** package.
-| `mirai_cluster`        | Parallelize across local and remote machines via persistent background R processes. Available in the **future.mirai** package.
-| `batchtools_lsf`       | Parallelize via the high-performance-compute (HPC) scheduler Load Sharing Facility (LSF). Available in the **future.batchtools** package.
-| `batchtools_openlava`  | Parallelize via the high-performance-compute (HPC) scheduler OpenLava. Available in the **future.batchtools** package.
-| `batchtools_pbs`       | Parallelize via the high-performance-compute (HPC) scheduler TORQUE/PBS. Available in the **future.batchtools** package.
-| `batchtools_sge`       | Parallelize via the high-performance-compute (HPC) scheduler Son/Sun/Oracle/Univa Grid Engine (SGE). Available in the **future.batchtools** package.
-| `batchtools_slurm`     | Parallelize via the high-performance-compute (HPC) scheduler Slurm. Available in the **future.batchtools** package.
+| `callr`                | Parallelize on the local machine via transient background R processes. Available in the **[future.callr]** package.
+| `mirai_multisession`   | Parallelize on the local machine via persistent background R processes. Available in the **[future.mirai]** package.
+| `mirai_cluster`        | Parallelize across local and remote machines via persistent background R processes. Available in the **[future.mirai]** package.
+| `batchtools_lsf`       | Parallelize via the high-performance-compute (HPC) scheduler Load Sharing Facility (LSF). Available in the **[future.batchtools]** package.
+| `batchtools_openlava`  | Parallelize via the high-performance-compute (HPC) scheduler OpenLava. Available in the **[future.batchtools]** package.
+| `batchtools_pbs`       | Parallelize via the high-performance-compute (HPC) scheduler TORQUE/PBS. Available in the **[future.batchtools]** package.
+| `batchtools_sge`       | Parallelize via the high-performance-compute (HPC) scheduler Son/Sun/Oracle/Univa Grid Engine (SGE). Available in the **[future.batchtools]** package.
+| `batchtools_slurm`     | Parallelize via the high-performance-compute (HPC) scheduler Slurm. Available in the **[future.batchtools]** package.
 
 It is straightforward to implement new backends that leverage other
 ways to harness available compute resources. As soon as a new backend
 has been validated to be compliant with the Future API specifications,
-which can be done by the **future.tests** package, then it can be used
-anywhere future-based code is used.
+which can be done by the **[future.tests]** package, then it can be
+used anywhere future-based code is used.
+
+
+[doFuture]: https://doFuture.futureverse.org
+[furrr]: https://furrr.futureverse.org
+[future.apply]: https://future.apply.futureverse.org
+
+[future.batchtools]: https://future.batchtools.futureverse.org
+[future.callr]: https://future.callr.futureverse.org
+[future.mirai]: https://future.mirai.futureverse.org
+
+[future.tests]: https://future.tests.futureverse.org
+

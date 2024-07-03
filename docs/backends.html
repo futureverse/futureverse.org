@@ -1960,9 +1960,9 @@ machine, but we have also the option to harness the CPUs of other
 local or remote machines. For example, to parallelize on the local
 machine, the end-user can call:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession)</span></code></pre></div>
-<p>After this, all of Futureverse, including <strong>future.apply</strong>, <strong>furrr</strong>,
-and <strong>doFuture</strong>, and any package that use these, will run the code in
-parallel.</p>
+<p>After this, all of Futureverse, including <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>,
+<strong><a href="https://furrr.futureverse.org">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong>, and any package that use these, will
+run the code in parallel.</p>
 <p>To switch back to sequential processing, we can call:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(sequential)</span></code></pre></div>
 <p>If you have Secure Shell (SSH) access to other machines on your local
@@ -2003,43 +2003,43 @@ by other R packages, as show in the table below.</p>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>callr</code></td>
-<td style="text-align: left;">Parallelize on the local machine via transient background R processes. Available in the <strong>future.callr</strong> package.</td>
+<td style="text-align: left;">Parallelize on the local machine via transient background R processes. Available in the <strong>[<a href="https://future.callr.futureverse.org">future.callr</a></strong> package.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>mirai_multisession</code></td>
-<td style="text-align: left;">Parallelize on the local machine via persistent background R processes. Available in the <strong>future.mirai</strong> package.</td>
+<td style="text-align: left;">Parallelize on the local machine via persistent background R processes. Available in the <strong>[<a href="https://future.mirai.futureverse.org">future.mirai</a></strong> package.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>mirai_cluster</code></td>
-<td style="text-align: left;">Parallelize across local and remote machines via persistent background R processes. Available in the <strong>future.mirai</strong> package.</td>
+<td style="text-align: left;">Parallelize across local and remote machines via persistent background R processes. Available in the <strong>[<a href="https://future.mirai.futureverse.org">future.mirai</a></strong> package.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>batchtools_lsf</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Load Sharing Facility (LSF). Available in the <strong>future.batchtools</strong> package.</td>
+<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Load Sharing Facility (LSF). Available in the <strong>[<a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>batchtools_openlava</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler OpenLava. Available in the <strong>future.batchtools</strong> package.</td>
+<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler OpenLava. Available in the <strong>[<a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>batchtools_pbs</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler TORQUE/PBS. Available in the <strong>future.batchtools</strong> package.</td>
+<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler TORQUE/PBS. Available in the <strong>[<a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>batchtools_sge</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Son/Sun/Oracle/Univa Grid Engine (SGE). Available in the <strong>future.batchtools</strong> package.</td>
+<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Son/Sun/Oracle/Univa Grid Engine (SGE). Available in the <strong>[<a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>batchtools_slurm</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Slurm. Available in the <strong>future.batchtools</strong> package.</td>
+<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Slurm. Available in the <strong>[<a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
 </tr>
 </tbody>
 </table>
 <p>It is straightforward to implement new backends that leverage other
 ways to harness available compute resources. As soon as a new backend
 has been validated to be compliant with the Future API specifications,
-which can be done by the <strong>future.tests</strong> package, then it can be used
-anywhere future-based code is used.</p>
+which can be done by the <strong><a href="https://future.tests.futureverse.org">future.tests</a></strong> package, then it can be
+used anywhere future-based code is used.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
