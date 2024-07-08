@@ -89,6 +89,23 @@ preview: images/site_preview.png
 <div class="listItem">
  <div class="itemDetails">
   <div class="itemHeader">
+   <div class="itemTitle"><a href="https://henrikbengtsson.github.io/future-tutorial-user2024/">Futureverse: Friendly Parallelization in R (useR! 2024)</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   <div class="itemInfo">
+Location: useR! 2024, Salzburg, Austria, June 8-12, 2024
+   </div>
+   <div class="itemDate">2024-07-08</div>
+  </div>
+ </div>
+</div>
+
+
+<div class="listItem">
+ <div class="itemDetails">
+  <div class="itemHeader">
    <div class="itemTitle"><a href="https://henrikbengtsson.github.io/future-tutorial-raukr2024/">Futureverse: A Unifying Parallelization Framework in R for Everyone (RaukR 2024)</a>
    </div>
   </div>
