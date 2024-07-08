@@ -1,6 +1,6 @@
 SHELL=bash
 
-FILES ?= about.Rmd backends.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd talks.Rmd usage.Rmd quality.Rmd tutorials.Rmd
+FILES ?= about.Rmd backends.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd talks.Rmd usage.Rmd quality.Rmd tutorials.Rmd now.Rmd
 
 PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.mirai future.mapreduce future.tests future.tools futureverse globals listenv marshal parallelly progressr
 
@@ -16,6 +16,9 @@ build:
 	Rscript -e R.rsp::rfile blog.Rmd.rsp --postprocess=FALSE
 	module load pandoc; \
 	Rscript -e "rmarkdown::render_site()"
+
+now:
+	Rscript -e "rmarkdown::render('now.Rmd')"
 
 view:
 	xdg-open docs/index.html
