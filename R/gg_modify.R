@@ -24,11 +24,11 @@ gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upp
 
   gg <- gg + guides(col = guide_legend(title = "Package:"))
   if (legend == "lower-right") {
-    gg <- gg + theme(legend.position = c(0.84, 0.15))
+    gg <- gg + theme(legend.position.inside = c(0.84, 0.15))
   } else if (legend == "upper-left") {
-    gg <- gg + theme(legend.position = c(0.15, 0.85))
+    gg <- gg + theme(legend.position.inside = c(0.15, 0.85))
   } else if (legend == "none") {
-    gg <- gg + theme(legend.position = "none")
+    gg <- gg + theme(legend.position.inside = "none")
   }
 
   if (mode == "presentation") {
@@ -41,9 +41,9 @@ gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upp
       legend.title    = element_text(size = 16, colour = "black"),
     )
     if (legend == "lower-right") {
-      gg <- gg + theme(legend.position = c(0.84, 0.15))
+      gg <- gg + theme(legend.position.inside = c(0.84, 0.15))
     } else {
-      gg <- gg + theme(legend.position = c(0.14, 0.85))
+      gg <- gg + theme(legend.position.inside = c(0.14, 0.85))
     }
     image_dims <- 1.2 * image_dims
   }
