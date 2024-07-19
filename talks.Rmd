@@ -4,7 +4,7 @@ description: Presentations on futures with slides and recorded videos
 preview: images/site_preview.png
 ---
 
-* Henrik Bengtsson, [future.mirai: Use the Mirai Parallelization Framework in Futureverse - Easy! ](https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/), useR! 2024, Salzburg, Austria, 2024-07-09 (20 minutes)
+* Henrik Bengtsson, [future.mirai: Use the Mirai Parallelization Framework in Futureverse - Easy!](https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/), useR! 2024, Salzburg, Austria, 2024-07-09 (20 minutes) [[HTML](https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/), [PDF](https://raw.githubusercontent.com/HenrikBengtsson/talk-user2024-future.mirai/main/BengtssonH_20240709-future.mirai-useR2024.pdf)]
 
 * Henrik Bengtsson, [Futureverse - A Unifying Parallelization Framework in R for Everyone](https://www.jottr.org/2023/05/22/future-yegrug-2023-slides/), Edmonton R User Group Meetup (YEGRUG), 2023-05-22 (60 minutes)
 
