@@ -7,7 +7,7 @@ preview: images/site_preview.png
 H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, [The R Journal](https://journal.r-project.org/) (2021) 13:2, pages 208-227 [[abstract](https://journal.r-project.org/archive/2021/RJ-2021-048/index.html), [PDF](https://journal.r-project.org/archive/2021/RJ-2021-048/RJ-2021-048.pdf)]
 
 
-H. Bengtsson. Futureverse - Worry-Free Parallelization in R, [Biometric Bulletin](https://www.biometricsociety.org/publications/biometric-bulletin) (2023), 40:3: pages 8–10
+H. Bengtsson. Futureverse - Worry-Free Parallelization in R, [Biometric Bulletin](https://www.biometricsociety.org/publications/biometric-bulletin) (2023), 40:3: pages 8–10 [PDF](https://higherlogicdownload.s3.amazonaws.com/BIOMETRICSOCIETY/713ac962-588b-42d5-940f-47ae32f0b28c/UploadedImages/Documents/Biometric_Bulletin/2023/IBS_BioMetric-Bulletin-Vol40-Issue3-1_6_2023.pdf)
 
 
 
