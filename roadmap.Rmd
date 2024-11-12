@@ -4,7 +4,7 @@ description: "Lots of backward-compatible improvements and extensions ahead"
 preview: images/site_preview.png
 ---
 
-Below are some^[This list is manual curated and may not be comprehensive.  Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. <https://github.com/HenrikBengtsson/future/milestones>.] of the bigger milestones on the roadmap.  The issues linked that are examples of feature requests from end-users are prefixed 'FR', which will be resolved by the other non-FR issues.
+Below are some^[This list is manual curated and may not be comprehensive.  Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. <https://github.com/futureverse/future/milestones>.] of the bigger milestones on the roadmap.  The issues linked that are examples of feature requests from end-users are prefixed 'FR', which will be resolved by the other non-FR issues.
 
 
 ## Core Future API
@@ -106,28 +106,28 @@ Below is a list of future backends that are worked on or in the plans:
 [doFuture#61]: https://github.com/HenrikBengtsson/doFuture/issues/61
 [doFuture#FR63]: https://github.com/HenrikBengtsson/doFuture/issues/63
 
-[future#59]:  https://github.com/HenrikBengtsson/future/issues/59
-[future#93]:  https://github.com/HenrikBengtsson/future/issues/93
-[future#134]: https://github.com/HenrikBengtsson/future/issues/134
-[future#142]: https://github.com/HenrikBengtsson/future/issues/142
-[future#FR151]: https://github.com/HenrikBengtsson/future/issues/151
-[future#FR181]: https://github.com/HenrikBengtsson/future/issues/181
-[future#FR188]: https://github.com/HenrikBengtsson/future/issues/188
-[future#FR204]: https://github.com/HenrikBengtsson/future/issues/204
-[future#FR267]: https://github.com/HenrikBengtsson/future/issues/267
-[future#205]: https://github.com/HenrikBengtsson/future/issues/205
-[future#FR213]: https://github.com/HenrikBengtsson/future/issues/213
-[future#253]: https://github.com/HenrikBengtsson/future/issues/253
-[future#FR256]: https://github.com/HenrikBengtsson/future/issues/256
-[future#FR286]: https://github.com/HenrikBengtsson/future/issues/286
-[future#FR301]: https://github.com/HenrikBengtsson/future/issues/301
-[future#FR346]: https://github.com/HenrikBengtsson/future/issues/346
-[future#FR361]: https://github.com/HenrikBengtsson/future/issues/361
-[future#FR423]: https://github.com/HenrikBengtsson/future/issues/423
-[future#FR430]: https://github.com/HenrikBengtsson/future/issues/430
-[future#FR437]: https://github.com/HenrikBengtsson/future/issues/437
-[future#FR450]: https://github.com/HenrikBengtsson/future/issues/450
-[future#480]: https://github.com/HenrikBengtsson/future/issues/480
+[future#59]:  https://github.com/futureverse/future/issues/59
+[future#93]:  https://github.com/futureverse/future/issues/93
+[future#134]: https://github.com/futureverse/future/issues/134
+[future#142]: https://github.com/futureverse/future/issues/142
+[future#FR151]: https://github.com/futureverse/future/issues/151
+[future#FR181]: https://github.com/futureverse/future/issues/181
+[future#FR188]: https://github.com/futureverse/future/issues/188
+[future#FR204]: https://github.com/futureverse/future/issues/204
+[future#FR267]: https://github.com/futureverse/future/issues/267
+[future#205]: https://github.com/futureverse/future/issues/205
+[future#FR213]: https://github.com/futureverse/future/issues/213
+[future#253]: https://github.com/futureverse/future/issues/253
+[future#FR256]: https://github.com/futureverse/future/issues/256
+[future#FR286]: https://github.com/futureverse/future/issues/286
+[future#FR301]: https://github.com/futureverse/future/issues/301
+[future#FR346]: https://github.com/futureverse/future/issues/346
+[future#FR361]: https://github.com/futureverse/future/issues/361
+[future#FR423]: https://github.com/futureverse/future/issues/423
+[future#FR430]: https://github.com/futureverse/future/issues/430
+[future#FR437]: https://github.com/futureverse/future/issues/437
+[future#FR450]: https://github.com/futureverse/future/issues/450
+[future#480]: https://github.com/futureverse/future/issues/480
 
 [future.apply#20]: https://github.com/HenrikBengtsson/future.apply/issues/20
 [future.apply#FR32]: https://github.com/HenrikBengtsson/future.apply/issues/32
