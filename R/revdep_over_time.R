@@ -70,9 +70,14 @@ for (pkg in names(first_release)) {
 
 pkgs <- setdiff(plot_pkgs, exclude)
 counts_all <- subset(counts_all, package %in% pkgs)
-ncolors <- length(unique(counts_all$package))
-colors <- scales::hue_pal()(ncolors+1)[-1]
+npkgs <- length(unique(counts_all$package))
+if (npkgs == 1L) {
+  colors <- "#663399"
+} else {
+  colors <- scales::hue_pal()(npkgs+1)[-1]
+}
 names(colors) <- pkgs
+if (npkgs == 1L) colors <- rep(colors, length.out = 2)
 print(colors)
 
 ## Non-log scale
@@ -82,7 +87,7 @@ gg <- ggplot(counts, aes(x = date, y = count, color = package))
 #gg <- gg + scale_colour_manual(values = colors)
 gg <- gg + scale_colour_manual(values = colors, aesthetics = c("color"))
 gg <- gg_modify(gg, legend = "upper-left")
-#gg <- gg_modify(gg, legend = "none")
+if (npkgs == 1L) gg <- gg + theme(legend.position = "none")
 image_dims <- attr(gg, "image_dims")
 gg <- gg + scale_colour_manual(values = colors[-1], aesthetics = c("color"))
 gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
@@ -96,7 +101,7 @@ gg <- ggplot(counts, aes(x = date, y = count, color = package))
 gg <- gg + scale_colour_manual(values = colors)
 gg <- gg + scale_y_log10()
 gg <- gg_modify(gg, legend = "lower-right")
-#gg <- gg_modify(gg, legend = "none")
+if (npkgs == 1L) gg <- gg + theme(legend.position = "none")
 gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 image_dims <- attr(gg, "image_dims")
 pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = image_dims[1], height = image_dims[2])

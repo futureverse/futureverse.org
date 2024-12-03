@@ -35,7 +35,7 @@ pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_we
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
 
 
-all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
+all_pkgs <- c("parallel", "parallelly", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
 
 ## all_pkgs <- c("matrixStats")
 
