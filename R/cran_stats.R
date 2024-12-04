@@ -65,6 +65,7 @@ pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
 exclude <- NULL
 exclude <- c(exclude, "doParallel")
 pkgs <- setdiff(pkgs, exclude)
+npkgs <- length(pkgs)
 colors <- scales::hue_pal()(length(pkgs)+1)[-1]
 names(colors) <- pkgs
 
@@ -79,6 +80,7 @@ gg <- gg + scale_colour_manual(values = colors)
 #gg <- gg + geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE)
 gg <- gg + scale_y_reverse(labels = scales::percent)
 gg <- gg_modify(gg, legend = "lower-right")
+gg <- gg + theme(legend.position = if (npkgs == 1L) "none" else "inside")
 image_dims <- attr(gg, "image_dims")
 gg <- gg + labs(x = "", y = "Download rank (4-week avg.)")
 gg <- gg + coord_cartesian(ylim = c(0.20, 0))
