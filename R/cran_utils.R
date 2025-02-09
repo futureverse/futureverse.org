@@ -14,7 +14,7 @@ cran_all_downloads <- function(..., packages = cran_package_names(), chunk_size 
   chunks <- parallel::splitIndices(npkgs, nchunks)
   chunks <- lapply(chunks, FUN = function(chunk) packages[chunk])
   p <- progressr::progressor(along = chunks)
-  stats <- future_lapply(chunks, FUN = function(pkgs) {
+  stats <- future_lapply(chunks, FUN = function(pkgs, ...) {
     p()
     res <- tryCatch({
       cranlogs::cran_downloads(..., packages = pkgs)
@@ -22,18 +22,18 @@ cran_all_downloads <- function(..., packages = cran_package_names(), chunk_size 
     if (inherits(res, "error")) {
       utils::str(list(...))
       return(NULL)
-      stats <- lapply(pkgs, FUN = function(pkg) {
+      stats <- lapply(pkgs, FUN = function(pkg, ...) {
         tryCatch({
           cranlogs::cran_downloads(..., packages = pkg)
         }, error = function(ex) {
           warning(sprintf("Failed to retrieve CRAN download stats for package '%s'", pkg))
           NULL
         })
-      })
+      }, ...)
       res <- do.call(rbind, stats)
     }
     res
-  })
+  }, ...)
   stats <- do.call(rbind, stats)
   if (nrow(stats) > 0) {
     stats$count <- as.integer(stats$count)
