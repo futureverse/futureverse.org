@@ -1958,16 +1958,15 @@ processing, validation is a top priority and part of the design and
 implementation throughout the future ecosystem. Several types of
 testing are performed.</p>
 <p>First, all the essential core packages part of the future framework,
-<strong>future</strong>, <strong>parallelly</strong>, <strong>globals</strong>, and <strong>listenv</strong>,
-implement a rich set of package tests. These are validated regularly
-across the wide-range of operating systems (Linux, Solaris, macOS, and
-MS Windows) and R versions available on CRAN, on continuous
-integration (CI) services (GitHub Actions, Travis CI, and AppVeyor
-CI), an on R-hub.</p>
+<strong>future</strong>, <strong>parallelly</strong>, <strong>globals</strong>, and <strong>listenv</strong>, implement a
+rich set of package tests. These are validated regularly across the
+wide-range of operating systems (Linux, macOS, and MS Windows) and R
+versions available on CRAN, on continuous integration (CI) services
+(GitHub Actions), an on R-hub.</p>
 <p>Second, for each new release, these packages undergo full
 reverse-package dependency checks
-using <strong>revdepcheck</strong>. As of March 2023,
-the <strong>future</strong> package is tested against 280 direct reverse-package
+using <strong>revdepcheck</strong>. As of February 2025,
+the <strong>future</strong> package is tested against 415 direct reverse-package
 dependencies available on CRAN and Bioconductor. These checks are
 performed on Linux with both the default settings and when forcing
 tests to use multisession workers (SOCK clusters), which further
