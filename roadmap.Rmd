@@ -13,10 +13,10 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [[future#480]]
 
 * Termination of futures, e.g. `interrupt(f)`.  Since not all backends can support termination, the design should be such that failed termination attempts must not affect the workflow and its results
-  [~~[future#93]~~, ~~[future#FR213]~~, [future.batchtools#FR27], ~~[parallelly#33]~~]
+  [~~[future#93]~~, ~~[future#FR213]~~, [future.batchtools#FR27], ~~[parallelly#33]~~] (solved in **future** 1.40.0; future backends will be updated accordingly)
 
 * Restarting of failed or terminated futures, e.g. `reset(f)` and `v <- value(f)`.  Also automatic restarting of futures when parallel worker dies
-  [~~[future#FR188]~~, ~~[future#205]~~, [future.callr#FR11], ~~[parallelly#32]~~]
+  [~~[future#FR188]~~, ~~[future#205]~~, [future.callr#FR11], ~~[parallelly#32]~~] (solved in **future** 1.40.0; future backends will be updated accordingly)
 
 * Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as `utils::browser()` and `utils::recover()`
   [[future#253]]

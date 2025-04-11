@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Project Roadmap</title>
+  <title>Futureverse: Project Roadmap</title>
 
   <meta property="description" itemprop="description" content="Lots of backward-compatible improvements and extensions ahead"/>
 
@@ -96,7 +96,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Project Roadmap"/>
+  <meta property="og:title" content="Futureverse: Project Roadmap"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="Lots of backward-compatible improvements and extensions ahead"/>
   <meta property="og:image" content="https://www.futureverse.org/./images/site_preview.png"/>
@@ -107,7 +107,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary_large_image"/>
-  <meta property="twitter:title" content="Project Roadmap"/>
+  <meta property="twitter:title" content="Futureverse: Project Roadmap"/>
   <meta property="twitter:description" content="Lots of backward-compatible improvements and extensions ahead"/>
   <meta property="twitter:image" content="https://www.futureverse.org/./images/site_preview.png"/>
   <meta property="twitter:image:width" content="1200"/>
@@ -1959,9 +1959,9 @@ Packages &amp; Docs
 <li><p>Support for controlling R options and environment variables via <code>future()</code>
 [<a href="https://github.com/futureverse/future/issues/480">future#480</a>]</p></li>
 <li><p>Termination of futures, e.g. <code>interrupt(f)</code>. Since not all backends can support termination, the design should be such that failed termination attempts must not affect the workflow and its results
-[<del><a href="https://github.com/futureverse/future/issues/93">future#93</a></del>, <del><a href="https://github.com/futureverse/future/issues/213">future#FR213</a></del>, <a href="https://github.com/HenrikBengtsson/future.batchtools/issues/27">future.batchtools#FR27</a>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/33">parallelly#33</a></del>]</p></li>
+[<del><a href="https://github.com/futureverse/future/issues/93">future#93</a></del>, <del><a href="https://github.com/futureverse/future/issues/213">future#FR213</a></del>, <a href="https://github.com/HenrikBengtsson/future.batchtools/issues/27">future.batchtools#FR27</a>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/33">parallelly#33</a></del>] (solved in <strong>future</strong> 1.40.0; future backends will be updated accordingly)</p></li>
 <li><p>Restarting of failed or terminated futures, e.g. <code>reset(f)</code> and <code>v &lt;- value(f)</code>. Also automatic restarting of futures when parallel worker dies
-[<del><a href="https://github.com/futureverse/future/issues/188">future#FR188</a></del>, <del><a href="https://github.com/futureverse/future/issues/205">future#205</a></del>, <a href="https://github.com/HenrikBengtsson/future.callr/issues/11">future.callr#FR11</a>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/32">parallelly#32</a></del>]</p></li>
+[<del><a href="https://github.com/futureverse/future/issues/188">future#FR188</a></del>, <del><a href="https://github.com/futureverse/future/issues/205">future#205</a></del>, <a href="https://github.com/HenrikBengtsson/future.callr/issues/11">future.callr#FR11</a>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/32">parallelly#32</a></del>] (solved in <strong>future</strong> 1.40.0; future backends will be updated accordingly)</p></li>
 <li><p>Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as <code>utils::browser()</code> and <code>utils::recover()</code>
 [<a href="https://github.com/futureverse/future/issues/253">future#253</a>]</p></li>
 <li><p>Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
