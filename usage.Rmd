@@ -190,7 +190,7 @@ package installations.
 
 As a reference, the popular **foreach**, released in 2009, was among
 the top-0.8% most downloaded packages during the same period and it
-has 1,221 reverse package dependencies on CRAN.  The number of users
+has 1,270 reverse package dependencies on CRAN.  The number of users
 that download **future** has grown rapidly whereas the the same number
 has slowly decreased for the **foreach** package (Figure 1).
 Similarly, the number of reverse package dependencies on **future**
