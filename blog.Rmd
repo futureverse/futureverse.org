@@ -243,7 +243,7 @@ preview: images/site_preview.png
  </div>
  <div class="itemDetails">
   <div class="itemHeader">
-   <div class="itemTitle"><a href="https://www.jottr.org/2022/04/22/parallelly-1.31.1/">parallelly 1.31.1: Better at Inferring Number of CPU Cores with Cgroups and Linux Containers</a>
+   <div class="itemTitle"><a href="https://www.jottr.org/2022/04/22/parallelly-1.31.1/">parallelly 1.31.1: Better at Inferring Number of CPU Cores with CGroups and Linux Containers</a>
    </div>
   </div>
   <div class="itemMeta">
