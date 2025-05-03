@@ -22,12 +22,14 @@ for some free, cloud services that provide R.
 
 Second, for each new release, these packages undergo full
 reverse-package dependency checks
-using **revdepcheck**.  As of February 2025,
-the **future** package is tested against 415 direct reverse-package
+using **revdepcheck**.  As of May 2025,
+the **future** package is tested against 450 direct reverse-package
 dependencies available on CRAN and Bioconductor.  These checks are
 performed on Linux with both the default settings and when forcing
 tests to use multisession workers (SOCK clusters), which further
 validates that globals and packages are identified correctly.
+We also test with `NOT_CRAN = true`, to further increase the test
+coverage.
 
 <div>
 <img src="images/future.tests-screencast.gif" alt="A screencast

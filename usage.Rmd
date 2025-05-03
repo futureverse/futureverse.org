@@ -152,11 +152,11 @@ cloud via the future framework.
 
 Since the first CRAN release of **future** in June 2015, its uptake
 among end-users and package developers have grown steadily.  During
-November 2024, **future** was among the top-0.8% most downloaded
-package on CRAN (Figure 1) and there are 408 packages on CRAN that
-directly depend on it (Figure 2).  For map-reduce parallelization
+May 2025, **future** was among the top-0.8% most downloaded
+package on CRAN (Figure 1) and there are 450 packages on CRAN and Bioconductor
+that directly depend on it (Figure 2).  For map-reduce parallelization
 packages **future.apply** (top-0.9% most downloaded) and and **furrr**
-(top 1.5%), the corresponding number of packages are 177 and 146,
+(top 1.4%), the corresponding number of packages are 200 and 160,
 respectively.  If we consider recursive dependencies too, that is,
 packages that use the **future** package either directly or indirectly
 via another package, then 85% of all ~22,000 CRAN packages may rely on
@@ -169,7 +169,7 @@ pkgs <- tools::package_dependencies("future", which="all", reverse=TRUE, recursi
 
 <div style="width: 100%; margin-bottom: 3ex;">
 <center>
-<img src="figures/downloads_over_time_on_CRAN.png" alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to 2024 and the ranks for 0 to 20%. Lines for package 'foreach', 'future', 'future.apply', and 'furrr' are displayed in different colors. The foreach curve is the highest but decreases slowly, whereas the other three are rapidly increasing toward the level of foreach." style="width: 70%;"/>
+<img src="figures/downloads_over_time_on_CRAN.png" alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to 2025 and the ranks for 0 to 20%. Lines for package 'foreach', 'future', 'future.apply', and 'furrr' are displayed in different colors. The foreach curve is the highest but decreases slowly, whereas the other three are rapidly increasing toward the level of foreach." style="width: 70%;"/>
 </center>
 <em>
 
@@ -178,7 +178,7 @@ Figure 1: The download percentile ranks for <strong>future</strong>,
 <strong>foreach</strong> averaged every four weeks.
 <strong>future</strong> is among the top-0.8% most downloaded packages
 on CRAN. The data are based on the Posit CRAN mirror logs.  There
-are approximately 150 million package downloads per month from the
+are approximately 200 million package downloads per month from the
 Posit CRAN mirror alone.  Since none of the other CRAN mirrors
 provide statistics, it is impossible to know the total amount of
 package installations.
@@ -198,7 +198,7 @@ appear to grow faster than for **foreach** (Figure 2).
 
 <div style="width: 100%; margin-bottom: 3ex;">
 <center>
-<img src="figures/revdep_over_time_on_CRAN.png" alt="A line graph with 2015-2024 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis. Rapidly growing curves for three packages, 'future', 'future.apply', and 'furrr', are shown with 'future' increasing the fastest." style="width:50%"/><img src="figures/revdep_over_time_on_CRAN-log.png" alt="A line graph with 2015-2024 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis, which is on the logarithmic scale. Curves for four packages, 'foreach', 'future', 'future.apply', and 'furrr', are shown, where foreach has more dependencies but with a lower slope than the others during recent years." style="width:50%"/>
+<img src="figures/revdep_over_time_on_CRAN.png" alt="A line graph with 2015-2025 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis. Rapidly growing curves for three packages, 'future', 'future.apply', and 'furrr', are shown with 'future' increasing the fastest." style="width:50%"/><img src="figures/revdep_over_time_on_CRAN-log.png" alt="A line graph with 2015-2025 on the horizontal axis and 'Number of reverse dependencies' on the vertical axis, which is on the logarithmic scale. Curves for four packages, 'foreach', 'future', 'future.apply', and 'furrr', are shown, where foreach has more dependencies but with a lower slope than the others during recent years." style="width:50%"/>
 </center> 
 <em>
 
