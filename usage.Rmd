@@ -152,7 +152,7 @@ cloud via the future framework.
 
 Since the first CRAN release of **future** in June 2015, its uptake
 among end-users and package developers have grown steadily.  During
-May 2025, **future** was among the top-0.8% most downloaded
+April 2025, **future** was among the top-0.8% most downloaded
 package on CRAN (Figure 1) and there are 450 packages on CRAN and Bioconductor
 that directly depend on it (Figure 2).  For map-reduce parallelization
 packages **future.apply** (top-0.9% most downloaded) and and **furrr**
