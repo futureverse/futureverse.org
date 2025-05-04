@@ -1,3 +1,6 @@
 *~
 .Rhistory
 .Rdump
+/cranlogs/
+/.quarto/
+/.local/
