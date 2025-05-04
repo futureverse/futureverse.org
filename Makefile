@@ -1,6 +1,6 @@
 SHELL=bash
 
-FILES ?= about.Rmd backends.Rmd blog.Rmd index.Rmd packages-overview.Rmd publications.Rmd roadmap.Rmd talks.Rmd usage.Rmd quality.Rmd tutorials.Rmd now.Rmd
+FILES ?= about.qmd backends.qmd blog.qmd index.qmd packages-overview.qmd publications.qmd roadmap.qmd talks.qmd usage.qmd quality.qmd tutorials.qmd now.qmd
 
 PACKAGES ?= BiocParallel.FutureParam doFuture future future.apply future.batchtools future.callr future.mirai future.mapreduce future.tests future.tools futureverse globals listenv marshal parallelly progressr
 
@@ -13,12 +13,12 @@ spell:
 	hunspell -H $(FILES)
 
 build:
-	Rscript -e R.rsp::rfile blog.Rmd.rsp --postprocess=FALSE
+	Rscript -e R.rsp::rfile blog.qmd.rsp --postprocess=FALSE
 	module load pandoc; \
-	Rscript -e "rmarkdown::render_site()"
+	quarto render
 
-now:
-	Rscript -e "rmarkdown::render('now.Rmd')"
+preview:
+	quarto preview
 
 view:
 	xdg-open docs/index.html
@@ -61,13 +61,6 @@ images/site_preview.png: images/logo.png images/futureverse.org-site_preview_tex
 	montage "$$tf3" -geometry 1200x628 "$$tf1"; \
 	mv "$$tf1" "$@"; \
 	rm "$$tf2" "$$tf3"
-
-
-docsearch: .docsearch/futureverse.json
-
-.docsearch/futureverse.json: .docsearch/futureverse.json.rsp
-	cd "$(@D)"; \
-	Rscript -e R.rsp::rfile "$(<F)"
 
 pkgdown-refresh:
 	@source ~/.bashrc.d/interactive=true/git-rpkgs.sh; \

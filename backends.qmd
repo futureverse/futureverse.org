@@ -1,0 +1,80 @@
+---
+title: "Parallel Backends"
+description: "Quickly change how and where your parallel code runs"
+preview: images/site_preview.png
+format: html
+---
+
+By default, future-based code runs sequentially, but with a _single
+line of code_, we easily switch to run the exact same code in
+parallel. The most common approach is to parallelize on the local
+machine, but we have also the option to harness the CPUs of other
+local or remote machines.  For example, to parallelize on the local
+machine, the end-user can call:
+
+```r
+plan(multisession)
+```
+
+After this, all of Futureverse, including **[future.apply]**,
+**[furrr]**, and **[doFuture]**, and any package that use these, will
+run the code in parallel.
+
+To switch back to sequential processing, we can call:
+
+```r
+plan(sequential)
+```
+
+If you have Secure Shell (SSH) access to other machines on your local
+network, or remote machines, call:
+
+```r
+plan(cluster, workers = c("n1", "n1", "n2", "remote.server.org"))
+```
+
+This will set up four parallel workers, where two run on the local
+'n1' machine, another on the local 'n2' machine, and the fourth on the
+remote 'remote.server.org' machine.
+
+
+The **[future]** package comes with built-in future backends that leverage the **parallel** package part of R itself. In addition to these backends, others exist in package extensions, e.g. **[future.callr]**, **[future.mirai]**, and **[future.batchtools]**. Below is an overview of the most common backends that you as an end-user can chose from.
+
+| Package / Backend             | Features    | How futures are evaluated
+|:----------------|:------------|:-----------------------------------------------------
+| **[future]**<br> `sequential`    | 📶<br>♻️<br>         | sequentially and in the current R process; default 
+| **[future]**<br> `multisession`  | 📶<br>♻️<br>        | parallelly via background R sessions on current machine
+| **[future]**<br> `cluster`       | 📶<br>♻️*<br>       | parallelly in external R sessions on current, local, and/or remote machines
+| **[future]**<br> `multicore`     | 📶<br>♻️<br> | (not recommended) parallelly via forked R processes on current machine; not with GUIs like RStudio; not on Windows
+| **[future.callr]**<br> `callr`                    | 📶(next)<br>♻️(next)<br> | parallelly via transient **[callr]** background R sessions on current machine; all memory is returned when as each future is resolved
+| **[future.mirai]**<br> `mirai_multisession`       | 📶(next)<br>♻️(next)<br> | parallelly via **[mirai]** background R sessions on current machine; low latency
+| **[future.mirai]**<br> `mirai_cluster`            |♻️(next)<br> | parallelly via **[mirai]** daemons running locally or remotely
+| **[future.batchtools]**<br> `batchtools_lsf`<br>`batchtools_openlava`<br>`batchtools_sge`<br>`batchtools_slurm`<br>`batchtools_torque` | 📶(soon)<br> ♻️(soon) | parallelly on HPC job schedulers (Load Sharing Facility [LSF], OpenLava, TORQUE/PBS, Son/Sun/Oracle/Univa Grid Engine [SGE], Slurm) via **[batchtools]**; for long-running tasks; high latency |
+
+📶: futures relay progress updates in real-time<br>
+♻️: futures are interruptible and restartable; * disabled by default<br>
+(next): next release; (soon): in a near-future release
+
+
+
+It is straightforward to implement new backends that leverage other
+ways to harness available compute resources. As soon as a new backend
+has been validated to be compliant with the Future API specifications,
+which can be done by the **[future.tests]** package, then it can be
+used anywhere future-based code is used.
+
+
+[doFuture]: https://doFuture.futureverse.org
+[furrr]: https://furrr.futureverse.org
+[future.apply]: https://future.apply.futureverse.org
+
+[future]: https://future.futureverse.org
+[future.batchtools]: https://future.batchtools.futureverse.org
+[future.callr]: https://future.callr.futureverse.org
+[future.mirai]: https://future.mirai.futureverse.org
+
+[future.tests]: https://future.tests.futureverse.org
+
+[batchtools]: https://cran.r-project.org/package=future.batchtools
+[callr]: https://cran.r-project.org/package=future.callr
+[mirai]: https://cran.r-project.org/package=future.mirai

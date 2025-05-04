@@ -1,0 +1,12 @@
+---
+title: "Real-world Use & Statistics"
+description: "The R community embraces the future framework"
+preview: images/site_preview.png
+format: html
+---
+
+This page has been merged into <https://www.futureverse.org/usage.html>.
+
+<script>
+window.location.replace("https://www.futureverse.org/usage.html");
+</script>
