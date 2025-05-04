@@ -74,3 +74,6 @@ used anywhere future-based code is used.
 
 [future.tests]: https://future.tests.futureverse.org
 
+[batchtools]: https://cran.r-project.org/package=future.batchtools
+[callr]: https://cran.r-project.org/package=future.callr
+[mirai]: https://cran.r-project.org/package=future.mirai
