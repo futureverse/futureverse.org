@@ -36,23 +36,25 @@ This will set up four parallel workers, where two run on the local
 'n1' machine, another on the local 'n2' machine, and the fourth on the
 remote 'remote.server.org' machine.
 
-In addition to the above built-in parallel backends, more are provided
-by other R packages, as show in the table below.
 
-| Parallel backend       | Description
-|:-----------------------|:----------------------------------------------
-| `sequential`           | Run future-based code sequentially (default).
-| `multisession`         | Parallelize on the local machine via persistent background R processes.
-| `cluster`              | Parallelize across local and remote machines via persistent background R processes.
-| `multicore`            | Parallelize on the local machine via transient, forked R processes.
-| `callr`                | Parallelize on the local machine via transient background R processes. Available in the **[future.callr]** package.
-| `mirai_multisession`   | Parallelize on the local machine via persistent background R processes. Available in the **[future.mirai]** package.
-| `mirai_cluster`        | Parallelize across local and remote machines via persistent background R processes. Available in the **[future.mirai]** package.
-| `batchtools_lsf`       | Parallelize via the high-performance-compute (HPC) scheduler Load Sharing Facility (LSF). Available in the **[future.batchtools]** package.
-| `batchtools_openlava`  | Parallelize via the high-performance-compute (HPC) scheduler OpenLava. Available in the **[future.batchtools]** package.
-| `batchtools_pbs`       | Parallelize via the high-performance-compute (HPC) scheduler TORQUE/PBS. Available in the **[future.batchtools]** package.
-| `batchtools_sge`       | Parallelize via the high-performance-compute (HPC) scheduler Son/Sun/Oracle/Univa Grid Engine (SGE). Available in the **[future.batchtools]** package.
-| `batchtools_slurm`     | Parallelize via the high-performance-compute (HPC) scheduler Slurm. Available in the **[future.batchtools]** package.
+The **[future]** package comes with built-in future backends that leverage the **parallel** package part of R itself. In addition to these backends, others exist in package extensions, e.g. **[future.callr]**, **[future.mirai]**, and **[future.batchtools]**. Below is an overview of the most common backends that you as an end-user can chose from.
+
+| Package / Backend             | Features    | How futures are evaluated
+|:----------------|:------------|:-----------------------------------------------------
+| **[future]**<br> `sequential`    | 📶<br>♻️<br>         | sequentially and in the current R process; default 
+| **[future]**<br> `multisession`  | 📶<br>♻️<br>        | parallelly via background R sessions on current machine
+| **[future]**<br> `cluster`       | 📶<br>♻️*<br>       | parallelly in external R sessions on current, local, and/or remote machines
+| **[future]**<br> `multicore`     | 📶<br>♻️<br> | (not recommended) parallelly via forked R processes on current machine; not with GUIs like RStudio; not on Windows
+| **[future.callr]**<br> `callr`                    | 📶(next)<br>♻️(next)<br> | parallelly via transient **[callr]** background R sessions on current machine; all memory is returned when as each future is resolved
+| **[future.mirai]**<br> `mirai_multisession`       | 📶(next)<br>♻️(next)<br> | parallelly via **[mirai]** background R sessions on current machine; low latency
+| **[future.mirai]**<br> `mirai_cluster`            |♻️(next)<br> | parallelly via **[mirai]** daemons running locally or remotely
+| **[future.batchtools]**<br> `batchtools_lsf`<br>`batchtools_openlava`<br>`batchtools_sge`<br>`batchtools_slurm`<br>`batchtools_torque` | 📶(soon)<br> ♻️(soon) | parallelly on HPC job schedulers (Load Sharing Facility [LSF], OpenLava, TORQUE/PBS, Son/Sun/Oracle/Univa Grid Engine [SGE], Slurm) via **[batchtools]**; for long-running tasks; high latency |
+
+📶: futures relay progress updates in real-time<br>
+♻️: futures are interruptible and restartable; * disabled by default<br>
+(next): next release; (soon): in a near-future release
+
+
 
 It is straightforward to implement new backends that leverage other
 ways to harness available compute resources. As soon as a new backend
@@ -65,6 +67,7 @@ used anywhere future-based code is used.
 [furrr]: https://furrr.futureverse.org
 [future.apply]: https://future.apply.futureverse.org
 
+[future]: https://future.futureverse.org
 [future.batchtools]: https://future.batchtools.futureverse.org
 [future.callr]: https://future.callr.futureverse.org
 [future.mirai]: https://future.mirai.futureverse.org

@@ -1971,70 +1971,66 @@ network, or remote machines, call:</p>
 <p>This will set up four parallel workers, where two run on the local
 ‘n1’ machine, another on the local ‘n2’ machine, and the fourth on the
 remote ‘remote.server.org’ machine.</p>
-<p>In addition to the above built-in parallel backends, more are provided
-by other R packages, as show in the table below.</p>
+<p>The <strong><a href="https://future.futureverse.org">future</a></strong> package comes with built-in future backends that leverage the <strong>parallel</strong> package part of R itself. In addition to these backends, others exist in package extensions, e.g. <strong><a href="https://future.callr.futureverse.org">future.callr</a></strong>, <strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong>, and <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong>. Below is an overview of the most common backends that you as an end-user can chose from.</p>
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 66%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 64%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Parallel backend</th>
-<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Package / Backend</th>
+<th style="text-align: left;">Features</th>
+<th style="text-align: left;">How futures are evaluated</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><code>sequential</code></td>
-<td style="text-align: left;">Run future-based code sequentially (default).</td>
+<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>sequential</code></td>
+<td style="text-align: left;">📶<br>♻️<br></td>
+<td style="text-align: left;">sequentially and in the current R process; default</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>multisession</code></td>
-<td style="text-align: left;">Parallelize on the local machine via persistent background R processes.</td>
+<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>multisession</code></td>
+<td style="text-align: left;">📶<br>♻️<br></td>
+<td style="text-align: left;">parallelly via background R sessions on current machine</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>cluster</code></td>
-<td style="text-align: left;">Parallelize across local and remote machines via persistent background R processes.</td>
+<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>cluster</code></td>
+<td style="text-align: left;">📶<br>♻️*<br></td>
+<td style="text-align: left;">parallelly in external R sessions on current, local, and/or remote machines</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>multicore</code></td>
-<td style="text-align: left;">Parallelize on the local machine via transient, forked R processes.</td>
+<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>multicore</code></td>
+<td style="text-align: left;">📶<br>♻️<br></td>
+<td style="text-align: left;">(not recommended) parallelly via forked R processes on current machine; not with GUIs like RStudio; not on Windows</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>callr</code></td>
-<td style="text-align: left;">Parallelize on the local machine via transient background R processes. Available in the <strong><a href="https://future.callr.futureverse.org">future.callr</a></strong> package.</td>
+<td style="text-align: left;"><strong><a href="https://future.callr.futureverse.org">future.callr</a></strong><br> <code>callr</code></td>
+<td style="text-align: left;">📶(next)<br>♻️(next)<br></td>
+<td style="text-align: left;">parallelly via transient <strong>[callr]</strong> background R sessions on current machine; all memory is returned when as each future is resolved</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>mirai_multisession</code></td>
-<td style="text-align: left;">Parallelize on the local machine via persistent background R processes. Available in the <strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong> package.</td>
+<td style="text-align: left;"><strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong><br> <code>mirai_multisession</code></td>
+<td style="text-align: left;">📶(next)<br>♻️(next)<br></td>
+<td style="text-align: left;">parallelly via <strong>[mirai]</strong> background R sessions on current machine; low latency</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>mirai_cluster</code></td>
-<td style="text-align: left;">Parallelize across local and remote machines via persistent background R processes. Available in the <strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong> package.</td>
+<td style="text-align: left;"><strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong><br> <code>mirai_cluster</code></td>
+<td style="text-align: left;">♻️(next)<br></td>
+<td style="text-align: left;">parallelly via <strong>[mirai]</strong> daemons running locally or remotely</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>batchtools_lsf</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Load Sharing Facility (LSF). Available in the <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>batchtools_openlava</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler OpenLava. Available in the <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>batchtools_pbs</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler TORQUE/PBS. Available in the <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>batchtools_sge</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Son/Sun/Oracle/Univa Grid Engine (SGE). Available in the <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>batchtools_slurm</code></td>
-<td style="text-align: left;">Parallelize via the high-performance-compute (HPC) scheduler Slurm. Available in the <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> package.</td>
+<td style="text-align: left;"><strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong><br> <code>batchtools_lsf</code><br><code>batchtools_openlava</code><br><code>batchtools_sge</code><br><code>batchtools_slurm</code><br><code>batchtools_torque</code></td>
+<td style="text-align: left;">📶(soon)<br> ♻️(soon)</td>
+<td style="text-align: left;">parallelly on HPC job schedulers (Load Sharing Facility [LSF], OpenLava, TORQUE/PBS, Son/Sun/Oracle/Univa Grid Engine [SGE], Slurm) via <strong>[batchtools]</strong>; for long-running tasks; high latency</td>
 </tr>
 </tbody>
 </table>
+<p>📶: futures relay progress updates in real-time<br>
+♻️: futures are interruptible and restartable; * disabled by default<br>
+(next): next release; (soon): in a near-future release</p>
 <p>It is straightforward to implement new backends that leverage other
 ways to harness available compute resources. As soon as a new backend
 has been validated to be compliant with the Future API specifications,
@@ -2056,7 +2052,7 @@ used anywhere future-based code is used.</p>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<p>© Copyright 2021-2024 Henrik Bengtsson</p>
+<p>© Copyright 2021-2025 Henrik Bengtsson</p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 
