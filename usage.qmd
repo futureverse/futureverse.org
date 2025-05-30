@@ -177,7 +177,7 @@ cloud via the future framework.
 
 Since the first CRAN release of **future** in June 2015, its uptake
 among end-users and package developers have grown steadily.  During
-April 2025, **future** was among the top-0.8% most downloaded
+May 2025, **future** was among the top-0.7% most downloaded
 package on CRAN (Figure 1) and there are 450 packages on CRAN and Bioconductor
 that directly depend on it (Figure 2).  For map-reduce parallelization
 packages **future.apply** (top-0.9% most downloaded) and and **furrr**
@@ -213,7 +213,7 @@ package installations._
 
 As a reference[^1], the popular **foreach**, released in 2009, was among
 the top-0.8% most downloaded packages during the same period and it
-has 1,270 reverse package dependencies on CRAN. The number of users
+has 1,280 reverse package dependencies on CRAN. The number of users
 that download **future** has grown rapidly whereas the the same number
 has slowly decreased for the **foreach** package (Figure 1).
 Similarly, the number of reverse package dependencies on **future**
