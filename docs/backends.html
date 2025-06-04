@@ -497,39 +497,39 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>sequential</code></td>
+<td style="text-align: left;"><strong>future</strong><br> <code>sequential</code></td>
 <td style="text-align: left;">📶<br>♻️<br></td>
-<td style="text-align: left;">sequentially and in the current R process; default</td>
+<td style="text-align: left;">sequentially and in the current R process; default<br>Example: <code>plan(sequential)</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>multisession</code></td>
+<td style="text-align: left;"><strong>future</strong><br> <code>multisession</code></td>
 <td style="text-align: left;">📶<br>♻️<br></td>
-<td style="text-align: left;">parallelly via background R sessions on current machine</td>
+<td style="text-align: left;">parallelly via background R sessions on current machine<br>Examples: <code>plan(multisession)</code> and <code>plan(multisession, workers = 2)</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>cluster</code></td>
+<td style="text-align: left;"><strong>future</strong><br> <code>cluster</code></td>
 <td style="text-align: left;">📶<br>♻️*<br></td>
-<td style="text-align: left;">parallelly in external R sessions on current, local, and/or remote machines</td>
+<td style="text-align: left;">parallelly in external R sessions on current, local, and/or remote machines<br>Examples: <code>plan(cluster, workers = "raspberry-pi")</code>, <code>plan(cluster, workers = c("localhost", "n1", "n1", "pi.example.org"))</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong><a href="https://future.futureverse.org">future</a></strong><br> <code>multicore</code></td>
+<td style="text-align: left;"><strong>future</strong><br> <code>multicore</code></td>
 <td style="text-align: left;">📶<br>♻️<br></td>
-<td style="text-align: left;">(not recommended) parallelly via forked R processes on current machine; not with GUIs like RStudio; not on Windows</td>
+<td style="text-align: left;">(not recommended) parallelly via forked R processes on current machine; not with GUIs like RStudio; not on Windows<br>Examples: <code>plan(multicore)</code> and <code>plan(multicore, workers = 2)</code></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><a href="https://future.callr.futureverse.org">future.callr</a></strong><br> <code>callr</code></td>
 <td style="text-align: left;">📶(next)<br>♻️(next)<br></td>
-<td style="text-align: left;">parallelly via transient <strong><a href="https://cran.r-project.org/package=future.callr">callr</a></strong> background R sessions on current machine; all memory is returned when as each future is resolved</td>
+<td style="text-align: left;">parallelly via transient <strong><a href="https://cran.r-project.org/package=future.callr">callr</a></strong> background R sessions on current machine; all memory is returned when as each future is resolved<br>Examples: <code>plan(callr)</code> and <code>plan(callr, workers = 2)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong><br> <code>mirai_multisession</code></td>
 <td style="text-align: left;">📶(next)<br>♻️(next)<br></td>
-<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=future.mirai">mirai</a></strong> background R sessions on current machine; low latency</td>
+<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=future.mirai">mirai</a></strong> background R sessions on current machine; low latency<br>Examples: <code>plan(mirai_multisession)</code> and <code>plan(mirai_multisession, workers = 2)</code></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong><br> <code>mirai_cluster</code></td>
 <td style="text-align: left;">♻️(next)<br></td>
-<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=future.mirai">mirai</a></strong> daemons running locally or remotely</td>
+<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=future.mirai">mirai</a></strong> daemons running locally or remotely<br>Example: <code>plan(mirai_cluster)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong><br> <code>batchtools_lsf</code><br><code>batchtools_openlava</code><br><code>batchtools_sge</code><br><code>batchtools_slurm</code><br><code>batchtools_torque</code></td>
