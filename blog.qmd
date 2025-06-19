@@ -86,6 +86,24 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
+  <a href="https://www.jottr.org/2025/06/19/futureverse-10-years/"><img src="images/future-logo-balloons.png"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2025/06/19/futureverse-10-years/">Futureverse – Ten-Year Anniversary</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2025-06-19</div>
+  </div>
+ </div>
+</div>
+ 
+ 
+<div class="listItem">
+ <div class="itemImage">
   <a href="https://www.jottr.org/2023/07/01/parallelly-managing-workers/"><img src="images/parallelly-logo.png"/></a>
  </div>
  <div class="itemDetails">

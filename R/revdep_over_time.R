@@ -26,6 +26,8 @@ exclude <- NULL
 exclude <- c(exclude, "doParallel")
 ## exclude <- c(exclude, "foreach")
 
+
+
 first_release <- as.Date(c(
        "foreach" = "2009-06-27",
         "doSNOW" = "2009-08-21",
