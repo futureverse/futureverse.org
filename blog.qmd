@@ -84,6 +84,24 @@ preview: images/site_preview.png
 
 
 
+
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2025/06/23/future-got-better-at-finding-global-variables/"><img src="images/future-logo-balloons.png"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2025/06/23/future-got-better-at-finding-global-variables/">Future got better at finding global variables</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2025-06-23</div>
+  </div>
+ </div>
+</div>
+
 <div class="listItem">
  <div class="itemImage">
   <a href="https://www.jottr.org/2025/06/19/futureverse-10-years/"><img src="images/future-logo-balloons.png"/></a>
@@ -100,7 +118,6 @@ preview: images/site_preview.png
   </div>
  </div>
 </div>
- 
  
 <div class="listItem">
  <div class="itemImage">

@@ -120,13 +120,20 @@ if (nzchar(image)) {
 </div>
 <% } ## blog_post() %>
 
+
+<% blog_post(
+        title = "Future got better at finding global variables",
+          url = "https://www.jottr.org/2025/06/23/future-got-better-at-finding-global-variables/",
+         date = "2025-06-23",
+        image = "https://www.jottr.org/post/future-logo-balloons.png"
+) %>
+
 <% blog_post(
         title = "Futureverse – Ten-Year Anniversary",
           url = "https://www.jottr.org/2025/06/19/futureverse-10-years/",
          date = "2025-06-19",
         image = "https://www.jottr.org/post/future-logo-balloons.png"
 ) %>
- 
  
 <% blog_post(
         title = "parallelly: Querying, Killing and Cloning Parallel Workers Running Locally or Remotely",
