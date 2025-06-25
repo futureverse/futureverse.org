@@ -122,7 +122,14 @@ if (nzchar(image)) {
 
 
 <% blog_post(
-        title = "Future got better at finding global variables",
+        title = "Setting Future Plans in R Functions — and Why You Probably Shouldn't",
+          url = "https://www.jottr.org/2025/06/25/with-plan/",
+         date = "2025-06-25",
+        image = "https://www.jottr.org/post/future-logo-balloons.png"
+) %>
+
+<% blog_post(
+        title = "Future Got Better at Finding Global Variables",
           url = "https://www.jottr.org/2025/06/23/future-got-better-at-finding-global-variables/",
          date = "2025-06-23",
         image = "https://www.jottr.org/post/future-logo-balloons.png"
