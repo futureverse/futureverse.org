@@ -5,7 +5,7 @@ preview: images/site_preview.png
 format: html
 ---
 
-* Henrik Bengtsson, [Futureverse P2P: Peer-to-Peer Parallelization in R - Share compute among friends across the world](https://henrikbengtsson.github.io/talk-user2025-p2p/#/), useR! 2025, Durham, NC, USA, 2025-08-10 (18 minutes) [[HTML](https://henrikbengtsson.github.io/talk-user2025-p2p/#/), PDF]
+* Henrik Bengtsson, [Futureverse P2P: Peer-to-Peer Parallelization in R - Share compute among friends across the world](https://henrikbengtsson.github.io/talk-user2025-p2p/#/), useR! 2025, Durham, NC, USA, 2025-08-10 (18 minutes) [[HTML](https://henrikbengtsson.github.io/talk-user2025-p2p/#/), [PDF](https://raw.githubusercontent.com/HenrikBengtsson/talk-user2025-p2p/main/BengtssonH_20240810-future.p2p-useR2025.pdf)]
 
 * Henrik Bengtsson, [future.mirai: Use the Mirai Parallelization Framework in Futureverse - Easy!](https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/), useR! 2024, Salzburg, Austria, 2024-07-09 (20 minutes) [[HTML](https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/), [PDF](https://raw.githubusercontent.com/HenrikBengtsson/talk-user2024-future.mirai/main/BengtssonH_20240709-future.mirai-useR2024.pdf)]
 
