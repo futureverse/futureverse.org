@@ -87,7 +87,7 @@ Below is a list of future backends that are worked on or in the plans:
 * **future.google.cloud.functions** - a backend to resolve futures via the Google Cloud Functions service.
   Work on this will start when a stable **future.aws.lambda** prototype has been established
   
-* **future.p2p** - a backend to resolve futures via a peer-to-peer network of trusted collaborators
+* **[future.p2p]** - a backend to resolve futures via a peer-to-peer network of trusted collaborators [available as of 2025-08-10]
 
 * **future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, ...) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**
 
@@ -153,6 +153,7 @@ Below is a list of future backends that are worked on or in the plans:
 [sparklyr#FR1935]: https://github.com/sparklyr/sparklyr/issues/1935
 
 
+[future.p2p]: https://future.p2p.futureverse.org
 [future.mapreduce]: https://future.mapreduce.futureverse.org
 [marshal]: https://marshal.futureverse.org
 [future.clustermq]: https://github.com/HenrikBengtsson/future.clustermq
