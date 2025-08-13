@@ -5,6 +5,8 @@ preview: images/site_preview.png
 format: html
 ---
 
+* Henrik Bengtsson, [Futureverse P2P: Peer-to-Peer Parallelization in R - Share compute among friends across the world](https://henrikbengtsson.github.io/talk-user2025-p2p/#/), useR! 2025, Durham, NC, USA, 2025-08-10 (18 minutes) [[HTML](https://henrikbengtsson.github.io/talk-user2025-p2p/#/), PDF]
+
 * Henrik Bengtsson, [future.mirai: Use the Mirai Parallelization Framework in Futureverse - Easy!](https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/), useR! 2024, Salzburg, Austria, 2024-07-09 (20 minutes) [[HTML](https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/), [PDF](https://raw.githubusercontent.com/HenrikBengtsson/talk-user2024-future.mirai/main/BengtssonH_20240709-future.mirai-useR2024.pdf)]
 
 * Henrik Bengtsson, [Futureverse - A Unifying Parallelization Framework in R for Everyone](https://www.jottr.org/2023/05/22/future-yegrug-2023-slides/), Edmonton R User Group Meetup (YEGRUG), 2023-05-22 (60 minutes)
@@ -32,4 +34,3 @@ format: html
 * Henrik Bengtsson, [Futures in R: Atomic Building Blocks for Asynchronous Evaluation](https://wiki.r-consortium.org/view/Distributed_Computing_Working_Group#05.2F11.2F2017), R Consortium, Distributed Computing Working Group, 2017-05-11 (60 minutes)
 
 * Henrik Bengtsson, [A Future for R](https://www.jottr.org/2016/07/02/future-user2016-slides/), useR! 2016, Stanford, USA, 2016-06-28 (18 minutes)
-
