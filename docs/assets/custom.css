@@ -54,7 +54,6 @@
 .listItem .itemDetails .itemMeta .itemDate,
 .listItem .itemDetails .itemMeta .itemInfo {
  font-size:.875rem;
- color:grey;
 }
 .listItem .itemDetails .itemMeta .itemInfo li {
  margin-bottom: 0.1em;
