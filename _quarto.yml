@@ -63,22 +63,30 @@ website:
           - text: "marshal (export non-exportable objects)"
             href: https://marshal.futureverse.org
 
-      - text: "Blog"
-        href: blog.qmd
-      - text: "Use & Stats"
-        href: usage.qmd
       - text: "Parallel Backends"
         href: backends.qmd
-      - text: "Quality"
-        href: quality.qmd
+        
       - text: "Tutorials"
         href: tutorials.qmd
+        
       - text: "Talks"
         href: talks.qmd
+        
+      - text: "Use & Stats"
+        href: usage.qmd
+        
+      - text: "Quality"
+        href: quality.qmd
+        
+      - text: "Blog"
+        href: blog.qmd
+        
       - text: "Publications"
         href: publications.qmd
+        
       - text: "Roadmap"
         href: roadmap.qmd
+        
       - text: "About"
         href: about.qmd
 
