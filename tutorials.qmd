@@ -21,7 +21,7 @@ tutorial <- function(title, author, info = NULL, location = NULL, date, url) {
       tags$div(class = "itemMeta",
         tags$div(class = "author", author),
         if (!is.null(info)) tags$div(class = "itemInfo", info),
-        if (!is.null(location)) tags$div(class = "itemInfo", paste("Location:", location)),
+        if (!is.null(location)) tags$div(class = "itemInfo", location),
         tags$div(class = "itemDate", date)
       )
     )
