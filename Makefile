@@ -23,16 +23,20 @@ preview:
 view:
 	xdg-open docs/index.html
 
-
 stats: stats-revdep-over-time stats-downloads
 
 stats-revdep-over-time:
+	Rscript -e "if (!requireNamespace('revdepcheck.extras')) remotes::install_github('HenrikBengtsson/revdepcheck.extras')"
 	R_PROGRESSR_ENABLE=true Rscript R/revdep_over_time.R
 
 stats-downloads:
+	Rscript -e "if (!requireNamespace('cranlogs')) install.packages('cranlogs')"
+	Rscript -e "if (!requireNamespace('readr')) install.packages('readr')"
+	Rscript -e "if (!requireNamespace('ISOweek')) install.packages('ISOweek')"
 	R_PROGRESSR_ENABLE=true Rscript R/cran_stats.R
 
 stats-revdep:
+	Rscript -e "if (!requireNamespace('revdepcheck.extras')) remotes::install_github('HenrikBengtsson/revdepcheck.extras')"
 	R_PROGRESSR_ENABLE=true Rscript R/revdep.R
 
 images/favicon.ico: images/logo.png
