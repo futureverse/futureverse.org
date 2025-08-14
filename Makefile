@@ -30,7 +30,7 @@ stats-revdep-over-time:
 	Rscript -e "if (!requireNamespace('revdepcheck.extras')) remotes::install_github('HenrikBengtsson/revdepcheck.extras')"
 	R_PROGRESSR_ENABLE=true Rscript R/revdep_over_time.R
 
-## Takes 3-4 hours to download if starting out fresh
+## Takes ~5 hours to download and compute if starting out fresh
 stats-downloads:
 	Rscript -e "if (!requireNamespace('cranlogs')) install.packages('cranlogs')"
 	Rscript -e "if (!requireNamespace('readr')) install.packages('readr')"

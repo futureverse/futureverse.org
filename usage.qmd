@@ -177,11 +177,11 @@ cloud via the future framework.
 
 Since the first CRAN release of **future** in June 2015, its uptake
 among end-users and package developers have grown steadily.  During
-May 2025, **future** was among the top-0.7% most downloaded
-package on CRAN (Figure 1) and there are 450 packages on CRAN and Bioconductor
+July 2025, **future** was among the top-0.7% most downloaded package
+on CRAN (Figure 1) and there are 480 packages on CRAN and Bioconductor
 that directly depend on it (Figure 2).  For map-reduce parallelization
-packages **future.apply** (top-0.9% most downloaded) and and **furrr**
-(top 1.4%), the corresponding number of packages are 200 and 160,
+packages **future.apply** (top-0.8% most downloaded) and and **furrr**
+(top 1.4%), the corresponding number of packages are 220 and 170,
 respectively.  If we consider recursive dependencies too, that is,
 packages that use the **future** package either directly or indirectly
 via another package, then 85% of all ~22,500 CRAN packages may rely on
@@ -201,7 +201,7 @@ pkgs <- tools::package_dependencies("future", which="all", reverse=TRUE, recursi
 _Figure 1: The download percentile ranks for <strong>future</strong>,
 <strong>future.apply</strong>, <strong>furrr</strong>, and
 <strong>foreach</strong> averaged every four weeks.
-<strong>future</strong> is among the top-0.8% most downloaded packages
+<strong>future</strong> is among the top-0.7% most downloaded packages
 on CRAN. The data are based on the Posit CRAN mirror logs.  There
 are approximately 200 million package downloads per month from the
 Posit CRAN mirror alone.  Since none of the other CRAN mirrors
