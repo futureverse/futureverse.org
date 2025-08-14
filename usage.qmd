@@ -30,7 +30,7 @@ There are two major use cases of the future framework: (i) performance
 improvement through parallelization, and (ii) non-blocking,
 asynchronous user experience (UX).  Below are some prominent examples.
 More examples can be found on R-university, which lists [~1,400 CRAN
-packages that needs the **future**
+packages that need the **future**
 package](https://r-universe.dev/search?q=needs%3Afuture).
 
 
