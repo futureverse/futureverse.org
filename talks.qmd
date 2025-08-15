@@ -38,7 +38,7 @@ talk(
   location = "useR! 2025, Durham, NC, USA",
       date = "2025-08-10",
   duration = "18 minutes",
-      urls = c(HTML = "https://henrikbengtsson.github.io/talk-user2025-p2p/#/", PDF = "https://raw.githubusercontent.com/HenrikBengtsson/talk-user2025-p2p/main/BengtssonH_20240810-future.p2p-useR2025.pdf")
+      urls = c(HTML = "https://henrikbengtsson.github.io/talk-user2025-p2p/#/", PDF = "https://raw.githubusercontent.com/HenrikBengtsson/talk-user2025-p2p/main/BengtssonH_20240810-future.p2p-useR2025.pdf", "Blog post" = "https://www.jottr.org/2025/08/14/future.p2p-user2025-slides/")
 )
 ```
 
