@@ -122,6 +122,13 @@ if (nzchar(image)) {
 
 
 <% blog_post(
+        title = "useR! 2025: Futureverse P2P: Peer-to-Peer Parallelization in R - Share compute among friends across the world",
+          url = "https://www.jottr.org/2025/08/14/future.p2p-user2025-slides/",
+         date = "2025-08-14",
+        image = "https://www.jottr.org/post/useR2025-logo.png"
+) %>
+
+<% blog_post(
         title = "Setting Future Plans in R Functions — and Why You Probably Shouldn't",
           url = "https://www.jottr.org/2025/06/25/with-plan/",
          date = "2025-06-25",
