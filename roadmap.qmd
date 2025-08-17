@@ -29,7 +29,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [Project: **[marshal]** and R Consortium ISC **[Marshaling and Serialization in R]** Working Group]
 
 * Resources: Make it possible to declare "resources" that a future requires in order to be resolved, e.g. minimal memory requirements, access to the local file system, a specific operating system, internet access, sandboxed, etc.  This will also make it possible to work with semi-persistent "sticky" globals
-  [~~[doFuture#FR63]~~, [future#FR181], [future#FR301], [future#FR346], [future#FR430], [future#FR450], ~~[parallelly#18]~~]
+  [~~[doFuture#FR63]~~, [future#FR181], [future#FR301], [future#FR346], [future#FR430], [future#FR450], ~~[parallelly#18]~~, [future.batchtools#FR75]]
 
 * Multiple backends: Send different futures to different backends, based on which parallel backend can provide the requested resources
 
@@ -140,6 +140,7 @@ Below is a list of future backends that are worked on or in the plans:
 
 [future.batchtools#FR23]: https://github.com/HenrikBengtsson/future.batchtools/issues/23
 [future.batchtools#FR27]: https://github.com/HenrikBengtsson/future.batchtools/issues/27
+[future.batchtools#FR75]: https://github.com/futureverse/future.batchtools/issues/75
 
 [future.callr#FR11]: https://github.com/HenrikBengtsson/future.callr/issues/11
 
