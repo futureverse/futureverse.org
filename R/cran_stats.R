@@ -32,6 +32,7 @@ pathnames_per_day <- cran_all_downloads_by_week(weeks)
 pathnames_per_week <- cran_all_downloads_summarize_by_week(pathnames_per_day, method = method)
 pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_week)
 
+## This also takes time
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
 
 
@@ -50,7 +51,7 @@ counts4 <- group_modify(counts, function(data, package) {
   chunks <- parallel::splitIndices(nrow(data), nrow(data)/4)
   p <- progressor(along = chunks)
   res <- lapply(chunks, FUN = function(chunk) {
-    p()
+    p(sprintf("4-week averaging '%s'", package$package))
     t <- data[chunk, ]
     data.frame(week_of = t$week_of[1], fraction = mean(t$fraction, na.rm = TRUE))
   })

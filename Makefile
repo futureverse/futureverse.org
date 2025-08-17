@@ -27,14 +27,12 @@ stats: stats-revdep-over-time stats-downloads
 
 ## Takes 5-15 minutes to download if starting out fresh
 stats-revdep-over-time:
-	Rscript -e "if (!requireNamespace('revdepcheck.extras')) remotes::install_github('HenrikBengtsson/revdepcheck.extras')"
+	@Rscript -e "if (!requireNamespace('revdepcheck.extras', quietly = TRUE)) remotes::install_github('HenrikBengtsson/revdepcheck.extras')"
 	R_PROGRESSR_ENABLE=true Rscript R/revdep_over_time.R
 
 ## Takes ~5 hours to download and compute if starting out fresh
 stats-downloads:
-	Rscript -e "if (!requireNamespace('cranlogs')) install.packages('cranlogs')"
-	Rscript -e "if (!requireNamespace('readr')) install.packages('readr')"
-	Rscript -e "if (!requireNamespace('ISOweek')) install.packages('ISOweek')"
+	@Rscript -e "pkgs <- c('cranlogs', 'readr', 'ISOweek'); avail <- sapply(pkgs, requireNamespace, quietly = TRUE); pkgs <- pkgs[!avail]; install.packages(pkgs)"
 	R_PROGRESSR_ENABLE=true Rscript R/cran_stats.R
 
 stats-revdep:
