@@ -14,7 +14,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
   [~~[future#FR188]~~, ~~[future#205]~~, ~~[future.callr#FR11]~~, ~~[parallelly#32]~~] (solved in **future** 1.40.0; future backends will be updated accordingly)
 
 * Cancellation of futures with interruption, i.e. `cancel(f)`. All futures can be canceled, but not all can be interrupted. If a future backend does not support interrupting futures, then the interrupt requires is silently ignored.
-  [~~[future#93]~~, ~~[future#FR213]~~, [future.batchtools#FR27], ~~[parallelly#33]~~] (solved in **future** 1.49.0; future backends will be updated accordingly)
+  [~~[future#93]~~, ~~[future#FR213]~~, ~~[future.batchtools#FR27]~~, ~~[parallelly#33]~~] (solved in **future** 1.49.0; all future backends support cancellation and interruption as of 2025-08-25)
 
 * Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
   [[future#59], ~~[future#142]~~, ~~[future#FR437]~~]
