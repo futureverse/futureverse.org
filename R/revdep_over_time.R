@@ -112,6 +112,14 @@ message("Wrote: ", pathname)
 message("Number of reverse dependencies:")
 print(tail(stats, n = 20L))
 
+message("Growth:")
+rstats <- lapply(tail(stats, n = 20L), FUN = function(x) {
+  if (is.numeric(x)) x <- x / min(x, na.rm = TRUE)
+  x
+})
+rstats <- as.data.frame(rstats)
+print(rstats, digits = 4)
+
 if (FALSE) {
   message("Number of recursive reverse dependencies:")
   db <- utils::available.packages()  
