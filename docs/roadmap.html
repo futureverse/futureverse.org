@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.7.34">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,9 +38,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-acc5404b6fa64fe1f99efa4a537c6cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -457,7 +457,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="core-future-api">Core Future API</h2>
 <ul>
 <li><p>Restarting of failed or terminated futures, e.g.&nbsp;<code>reset(f)</code> and <code>v &lt;- value(f)</code>. Also automatic restarting of futures when parallel worker dies [<del><a href="https://github.com/futureverse/future/issues/188">future#FR188</a></del>, <del><a href="https://github.com/futureverse/future/issues/205">future#205</a></del>, <del><a href="https://github.com/HenrikBengtsson/future.callr/issues/11">future.callr#FR11</a></del>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/32">parallelly#32</a></del>] (solved in <strong>future</strong> 1.40.0; future backends will be updated accordingly)</p></li>
-<li><p>Cancellation of futures with interruption, i.e.&nbsp;<code>cancel(f)</code>. All futures can be canceled, but not all can be interrupted. If a future backend does not support interrupting futures, then the interrupt requires is silently ignored. [<del><a href="https://github.com/futureverse/future/issues/93">future#93</a></del>, <del><a href="https://github.com/futureverse/future/issues/213">future#FR213</a></del>, <del><a href="https://github.com/HenrikBengtsson/future.batchtools/issues/27">future.batchtools#FR27</a></del>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/33">parallelly#33</a></del>] (solved in <strong>future</strong> 1.49.0; all future backends support cancellation and interruption as of 2025-08-25)</p></li>
+<li><p>Cancellation of futures with interruption, i.e.&nbsp;<code>cancel(f)</code>. All futures can be canceled, but not all can be interrupted. If a future backend does not support interrupting futures, then the interrupt requested is silently ignored. [<del><a href="https://github.com/futureverse/future/issues/93">future#93</a></del>, <del><a href="https://github.com/futureverse/future/issues/213">future#FR213</a></del>, <del><a href="https://github.com/HenrikBengtsson/future.batchtools/issues/27">future.batchtools#FR27</a></del>, <del><a href="https://github.com/HenrikBengtsson/parallelly/issues/33">parallelly#33</a></del>] (solved in <strong>future</strong> 1.49.0; all future backends support cancellation and interruption as of 2025-08-25)</p></li>
 <li><p>Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance [<a href="https://github.com/futureverse/future/issues/59">future#59</a>, <del><a href="https://github.com/futureverse/future/issues/142">future#142</a></del>, <del><a href="https://github.com/futureverse/future/issues/437">future#FR437</a></del>]</p></li>
 <li><p>Troubleshooting: Improve debugging of future that produce errors, e.g.&nbsp;capture call frames in parallel workers and let user inspect them via tools such as <code>utils::browser()</code> and <code>utils::recover()</code> [<a href="https://github.com/futureverse/future/issues/253">future#253</a>]</p></li>
 <li><p>Support for controlling R options and environment variables via <code>future()</code> [<a href="https://github.com/futureverse/future/issues/480">future#480</a>]</p></li>
