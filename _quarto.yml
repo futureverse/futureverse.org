@@ -98,6 +98,3 @@ format:
 theme:
   light: flatly
   dark: darkly
-
-filters:
-  - spellcheck.lua
