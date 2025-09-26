@@ -114,11 +114,11 @@ print(tail(stats, n = 20L))
 
 message("Growth:")
 rstats <- lapply(tail(stats, n = 20L), FUN = function(x) {
-  if (is.numeric(x)) x <- x / min(x, na.rm = TRUE)
+  if (is.numeric(x)) x <- x / x[1]
   x
 })
 rstats <- as.data.frame(rstats)
-print(rstats, digits = 4)
+print(rstats, digits = 3)
 
 if (FALSE) {
   message("Number of recursive reverse dependencies:")
