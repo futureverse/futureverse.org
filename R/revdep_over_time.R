@@ -110,16 +110,18 @@ image_dims <- attr(gg, "image_dims")
 pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
 
-message("Number of reverse dependencies:")
-print(tail(stats, n = 20L))
-
-message("Growth:")
-rstats <- lapply(tail(stats, n = 20L), FUN = function(x) {
-  if (is.numeric(x)) x <- x / x[1]
-  x
-})
-rstats <- as.data.frame(rstats)
-print(rstats, digits = 3)
+for (duration in c(53L, 12L)) {
+  message(sprintf("Reverse dependencies (last %d weeks):", duration))
+  print(tail(stats, n = duration))
+  
+  message(sprintf("Growth (last %d weeks):", duration))
+  rstats <- lapply(tail(stats, n = duration), FUN = function(x) {
+    if (is.numeric(x)) x <- x / x[1]
+    x
+  })
+  rstats <- as.data.frame(rstats)
+  print(rstats, digits = 3)
+}
 
 if (FALSE) {
   message("Number of recursive reverse dependencies:")
