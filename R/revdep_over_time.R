@@ -53,6 +53,7 @@ for (kk in which(sapply(stats, FUN = is.integer))) {
   x[is.na(x) | x <= 1L] <- NA_integer_
   stats[[kk]] <- x
 }
+stats <- stats[!duplicated(stats$date), ]
 
 counts_all <- tidyr::gather(stats, package, count, -1, factor_key = TRUE)
 counts_all <- as_tibble(counts_all)
