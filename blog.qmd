@@ -87,6 +87,23 @@ preview: images/site_preview.png
 
 <div class="listItem">
  <div class="itemImage">
+  <a href="https://www.jottr.org/2025/10/08/dofuture-everywhere/"><img src="images/future-logo-balloons.png"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2025/10/08/dofuture-everywhere/">foreach: Making All %dopar% Behave Like %dofuture% Everywhere</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2025-10-07</div>
+  </div>
+ </div>
+</div>
+
+<div class="listItem">
+ <div class="itemImage">
   <a href="https://www.jottr.org/2025/08/14/future.p2p-user2025-slides/"><img src="images/useR2025-logo.png"/></a>
  </div>
  <div class="itemDetails">
