@@ -220,9 +220,13 @@ Similarly, the number of reverse package dependencies on **future**
 appear to grow faster than for **foreach** (Figure 2).
 
 ::: {layout-ncol=2}
-![Package counts on the linear scale.](figures/revdep_over_time_on_CRAN.png)
+![Package counts on the linear scale.](figures/revdep_over_time_on_CRAN.png){
+  fig-alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2025. The y-axis ranges from 0 to 500 dependencies. The 'future' package (green) rises steeply after 2018 and approaches 500 by 2025; 'future.apply' (blue) grows steadily to about 275; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 200."
+}  
 
-![Package counts on the logarithmic scale.](figures/revdep_over_time_on_CRAN-log.png)
+![Package counts on the logarithmic scale.](figures/revdep_over_time_on_CRAN-log.png){
+  fig-alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'foreach', 'future', 'future.apply', and 'furrr' from 2015 to 2025. The y-axis spans roughly 10 to 1000 dependencies. 'foreach' (olive) leads throughout, rising smoothly from 150 to over 1000. 'future' (green) increases from a few dependencies in 2015 to nearly 500 by 2025. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 250 and 180, respectively."
+}
 :::
 
 _Figure 2: Number of CRAN[^2] packages over time that depend on **future**, **future.apply**, **furrr**, and **foreach** since the first release of **future** in June 2015.
