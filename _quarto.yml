@@ -94,7 +94,9 @@ format:
   html:
     toc: true
     respect-user-color-scheme: true
-    
+    axe:
+      output: console
+      
 theme:
   light: flatly
   dark: darkly
