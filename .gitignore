@@ -4,3 +4,5 @@
 /cranlogs/
 /.quarto/
 /.local/
+
+**/*.quarto_ipynb

@@ -225,7 +225,7 @@ appear to grow faster than for **foreach** (Figure 2).
 ![Package counts on the logarithmic scale.](figures/revdep_over_time_on_CRAN-log.png)
 :::
 
-_Figure 2: Number of CRAN[^2] packages that depend on **future**, **future.apply**, **furrr**, and **foreach** over time since the first release of **future** in June 2015.
+_Figure 2: Number of CRAN[^2] packages over time that depend on **future**, **future.apply**, **furrr**, and **foreach** since the first release of **future** in June 2015.
 Left: The package counts on the linear scale without **foreach**.
 Right: The same data on the logarithmic scale to fit also **foreach**._
 
