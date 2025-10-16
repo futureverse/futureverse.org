@@ -12,8 +12,12 @@ all: spell build
 spell:
 	hunspell -H $(FILES)
 
-build:
-	Rscript -e R.rsp::rfile blog.qmd.rsp --postprocess=FALSE
+blog: blog.qmd
+
+blog.qmd: blog.qmd.rsp
+	Rscript -e R.rsp::rfile "$<" --postprocess=FALSE
+
+build: blog
 	module load pandoc; \
 	quarto render
 
