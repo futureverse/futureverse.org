@@ -61,7 +61,7 @@ preview: images/site_preview.png
 .listItem .itemDetails .itemMeta .itemDate,
 .listItem .itemDetails .itemMeta .itemInfo {
  font-size:.875rem;
- color:grey
+ color:#ccc
 }
 .listItem .itemDetails .itemMeta .itemDate .created,
 .listItem .itemDetails .itemMeta .itemDate .updated,
