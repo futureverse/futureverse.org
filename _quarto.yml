@@ -10,8 +10,8 @@ website:
   google-analytics: "G-SB3EQSD9FR"
 
   navbar:
-    logo:
-      images/logo.png
+    logo: "images/logo.png"
+    logo-alt: "Return to the Futureverse front page"
 
     right:
       - text: "Packages & Docs"
