@@ -122,6 +122,15 @@ if (nzchar(image)) {
 </div>
 <% } ## blog_post() %>
 
+ 
+ 
+<% blog_post(
+        title = "Futures: Interrupts, Crashes, and Retries",
+          url = "https://www.jottr.org/2025/10/16/interrupts-crashes-retries/",
+         date = "2025-10-16",
+        image = "https://www.jottr.org/post/interrupts-crashes-retries.png",
+    image_alt = "Thumbnail of Interrupts 🛑 Crashes 💥 Retries 🔁"
+) %>
 
 <% blog_post(
         title = "foreach: Making All %dopar% Behave Like %dofuture% Everywhere",

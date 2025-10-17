@@ -84,6 +84,24 @@ preview: images/site_preview.png
 
 
 
+ 
+ 
+<div class="listItem">
+ <div class="itemImage">
+  <a href="https://www.jottr.org/2025/10/16/interrupts-crashes-retries/"><img src="images/interrupts-crashes-retries.png" alt="Thumbnail of Interrupts 🛑 Crashes 💥 Retries 🔁"/></a>
+ </div>
+ <div class="itemDetails">
+  <div class="itemHeader">
+   <div class="itemTitle"><a href="https://www.jottr.org/2025/10/16/interrupts-crashes-retries/">Futures: Interrupts, Crashes, and Retries</a>
+   </div>
+  </div>
+  <div class="itemMeta">
+   <div class="author">Henrik Bengtsson</div>
+   
+   <div class="itemDate">2025-10-16</div>
+  </div>
+ </div>
+</div>
 
 <div class="listItem">
  <div class="itemImage">
