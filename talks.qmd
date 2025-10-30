@@ -38,7 +38,7 @@ talk(
   location = "useR! 2025, Durham, NC, USA",
       date = "2025-08-10",
   duration = "18 minutes",
-      urls = c(HTML = "https://henrikbengtsson.github.io/talk-user2025-p2p/#/", PDF = "https://raw.githubusercontent.com/HenrikBengtsson/talk-user2025-p2p/main/BengtssonH_20240810-future.p2p-useR2025.pdf", "Blog post" = "https://www.jottr.org/2025/08/14/future.p2p-user2025-slides/")
+      urls = c(HTML = "https://henrikbengtsson.github.io/talk-user2025-p2p/#/", PDF = "https://raw.githubusercontent.com/HenrikBengtsson/talk-user2025-p2p/main/BengtssonH_20240810-future.p2p-useR2025.pdf", Video = "https://www.youtube.com/watch?v=T0zbQp1hIEs", "Blog post" = "https://www.jottr.org/2025/08/14/future.p2p-user2025-slides/")
 )
 ```
 
@@ -64,7 +64,7 @@ talk(
   location = "Edmonton R User Group Meetup (YEGRUG) (virtual)",
       date = "2023-05-22",
   duration = "60 minutes",
-      urls = c(HTML = "https://docs.google.com/presentation/d/e/2PACX-1vQfbnVRHZhIkEAd3_pNG14N5JQqE0jqCohSq-m-uWAcA7StF-BuHdOz0IGDhcRI3K681DxoXoqA7pwp/pub?start=true&loop=false&delayms=60000", PDF = "https://www.jottr.org/presentations/yegrug2023/BengtssonH_20230522-Futureverse-YEGRUG.pdf", Video = "https://www.jottr.org/presentations/yegrug2023/BengtssonH_20230522-Futureverse-YEGRUG.pdf", "Blog post" = "https://www.jottr.org/2023/05/22/future-yegrug-2023-slides/")
+      urls = c(HTML = "https://docs.google.com/presentation/d/e/2PACX-1vQfbnVRHZhIkEAd3_pNG14N5JQqE0jqCohSq-m-uWAcA7StF-BuHdOz0IGDhcRI3K681DxoXoqA7pwp/pub?start=true&loop=false&delayms=60000", PDF = "https://www.jottr.org/presentations/yegrug2023/BengtssonH_20230522-Futureverse-YEGRUG.pdf", Video = "https://www.youtube.com/watch?v=6Dp6zMelrmg", "Blog post" = "https://www.jottr.org/2023/05/22/future-yegrug-2023-slides/")
 )
 ```
 
