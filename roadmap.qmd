@@ -70,11 +70,11 @@ Below is a list of future backends that are worked on or in the plans:
 * **[future.clustermq]** - a backend to resolve futures on a HPC cluster via the **clustermq** package
   [[future#FR204], [future#FR267]]
 
-* **[future.redis]** - a backend to resolve futures via a Redis queue using the **redux** package
-  [[future#FR151]]
+* ~~**[future.redis]** - a backend to resolve futures via a Redis queue using the **redux** package
+  [[future#FR151]]~~ (discontinued, superseeded by **[future.mirai]**)
 
-* **[future.rrq]** - a backend to resolve futures via a Redis queue using the **rrq** package
-  [[future#FR151]]
+* ~~**[future.rrq]** - a backend to resolve futures via a Redis queue using the **rrq** package
+  [[future#FR151]]~~ (discontinued, superseeded by **[future.mirai]**)
 
 * **future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda service.
   A group of several people is actively working on this since the end of 2020
@@ -156,6 +156,7 @@ Below is a list of future backends that are worked on or in the plans:
 
 [future.p2p]: https://future.p2p.futureverse.org
 [future.mapreduce]: https://future.mapreduce.futureverse.org
+[future.mirai]: https://future.mirai.futureverse.org
 [marshal]: https://marshal.futureverse.org
 [future.clustermq]: https://github.com/HenrikBengtsson/future.clustermq
 [future.rrq]: https://github.com/HenrikBengtsson/future.rrq
