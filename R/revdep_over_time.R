@@ -20,7 +20,7 @@ if (requireNamespace("cli", quietly = TRUE)) {
 options(ggmode = c("presentation", "website")[2])
 
 ## All packages of interest
-all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture")
+all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "parallelly", "progressr")
 plot_pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
 exclude <- NULL
 exclude <- c(exclude, "doParallel")
