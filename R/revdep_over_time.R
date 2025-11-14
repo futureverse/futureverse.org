@@ -113,14 +113,25 @@ message("Wrote: ", pathname)
 
 for (duration in c(53L, 12L)) {
   message(sprintf("Reverse dependencies (last %d weeks):", duration))
-  print(tail(stats, n = duration))
+
+  dstats <- tail(stats, n = duration)
+  
+  ## Show only every 4:th week, if going back far
+  if (nrow(dstats) > 20) {
+    keep <- rev(seq(from = nrow(dstats), to = 1L, by = -4L))
+    keep <- sort(c(keep, nrow(dstats) - 1L))
+    dstats <- dstats[keep, ]
+  }
+  rownames(dstats) <- NULL
+  print(dstats)
   
   message(sprintf("Growth (last %d weeks):", duration))
-  rstats <- lapply(tail(stats, n = duration), FUN = function(x) {
+  rstats <- lapply(dstats, FUN = function(x) {
     if (is.numeric(x)) x <- x / x[1]
     x
   })
   rstats <- as.data.frame(rstats)
+  rownames(rstats) <- NULL
   print(rstats, digits = 3)
 }
 
