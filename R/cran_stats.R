@@ -10,6 +10,8 @@ suppressPackageStartupMessages({
 source("R/cran_utils.R")
 source("R/gg_modify.R")
 
+options(width = 120)
+
 future::plan("multisession", workers = 3)
 #future::plan("sequential")
 

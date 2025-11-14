@@ -7,6 +7,7 @@ suppressPackageStartupMessages({
   library(progressr)
 })
 source("R/gg_modify.R")
+options(width = 120)
 
 future::plan("multicore")
 
