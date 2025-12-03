@@ -141,14 +141,6 @@ if (nzchar(image)) {
 ) %>
 
 <% blog_post(
-        title = "useR! 2025: Futureverse P2P: Peer-to-Peer Parallelization in R - Share compute among friends across the world",
-          url = "https://www.jottr.org/2025/08/14/future.p2p-user2025-slides/",
-         date = "2025-08-14",
-        image = "https://www.jottr.org/post/useR2025-logo.png",
-    image_alt = "Thumbnail of the useR! 2025 hex logo"
-) %>
-
-<% blog_post(
         title = "Setting Future Plans in R Functions — and Why You Probably Shouldn't",
           url = "https://www.jottr.org/2025/06/25/with-plan/",
          date = "2025-06-25",
@@ -210,14 +202,6 @@ if (nzchar(image)) {
          date = "2022-12-05",
         image = "https://www.jottr.org/post/detectCores_bad_vs_good.png",
     image_alt = "Thumbnail of screenshots of two terminal-based, colored graphs showing near 100% load on all 24 CPU cores"
-) %>
-
-<% blog_post(
-        title = "useR! 2022: My 'Futureverse: Profile Parallel Code' Slides",
-          url = "https://www.jottr.org/2022/06/23/future-user2022-slides/",
-         date = "2022-06-24",
-        image = "https://www.jottr.org/post/BengtssonH_20220622-Future-useR2022_slide18.png",
-    image_alt = "Thumbnail of a slide in my useR! 2022 presentation"
 ) %>
 
 <% blog_post(
