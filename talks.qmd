@@ -40,6 +40,7 @@ talk(
   duration = "10 minutes",
       urls = c(
          HTML = "https://henrikbengtsson.github.io/talk-latinr2025-p2p/#/",
+         Video = "https://www.youtube.com/watch?v=KQGYaDpeXak",
         "Blog post" = "https://www.jottr.org/2025/12/03/future.p2p-latinr2025-slides/"
       )
 )      
