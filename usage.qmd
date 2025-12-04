@@ -29,7 +29,7 @@ academia.
 There are two major use cases of the future framework: (i) performance
 improvement through parallelization, and (ii) non-blocking,
 asynchronous user experience (UX).  Below are some prominent examples.
-More examples can be found on R-university, which lists [~1,400 CRAN
+More examples can be found on R-university, which lists [~1,500 CRAN
 packages that need the **future**
 package](https://r-universe.dev/search?q=needs%3Afuture).
 
@@ -177,11 +177,11 @@ cloud via the future framework.
 
 Since the first CRAN release of **future** in June 2015, its uptake
 among end-users and package developers have grown steadily.  During
-October 2025, **future** was among the top-0.7% most downloaded package
-on CRAN (Figure 1) and there are 500 packages on CRAN and Bioconductor
+November 2025, **future** was among the top-0.7% most downloaded package
+on CRAN (Figure 1) and there are 510 packages on CRAN and Bioconductor
 that directly depend on it (Figure 2).  For map-reduce parallelization
 packages **future.apply** (top-0.8% most downloaded) and and **furrr**
-(top 1.4%), the corresponding number of packages are 240 and 170,
+(top 1.4%), the corresponding number of packages are 250 and 180,
 respectively.  If we consider recursive dependencies too, that is,
 packages that use the **future** package either directly or indirectly
 via another package, then 85% of all ~23,000 CRAN packages may rely on
@@ -221,7 +221,7 @@ appear to grow faster than for **foreach** (Figure 2).
 
 ::: {layout-ncol=2}
 ![Package counts on the linear scale.](figures/revdep_over_time_on_CRAN.png){
-  fig-alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2025. The y-axis ranges from 0 to 500 dependencies. The 'future' package (green) rises steeply after 2018 and approaches 500 by 2025; 'future.apply' (blue) grows steadily to about 275; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 200."
+  fig-alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2025. The y-axis ranges from 0 to 500 dependencies. The 'future' package (green) rises steeply after 2018 and exceeds 500 by November 2025; 'future.apply' (blue) grows steadily to 250; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 180."
 }  
 
 ![Package counts on the logarithmic scale.](figures/revdep_over_time_on_CRAN-log.png){
