@@ -5,10 +5,38 @@ preview: images/site_preview.png
 format: html
 ---
 
-H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, [The R Journal](https://journal.r-project.org/) (2021) 13:2, pages 208-227 [[abstract, HTML, PDF](https://journal.r-project.org/archive/2021/RJ-2021-048/index.html)]
+H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, [The R Journal](https://journal.r-project.org/) (2021) 13:2, pages 208-227 [[abstract, how-to-cite, HTML, PDF](https://journal.r-project.org/archive/2021/RJ-2021-048/index.html)]
 
 
 H. Bengtsson. Futureverse - Worry-Free Parallelization in R, [Biometric Bulletin](https://www.biometricsociety.org/publications/biometric-bulletin) (2023), 40:3: pages 8–10 [[PDF](https://higherlogicdownload.s3.amazonaws.com/BIOMETRICSOCIETY/713ac962-588b-42d5-940f-47ae32f0b28c/UploadedImages/Documents/Biometric_Bulletin/2023/IBS_BioMetric-Bulletin-Vol40-Issue3-1_6_2023.pdf)]
+
+
+## How to cite
+
+If you are writing an article and have used the future framework to
+speed up your analyzes, please consider citing the Bengtsson (2021)
+paper, e.g. in the 'Methods' section or in the 'Acknowledgments'. It
+is a simple way to _help support the long-term work of maintaining,
+enhancing, and providing support for the Futureverse_.  To see if you
+used futures in your pipeline, look at the output of `sessionInfo()`
+at the end of your analysis -- if it lists `"future"`, then
+Futureverse has contributed to your work. Another clear indication is
+if you see a call to `plan()` at the top of your scripts or dynamic
+documents.
+
+Here are two examples on how you can give credit to the Futureverse in
+your articles:
+
+> We used the **future** framework in R (Bengtsson, 2021) to
+  parallelize the data processing.
+
+> We used the **future** framework in R by Bengtsson (2021) to process
+  the data in parallel via the Slurm scheduler on our institution's
+  high-performance compute (HPC) cluster.
+
+Of course, if you have metrics on how much faster your analysis ran,
+please mention that as well, e.g. "To speed up the processing 10
+times, ..."
 
 
 

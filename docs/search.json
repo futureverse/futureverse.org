@@ -151,7 +151,14 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, The R Journal (2021) 13:2, pages 208-227 [abstract, HTML, PDF]\nH. Bengtsson. Futureverse - Worry-Free Parallelization in R, Biometric Bulletin (2023), 40:3: pages 8–10 [PDF]"
+    "text": "H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, The R Journal (2021) 13:2, pages 208-227 [abstract, how-to-cite, HTML, PDF]\nH. Bengtsson. Futureverse - Worry-Free Parallelization in R, Biometric Bulletin (2023), 40:3: pages 8–10 [PDF]"
+  },
+  {
+    "objectID": "publications.html#how-to-cite",
+    "href": "publications.html#how-to-cite",
+    "title": "Publications",
+    "section": "How to cite",
+    "text": "How to cite\nIf you are writing an article and have used the future framework to speed up your analyzes, please consider citing the Bengtsson (2021) paper, e.g. in the ‘Methods’ section or in the ‘Acknowledgments’. It is a simple way to help support the long-term work of maintaining, enhancing, and providing support for the Futureverse. To see if you used futures in your pipeline, look at the output of sessionInfo() at the end of your analysis – if it lists \"future\", then Futureverse has contributed to your work. Another clear indication is if you see a call to plan() at the top of your scripts or dynamic documents.\nHere are two examples on how you can give credit to the Futureverse in your articles:\n\nWe used the future framework in R (Bengtsson, 2021) to parallelize the data processing.\n\n\nWe used the future framework in R by Bengtsson (2021) to process the data in parallel via the Slurm scheduler on our institution’s high-performance compute (HPC) cluster.\n\nOf course, if you have metrics on how much faster your analysis ran, please mention that as well, e.g. “To speed up the processing 10 times, …”"
   },
   {
     "objectID": "talks.html",
