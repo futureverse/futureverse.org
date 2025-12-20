@@ -18,7 +18,7 @@ blog.qmd: blog.qmd.rsp
 	Rscript -e R.rsp::rfile "$<" --postprocess=FALSE
 
 build: blog
-	module load pandoc; \
+	module try-load pandoc quarto; \
 	quarto render
 
 preview:
