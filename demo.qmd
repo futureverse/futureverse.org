@@ -37,6 +37,7 @@ str(y)
 
 message("Futurized version of foreach via doFuture (modern)")
 library(foreach)
+library(doFuture)
 y <- foreach(x = X) %dofuture% slow_fcn(x)
 str(y)
 
