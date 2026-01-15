@@ -14,6 +14,9 @@ website:
     logo-alt: "Return to the Futureverse front page"
 
     right:
+      - text: "Live Demo"
+        href: demo.qmd
+        
       - text: "Packages & Docs"
         menu:
           - text: "Overview of All Packages"
