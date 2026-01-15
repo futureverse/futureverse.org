@@ -40,22 +40,22 @@ y <- slow_fcn(X[1])
 f <- future(slow_fcn(X[1]))
 y <- value(f)
 
-## future.apply: futurized version of base R apply
+## Futurized version of base R apply via future.apply
 library(future.apply)
 y <-        lapply(X, slow_fcn)
 y <- future_lapply(X, slow_fcn)
 
-## furrr: futurized version of purrr
+## Futurized version of purrr via furrr
 library(furrr)
 y <- X |>        map(slow_fcn)
 y <- X |> future_map(slow_fcn)
 
-## foreach: futurized version (modern)
+## Futurized version of foreach via doFuture (modern)
 library(foreach)
 y <- foreach(x = X) %do%       slow_fcn(x)
 y <- foreach(x = X) %dofuture% slow_fcn(x)
 
-## foreach: futurized version (traditional)
+## Futurized version of foreach via doFuture (traditional)
 library(foreach)
 doFuture::registerDoFuture()
 y <- foreach(x = X) %do%    slow_fcn(x)
@@ -74,4 +74,3 @@ y <- foreach(x = X) %dopar% slow_fcn(x)
   }
 </style>
 -->
-
