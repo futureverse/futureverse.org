@@ -27,7 +27,7 @@ Regardless how you use futures in your code, the user can, with a single setting
 For further details and motivations, see @bengtsson-future.
 </div>
 
-Here's the gist of how to use it:
+Below is the gist of how to use it ([try it yourself in the live demo](demo.html)):
 
 ```r
 library(future)

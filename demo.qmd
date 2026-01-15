@@ -1,0 +1,50 @@
+---
+title: Try Futureverse in the Browser
+format: live-html
+engine: knitr
+webr:
+  packages:
+    - futureverse
+---
+
+You can try the future ecosystem in the below R WebAssembly ("[webR]") widget. The "only" thing is that WebAssembly does _not_ support parallel processing, so everything will run sequentially. Also, the widget buffers all output until everything has finished running.
+
+```{webr}
+library(future)
+plan(multisession)
+
+slow_fcn <- function(x) {
+  message("x = ", x)
+  x^2
+}
+
+X <- 1:3
+
+message("Evaluate it in parallel in the background")
+f <- future(slow_fcn(X[1]))
+y <- value(f)
+print(y)
+
+message("Futurized version of base R apply via future.apply")
+library(future.apply)
+y <- future_lapply(X, slow_fcn)
+str(y)
+
+message("Futurized version of purrr via furrr")
+library(furrr)
+y <- X |> future_map(slow_fcn)
+str(y)
+
+message("Futurized version of foreach via doFuture (modern)")
+library(foreach)
+y <- foreach(x = X) %dofuture% slow_fcn(x)
+str(y)
+
+message("Futurized version of foreach via doFuture (traditional)")
+library(foreach)
+doFuture::registerDoFuture()
+y <- foreach(x = X) %dopar% slow_fcn(x)
+str(y)
+```
+
+[webR]: https://github.com/r-wasm/webr/
