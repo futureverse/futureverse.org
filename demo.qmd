@@ -5,6 +5,9 @@ engine: knitr
 webr:
   packages:
     - futureverse
+  cell-options:
+    echo: true
+    persist: true
 ---
 
 You can try the future ecosystem in the below R WebAssembly ("[webR]") widget. The "only" thing is that WebAssembly does _not_ support parallel processing, so everything will run sequentially. Also, the widget buffers all output until everything has finished running.
