@@ -5,7 +5,7 @@ preview: images/site_preview.png
 format: html
 ---
 
-Below are some^[This list is manual curated and may not be comprehensive.  Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. <https://github.com/futureverse/future/milestones>.] of the bigger milestones on the roadmap.  The issues linked that are examples of feature requests from end-users are prefixed 'FR', which will be resolved by the other non-FR issues.
+Below are some^[This list is manually curated and may not be comprehensive.  Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. <https://github.com/futureverse/future/milestones>.] of the bigger milestones on the roadmap.  The issues linked that are examples of feature requests from end-users are prefixed 'FR', which will be resolved by the other non-FR issues.
 
 
 ## Core Future API
@@ -16,10 +16,10 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 * Cancellation of futures with interruption, i.e. `cancel(f)`. All futures can be canceled, but not all can be interrupted. If a future backend does not support interrupting futures, then the interrupt requested is silently ignored.
   [~~[future#93]~~, ~~[future#FR213]~~, ~~[future.batchtools#FR27]~~, ~~[parallelly#33]~~] (solved in **future** 1.49.0; all future backends support cancellation and interruption as of 2025-08-25)
 
-* Performance: Add built-in speed and memory profiling tools to help developers and users identify bottle necks and improve overall performance
+* Performance: Add built-in speed and memory profiling tools to help developers and users identify bottlenecks and improve overall performance
   [[future#59], ~~[future#142]~~, ~~[future#FR437]~~]
 
-* Troubleshooting: Improve debugging of future that produce errors, e.g. capture call frames in parallel workers and let user inspect them via tools such as `utils::browser()` and `utils::recover()`
+* Troubleshooting: Improve debugging of futures that produce errors, e.g. capture call frames in parallel workers and let the user inspect them via tools such as `utils::browser()` and `utils::recover()`
   [[future#253]]
 
 * Support for controlling R options and environment variables via `future()`
@@ -33,7 +33,7 @@ Below are some^[This list is manual curated and may not be comprehensive.  Pleas
 
 * Multiple backends: Send different futures to different backends, based on which parallel backend can provide the requested resources
 
-* Scheduling: Add generic support for queueing such that futures can be queued on the local computer, on a remote scheduler, or in peer-to-peer scheduler among collaborators
+* Scheduling: Add generic support for queueing such that futures can be queued on the local computer, on a remote scheduler, or in a peer-to-peer scheduler among collaborators
   [[future#FR256], [future.apply#FR63], [future.batchtools#FR23]]
 
 * Flattening nested parallelism: Process nested futures via a common future queue instead of via nested future plans
@@ -71,17 +71,17 @@ Below is a list of future backends that are worked on or in the plans:
   [[future#FR204], [future#FR267]]
 
 * ~~**[future.redis]** - a backend to resolve futures via a Redis queue using the **redux** package
-  [[future#FR151]]~~ (discontinued, superseeded by **[future.mirai]**)
+  [[future#FR151]]~~ (discontinued, superseded by **[future.mirai]**)
 
 * ~~**[future.rrq]** - a backend to resolve futures via a Redis queue using the **rrq** package
-  [[future#FR151]]~~ (discontinued, superseeded by **[future.mirai]**)
+  [[future#FR151]]~~ (discontinued, superseded by **[future.mirai]**)
 
 * **future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda service.
   A group of several people is actively working on this since the end of 2020
   [[future#FR423]]
 
 * **future.aws.batch** - a backend to resolve futures via the Amazon AWS Batch service.
-  We have working group of several people actively working on this
+  We have a working group of several people actively working on this
   [[future#FR423]]
 
 * **future.google.cloud.functions** - a backend to resolve futures via the Google Cloud Functions service.

@@ -5,7 +5,7 @@ preview: images/site_preview.png
 format: html
 ---
 
-Since correctness and reproducibility is essential to all data
+Since correctness and reproducibility are essential to all data
 processing, validation is a top priority and part of the design and
 implementation throughout the future ecosystem.  Several types of
 testing are performed.
@@ -15,7 +15,7 @@ First, all the essential core packages part of the future framework,
 rich set of package tests.  These are validated regularly across the
 wide-range of operating systems (Linux, macOS, and MS Windows) and R
 versions available on CRAN, on continuous integration (CI) services
-(GitHub Actions), an on R-hub. The core packages are also tested with
+(GitHub Actions), and on R-hub. The core packages are also tested with
 non-English locale settings, including Korean, Simplified Chinese
 (China) and Traditional Chinese (Taiwan). They are also verified to
 work with single-core and dual-core machines, which may be the case
@@ -41,11 +41,11 @@ results: 0 errors, 0 timeouts." style="width: 50%; padding-left: 2ex;
 padding-bottom: 1ex; float: right;"/>
 Third, a suite of _Future API conformance tests_ available in the
 **future.tests** package validates the correctness of all future
-backends.  Any new future backend developed, must pass these tests to
+backends.  Any new future backend developed must pass these tests to
 comply with the _Future API_.  By conforming to this API, the end-user
 can trust that the backend will produce the same correct and
 reproducible results as any other backend, including the ones that the
-backend developer have tested on.  Also, by making it the
+backend developer has tested on.  Also, by making it the
 responsibility of the backend developer to assert that their new
 future backend conforms to the _Future API_, we relieve other
 developers from having to test that their future-based software works
@@ -89,7 +89,7 @@ package is updated approximately six times per year, the
 the infrastructure packages **globals** and **parallelly** three to
 six times a year.  The policy is to fix bugs as soon as possible and
 avoid breaking updates to maintain full backward compatibility with
-existing R code in production that rely on futures.  In the very rare
+existing R code in production that relies on futures.  In the very rare
 case when an existing feature had to be removed, it has been done via
 deprecation process taking place over several release cycles working
 closely with existing package developers to assure a smooth transition

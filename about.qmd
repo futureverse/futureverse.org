@@ -24,4 +24,4 @@ Open access, open source, cross-platform operability, long-term stability, corre
 
 ## Acknowledgements
 
-The development of the future ecosystem have been supported by grant mechanisms from the R Consortium's Infrastructure Steering Committee (ISC), and the Chan Zuckerberg Initiative (CZI) Essential Open-Source Software (EOSS) program.
+The development of the future ecosystem has been supported by grant mechanisms from the R Consortium's Infrastructure Steering Committee (ISC), and the Chan Zuckerberg Initiative (CZI) Essential Open-Source Software (EOSS) program.

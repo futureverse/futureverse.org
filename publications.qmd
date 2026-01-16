@@ -14,7 +14,7 @@ H. Bengtsson. Futureverse - Worry-Free Parallelization in R, [Biometric Bulletin
 ## How to cite
 
 If you are writing an article and have used the future framework to
-speed up your analyzes, please consider citing the Bengtsson (2021)
+speed up your analyses, please consider citing the Bengtsson (2021)
 paper, e.g. in the 'Methods' section or in the 'Acknowledgments'. It
 is a simple way to _help support the long-term work of maintaining,
 enhancing, and providing support for the Futureverse_.  To see if you

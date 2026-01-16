@@ -123,7 +123,7 @@ experience.
 ## Mlr3: Next-Generation Machine Learning
 
 ![](images/mlr3-pipe_action.svg){
-  fig-alt="A schematic outline of a ML pipeline. On top, there is a left-to-right pipeline with 'Training Data' as input, with steps 'Scaling', 'Factor Encoding', 'Median Imputation', and a final 'Learner' state. At the bottom, there is a similar pipeline but with 'New Data' as the input. In each of the corresponding steps, there is a arrow coming from the top pipeline indicating pre-learned parameters.  After the 'New Data' has flown through all steps, the output is a 'Prediction'."
+  fig-alt="A schematic outline of a ML pipeline. On top, there is a left-to-right pipeline with 'Training Data' as input, with steps 'Scaling', 'Factor Encoding', 'Median Imputation', and a final 'Learner' state. At the bottom, there is a similar pipeline but with 'New Data' as the input. In each of the corresponding steps, there is a arrow coming from the top pipeline indicating pre-learned parameters.  After the 'New Data' has flowed through all steps, the output is a 'Prediction'."
   style="margin-left: 2ex; margin-right: 2ex; border: solid 1px gray;"
   fig-align="center"
   width=80%
@@ -176,11 +176,11 @@ cloud via the future framework.
 # CRAN Statistics
 
 Since the first CRAN release of **future** in June 2015, its uptake
-among end-users and package developers have grown steadily.  During
-December 2025, **future** was among the top-0.7% most downloaded package
+among end-users and package developers has grown steadily.  During
+December 2025, **future** was among the top-0.7% most downloaded packages
 on CRAN (Figure 1) and there are 520 packages on CRAN and Bioconductor
 that directly depend on it (Figure 2).  For map-reduce parallelization
-packages **future.apply** (top-0.7% most downloaded) and and **furrr**
+packages **future.apply** (top-0.7% most downloaded) and **furrr**
 (top 1.5%), the corresponding number of packages are 250 and 180,
 respectively.  If we consider recursive dependencies too, that is,
 packages that use the **future** package either directly or indirectly
@@ -214,7 +214,7 @@ package installations._
 As a reference[^1], the popular **foreach**, released in 2009, was among
 the top-0.9% most downloaded packages during the same period and it
 has 1,300 reverse package dependencies on CRAN. The number of users
-that download **future** has grown rapidly whereas the the same number
+that download **future** has grown rapidly whereas the same number
 has slowly decreased for the **foreach** package (Figure 1).
 Similarly, the number of reverse package dependencies on **future**
 appear to grow faster than for **foreach** (Figure 2).
@@ -238,7 +238,7 @@ Right: The same data on the logarithmic scale to fit also **foreach**._
 reference for the current demand for parallelization frameworks in R
 and to show the rapid uptake of the future framework since its
 release.  It is not a competition because **foreach** can per design
-be used in companion with the future framework via **doFuture**.  The
+be used in combination with the future framework via **doFuture**.  The
 choice between **foreach** with **doFuture**, **future.apply**, and
 **furrr** is a matter of preference of coding style - they all rely on
 futures for parallelization.

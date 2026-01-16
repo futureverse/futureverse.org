@@ -8,7 +8,7 @@ format: html
 By default, future-based code runs sequentially, but with a _single
 line of code_, we easily switch to run the exact same code in
 parallel. The most common approach is to parallelize on the local
-machine, but we have also the option to harness the CPUs of other
+machine, but we also have the option to harness the CPUs of other
 local or remote machines.  For example, to parallelize on the local
 machine, the end-user can call:
 
@@ -38,7 +38,7 @@ This will set up four parallel workers, where two run on the local
 remote 'remote.server.org' machine.
 
 
-The **[future]** package comes with built-in future backends that leverage the **parallel** package part of R itself. In addition to these backends, others exist in package extensions, e.g. **[future.callr]**, **[future.mirai]**, and **[future.batchtools]**. Below is an overview of the most common backends that you as an end-user can chose from.
+The **[future]** package comes with built-in future backends that leverage the **parallel** package part of R itself. In addition to these backends, others exist in package extensions, e.g. **[future.callr]**, **[future.mirai]**, and **[future.batchtools]**. Below is an overview of the most common backends that you as an end-user can choose from.
 
 | Package / Backend             | Features    | How futures are evaluated
 |:----------------|:------------|:-----------------------------------------------------
