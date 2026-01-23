@@ -34,7 +34,7 @@ Below is the gist of how to use it ([try it yourself in the live demo](demo.html
 ## **futurize** 💫
 
 ```r
-library(future)
+library(futurize)
 plan(multisession)
 
 ## Evaluate an R expression sequentially
@@ -45,17 +45,16 @@ f <- future(slow_fcn(X[1]))
 y <- value(f)
 
 ## Sequential and parallel version of base R apply
-library(futurize)
 y <- lapply(X, slow_fcn)
 y <- lapply(X, slow_fcn) |> futurize()
 
 ## Sequential and parallel version of purrr map
-library(futurize)
+library(purrr)
 y <- X |> map(slow_fcn)
 y <- X |> map(slow_fcn) |> futurize()
 
 ## Sequential and parallel version of foreach
-library(futurize)
+library(foreach)
 y <- foreach(x = X) %do% slow_fcn(x)
 y <- foreach(x = X) %do% slow_fcn(x) |> futurize()
 ```
