@@ -18,7 +18,7 @@ The **future** framework makes it easy to parallelize existing R code - often wi
 The future framework _removes common hurdles and protects against pitfalls_ that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem.
 Just as with sequential R code, _output, messages, warnings, and errors work as expected_ and can be handled using traditional R techniques - regardless of how the code is parallelized.
 
-It is designed so that you as a developer can _stay with your favorite coding style_, whether it be base R or tidyverse.  If you like base R `lapply()` there is a corresponding `future_lapply()` in the **future.apply** package and if you like tidyverse **purrr** `map()` there is a corresponding `future_map()` in the **furrr** package.  If you prefer `foreach()` from **foreach**, then you can do so via **doFuture**.
+It is designed so that you as a developer can _stay with your favorite coding style_, whether it be base R or tidyverse.  If you prefer `lapply()`, `map()` of **purrr**, or `foreach()` of **foreach**, there is _no_ need to switch away from that.
 
 Futures make your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures.
 
