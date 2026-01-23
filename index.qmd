@@ -59,7 +59,7 @@ y <- foreach(x = X) %do% slow_fcn(x)
 y <- foreach(x = X) %do% slow_fcn(x) |> futurize()
 ```
 
-_The `futurize()` function rewrites the expression to use the corresponding **future.apply**, **furrr**, and **doFuture** expression. It is part of the **[futurize]** package released on 2026-01-26._
+_The `futurize()` function rewrites the expression to use the corresponding **future.apply**, **furrr**, and **doFuture** expression. It is part of the **[futurize]** package released on 2026-01-22._
 
 
 ## Pre-**futurize**
