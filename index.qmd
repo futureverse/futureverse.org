@@ -29,6 +29,42 @@ For further details and motivations, see @bengtsson-future.
 
 Below is the gist of how to use it ([try it yourself in the live demo](demo.html)):
 
+::: {.panel-tabset}
+
+## **futurize** 💫
+
+```r
+library(future)
+plan(multisession)
+
+## Evaluate an R expression sequentially
+y <- slow_fcn(X[1])
+
+## Evaluate it in parallel in the background
+f <- future(slow_fcn(X[1]))
+y <- value(f)
+
+## Sequential and parallel version of base R apply
+library(futurize)
+y <- lapply(X, slow_fcn)
+y <- lapply(X, slow_fcn) |> futurize()
+
+## Sequential and parallel version of purrr map
+library(futurize)
+y <- X |> map(slow_fcn)
+y <- X |> map(slow_fcn) |> futurize()
+
+## Sequential and parallel version of foreach
+library(futurize)
+y <- foreach(x = X) %do% slow_fcn(x)
+y <- foreach(x = X) %do% slow_fcn(x) |> futurize()
+```
+
+_The `futurize()` function rewrites the expression to use the corresponding **future.apply**, **furrr**, and **doFuture** expression. It is part of the **[futurize]** package released on 2026-01-26._
+
+
+## Pre-**futurize**
+
 ```r
 library(future)
 plan(multisession)
@@ -62,6 +98,8 @@ y <- foreach(x = X) %do%    slow_fcn(x)
 y <- foreach(x = X) %dopar% slow_fcn(x)
 ```
 
+:::
+
 <!--
 <style>
   d-title {
@@ -74,3 +112,5 @@ y <- foreach(x = X) %dopar% slow_fcn(x)
   }
 </style>
 -->
+
+[futurize]: https://futurize.futureverse.org

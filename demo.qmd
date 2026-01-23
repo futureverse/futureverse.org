@@ -3,14 +3,61 @@ title: Try Futureverse in the Browser
 format: live-html
 engine: knitr
 webr:
+  repos:
+    - https://cran.r-universe.dev
   packages:
-    - futureverse
+    - future
+    - futurize
+    - future.apply
+    - purrr
+    - furrr
+    - foreach
+    - doFuture
   cell-options:
     echo: true
     persist: true
 ---
 
 You can try the future ecosystem in the below R WebAssembly ("[webR]") widget. The "only" thing is that WebAssembly does _not_ support parallel processing, so everything will run sequentially. Also, the widget buffers all output until everything has finished running.
+
+::: {.panel-tabset}
+
+## **futurize** 💫
+
+_The `futurize()` function rewrites the expression to use the corresponding **future.apply**, **furrr**, and **doFuture** expression. It is part of the **[futurize]** package released on 2026-01-26._
+
+```{webr}
+library(futurize)
+plan(multisession)
+
+slow_fcn <- function(x) {
+  message("x = ", x)
+  x^2
+}
+
+X <- 1:3
+
+message("Evaluate it in parallel in the background")
+f <- future(slow_fcn(X[1]))
+y <- value(f)
+print(y)
+
+message("Futurized version of base R apply")
+y <- lapply(X, slow_fcn) |> futurize()
+str(y)
+
+message("Futurized version of purrr map")
+library(purrr)
+y <- X |> map(slow_fcn) |> futurize()
+str(y)
+
+message("Futurized version of foreach")
+library(foreach)
+y <- foreach(x = X) %do% slow_fcn(x) |> futurize()
+str(y)
+```
+
+## Pre-**futurize**
 
 ```{webr}
 library(future)
@@ -51,4 +98,7 @@ y <- foreach(x = X) %dopar% slow_fcn(x)
 str(y)
 ```
 
+:::
+
 [webR]: https://github.com/r-wasm/webr/
+[futurize]: https://futurize.futureverse.org
