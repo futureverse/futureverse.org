@@ -30,9 +30,10 @@ Implementations of the family of `map()` functions from **purrr** that can be re
 * **foreach** with **[doFuture]** - _Use Foreach to Parallelize via the Future Framework_<br>
 The **doFuture** package combines the best of **foreach** and **future** and offers two alternative solutions: (i) the traditional `foreach(...) %dopar% { ... }` solution together via `registerDoFuture()`, and (ii) the modern `foreach(...) %dofuture% { ... }` by itself.
 
+<!--
 * **BiocParallel** with **[BiocParallel.FutureParam]** - _Use Futures with BiocParallel_<br>
 A 'BiocParallelParam' class for using futures with the **BiocParallel** framework, e.g. `BiocParallel::register(FutureParam())`.   An alternative is to use `BiocParallel::register(DoParam())` in combination with **doFuture**.
-
+-->
 
 ### Choosing how and where to parallelize
 
