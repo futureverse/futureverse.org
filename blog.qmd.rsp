@@ -105,7 +105,7 @@ if (nzchar(image)) {
 <div class="listItem">
  <div class="itemImage">
   <% if (nzchar(image)) { %>
-  <a href="<%= url %>"><img src="<%= image %>" alt="<%= image_alt %>"/></a>
+  <a href="<%= url %>"><img src="<%= image %>" alt="<%= gsub(">", "&gt;", image_alt) %>"/></a>
   <% } %>
  </div>
  <div class="itemDetails">
@@ -123,7 +123,15 @@ if (nzchar(image)) {
 <% } ## blog_post() %>
 
  
- 
+
+<% blog_post(
+        title = "futurize: Parallelize Common Functions via a \"Magic\" Touch 🪄",
+          url = "https://www.jottr.org/2026/01/22/futurize-0.1.0/",
+         date = "2026-01-22",
+        image = "https://www.jottr.org/post/futurize-workflow.png",
+    image_alt = "Diagram illustrating how sequential R map-reduce code can be parallelized with |> futurize(). On the left, sequential functions such as lapply(…), purrr::map(…), foreach(…) %do%, plyr::llply(…), and others flow into a central box labeled |> futurize() with magic-wand icons, indicating automatic transformation. On the right, the transformed code fans out to multiple parallel workers (Worker 1, Worker 2, Worker 3, …), whose outputs are combined into a single 'Results' node."
+) %>
+
 <% blog_post(
         title = "Futures: Interrupts, Crashes, and Retries",
           url = "https://www.jottr.org/2025/10/16/interrupts-crashes-retries/",
