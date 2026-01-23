@@ -18,6 +18,9 @@ Nearly all parallel processing tasks can be implemented using this low-level API
 
 ### Parallel map-reduce functions for popular programming style
 
+* **[futurize]** - _Parallelize Common Functions via One Magic Function_<br>
+The `futurize()` function transpiles calls to sequential map-reduce functions such as `base::lapply()`, `purrr::map()`, and `foreach::foreach() %do% { ... }` into concurrent, parallel alternatives provided by **[future.apply]**, **[furrr]**, and **[doFuture]**.
+
 * **[future.apply]** - _Apply Function to Elements in Parallel using Future_<br>
 Implementations of `apply()`, `by()`, `eapply()`, `lapply()`, `Map()`, `.mapply()`, `mapply()`, `replicate()`, `sapply()`, `tapply()`, and `vapply()` that can be resolved using any future-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. These `future_*apply()` functions come with the same pros and cons as the corresponding **base R** `*apply()` functions but with the additional feature of being able to be processed via the future framework.
 
@@ -75,6 +78,7 @@ _PROTOTYPE_: Some types of R objects can be used only in the R session where the
 
 
 [future]: https://future.futureverse.org
+[futurize]: https://futurize.futureverse.org
 [future.apply]: https://future.apply.futureverse.org
 [furrr]: https://furrr.futureverse.org/
 [doFuture]: https://doFuture.futureverse.org

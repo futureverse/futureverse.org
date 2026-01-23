@@ -302,6 +302,10 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Map-Reduce Future APIs</li>
         <li>
+    <a class="dropdown-item" href="https://futurize.futureverse.org">
+ <span class="dropdown-text">futurize (one-stop all-in-one solution)</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://future.apply.futureverse.org">
  <span class="dropdown-text">future.apply (base R apply with futures)</span></a>
   </li>  
@@ -470,6 +474,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <section id="parallel-map-reduce-functions-for-popular-programming-style" class="level3">
 <h3 class="anchored" data-anchor-id="parallel-map-reduce-functions-for-popular-programming-style">Parallel map-reduce functions for popular programming style</h3>
 <ul>
+<li><p><strong><a href="https://futurize.futureverse.org">futurize</a></strong> - <em>Parallelize Common Functions via One Magic Function</em><br> The <code>futurize()</code> function transpiles calls to sequential map-reduce functions such as <code>base::lapply()</code>, <code>purrr::map()</code>, and <code>foreach::foreach() %do% { ... }</code> into concurrent, parallel alternatives provided by <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>, <strong><a href="https://furrr.futureverse.org/">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong>.</p></li>
 <li><p><strong><a href="https://future.apply.futureverse.org">future.apply</a></strong> - <em>Apply Function to Elements in Parallel using Future</em><br> Implementations of <code>apply()</code>, <code>by()</code>, <code>eapply()</code>, <code>lapply()</code>, <code>Map()</code>, <code>.mapply()</code>, <code>mapply()</code>, <code>replicate()</code>, <code>sapply()</code>, <code>tapply()</code>, and <code>vapply()</code> that can be resolved using any future-supported backend, e.g.&nbsp;parallel on the local machine or distributed on a compute cluster. These <code>future_*apply()</code> functions come with the same pros and cons as the corresponding <strong>base R</strong> <code>*apply()</code> functions but with the additional feature of being able to be processed via the future framework.</p></li>
 <li><p><strong><a href="https://furrr.futureverse.org/">furrr</a></strong> - <em>Apply Mapping Functions in Parallel using Futures</em><br> Implementations of the family of <code>map()</code> functions from <strong>purrr</strong> that can be resolved using any <strong>future</strong>-supported backend, e.g.&nbsp;parallel on the local machine or distributed on a compute cluster. (Developed by Davis Vaughan)</p></li>
 <li><p><strong>foreach</strong> with <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong> - <em>Use Foreach to Parallelize via the Future Framework</em><br> The <strong>doFuture</strong> package combines the best of <strong>foreach</strong> and <strong>future</strong> and offers two alternative solutions: (i) the traditional <code>foreach(...) %dopar% { ... }</code> solution together via <code>registerDoFuture()</code>, and (ii) the modern <code>foreach(...) %dofuture% { ... }</code> by itself.</p></li>
