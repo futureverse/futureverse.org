@@ -81,12 +81,14 @@ y <-        lapply(X, slow_fcn)
 y <- future_lapply(X, slow_fcn)
 
 ## Futurized version of purrr via furrr
+library(purrr)
 library(furrr)
 y <- X |>        map(slow_fcn)
 y <- X |> future_map(slow_fcn)
 
 ## Futurized version of foreach via doFuture (modern)
 library(foreach)
+library(doFuture)
 y <- foreach(x = X) %do%       slow_fcn(x)
 y <- foreach(x = X) %dofuture% slow_fcn(x)
 
