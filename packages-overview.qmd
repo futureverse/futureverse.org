@@ -72,6 +72,15 @@ Identifies global ("unknown" or "free") objects in R expressions by code inspect
 * **[listenv]** - _Environments Behaving (Almost) as Lists_<br>
 List environments are environments that have list-like properties. For instance, the elements of a list environment are ordered and can be accessed and iterated over using index subsetting, e.g. `x <- listenv(a = 1, b = 2);` `for (i in seq_along(x)) x[[i]] <- x[[i]] ^ 2;` `y <- as.list(x)`.
 
+
+### Experimental
+
+* **[future.p2p]** - _A Peer-to-Peer Compute Cluster in R_<br>
+_BETA_: An future backend where you can share R compute among friends across the world.
+
+* **[future.tools]** - _Tools for Working with Futures_<br>
+_BETA_: Extra tools for working with future, e.g. time profiling.
+
 * **[marshal]** - _Framework to Marshal Objects to be Used in Another R Process_<br>
 _PROTOTYPE_: Some types of R objects can be used only in the R session where they were created. If used as-is in another R process, such objects often result in an immediate error or in obscure and hard-to-troubleshoot outcomes. Because of this, they cannot be saved to file and re-used at a later time. They can also not be exported to a worker in parallel processing. These objects are sometimes referred to as non-exportable or non-serializable objects. One solution to this problem is to use “marshaling” to encode the R object into an exportable representation that then can be used to re-create a copy of that object in another R process.
 
@@ -94,3 +103,5 @@ _PROTOTYPE_: Some types of R objects can be used only in the R session where the
 [marshal]: https://marshal.futureverse.org
 [globals]: https://globals.futureverse.org
 [listenv]: https://listenv.futureverse.org
+[future.p2p]: https://future.p2p.futureverse.org
+[future.tools]: https://future.tools.futureverse.org
