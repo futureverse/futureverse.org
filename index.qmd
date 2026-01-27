@@ -24,7 +24,7 @@ Futures make your web interface asynchronous, e.g. a blocking Shiny application 
 
 Regardless of how you use futures in your code, the user can, with a single setting, switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on a high-performance compute (HPC) cluster.
 
-For further details and motivations, see @bengtsson-future.
+For further details and motivations, see @bengtsson-future and @bengtsson-futurize.
 </div>
 
 Below is the gist of how to use it ([try it yourself in the live demo](demo.html)):

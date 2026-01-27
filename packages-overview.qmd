@@ -3,6 +3,7 @@ title: "Overview of All Packages"
 description: The future framework with the future package at the code comprises many packages - use the ones that suit your needs
 preview: images/site_preview.png
 format: html
+bibliography: futureverse.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -13,13 +14,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **[future]** - _Unified Parallel and Distributed Processing in R for Everyone_<br>
 This is the core package of the future framework.  It implements the Future API, which comprises three basic functions - `future()`, `resolved()`, and `value()`. It is designed to unify parallel processing in R at the lowest possible level. It provides a standard for building richer, higher-level parallel frontends without having to worry about and re-implement common, critical tasks such as identifying global variables and packages, parallel RNG, and relaying of output and conditions - cumbersome tasks that are often essential to parallel processing.
-Nearly all parallel processing tasks can be implemented using this low-level API. But, most users and package developers use the futures via the higher-level `futurize()` function of **futurize**, which turns common map-reduce functions into parallel versions that **future.apply**, **furrr**, and **doFuture** take care of under the hood.
+Nearly all parallel processing tasks can be implemented using this low-level API. But, most users and package developers use the futures via the higher-level `futurize()` function of **futurize**, which turns common map-reduce functions into parallel versions that **future.apply**, **furrr**, and **doFuture** take care of under the hood. [@bengtsson-future]
 
 
 ### Parallel map-reduce functions for popular programming style
 
 * **[futurize]** - _Parallelize Common Functions via One Magic Function_<br>
-The `futurize()` function transpiles calls to sequential map-reduce functions such as `base::lapply()`, `purrr::map()`, and `foreach::foreach() %do% { ... }` into concurrent, parallel alternatives provided by **[future.apply]**, **[furrr]**, and **[doFuture]**.
+The `futurize()` function transpiles calls to sequential map-reduce functions such as `base::lapply()`, `purrr::map()`, and `foreach::foreach() %do% { ... }` into concurrent, parallel alternatives provided by **[future.apply]**, **[furrr]**, and **[doFuture]**. [@bengtsson-futurize]
 
 * **[future.apply]** - _Apply Function to Elements in Parallel using Future_<br>
 Implementations of `apply()`, `by()`, `eapply()`, `lapply()`, `Map()`, `.mapply()`, `mapply()`, `replicate()`, `sapply()`, `tapply()`, and `vapply()` that can be resolved using any future-supported backend, e.g. parallel on the local machine or distributed on a compute cluster. These `future_*apply()` functions come with the same pros and cons as the corresponding **base R** `*apply()` functions but with the additional feature of being able to be processed via the future framework.

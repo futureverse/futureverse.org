@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -469,13 +489,13 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <section id="the-core-package" class="level3">
 <h3 class="anchored" data-anchor-id="the-core-package">The core package</h3>
 <ul>
-<li><strong><a href="https://future.futureverse.org">future</a></strong> - <em>Unified Parallel and Distributed Processing in R for Everyone</em><br> This is the core package of the future framework. It implements the Future API, which comprises three basic functions - <code>future()</code>, <code>resolved()</code>, and <code>value()</code>. It is designed to unify parallel processing in R at the lowest possible level. It provides a standard for building richer, higher-level parallel frontends without having to worry about and re-implement common, critical tasks such as identifying global variables and packages, parallel RNG, and relaying of output and conditions - cumbersome tasks that are often essential to parallel processing. Nearly all parallel processing tasks can be implemented using this low-level API. But, most users and package developers use the futures via the higher-level <code>futurize()</code> function of <strong>futurize</strong>, which turns common map-reduce functions into parallel versions that <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doFuture</strong> take care of under the hood.</li>
+<li><strong><a href="https://future.futureverse.org">future</a></strong> - <em>Unified Parallel and Distributed Processing in R for Everyone</em><br> This is the core package of the future framework. It implements the Future API, which comprises three basic functions - <code>future()</code>, <code>resolved()</code>, and <code>value()</code>. It is designed to unify parallel processing in R at the lowest possible level. It provides a standard for building richer, higher-level parallel frontends without having to worry about and re-implement common, critical tasks such as identifying global variables and packages, parallel RNG, and relaying of output and conditions - cumbersome tasks that are often essential to parallel processing. Nearly all parallel processing tasks can be implemented using this low-level API. But, most users and package developers use the futures via the higher-level <code>futurize()</code> function of <strong>futurize</strong>, which turns common map-reduce functions into parallel versions that <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doFuture</strong> take care of under the hood. <span class="citation" data-cites="bengtsson-future">(<a href="#ref-bengtsson-future" role="doc-biblioref">Bengtsson 2021</a>)</span></li>
 </ul>
 </section>
 <section id="parallel-map-reduce-functions-for-popular-programming-style" class="level3">
 <h3 class="anchored" data-anchor-id="parallel-map-reduce-functions-for-popular-programming-style">Parallel map-reduce functions for popular programming style</h3>
 <ul>
-<li><p><strong><a href="https://futurize.futureverse.org">futurize</a></strong> - <em>Parallelize Common Functions via One Magic Function</em><br> The <code>futurize()</code> function transpiles calls to sequential map-reduce functions such as <code>base::lapply()</code>, <code>purrr::map()</code>, and <code>foreach::foreach() %do% { ... }</code> into concurrent, parallel alternatives provided by <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>, <strong><a href="https://furrr.futureverse.org/">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong>.</p></li>
+<li><p><strong><a href="https://futurize.futureverse.org">futurize</a></strong> - <em>Parallelize Common Functions via One Magic Function</em><br> The <code>futurize()</code> function transpiles calls to sequential map-reduce functions such as <code>base::lapply()</code>, <code>purrr::map()</code>, and <code>foreach::foreach() %do% { ... }</code> into concurrent, parallel alternatives provided by <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>, <strong><a href="https://furrr.futureverse.org/">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong>. <span class="citation" data-cites="bengtsson-futurize">(<a href="#ref-bengtsson-futurize" role="doc-biblioref">Bengtsson 2026</a>)</span></p></li>
 <li><p><strong><a href="https://future.apply.futureverse.org">future.apply</a></strong> - <em>Apply Function to Elements in Parallel using Future</em><br> Implementations of <code>apply()</code>, <code>by()</code>, <code>eapply()</code>, <code>lapply()</code>, <code>Map()</code>, <code>.mapply()</code>, <code>mapply()</code>, <code>replicate()</code>, <code>sapply()</code>, <code>tapply()</code>, and <code>vapply()</code> that can be resolved using any future-supported backend, e.g.&nbsp;parallel on the local machine or distributed on a compute cluster. These <code>future_*apply()</code> functions come with the same pros and cons as the corresponding <strong>base R</strong> <code>*apply()</code> functions but with the additional feature of being able to be processed via the future framework.</p></li>
 <li><p><strong><a href="https://furrr.futureverse.org/">furrr</a></strong> - <em>Apply Mapping Functions in Parallel using Futures</em><br> Implementations of the family of <code>map()</code> functions from <strong>purrr</strong> that can be resolved using any <strong>future</strong>-supported backend, e.g.&nbsp;parallel on the local machine or distributed on a compute cluster. (Developed by Davis Vaughan)</p></li>
 <li><p><strong>foreach</strong> with <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong> - <em>Use Foreach to Parallelize via the Future Framework</em><br> The <strong>doFuture</strong> package combines the best of <strong>foreach</strong> and <strong>future</strong> and offers two alternative solutions: (i) the traditional <code>foreach(...) %dopar% { ... }</code> solution together via <code>registerDoFuture()</code>, and (ii) the modern <code>foreach(...) %dofuture% { ... }</code> by itself.</p></li>
@@ -523,9 +543,17 @@ A 'BiocParallelParam' class for using futures with the **BiocParallel** framewor
 </ul>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bengtsson-future" class="csl-entry" role="listitem">
+Bengtsson, Henrik. 2021. <span>“<span class="nocase">A Unifying Framework for Parallel and Distributed Processing in R using Futures</span>.”</span> <em><span>The R Journal</span></em>. <a href="https://doi.org/10.32614/RJ-2021-048">https://doi.org/10.32614/RJ-2021-048</a>.
+</div>
+<div id="ref-bengtsson-futurize" class="csl-entry" role="listitem">
+———. 2026. <span>“<span class="nocase">A Unified Approach to Concurrent, Parallel Map-Reduce in R using Futures</span>.”</span> <a href="https://arxiv.org/abs/2601.17578">https://arxiv.org/abs/2601.17578</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
