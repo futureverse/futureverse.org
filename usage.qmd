@@ -177,11 +177,11 @@ cloud via the future framework.
 
 Since the first CRAN release of **future** in June 2015, its uptake
 among end-users and package developers has grown steadily.  During
-December 2025, **future** was among the top-0.7% most downloaded packages
-on CRAN (Figure 1) and there are 520 packages on CRAN and Bioconductor
+January 2026, **future** was among the top-0.7% most downloaded packages
+on CRAN (Figure 1) and there are 540 packages on CRAN and Bioconductor
 that directly depend on it (Figure 2).  For map-reduce parallelization
 packages **future.apply** (top-0.7% most downloaded) and **furrr**
-(top 1.5%), the corresponding number of packages are 250 and 180,
+(top 1.5%), the corresponding number of packages are 260 and 180,
 respectively.  If we consider recursive dependencies too, that is,
 packages that use the **future** package either directly or indirectly
 via another package, then 85% of all ~23,000 CRAN packages may rely on
@@ -225,7 +225,7 @@ appear to grow faster than for **foreach** (Figure 2).
 }  
 
 ![Package counts on the logarithmic scale.](figures/revdep_over_time_on_CRAN-log.png){
-  fig-alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'foreach', 'future', 'future.apply', and 'furrr' from 2015 to 2025. The y-axis spans roughly 10 to 1000 dependencies. 'foreach' (olive) leads throughout, rising smoothly from 150 to over 1000. 'future' (green) increases from a few dependencies in 2015 to nearly 500 by 2025. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 250 and 180, respectively."
+  fig-alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'foreach', 'future', 'future.apply', and 'furrr' from 2015 to 2025. The y-axis spans roughly 10 to 1000 dependencies. 'foreach' (olive) leads throughout, rising smoothly from 150 to over 1000. 'future' (green) increases from a few dependencies in 2015 to 520 by end of 2025. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 250 and 180, respectively."
 }
 :::
 
