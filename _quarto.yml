@@ -46,13 +46,17 @@ website:
           - text: "future.mirai (parallelize via mirai)"
             href: https://future.mirai.futureverse.org
           - text: "---"
+          - text: "Progress Reporting"
+          - text: "progressify 💫 (one-stop all-in-one solution)"
+            href: https://progressify.futureverse.org
+          - text: "progressr (progress updates in parallel)"
+            href: https://progressr.futureverse.org
+          - text: "---"
           - text: "Utilities"
           - text: "listenv (Use %<-% for list-like structures)"
             href: https://listenv.futureverse.org
           - text: "parallelly (enhances the parallel package)"
             href: https://parallelly.futureverse.org
-          - text: "progressr (progress updates in parallel)"
-            href: https://progressr.futureverse.org
           - text: "---"
           - text: "For low-level developers"
           - text: "globals (identify globals)"

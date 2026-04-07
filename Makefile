@@ -2,7 +2,7 @@ SHELL=bash
 
 FILES ?= about.qmd backends.qmd blog.qmd index.qmd packages-overview.qmd publications.qmd roadmap.qmd talks.qmd usage.qmd quality.qmd tutorials.qmd now.qmd
 
-PACKAGES ?= doFuture future futurize future.apply future.batchtools future.callr future.mirai future.mapreduce future.p2p future.tests future.tools futureverse globals listenv marshal parallelly progressr
+PACKAGES ?= doFuture future futurize future.apply future.batchtools future.callr future.mirai future.mapreduce future.p2p future.tests future.tools futureverse globals listenv marshal parallelly progressify progressr
 
 DOMAIN ?= futureverse.org
 

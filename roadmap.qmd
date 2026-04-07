@@ -60,7 +60,7 @@ Below are some^[This list is manually curated and may not be comprehensive.  Ple
   [~~[doFuture#61]~~] (solved in **doFuture** 0.13.0 and **doFuture** 1.0.0)
 
 * Generic support for progress updates for common map-reduce functions, e.g. `y <- lapply(X, slow_fcn) |> progressify()` and `y <- X |> future_map(slow_fcn) |> progressify() |> futurize()`
-  [[progressr#FR85], ~~[progressr#113]~~]
+  [[progressr#FR85], ~~[progressr#113]~~] (solved in **progressify** 0.1.0)
 
 
 ## Parallel backends
