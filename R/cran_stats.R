@@ -63,10 +63,10 @@ counts4 <- group_modify(counts, function(data, package) {
 message(sprintf("CRAN ranks last four week (average '%s' per week):", method))
 print(head(arrange(counts4, desc(week_of)), n = 2*length(pkgs)))
 
-
 pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
 exclude <- NULL
 exclude <- c(exclude, "doParallel")
+#exclude <- c(exclude, "foreach")
 pkgs <- setdiff(pkgs, exclude)
 npkgs <- length(pkgs)
 colors <- scales::hue_pal()(length(pkgs)+1)[-1]
@@ -76,6 +76,8 @@ image_dims <- c(7.5, 6.0)
 #image_dims <- 0.7*image_dims
 
 counts4b <- subset(counts4, package %in% pkgs)
+#counts4b <- subset(counts4b, ! package %in% c(exclude, "foreach"))
+
 gg <- ggplot(counts4b, aes(x = week_of, y = fraction, color = package))
 gg <- gg + geom_line(linewidth = 1.2)
 gg <- gg + scale_colour_manual(values = colors)
