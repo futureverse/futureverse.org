@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -41,9 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/quarto-axe/axe-check.js" type="module"></script>
 <script id="quarto-axe-checker-options" type="text/plain">eyJvdXRwdXQiOiJjb25zb2xlIn0=</script>
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -549,19 +549,19 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </section>
 <section id="cran-statistics" class="level1">
 <h1>CRAN Statistics</h1>
-<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. During January 2026, <strong>future</strong> was among the top-0.7% most downloaded packages on CRAN (Figure 1) and there are 480 packages on CRAN and Bioconductor that directly depend on it (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.7% most downloaded) and <strong>furrr</strong> (top 1.5%), the corresponding number of packages are 260 and 180, respectively. If we consider recursive dependencies too, that is, packages that use the <strong>future</strong> package either directly or indirectly via another package, then 85% of all ~23,000 CRAN packages may rely on the future framework for their processing.</p>
+<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. During April 2026, <strong>future</strong> was among the top-0.7% most downloaded packages on CRAN (Figure 1) and there are 510 packages on CRAN and Bioconductor that directly depend on it (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.7% most downloaded) and <strong>furrr</strong> (top 1.2%), the corresponding number of packages are 290 and 190, respectively. If we consider recursive dependencies too, that is, packages that use the <strong>future</strong> package either directly or indirectly via another package, then 85% of all ~23,000 CRAN packages may rely on the future framework for their processing.</p>
 <!--
 pkgs <- revdepcheck:::cran_revdeps("future")
 pkgs <- tools::package_dependencies("future", which="all", reverse=TRUE, recursive=TRUE)        
 -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/downloads_over_time_on_CRAN.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to 2025 and the ranks for 0 to 20%. Lines for package 'foreach', 'future', 'future.apply', and 'furrr' are displayed in different colors. The foreach curve is the highest but decreases slowly, whereas the other three are rapidly increasing toward the level of foreach."></p>
+<p><img src="figures/downloads_over_time_on_CRAN.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to 2026 and the ranks for 0 to 20%. Lines for package 'foreach', 'future', 'future.apply', and 'furrr' are displayed in different colors. The foreach curve is the highest but decreases slowly, whereas the other three are rapidly increasing toward the level of foreach."></p>
 </figure>
 </div>
 <p><em>Figure 1: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>foreach</strong> averaged every four weeks. <strong>future</strong> is among the top-0.7% most downloaded packages on CRAN. The data are based on the Posit CRAN mirror logs. There are approximately 200 million package downloads per month from the Posit CRAN mirror alone. Since none of the other CRAN mirrors provide statistics, it is impossible to know the total amount of package installations.</em></p>
 <!-- [https://cranlogs.r-pkg.org/downloads/total/last-month] -->
-<p>As a reference<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the popular <strong>foreach</strong>, released in 2009, was among the top-0.9% most downloaded packages during the same period and it has 1,300 reverse package dependencies on CRAN. The number of users that download <strong>future</strong> has grown rapidly whereas the same number has slowly decreased for the <strong>foreach</strong> package (Figure 1). Similarly, the number of reverse package dependencies on <strong>future</strong> appear to grow faster than for <strong>foreach</strong> (Figure 2).</p>
+<p>As a reference<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the popular <strong>foreach</strong>, released in 2009, was among the top-0.8% most downloaded packages during the same period and it has 1,350 reverse package dependencies on CRAN. The number of users that download <strong>future</strong> has grown rapidly whereas the same number has slowly decreased for the <strong>foreach</strong> package (Figure 1). Similarly, the number of reverse package dependencies on <strong>future</strong> appear to grow faster than for <strong>foreach</strong> (Figure 2).</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -575,7 +575,7 @@ pkgs <- tools::package_dependencies("future", which="all", reverse=TRUE, recursi
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/revdep_over_time_on_CRAN-log.png" class="img-fluid figure-img" alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'foreach', 'future', 'future.apply', and 'furrr' from 2015 to 2025. The y-axis spans roughly 10 to 1500 dependencies. 'foreach' (olive) leads throughout, rising smoothly from 150 to over 1000. 'future' (green) increases from a few dependencies in 2015 to 470 by end of 2025. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 250 and 180, respectively."></p>
+<p><img src="figures/revdep_over_time_on_CRAN-log.png" class="img-fluid figure-img" alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'foreach', 'future', 'future.apply', and 'furrr' from 2015 to 2025. The y-axis spans roughly 10 to 1,500 dependencies. 'foreach' (olive) leads throughout, rising smoothly from 150 to over 1,000. 'future' (green) increases from a few dependencies in 2015 to 470 by end of 2025. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 250 and 180, respectively."></p>
 <figcaption>Package counts on the logarithmic scale.</figcaption>
 </figure>
 </div>
