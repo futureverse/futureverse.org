@@ -100,7 +100,7 @@ website:
         href: about.qmd
 
   announcement: 
-    icon: info-circle
+    icon: alarm
     dismissable: false
     content: "May 8, 2026 @ 18:58 UTC: Online [20-minute presentation with Q&A](talks.html) on 'futurize' and 'progressify' at the R/Medicine 2026 conference"
     type: info

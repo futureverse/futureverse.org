@@ -14,10 +14,22 @@ talk <- function(title, author, info = NULL, location = NULL, duration = NULL, d
   
   if (!is.null(info)) info <- paste(",", info)
   if (!is.null(location)) location <- paste(",", location)
-  if (!is.null(date)) date <- paste(",", date)
+  
+  upcoming <- -Inf
+  if (!is.null(date)) {
+    now <- Sys.Date()
+    date <- as.Date(date)
+    upcoming <- (date - now)
+    date <- format(date, format = ", %F")
+  }
   
   html <- tags$div(class = "listItem",
     tags$div(class = "itemDetails",
+      if (upcoming > 3) {
+        tags$span(class="bi bi-clock-history", style="font-size: 100%; font-weight: bold; text-transform: uppercase;", " Upcoming")
+      } else if (upcoming > 0) {
+        tags$span(class="bi bi-alarm", style="font-size: 150%; font-weight: bold; text-transform: uppercase;", " Soon!")
+      },
       tags$div(class = "itemHeader",
         tags$div(class = "itemTitle", title)
       ),
@@ -40,6 +52,7 @@ talk <- function(title, author, info = NULL, location = NULL, duration = NULL, d
 } # talk()
 ```
 
+
 ```{r}
 #| echo: false
 talk(
@@ -53,7 +66,7 @@ talk(
          Abstract = "https://rconsortium.github.io/RMedicine_website/Abstracts.html#beyond-sequential-scaling-existing-medical-pipelines-with-fu",
         "R/Medicine" = "https://rconsortium.github.io/RMedicine_website/"
       )
-)      
+)
 ```
 
 
@@ -70,7 +83,7 @@ talk(
          Video = "https://www.youtube.com/watch?v=KQGYaDpeXak",
         "Blog post" = "https://www.jottr.org/2025/12/03/future.p2p-latinr2025-slides/"
       )
-)      
+)
 ```
 
 
