@@ -1,6 +1,6 @@
 ---
 title: Publications
-description: An article on futures
+description: Articles on futures
 preview: images/site_preview.png
 format: html
 ---
