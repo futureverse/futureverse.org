@@ -11,6 +11,11 @@ format:
 #| include: false
 talk <- function(title, author, info = NULL, location = NULL, duration = NULL, date, urls = NULL) {
   library(htmltools)
+  
+  if (!is.null(info)) info <- paste(",", info)
+  if (!is.null(location)) location <- paste(",", location)
+  if (!is.null(date)) date <- paste(",", date)
+  
   html <- tags$div(class = "listItem",
     tags$div(class = "itemDetails",
       tags$div(class = "itemHeader",
@@ -22,13 +27,35 @@ talk <- function(title, author, info = NULL, location = NULL, duration = NULL, d
         tags$span(class = "itemDate", sprintf("%s (%s)", date, duration))
       ),
       lapply(seq_along(urls), FUN = function(kk) {
-        if (nzchar(urls[[kk]])) tags$a(href = urls[[kk]], names(urls)[kk])
+        if (nzchar(urls[[kk]])) {
+          list(
+             if (kk > 1) tags$span(", "),
+             tags$a(href = urls[[kk]], names(urls)[kk])
+          )
+        }
       })
     )
   )
   knitr::asis_output(as.character(html))
 } # talk()
 ```
+
+```{r}
+#| echo: false
+talk(
+     title = "Beyond Sequential: Scaling Existing Medical Pipelines with 'futurize'",
+    author = "Henrik Bengtsson",
+  location = "R/Medicine 2026",
+      date = "2026-05-08",
+  duration = "20 minutes",
+      urls = c(
+#         HTML = "https://henrikbengtsson.github.io/talk-rmedicine-2026-futurize/#/",
+         Abstract = "https://rconsortium.github.io/RMedicine_website/Abstracts.html#beyond-sequential-scaling-existing-medical-pipelines-with-fu",
+        "R/Medicine" = "https://rconsortium.github.io/RMedicine_website/"
+      )
+)      
+```
+
 
 ```{r}
 #| echo: false
