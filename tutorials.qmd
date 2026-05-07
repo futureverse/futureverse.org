@@ -11,8 +11,23 @@ format:
 #| include: false
 tutorial <- function(title, author, info = NULL, location = NULL, date, url) {
   library(htmltools)
+
+  upcoming <- -Inf
+  if (!is.null(date)) {
+    now <- Sys.Date()
+    date <- as.Date(date)
+    upcoming <- (date - now)
+    date <- format(date, format = "%F")
+  }
+
   html <- tags$div(class = "listItem",
     tags$div(class = "itemDetails",
+      if (upcoming > 3) {
+        tags$span(class="bi bi-clock-history", style="font-size: 100%; font-weight: bold; text-transform: uppercase;", " Upcoming")
+      } else if (upcoming > 0) {
+        tags$span(class="bi bi-alarm", style="font-size: 150%; font-weight: bold; text-transform: uppercase;", " Soon!")
+      },
+      
       tags$div(class = "itemHeader",
         tags$div(class = "itemTitle",
           tags$a(href = url, title)
@@ -29,6 +44,19 @@ tutorial <- function(title, author, info = NULL, location = NULL, date, url) {
   knitr::asis_output(as.character(html))
 } # tutorial()
 ```
+
+<!--
+```{r}
+#| echo: false
+tutorial(
+     title = "Introduction to Parallel Processing in R using Futureverse - Easier than Ever Before",
+    author = "Henrik Bengtsson",
+  location = "useR! 2026",
+      date = "2026-07-06",
+       url = "https://user2026.r-project.org/schedule/"
+)
+```
+-->
 
 ```{r}
 #| echo: false

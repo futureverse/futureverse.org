@@ -71,6 +71,46 @@ talk(
 ```
 
 
+<!--
+
+```{r}
+#| echo: false
+talk(
+     title = "Evaluate Untrusted R Code Locally Isolated in a webR Sandbox?",
+    author = "Henrik Bengtsson",
+  location = "useR! 2026",
+      date = "2026-07-07",
+    duration = "5 minutes",
+      urls = c(
+#         HTML = "",
+#         Abstract = "",
+        "useR!" = "https://user2026.r-project.org/schedule/"
+      )
+)
+```
+
+
+```{r}
+#| echo: false
+talk(
+     title = "Futurize - Tearing Down Parallelization Barriers in R with Transpilers",
+    author = "Henrik Bengtsson",
+  location = "useR! 2026",
+      date = "2026-07-07",
+    duration = "20 minutes",
+      urls = c(
+#         HTML = "",
+#         Abstract = "",
+        "useR!" = "https://user2026.r-project.org/schedule/",
+        "preprint" = "publications.html"
+      )
+)
+```
+-->
+
+
+
+
 ```{r}
 #| echo: false
 talk(
