@@ -62,7 +62,7 @@ talk(
       date = "2026-05-08",
   duration = "20 minutes",
       urls = c(
-#         HTML = "https://henrikbengtsson.github.io/talk-rmedicine-2026-futurize/#/",
+         Slides = "https://henrikbengtsson.github.io/talk-rmedicine-2026-futurize/#/",
          Abstract = "https://rconsortium.github.io/RMedicine_website/Abstracts.html#beyond-sequential-scaling-existing-medical-pipelines-with-fu",
         "R/Medicine" = "https://rconsortium.github.io/RMedicine_website/",
         "preprint" = "publications.html"
