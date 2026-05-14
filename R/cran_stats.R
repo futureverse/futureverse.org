@@ -84,6 +84,10 @@ image_dims <- c(7.5, 6.0)
 counts4b <- subset(counts4, package %in% pkgs)
 #counts4b <- subset(counts4b, ! package %in% c(exclude, "foreach"))
 
+
+#------------------------------------------------------------------------
+# Download relative ranks (fraction)
+#------------------------------------------------------------------------
 gg <- ggplot(counts4b, aes(x = week_of, y = fraction, color = package))
 gg <- gg + geom_line(linewidth = 1.2)
 gg <- gg + scale_colour_manual(values = colors)
@@ -93,14 +97,32 @@ gg <- gg + scale_y_reverse(labels = scales::percent)
 gg <- gg_modify(gg, legend = "lower-right")
 gg <- gg + theme(legend.position = if (npkgs == 1L) "none" else "inside")
 image_dims <- attr(gg, "image_dims")
-gg <- gg + labs(x = "", y = "Download rank (4-week avg.)")
+gg <- gg + labs(x = "", y = "Download relative rank (4-week avg.)")
 gg <- gg + coord_cartesian(ylim = c(0.20, 0))
 gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 pathname <- ggsave(gg, filename = "downloads_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
 
-
 gg <- gg + coord_cartesian(ylim = c(0.03, 0))
 gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 pathname <- ggsave(gg, filename = "downloads_over_time_on_CRAN-zoom.png", width = image_dims[1], height = image_dims[2])
+message("Wrote: ", pathname)
+
+
+#------------------------------------------------------------------------
+# Download absolute ranks (min_rank)
+#------------------------------------------------------------------------
+gg <- ggplot(counts4b, aes(x = week_of, y = min_rank, color = package))
+gg <- gg + geom_line(linewidth = 1.2)
+gg <- gg + scale_colour_manual(values = colors)
+#gg <- gg + geom_smooth(method = "loess", span = 0.1)
+#gg <- gg + geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE)
+gg <- gg + scale_y_reverse()
+gg <- gg_modify(gg, legend = "lower-right")
+gg <- gg + theme(legend.position = if (npkgs == 1L) "none" else "inside")
+image_dims <- attr(gg, "image_dims")
+gg <- gg + labs(x = "", y = "Download absolute rank (4-week min.)")
+gg <- gg + coord_cartesian(ylim = c(1000, 1))
+gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
+pathname <- ggsave(gg, filename = "downloads_min_rank_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
