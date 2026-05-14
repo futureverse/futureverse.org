@@ -34,17 +34,17 @@ pathnames_per_day <- cran_all_downloads_by_week(weeks)
 pathnames_per_week <- cran_all_downloads_summarize_by_week(pathnames_per_day, method = method)
 pathnames_per_week_with_ranks <- cran_all_download_rank_by_week(pathnames_per_week)
 
-## This also takes time
+## This also takes time (week_of, package, count, fraction, rank, max)
 data <- read_final_cran_stats(pathnames_per_week_with_ranks)
-
 
 all_pkgs <- c("parallel", "parallelly", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "progressr")
 
 ## all_pkgs <- c("matrixStats")
 
+## (week_of, package, count, fraction, rank)
 pkgs <- setdiff(all_pkgs, "parallel") ## 'parallel' is part of R
 counts <- subset(data, package %in% pkgs)
-counts <- select(counts, week_of, package, fraction)
+counts <- select(counts, week_of, package, count, rank, fraction)
 counts <- mutate(counts, package = factor(package, levels = pkgs))
 counts <- group_by(counts, package)
 
@@ -55,10 +55,16 @@ counts4 <- group_modify(counts, function(data, package) {
   res <- lapply(chunks, FUN = function(chunk) {
     p(sprintf("4-week averaging '%s'", package$package))
     t <- data[chunk, ]
-    data.frame(week_of = t$week_of[1], fraction = mean(t$fraction, na.rm = TRUE))
+    data.frame(
+      week_of = t$week_of[1],
+      min_rank = min(t$rank, na.rm = TRUE),
+      rank = median(t$rank, na.rm = TRUE),
+      fraction = mean(t$fraction, na.rm = TRUE)
+    )
   })
   do.call(rbind, res)
 })
+print(counts4)
 
 message(sprintf("CRAN ranks last four week (average '%s' per week):", method))
 print(head(arrange(counts4, desc(week_of)), n = 2*length(pkgs)))
