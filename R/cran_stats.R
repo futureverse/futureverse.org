@@ -64,7 +64,6 @@ counts4 <- group_modify(counts, function(data, package) {
   })
   do.call(rbind, res)
 })
-print(counts4)
 
 message(sprintf("CRAN ranks last four week (average '%s' per week):", method))
 print(head(arrange(counts4, desc(week_of)), n = 2*length(pkgs)))
