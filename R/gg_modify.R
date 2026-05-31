@@ -12,6 +12,8 @@ gg_modify <- function(gg, mode = getOption("ggmode", "website"), legend = c("upp
   ## Defaults
   gg <- gg + geom_line(linewidth = 1.2)
   gg <- gg + labs(x = "", y = "Number of reverse dependencies")
+  current_year <- as.integer(format(Sys.Date(), "%Y"))
+  gg <- gg + ggplot2::scale_x_date(breaks = seq(as.Date("2016-01-01"), as.Date(paste0(current_year, "-01-01")), by = "2 years"), date_labels = "%Y")
 
   gg <- gg + geom_line(linewidth = 2.0)
   gg <- gg + theme(
