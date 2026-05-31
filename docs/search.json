@@ -32,7 +32,7 @@
     "href": "roadmap.html#miscellaneous",
     "title": "Project Roadmap",
     "section": "Miscellaneous",
-    "text": "Miscellaneous\n\n\nInternationalization (i18n): Make all error and warning messages translatable via R’s gettext() framework. Invite community to provide message translations.\nConsider relicensing code to a permissive license, where possible"
+    "text": "Miscellaneous\n\n\nInternationalization (i18n): Make all error and warning messages translatable via R’s gettext() framework. Invite community to provide message translations.\nConsider relicensing code to a permissive license (e.g. Apache License (&gt;= 2)), where possible"
   },
   {
     "objectID": "roadmap.html#footnotes",
