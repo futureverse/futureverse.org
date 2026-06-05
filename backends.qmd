@@ -16,9 +16,10 @@ machine, the end-user can call:
 plan(multisession)
 ```
 
-After this, all of Futureverse, including **[future.apply]**,
-**[furrr]**, and **[doFuture]**, and any package that use these, will
-run the code in parallel.
+After this, all of Futureverse, including **[futurize]**, as well as
+more explicit alternatives **[future.apply]**, **[furrr]**, and
+**[doFuture]**, and any package that use these, will run the code in
+parallel.
 
 To switch back to sequential processing, we can call:
 
@@ -38,22 +39,29 @@ This will set up four parallel workers, where two run on the local
 remote 'remote.server.org' machine.
 
 
-The **[future]** package comes with built-in future backends that leverage the **parallel** package part of R itself. In addition to these backends, others exist in package extensions, e.g. **[future.callr]**, **[future.mirai]**, and **[future.batchtools]**. Below is an overview of the most common backends that you as an end-user can choose from.
+The **[future]** package comes with built-in future backends that
+leverage the **parallel** package part of R itself. In addition to
+these backends, others exist in package extensions,
+e.g. **[future.callr]**, **[future.mirai]**, and
+**[future.batchtools]**. Below is an overview of the most common
+backends that you as an end-user can choose from.
 
 | Package / Backend             | Features    | How futures are evaluated
 |:----------------|:------------|:-----------------------------------------------------
 | **future**<br> `sequential`    | 📶<br>♻️<br>         | sequentially and in the current R process; default<br>Example: `plan(sequential)`
 | **future**<br> `multisession`  | 📶<br>♻️<br>        | parallelly via background R sessions on current machine<br>Examples: `plan(multisession)` and `plan(multisession, workers = 2)`
-| **future**<br> `cluster`       | 📶<br>♻️*<br>       | parallelly in external R sessions on current, local, and/or remote machines<br>Examples: `plan(cluster, workers = "raspberry-pi")`, `plan(cluster, workers = c("localhost", "n1", "n1", "pi.example.org"))`
+| **future**<br> `cluster`       | 📶<br>♻️<sup>1</sup><br>       | parallelly in external R sessions on current, local, and/or remote machines<br>Examples: `plan(cluster, workers = "raspberry-pi")`, `plan(cluster, workers = c("localhost", "n1", "n1", "pi.example.org"))`
 | **future**<br> `multicore`     | 📶<br>♻️<br> | (not recommended) parallelly via forked R processes on current machine; not with GUIs like RStudio; not on Windows<br>Examples: `plan(multicore)` and `plan(multicore, workers = 2)`
-| **[future.callr]**<br> `callr`                    | 📶<br>♻️<br> | parallelly via transient **[callr]** background R sessions on current machine; all memory is returned when as each future is resolved<br>Examples: `plan(callr)` and `plan(callr, workers = 2)`
-| **[future.mirai]**<br> `mirai_multisession`       | 📶<br>♻️<br> | parallelly via **[mirai]** background R sessions on current machine; low latency<br>Examples: `plan(mirai_multisession)` and `plan(mirai_multisession, workers = 2)`
-| **[future.mirai]**<br> `mirai_cluster`            |♻️<br> | parallelly via **[mirai]** daemons running locally or remotely<br>Example: `plan(mirai_cluster)`
-| **[future.batchtools]**<br> `batchtools_lsf`<br>`batchtools_openlava`<br>`batchtools_sge`<br>`batchtools_slurm`<br>`batchtools_torque` | 📶(soon)<br> ♻️<br> | parallelly on HPC job schedulers (Load Sharing Facility [LSF], [OpenLava], [TORQUE/PBS], Sun/Son of/Oracle/Univa/Altair Grid Engine [SGE], [Slurm]) via **[batchtools]**; for long-running tasks; high latency |
+| **[future.callr]**<br> `callr`                    | 📶<br>♻️<br> | parallelly via transient **[callr]** background R sessions on current machine; all memory is returned when as each future is resolved<br>Examples: `plan(future.callr::callr)` and `plan(future.callr::callr, workers = 2)`
+| **[future.mirai]**<br> `mirai_multisession`       | 📶<br>♻️<br> | parallelly via **[mirai]** background R sessions on current machine; low latency<br>Examples: `plan(future.mirai::mirai_multisession)` and `plan(future.mirai::mirai_multisession, workers = 2)`
+| **[future.mirai]**<br> `mirai_cluster`            |♻️<br> | parallelly via **[mirai]** daemons running locally or remotely<br>Example: `plan(future.mirai::mirai_cluster)`
+| **[future.batchtools]**<br> `batchtools_lsf`<br>`batchtools_openlava`<br>`batchtools_sge`<br>`batchtools_slurm`<br>`batchtools_torque` | 📶<sup>2</sup><br> ♻️<br> | parallelly on HPC job schedulers (Load Sharing Facility [LSF], [OpenLava], [TORQUE/PBS], Sun/Son of/Oracle/Univa/Altair Grid Engine [SGE], [Slurm]) via **[batchtools]**; for long-running tasks; high latency<br>Example: `plan(future.batchtools::batchtools_slurm)` |
 
-📶: futures relay progress updates in real-time, e.g. **[progressr]**<br>
-♻️: futures are interruptible and restartable; * disabled by default<br>
-(soon): in a near-future release
+📶: futures relay progress updates in real-time via **[progressify]** and **[progressr]**<br>
+♻️: futures are interruptible and restartable<br>
+<br>
+<sup>1</sup> disabled by default. <sup>2</sup> in a near-future release.<br>
+
 
 
 
@@ -65,6 +73,7 @@ used anywhere future-based code is used.
 
 
 [future]: https://future.futureverse.org
+[futurize]: https://futurize.futureverse.org
 [future.apply]: https://future.apply.futureverse.org
 [future.batchtools]: https://future.batchtools.futureverse.org
 [future.callr]: https://future.callr.futureverse.org
@@ -72,6 +81,7 @@ used anywhere future-based code is used.
 [future.tests]: https://future.tests.futureverse.org
 [furrr]: https://furrr.futureverse.org
 [doFuture]: https://doFuture.futureverse.org
+[progressify]: https://progressify.futureverse.org
 [progressr]: https://progressr.futureverse.org
 
 [batchtools]: https://cran.r-project.org/package=batchtools

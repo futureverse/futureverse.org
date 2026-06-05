@@ -503,7 +503,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 
 <p>By default, future-based code runs sequentially, but with a <em>single line of code</em>, we easily switch to run the exact same code in parallel. The most common approach is to parallelize on the local machine, but we also have the option to harness the CPUs of other local or remote machines. For example, to parallelize on the local machine, the end-user can call:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After this, all of Futureverse, including <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>, <strong><a href="https://furrr.futureverse.org">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong>, and any package that use these, will run the code in parallel.</p>
+<p>After this, all of Futureverse, including <strong><a href="https://futurize.futureverse.org">futurize</a></strong>, as well as more explicit alternatives <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>, <strong><a href="https://furrr.futureverse.org">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong>, and any package that use these, will run the code in parallel.</p>
 <p>To switch back to sequential processing, we can call:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(sequential)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you have Secure Shell (SSH) access to other machines on your local network, or remote machines, call:</p>
@@ -531,7 +531,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>future</strong><br> <code>cluster</code></td>
-<td style="text-align: left;">📶<br>♻️*<br></td>
+<td style="text-align: left;">📶<br>♻️<sup>1</sup><br></td>
 <td style="text-align: left;">parallelly in external R sessions on current, local, and/or remote machines<br>Examples: <code>plan(cluster, workers = "raspberry-pi")</code>, <code>plan(cluster, workers = c("localhost", "n1", "n1", "pi.example.org"))</code></td>
 </tr>
 <tr class="even">
@@ -542,26 +542,26 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <tr class="odd">
 <td style="text-align: left;"><strong><a href="https://future.callr.futureverse.org">future.callr</a></strong><br> <code>callr</code></td>
 <td style="text-align: left;">📶<br>♻️<br></td>
-<td style="text-align: left;">parallelly via transient <strong><a href="https://cran.r-project.org/package=callr">callr</a></strong> background R sessions on current machine; all memory is returned when as each future is resolved<br>Examples: <code>plan(callr)</code> and <code>plan(callr, workers = 2)</code></td>
+<td style="text-align: left;">parallelly via transient <strong><a href="https://cran.r-project.org/package=callr">callr</a></strong> background R sessions on current machine; all memory is returned when as each future is resolved<br>Examples: <code>plan(future.callr::callr)</code> and <code>plan(future.callr::callr, workers = 2)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong><br> <code>mirai_multisession</code></td>
 <td style="text-align: left;">📶<br>♻️<br></td>
-<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=mirai">mirai</a></strong> background R sessions on current machine; low latency<br>Examples: <code>plan(mirai_multisession)</code> and <code>plan(mirai_multisession, workers = 2)</code></td>
+<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=mirai">mirai</a></strong> background R sessions on current machine; low latency<br>Examples: <code>plan(future.mirai::mirai_multisession)</code> and <code>plan(future.mirai::mirai_multisession, workers = 2)</code></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong><br> <code>mirai_cluster</code></td>
 <td style="text-align: left;">♻️<br></td>
-<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=mirai">mirai</a></strong> daemons running locally or remotely<br>Example: <code>plan(mirai_cluster)</code></td>
+<td style="text-align: left;">parallelly via <strong><a href="https://cran.r-project.org/package=mirai">mirai</a></strong> daemons running locally or remotely<br>Example: <code>plan(future.mirai::mirai_cluster)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong><br> <code>batchtools_lsf</code><br><code>batchtools_openlava</code><br><code>batchtools_sge</code><br><code>batchtools_slurm</code><br><code>batchtools_torque</code></td>
-<td style="text-align: left;">📶(soon)<br> ♻️<br></td>
-<td style="text-align: left;">parallelly on HPC job schedulers (Load Sharing Facility <a href="https://en.wikipedia.org/wiki/Platform_LSF">LSF</a>, <a href="https://en.wikipedia.org/wiki/OpenLava">OpenLava</a>, <a href="https://en.wikipedia.org/wiki/TORQUE">TORQUE/PBS</a>, Sun/Son of/Oracle/Univa/Altair Grid Engine <a href="https://en.wikipedia.org/wiki/Oracle_Grid_Engine">SGE</a>, <a href="https://en.wikipedia.org/wiki/Slurm_Workload_Manager">Slurm</a>) via <strong><a href="https://cran.r-project.org/package=batchtools">batchtools</a></strong>; for long-running tasks; high latency</td>
+<td style="text-align: left;">📶<sup>2</sup><br> ♻️<br></td>
+<td style="text-align: left;">parallelly on HPC job schedulers (Load Sharing Facility <a href="https://en.wikipedia.org/wiki/Platform_LSF">LSF</a>, <a href="https://en.wikipedia.org/wiki/OpenLava">OpenLava</a>, <a href="https://en.wikipedia.org/wiki/TORQUE">TORQUE/PBS</a>, Sun/Son of/Oracle/Univa/Altair Grid Engine <a href="https://en.wikipedia.org/wiki/Oracle_Grid_Engine">SGE</a>, <a href="https://en.wikipedia.org/wiki/Slurm_Workload_Manager">Slurm</a>) via <strong><a href="https://cran.r-project.org/package=batchtools">batchtools</a></strong>; for long-running tasks; high latency<br>Example: <code>plan(future.batchtools::batchtools_slurm)</code></td>
 </tr>
 </tbody>
 </table>
-<p>📶: futures relay progress updates in real-time, e.g.&nbsp;<strong><a href="https://progressr.futureverse.org">progressr</a></strong><br> ♻️: futures are interruptible and restartable; * disabled by default<br> (soon): in a near-future release</p>
+<p>📶: futures relay progress updates in real-time via <strong><a href="https://progressify.futureverse.org">progressify</a></strong> and <strong><a href="https://progressr.futureverse.org">progressr</a></strong><br> ♻️: futures are interruptible and restartable<br> <br> <sup>1</sup> disabled by default. <sup>2</sup> in a near-future release.<br></p>
 <p>It is straightforward to implement new backends that leverage other ways to harness available compute resources. As soon as a new backend has been validated to be compliant with the Future API specifications, which can be done by the <strong><a href="https://future.tests.futureverse.org">future.tests</a></strong> package, then it can be used anywhere future-based code is used.</p>
 
 
