@@ -77,7 +77,7 @@ Below is a list of future backends that are worked on or in the plans:
 
 ::: {.list-unstyled}
 * {{< bi square-half >}}<span>Internationalization (i18n): Make all error and warning messages translatable via R's `gettext()` framework.  Invite community to provide message translations.</span>
-* {{< bi square-half >}}<span>Migrate to permissive license (Apache License (>= 2)), where possible</span>
+* {{< bi square-half >}}<span>Migrate to permissive license Apache License (>= 2), where possible</span>
 :::
 
 
