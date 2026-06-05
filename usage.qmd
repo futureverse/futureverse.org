@@ -194,14 +194,14 @@ pkgs <- tools::package_dependencies("future", which="all", reverse=TRUE, recursi
 -->
 
 ![](figures/downloads_over_time_on_CRAN.png){
-  fig-alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to 2026 and the ranks for 0 to 20%. Lines for package 'foreach', 'future', 'future.apply', and 'furrr' are displayed in different colors. The foreach curve is the highest but decreases slowly, whereas the other three are rapidly increasing toward the level of foreach."
+  fig-alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to 2026 and the ranks for 0 to 20%. Lines for package 'doParallel', 'future', 'future.apply', and 'furrr' are displayed in different colors. The 'future' and 'future.apply' surpassed 'doParallel' early 2022, and 'furrr' in 2026."
   fig-align="center"
   width=70%
 }
 
 _Figure 1: The download percentile ranks for <strong>future</strong>,
 <strong>future.apply</strong>, <strong>furrr</strong>, and
-<strong>foreach</strong> averaged every four weeks.
+<strong>doParallel</strong> averaged every four weeks.
 <strong>future</strong> is among the top-0.6% most downloaded packages
 on CRAN. The data are based on the Posit CRAN mirror logs.  There
 are approximately 200 million package downloads per month from the
@@ -212,13 +212,14 @@ package installations._
 <!-- [https://cranlogs.r-pkg.org/downloads/total/last-month] -->
 
 
-As a reference[^1], the popular **foreach**, released in 2009, was
-among the top-0.8% most downloaded packages during the same period and
-it has 1,350 reverse package dependencies (+7%/year) on CRAN. The
+As a reference[^1], the popular **doParallel**, released in 2011,
+which is commonly used together with **foreach**, released in 2009,
+was among the top-1.2% most downloaded packages during the same period
+and it has 1,050 reverse package dependencies (+7%/year) on CRAN. The
 number of users that download **future** has grown rapidly whereas the
-same number has slowly decreased for the **foreach** package (Figure
-1).  Similarly, the number of reverse package dependencies on
-**future** appear to grow faster than for **foreach** (Figure 2).
+same number has stabilized for the **doParallel** package (Figure 1).
+Similarly, the number of reverse package dependencies on **future**
+grows significantly faster than for **doParallel** (Figure 2).
 
 ::: {layout-ncol=2}
 ![Package counts on the linear scale.](figures/revdep_over_time_on_CRAN.png){
@@ -226,22 +227,24 @@ same number has slowly decreased for the **foreach** package (Figure
 }  
 
 ![Package counts on the logarithmic scale.](figures/revdep_over_time_on_CRAN-log.png){
-  fig-alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'foreach', 'future', 'future.apply', and 'furrr' from 2015 to 2025. The y-axis spans roughly 10 to 1,500 dependencies. 'foreach' (olive) leads throughout, rising smoothly from 150 to over 1,000. 'future' (green) increases from a few dependencies in 2015 to 470 by end of 2025. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 250 and 180, respectively."
+  fig-alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'doParallel', 'future', 'future.apply', and 'furrr' from 2015 to 2026. The y-axis spans roughly 10 to 1,000 dependencies. 'doParallel' (olive) leads throughout, rising smoothly from 90 to over 1,000. 'future' (green) increases from a few dependencies in 2015 to 500 by early 2026. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 300 and 200, respectively."
 }
 :::
 
-_Figure 2: Number of CRAN[^2] packages over time that depend on **future**, **future.apply**, **furrr**, and **foreach** since the first release of **future** in June 2015.
-Left: The package counts on the linear scale without **foreach**.
-Right: The same data on the logarithmic scale to fit also **foreach**._
+_Figure 2: Number of CRAN[^2] packages over time that depend on **future**, **future.apply**, **furrr**, and **doParallel** since the first release of **future** in June 2015.
+Left: The package counts on the linear scale without **doParallel**.
+Right: The same data on the logarithmic scale to fit also **doParallel**._
 
 
-[^1]: Importantly, the comparison toward **foreach** is only done as a
-reference for the current demand for parallelization frameworks in R
-and to show the rapid uptake of the future framework since its
-release.  It is not a competition because **foreach** can per design
-be used in combination with the future framework via **doFuture**.  The
-choice between **foreach** with **doFuture**, **future.apply**, and
-**furrr** is a matter of preference of coding style - they all rely on
-futures for parallelization.
+[^1]: Importantly, the comparison toward **doParallel** is only done
+as a reference for the current demand for parallelization frameworks
+in R and to show the rapid uptake of the future framework since its
+release.  It is not a competition because **foreach**, which
+**doParallel** is commonly used with, can per design be used in
+combination with the future framework via **doFuture**.  The choice
+between **foreach** with **doFuture**, **future.apply**, and **furrr**
+is a matter of preference of coding style - they all rely on futures
+for parallelization. Since the introduction of **futurize**, user can
+parallelize **foreach**, base-R apply, **purrr**, and much more as-is.
 
 [^2]: Because historical data for reverse dependencies on Bioconductor are hard to track down, Bioconductor packages are _not_ included in these graphs.

@@ -24,8 +24,8 @@ options(ggmode = c("presentation", "website")[2])
 all_pkgs <- c("parallel", "foreach", "doParallel", "future", "future.apply", "furrr", "doFuture", "parallelly", "progressr")
 plot_pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
 exclude <- NULL
-exclude <- c(exclude, "doParallel")
-## exclude <- c(exclude, "foreach")
+# exclude <- c(exclude, "doParallel")
+exclude <- c(exclude, "foreach")
 
 
 
@@ -86,7 +86,7 @@ print(colors)
 
 ## Non-log scale
 counts <- subset(counts_all, package %in% plot_pkgs)
-counts <- subset(counts_all, ! package %in% c(exclude, "foreach"))
+counts <- subset(counts_all, ! package %in% c(exclude, "foreach", "doParallel"))
 gg <- ggplot(counts, aes(x = date, y = count, color = package))
 #gg <- gg + scale_colour_manual(values = colors)
 gg <- gg + scale_colour_manual(values = colors, aesthetics = c("color"))

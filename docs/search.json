@@ -242,7 +242,7 @@
     "href": "usage.html#footnotes",
     "title": "Real-World Use & Statistics",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nImportantly, the comparison toward foreach is only done as a reference for the current demand for parallelization frameworks in R and to show the rapid uptake of the future framework since its release. It is not a competition because foreach can per design be used in combination with the future framework via doFuture. The choice between foreach with doFuture, future.apply, and furrr is a matter of preference of coding style - they all rely on futures for parallelization.↩︎\nBecause historical data for reverse dependencies on Bioconductor are hard to track down, Bioconductor packages are not included in these graphs.↩︎"
+    "text": "Footnotes\n\n\nImportantly, the comparison toward doParallel is only done as a reference for the current demand for parallelization frameworks in R and to show the rapid uptake of the future framework since its release. It is not a competition because foreach, which doParallel is commonly used with, can per design be used in combination with the future framework via doFuture. The choice between foreach with doFuture, future.apply, and furrr is a matter of preference of coding style - they all rely on futures for parallelization. Since the introduction of futurize, user can parallelize foreach, base-R apply, purrr, and much more as-is.↩︎\nBecause historical data for reverse dependencies on Bioconductor are hard to track down, Bioconductor packages are not included in these graphs.↩︎"
   },
   {
     "objectID": "backends.html",

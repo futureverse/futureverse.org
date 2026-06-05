@@ -70,8 +70,8 @@ print(head(arrange(counts4, desc(week_of)), n = 2*length(pkgs)))
 
 pkgs <- c("foreach", "doParallel", "future", "future.apply", "furrr")
 exclude <- NULL
-exclude <- c(exclude, "doParallel")
-#exclude <- c(exclude, "foreach")
+#exclude <- c(exclude, "doParallel")
+exclude <- c(exclude, "foreach")
 pkgs <- setdiff(pkgs, exclude)
 npkgs <- length(pkgs)
 colors <- scales::hue_pal()(length(pkgs)+1)[-1]
