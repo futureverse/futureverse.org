@@ -110,6 +110,7 @@ format:
   html:
     toc: true
     respect-user-color-scheme: true
+    css: assets/custom.css
     axe:
       output: console
 
