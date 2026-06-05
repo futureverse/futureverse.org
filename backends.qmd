@@ -69,7 +69,7 @@ used anywhere future-based code is used.
 
 
 [^1]: for this combination, progress updates are disabled by default
-[^2]: for this combination, support for future cancelation will be
+[^2]: for this combination, support for future cancellation will be
       added in a future release
 
 

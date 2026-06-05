@@ -7,28 +7,28 @@ format: html
 
 Since correctness and reproducibility are essential to all data
 processing, validation is a top priority and part of the design and
-implementation throughout the future ecosystem.  Several types of
-testing are performed.
+implementation throughout the future ecosystem. Several types of
+testing are performed. These rich sets of test suites assure, on a
+continuous bases, correctness throughout.
 
 First, all the essential core packages part of the future framework,
-**future**, **parallelly**, **globals**, and **listenv**, implement a
-rich set of package tests.  These are validated regularly across the
-wide-range of operating systems (Linux, macOS, and MS Windows) and R
-versions available on CRAN, on continuous integration (CI) services
-(GitHub Actions), and on R-hub. The core packages are also tested with
-non-English locale settings, including Korean, Simplified Chinese
-(China) and Traditional Chinese (Taiwan). They are also verified to
-work with single-core and dual-core machines, which may be the case
-for some free, cloud services that provide R.
+including **future**, **parallelly**, **globals**, and **listenv**,
+implement a rich set of package tests.  These are validated regularly
+across the wide-range of operating systems (Linux, macOS, and MS
+Windows) and R versions available on CRAN, on continuous integration
+(CI) services (GitHub Actions), and on R-hub. The core packages are
+also tested with non-English locale settings, including Korean,
+Simplified Chinese (China) and Traditional Chinese (Taiwan). They are
+also verified to work with single-core and dual-core machines, which
+may be the case for some free, cloud services that provide R.
 
 Second, for each new release, these packages undergo full
-reverse-package dependency checks
-using **revdepcheck**.  As of May 2026,
-the **future** package is tested against > 500 direct reverse-package
-dependencies available on CRAN and Bioconductor.  These checks are
-performed on Linux with both the default settings and when forcing
-tests to use multisession workers (SOCK clusters), which further
-validates that globals and packages are identified correctly.
+reverse-package dependency checks using **revdepcheck**.  As of May
+2026, the **future** package is tested against > 500 direct
+reverse-package dependencies available on CRAN and Bioconductor.
+These checks are performed on Linux with both the default settings and
+when forcing tests to use multisession workers (SOCK clusters), which
+further validates that globals and packages are identified correctly.
 We also test with `NOT_CRAN = true`, to further increase the test
 coverage.
 
@@ -57,12 +57,11 @@ not have the possibility to test with, or that yet have not been
 developed.
 </div>
 
-Fourth, since **foreach** is used by a large number of essential
-CRAN packages, it provides an excellent opportunity for supplementary
+Fourth, since **foreach** is used by a large number of essential CRAN
+packages, it provides an excellent opportunity for supplementary
 validation. Specifically, we dynamically tweak the examples of
-**foreach** and popular CRAN packages **caret**,
-**glmnet**, **NMF**, **plyr**, and **TSP** to use
-the **doFuture** adaptor.  This allows us
+**foreach** and popular CRAN packages **caret**, **glmnet**, **NMF**,
+**plyr**, and **TSP** to use the **doFuture** adaptor.  This allows us
 to run these examples with a variety of future backends to validate
 that the examples produce no run-time errors, which indirectly
 validates the backends as well as the _Future API_.  In the past,
@@ -71,11 +70,14 @@ automatic identification of global variables would fail.  As a side
 note, several of these foreach-based examples fail when using a
 parallel foreach adaptor because they do not properly export globals
 or declare package dependencies.  The exception is when using the
-sequential
-_doSEQ_ adaptor (default), fork-based ones such as **doMC**, or
-the generic **doFuture**, which supports any future backend and
-relies on the future framework for handling globals and
+sequential _doSEQ_ adaptor (default), fork-based ones such as
+**doMC**, or the generic **doFuture**, which supports any future
+backend and relies on the future framework for handling globals and
 packages.
+
+Fifth, the **futurize** package has unit tests validating that a
+growing number of domain-specific packages on CRAN and Bioconductor
+can parallelize via Futureverse.
 
 Analogously to above reverse-dependency checks of each new release,
 CRAN and Bioconductor continuously run checks on all these direct, but
