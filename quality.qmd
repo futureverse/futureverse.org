@@ -23,8 +23,8 @@ for some free, cloud services that provide R.
 
 Second, for each new release, these packages undergo full
 reverse-package dependency checks
-using **revdepcheck**.  As of January 2026,
-the **future** package is tested against 480 direct reverse-package
+using **revdepcheck**.  As of May 2026,
+the **future** package is tested against > 500 direct reverse-package
 dependencies available on CRAN and Bioconductor.  These checks are
 performed on Linux with both the default settings and when forcing
 tests to use multisession workers (SOCK clusters), which further
@@ -83,14 +83,11 @@ also indirect, reverse dependencies, which further increases the
 validation of the _Future API_ and the future ecosystem at large.
 
 The packages underlying the future ecosystem are well maintained and
-are continuously updated and improved.  For example, the **future**
-package is updated approximately six times per year, the
-**future.apply** and **doFuture** packages three times per year, and
-the infrastructure packages **globals** and **parallelly** three to
-six times a year.  The policy is to fix bugs as soon as possible and
-avoid breaking updates to maintain full backward compatibility with
-existing R code in production that relies on futures.  In the very rare
-case when an existing feature had to be removed, it has been done via
+continuously updated and improved while remaining 100% backward
+compatible. The policy is to fix bugs as soon as possible and avoid
+breaking updates to maintain full backward compatibility with existing
+R code in production that relies on futures.  In the very rare case
+when an existing feature had to be removed, it has been done via
 deprecation process taking place over several release cycles working
 closely with existing package developers to assure a smooth transition
 and with informative warning messages to end-users where needed.
