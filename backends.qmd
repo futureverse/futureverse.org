@@ -50,19 +50,15 @@ backends that you as an end-user can choose from.
 |:----------------|:------------|:-----------------------------------------------------
 | **future**<br> `sequential`    | 📶<br>♻️<br>         | sequentially and in the current R process; default<br>Example: `plan(sequential)`
 | **future**<br> `multisession`  | 📶<br>♻️<br>        | parallelly via background R sessions on current machine<br>Examples: `plan(multisession)` and `plan(multisession, workers = 2)`
-| **future**<br> `cluster`       | 📶<br>♻️<sup>1</sup><br>       | parallelly in external R sessions on current, local, and/or remote machines<br>Examples: `plan(cluster, workers = "raspberry-pi")`, `plan(cluster, workers = c("localhost", "n1", "n1", "pi.example.org"))`
+| **future**<br> `cluster`       | 📶<br>♻️[^1]<br>       | parallelly in external R sessions on current, local, and/or remote machines<br>Examples: `plan(cluster, workers = "raspberry-pi")`, `plan(cluster, workers = c("localhost", "n1", "n1", "pi.example.org"))`
 | **future**<br> `multicore`     | 📶<br>♻️<br> | (not recommended) parallelly via forked R processes on current machine; not with GUIs like RStudio; not on Windows<br>Examples: `plan(multicore)` and `plan(multicore, workers = 2)`
 | **[future.callr]**<br> `callr`                    | 📶<br>♻️<br> | parallelly via transient **[callr]** background R sessions on current machine; all memory is returned when as each future is resolved<br>Examples: `plan(future.callr::callr)` and `plan(future.callr::callr, workers = 2)`
 | **[future.mirai]**<br> `mirai_multisession`       | 📶<br>♻️<br> | parallelly via **[mirai]** background R sessions on current machine; low latency<br>Examples: `plan(future.mirai::mirai_multisession)` and `plan(future.mirai::mirai_multisession, workers = 2)`
 | **[future.mirai]**<br> `mirai_cluster`            |♻️<br> | parallelly via **[mirai]** daemons running locally or remotely<br>Example: `plan(future.mirai::mirai_cluster)`
-| **[future.batchtools]**<br> `batchtools_lsf`<br>`batchtools_openlava`<br>`batchtools_sge`<br>`batchtools_slurm`<br>`batchtools_torque` | 📶<sup>2</sup><br> ♻️<br> | parallelly on HPC job schedulers (Load Sharing Facility [LSF], [OpenLava], [TORQUE/PBS], Sun/Son of/Oracle/Univa/Altair Grid Engine [SGE], [Slurm]) via **[batchtools]**; for long-running tasks; high latency<br>Example: `plan(future.batchtools::batchtools_slurm)` |
+| **[future.batchtools]**<br> `batchtools_lsf`<br>`batchtools_openlava`<br>`batchtools_sge`<br>`batchtools_slurm`<br>`batchtools_torque` | 📶[^2]<br> ♻️<br> | parallelly on HPC job schedulers (Load Sharing Facility [LSF], [OpenLava], [TORQUE/PBS], Sun/Son of/Oracle/Univa/Altair Grid Engine [SGE], [Slurm]) via **[batchtools]**; for long-running tasks; high latency<br>Example: `plan(future.batchtools::batchtools_slurm)` |
 
 📶: futures relay progress updates in real-time via **[progressify]** and **[progressr]**<br>
 ♻️: futures are interruptible and restartable<br>
-<br>
-<sup>1</sup> disabled by default. <sup>2</sup> in a near-future release.<br>
-
-
 
 
 It is straightforward to implement new backends that leverage other
@@ -70,6 +66,11 @@ ways to harness available compute resources. As soon as a new backend
 has been validated to be compliant with the Future API specifications,
 which can be done by the **[future.tests]** package, then it can be
 used anywhere future-based code is used.
+
+
+[^1]: for this combination, progress updates are disabled by default
+[^2]: for this combination, support for future cancelation will be
+      added in a future release
 
 
 [future]: https://future.futureverse.org

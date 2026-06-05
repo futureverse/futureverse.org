@@ -531,7 +531,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>future</strong><br> <code>cluster</code></td>
-<td style="text-align: left;">📶<br>♻️<sup>1</sup><br></td>
+<td style="text-align: left;">📶<br>♻️<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><br></td>
 <td style="text-align: left;">parallelly in external R sessions on current, local, and/or remote machines<br>Examples: <code>plan(cluster, workers = "raspberry-pi")</code>, <code>plan(cluster, workers = c("localhost", "n1", "n1", "pi.example.org"))</code></td>
 </tr>
 <tr class="even">
@@ -556,17 +556,24 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong><br> <code>batchtools_lsf</code><br><code>batchtools_openlava</code><br><code>batchtools_sge</code><br><code>batchtools_slurm</code><br><code>batchtools_torque</code></td>
-<td style="text-align: left;">📶<sup>2</sup><br> ♻️<br></td>
+<td style="text-align: left;">📶<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><br> ♻️<br></td>
 <td style="text-align: left;">parallelly on HPC job schedulers (Load Sharing Facility <a href="https://en.wikipedia.org/wiki/Platform_LSF">LSF</a>, <a href="https://en.wikipedia.org/wiki/OpenLava">OpenLava</a>, <a href="https://en.wikipedia.org/wiki/TORQUE">TORQUE/PBS</a>, Sun/Son of/Oracle/Univa/Altair Grid Engine <a href="https://en.wikipedia.org/wiki/Oracle_Grid_Engine">SGE</a>, <a href="https://en.wikipedia.org/wiki/Slurm_Workload_Manager">Slurm</a>) via <strong><a href="https://cran.r-project.org/package=batchtools">batchtools</a></strong>; for long-running tasks; high latency<br>Example: <code>plan(future.batchtools::batchtools_slurm)</code></td>
 </tr>
 </tbody>
 </table>
-<p>📶: futures relay progress updates in real-time via <strong><a href="https://progressify.futureverse.org">progressify</a></strong> and <strong><a href="https://progressr.futureverse.org">progressr</a></strong><br> ♻️: futures are interruptible and restartable<br> <br> <sup>1</sup> disabled by default. <sup>2</sup> in a near-future release.<br></p>
+<p>📶: futures relay progress updates in real-time via <strong><a href="https://progressify.futureverse.org">progressify</a></strong> and <strong><a href="https://progressr.futureverse.org">progressr</a></strong><br> ♻️: futures are interruptible and restartable<br></p>
 <p>It is straightforward to implement new backends that leverage other ways to harness available compute resources. As soon as a new backend has been validated to be compliant with the Future API specifications, which can be done by the <strong><a href="https://future.tests.futureverse.org">future.tests</a></strong> package, then it can be used anywhere future-based code is used.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>for this combination, progress updates are disabled by default<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>for this combination, support for future cancelation will be added in a future release<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
