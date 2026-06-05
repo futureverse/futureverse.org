@@ -45,7 +45,6 @@ tutorial <- function(title, author, info = NULL, location = NULL, date, url) {
 } # tutorial()
 ```
 
-<!--
 ```{r}
 #| echo: false
 tutorial(
@@ -56,7 +55,6 @@ tutorial(
        url = "https://user2026.r-project.org/schedule/"
 )
 ```
--->
 
 ```{r}
 #| echo: false
