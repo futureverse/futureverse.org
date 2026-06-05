@@ -102,7 +102,7 @@ website:
   announcement: 
     icon: alarm
     dismissable: false
-    content: "May 8, 2026 @ 18:58 UTC: Online [20-minute presentation with Q&A](talks.html) on 'futurize' and 'progressify' at the R/Medicine 2026 conference"
+    content: "July 6-9, 2026: Going to [useR! 2026](https://user2026.r-project.org/)? Come an say hi - I'll be presenting on Futureverse"
     type: info
     position: below-navbar
 
