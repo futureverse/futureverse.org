@@ -11,7 +11,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## About the project lead
 
-The project lead, Henrik Bengtsson, has a MSc in Computer Science and a PhD in Mathematical Statistics. He is an associate professor at the Department of Epidemiology & Biostatistics, at University of California San Francisco (UCSF) and affiliated with the UCSF Helen Diller Family Comprehensive Cancer Center. Henrik has more than a decade of experience in supporting and managing large-scale high-performance compute (HPC) environments used by thousands of users.
+The project lead, Henrik Bengtsson, has a MSc in Computer Science and a PhD in Mathematical Statistics. He is an associate professor at the Department of Epidemiology & Biostatistics, at University of California San Francisco (UCSF) and affiliated with the UCSF Helen Diller Family Comprehensive Cancer Center.
+Henrik is co-director of the UCSF [Scientific Software Core](https://ssc.ucsf.edu/) and the UCSF [Open-Source Program Office](https://ssc.ucsf.edu/ospo.html) (OSPO).
+He has more than a decade of experience in supporting and managing large-scale high-performance compute (HPC) environments used by thousands of users.
 
 Henrik is one of forty members of the [R Foundation](https://www.r-project.org/foundation/) - a non-profit organization that supports the R Project, its continued development of the R language, and the R community around it.  Through this work, he is also the director of the [R Consortium Infrastructure Software Committee (ISC)](https://r-consortium.org/all-projects/), which supports research & development activities related to R through a grant program with financial support from leading industry investors. Henrik is also a member of the [Bioconductor Technical Advisory Board (TAB)](https://www.bioconductor.org/about/technical-advisory-board/), which guides the strategic direction, technical infrastructure, and developer community growth for the Bioconductor project.
 
