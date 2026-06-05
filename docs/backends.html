@@ -559,6 +559,11 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <td style="text-align: left;">📶<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><br> ♻️<br></td>
 <td style="text-align: left;">parallelly on HPC job schedulers (Load Sharing Facility <a href="https://en.wikipedia.org/wiki/Platform_LSF">LSF</a>, <a href="https://en.wikipedia.org/wiki/OpenLava">OpenLava</a>, <a href="https://en.wikipedia.org/wiki/TORQUE">TORQUE/PBS</a>, Sun/Son of/Oracle/Univa/Altair Grid Engine <a href="https://en.wikipedia.org/wiki/Oracle_Grid_Engine">SGE</a>, <a href="https://en.wikipedia.org/wiki/Slurm_Workload_Manager">Slurm</a>) via <strong><a href="https://cran.r-project.org/package=batchtools">batchtools</a></strong>; for long-running tasks; high latency<br>Example: <code>plan(future.batchtools::batchtools_slurm)</code></td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://future.p2p.futureverse.org">future.p2p</a></strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a><br> <code>p2p_cluster</code></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">⚠️ prototype &amp; proof of concept of a peer-to-peer cluster<br>Example: <code>plan(future.p2p::p2p_cluster, cluster = "alice/friends")</code></td>
+</tr>
 </tbody>
 </table>
 <p>📶: futures relay progress updates in real-time via <strong><a href="https://progressify.futureverse.org">progressify</a></strong> and <strong><a href="https://progressr.futureverse.org">progressr</a></strong><br> ♻️: futures are interruptible and restartable<br></p>
@@ -572,6 +577,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <ol>
 <li id="fn1"><p>for this combination, progress updates are disabled by default<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>for this combination, support for future cancellation will be added in a future release<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><strong>future.p2p</strong> is a prototype and a proof of concept for what is possible - it is not production ready<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

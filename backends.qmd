@@ -56,6 +56,7 @@ backends that you as an end-user can choose from.
 | **[future.mirai]**<br> `mirai_multisession`       | 📶<br>♻️<br> | parallelly via **[mirai]** background R sessions on current machine; low latency<br>Examples: `plan(future.mirai::mirai_multisession)` and `plan(future.mirai::mirai_multisession, workers = 2)`
 | **[future.mirai]**<br> `mirai_cluster`            |♻️<br> | parallelly via **[mirai]** daemons running locally or remotely<br>Example: `plan(future.mirai::mirai_cluster)`
 | **[future.batchtools]**<br> `batchtools_lsf`<br>`batchtools_openlava`<br>`batchtools_sge`<br>`batchtools_slurm`<br>`batchtools_torque` | 📶[^2]<br> ♻️<br> | parallelly on HPC job schedulers (Load Sharing Facility [LSF], [OpenLava], [TORQUE/PBS], Sun/Son of/Oracle/Univa/Altair Grid Engine [SGE], [Slurm]) via **[batchtools]**; for long-running tasks; high latency<br>Example: `plan(future.batchtools::batchtools_slurm)` |
+| **[future.p2p]**[^3]<br> `p2p_cluster` | | ⚠️ prototype & proof of concept of a peer-to-peer cluster<br>Example: `plan(future.p2p::p2p_cluster, cluster = "alice/friends")` |
 
 📶: futures relay progress updates in real-time via **[progressify]** and **[progressr]**<br>
 ♻️: futures are interruptible and restartable<br>
@@ -71,6 +72,8 @@ used anywhere future-based code is used.
 [^1]: for this combination, progress updates are disabled by default
 [^2]: for this combination, support for future cancellation will be
       added in a future release
+[^3]: **future.p2p** is a prototype and a proof of concept for what is
+      possible - it is not production ready
 
 
 [future]: https://future.futureverse.org
@@ -79,6 +82,7 @@ used anywhere future-based code is used.
 [future.batchtools]: https://future.batchtools.futureverse.org
 [future.callr]: https://future.callr.futureverse.org
 [future.mirai]: https://future.mirai.futureverse.org
+[future.p2p]: https://future.p2p.futureverse.org
 [future.tests]: https://future.tests.futureverse.org
 [furrr]: https://furrr.futureverse.org
 [doFuture]: https://doFuture.futureverse.org

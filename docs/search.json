@@ -256,7 +256,7 @@
     "href": "backends.html#footnotes",
     "title": "Parallel Backends",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nfor this combination, progress updates are disabled by default↩︎\nfor this combination, support for future cancellation will be added in a future release↩︎"
+    "text": "Footnotes\n\n\nfor this combination, progress updates are disabled by default↩︎\nfor this combination, support for future cancellation will be added in a future release↩︎\nfuture.p2p is a prototype and a proof of concept for what is possible - it is not production ready↩︎"
   },
   {
     "objectID": "blog.html",
