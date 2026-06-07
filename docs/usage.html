@@ -554,10 +554,36 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </section>
 <section id="cran-statistics" class="level1">
 <h1>CRAN Statistics</h1>
-<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. During May 2026, <strong>future</strong> was among the top-0.6% most downloaded packages on CRAN (Figure 1) and there are 530 packages (+30%/year) on CRAN and Bioconductor that directly depend on it (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages are 310 (+50%/year) and 200 (+25%/year), respectively. If we consider recursive dependencies too, that is, packages that use the <strong>future</strong> package either directly or indirectly via another package, then 85% of all ~24,000 CRAN packages may rely on the future framework for their processing.</p>
+<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. During May 2026, <strong>future</strong> was among the top-0.6% most downloaded packages on CRAN (Figure 1) and there are 530 packages (+30%/year) on CRAN and Bioconductor that directly depend on it (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages are 310 (+50%/year) and 200 (+25%/year), respectively.</p>
+<p>If we consider recursive dependencies too, that is, packages that needs (depends or imports) the <strong>future</strong> package either directly or indirectly via another package, then ~1,250 (5.2%) of all ~23,900 CRAN packages rely on the future framework for processing (June 2026). If we include soft (Suggests) dependencies as well, then ~90% of all CRAN packages depend on the future framework.</p>
 <!--
-pkgs <- revdepcheck:::cran_revdeps("future")
-pkgs <- tools::package_dependencies("future", which="all", reverse=TRUE, recursive=TRUE)        
+repos <- getOption("repos")[["CRAN"]]
+db <- as.data.frame(available.packages(repos = repos))
+all_pkgs <- unique(db$Package)
+n_all <- length(all_pkgs)
+message("Number of CRAN packages: ", n_all)
+## Number of CRAN packages: 23853
+
+pkg <- "future"
+
+## Hard reverse deps ("needs")
+hard <- tools::package_dependencies(
+  pkg, which = c("Depends","Imports","LinkingTo"),
+  reverse = TRUE, recursive = TRUE, db = db
+)[[pkg]]
+n <- length(hard)
+message(sprintf("Hard reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
+## Hard reverse dependencies: 1249 (5.2%) of 23853
+
+## All, incl. Suggests (inflates; what you computed)
+alld <- tools::package_dependencies(
+  pkg, which = "all",
+  reverse = TRUE, recursive = TRUE, db = db
+)[[pkg]]
+alld <- intersect(alld, all_pkgs)
+n <- length(alld)
+message(sprintf("All (incl. Suggests) reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
+## All (incl. Suggests) reverse dependencies: 21736 (91.1%) of 23853
 -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
