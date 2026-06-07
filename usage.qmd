@@ -29,7 +29,7 @@ academia.
 There are two major use cases of the future framework: (i) performance
 improvement through parallelization, and (ii) non-blocking,
 asynchronous user experience (UX).  Below are some prominent examples.
-More examples can be found on R-university, which lists [~1,600 CRAN
+More examples can be found on R-university, which lists [~1,600
 packages that need the **future**
 package](https://r-universe.dev/search?q=needs%3Afuture).
 
@@ -233,8 +233,8 @@ alld <- tools::package_dependencies(
 alld <- intersect(alld, all_pkgs)
 n <- length(alld)
 message(sprintf("All (incl. Suggests) reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## All (incl. Suggests) reverse dependencies: 21736 (91.1%) of 23853
-## All (incl. Suggests) reverse dependencies: 24093 (91.8%) of 26236
+## All (incl. Suggests) reverse dependencies: 21736 (91.1%) of 23853 (CRAN only)
+## All (incl. Suggests) reverse dependencies: 24093 (91.8%) of 26236 (CRAN+Bioconductor)
 -->
 
 ![](figures/downloads_over_time_on_CRAN.png){
