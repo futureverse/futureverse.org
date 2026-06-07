@@ -88,8 +88,8 @@ _BETA_: Extra tools for working with future, e.g. time profiling.
 * **[marshal]** - _Framework to Marshal Objects to be Used in Another R Process_<br>
 _PROTOTYPE_: Some types of R objects can be used only in the R session where they were created. If used as-is in another R process, such objects often result in an immediate error or in obscure and hard-to-troubleshoot outcomes. Because of this, they cannot be saved to file and re-used at a later time. They can also not be exported to a worker in parallel processing. These objects are sometimes referred to as non-exportable or non-serializable objects. One solution to this problem is to use “marshaling” to encode the R object into an exportable representation that then can be used to re-create a copy of that object in another R process.
 
-
-
+* **[rw]** - _R API to the rw CLI for webR_<br>
+_PROTOTYPE_: Provides an R interface to run R code in a sandboxed WebAssembly (WASM) environment via Node.js and webR. The package wraps the rw CLI tool, enabling secure evaluation of untrusted R code isolated from the host system.
 
 [future]: https://future.futureverse.org
 [futurize]: https://futurize.futureverse.org
@@ -110,3 +110,5 @@ _PROTOTYPE_: Some types of R objects can be used only in the R session where the
 [listenv]: https://listenv.futureverse.org
 [future.p2p]: https://future.p2p.futureverse.org
 [future.tools]: https://future.tools.futureverse.org
+[rw]: https://rw.futureverse.org
+

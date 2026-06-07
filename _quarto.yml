@@ -71,6 +71,8 @@ website:
             href: https://future.tools.futureverse.org
           - text: "marshal (export non-exportable objects)"
             href: https://marshal.futureverse.org
+          - text: "rw (R interface to webR sandbox)"
+            href: https://rw.futureverse.org
 
       - text: "Parallel Backends"
         href: backends.qmd

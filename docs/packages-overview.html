@@ -403,6 +403,10 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
     <a class="dropdown-item" href="https://marshal.futureverse.org">
  <span class="dropdown-text">marshal (export non-exportable objects)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="https://rw.futureverse.org">
+ <span class="dropdown-text">rw (R interface to webR sandbox)</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -554,6 +558,7 @@ A 'BiocParallelParam' class for using futures with the **BiocParallel** framewor
 <li><p><strong><a href="https://future.p2p.futureverse.org">future.p2p</a></strong> - <em>A Peer-to-Peer Compute Cluster in R</em><br> <em>BETA</em>: An future backend where you can share R compute among friends across the world.</p></li>
 <li><p><strong><a href="https://future.tools.futureverse.org">future.tools</a></strong> - <em>Tools for Working with Futures</em><br> <em>BETA</em>: Extra tools for working with future, e.g.&nbsp;time profiling.</p></li>
 <li><p><strong><a href="https://marshal.futureverse.org">marshal</a></strong> - <em>Framework to Marshal Objects to be Used in Another R Process</em><br> <em>PROTOTYPE</em>: Some types of R objects can be used only in the R session where they were created. If used as-is in another R process, such objects often result in an immediate error or in obscure and hard-to-troubleshoot outcomes. Because of this, they cannot be saved to file and re-used at a later time. They can also not be exported to a worker in parallel processing. These objects are sometimes referred to as non-exportable or non-serializable objects. One solution to this problem is to use “marshaling” to encode the R object into an exportable representation that then can be used to re-create a copy of that object in another R process.</p></li>
+<li><p><strong><a href="https://rw.futureverse.org">rw</a></strong> - <em>R API to the rw CLI for webR</em><br> <em>PROTOTYPE</em>: Provides an R interface to run R code in a sandboxed WebAssembly (WASM) environment via Node.js and webR. The package wraps the rw CLI tool, enabling secure evaluation of untrusted R code isolated from the host system.</p></li>
 </ul>
 
 
