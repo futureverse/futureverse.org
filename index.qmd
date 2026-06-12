@@ -18,86 +18,95 @@ The **future** framework makes it easy to parallelize existing R code - often wi
 The future framework _removes common hurdles and protects against pitfalls_ that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem.
 Just as with sequential R code, _output, messages, warnings, and errors work as expected_ and can be handled using traditional R techniques - regardless of how the code is parallelized.
 
-It is designed so that you as a developer can _stay with your favorite coding style_, whether it be base R or tidyverse.  If you prefer `lapply()`, `map()` of **purrr**, or `foreach()` of **foreach**, there is _no_ need to switch away from that.
+It is designed so that you as a developer can _stay with your favorite coding style_, whether it be base R or tidyverse.  If you prefer `lapply()`, `map()` of **purrr**, or `foreach()` of **foreach**, there is _no_ need to switch away from that, e.g. `ys <- map(xs, fcn) |> futurize()`.
 
-Futures make your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures.
+In addition to map-reduce calls, the framework supports a large number of domain-specific packages on CRAN and Bioconductor, e.g. `b <- boot(city, ratio, R = 999) |> futurize()` and `ds <- DESeq(ds) |> futurize()`.
 
 Regardless of how you use futures in your code, the user can, with a single setting, switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on a high-performance compute (HPC) cluster.
 
-For further details and motivations, see @bengtsson-future and @bengtsson-futurize.
+Futures make your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures. For further details and motivations of the **future** ecosystem, see @bengtsson-future and @bengtsson-futurize.
 </div>
-
-Below is the gist of how to use it ([try it yourself in the live demo](demo.html)):
 
 ::: {.panel-tabset}
 
-## **futurize** 💫
+## **Map-reduce calls**
 
 ```r
 library(futurize)
-plan(multisession)
+plan(multisession) # parallelize on local computer
 
-## Evaluate an R expression sequentially
+# Evaluate an R expression sequentially
 y <- slow_fcn(X[1])
 
-## Evaluate it in parallel in the background
+# Evaluate it in parallel in the background
 f <- future(slow_fcn(X[1]))
 y <- value(f)
 
-## Sequential and parallel version of base R apply
+# Sequential and parallel version of base R apply
 y <- lapply(X, slow_fcn)
 y <- lapply(X, slow_fcn) |> futurize()
 
-## Sequential and parallel version of purrr map
+# Sequential and parallel version of purrr map
 library(purrr)
 y <- X |> map(slow_fcn)
 y <- X |> map(slow_fcn) |> futurize()
 
-## Sequential and parallel version of foreach
+# Sequential and parallel version of foreach
 library(foreach)
 y <- foreach(x = X) %do% slow_fcn(x)
 y <- foreach(x = X) %do% slow_fcn(x) |> futurize()
+
+# Sequential and parallel version of plyr
+library(plyr)
+ys <- llply(xs, sqrt)
+ys <- llply(xs, sqrt) |> futurize()
+
+# Sequential and parallel version of BiocParallel
+library(BiocParallel)
+ys <- bplapply(xs, sqrt)
+ys <- bplapply(xs, sqrt) |> futurize()
 ```
 
-_The `futurize()` function rewrites the expression to use the corresponding **future.apply**, **furrr**, and **doFuture** expression. It is part of the **[futurize]** package released in January 2026._
+See **[futurize]** for full list of supported packages.
+Try it yourself in the [live demo](demo.html).
 
 
-## Pre-**futurize**
+## **Domain-specific calls**
 
 ```r
-library(future)
-plan(multisession)
+library(futurize)
+plan(multisession) # parallelize on local computer
 
-## Evaluate an R expression sequentially
-y <- slow_fcn(X[1])
+library(boot)
+b <- boot(city, ratio, R = 999) |> futurize()
 
-## Evaluate it in parallel in the background
-f <- future(slow_fcn(X[1]))
-y <- value(f)
+library(glmnet)
+cv <- cv.glmnet(x, y) |> futurize()
 
-## Futurized version of base R apply via future.apply
-library(future.apply)
-y <-        lapply(X, slow_fcn)
-y <- future_lapply(X, slow_fcn)
+library(caret)
+ctrl <- trainControl(method = "cv", number = 1000)
+model <- train(Species ~ ., data = iris, trControl = ctrl) |> futurize()
 
-## Futurized version of purrr via furrr
-library(purrr)
-library(furrr)
-y <- X |>        map(slow_fcn)
-y <- X |> future_map(slow_fcn)
+library(partykit)
+cf <- cforest(dist ~ speed, data = cars) |> futurize()
 
-## Futurized version of foreach via doFuture (modern)
-library(foreach)
-library(doFuture)
-y <- foreach(x = X) %do%       slow_fcn(x)
-y <- foreach(x = X) %dofuture% slow_fcn(x)
+library(stars)
+res <- st_apply(s, MARGIN = 1, FUN = mean) |> futurize()
 
-## Futurized version of foreach via doFuture (traditional)
-library(foreach)
-doFuture::registerDoFuture()
-y <- foreach(x = X) %do%    slow_fcn(x)
-y <- foreach(x = X) %dopar% slow_fcn(x)
+library(vegan)
+md <- mrpp(dune, Management) |> futurize()
+
+library(DESeq2)
+ds <- DESeq(ds) |> futurize()
+
+library(SingleCellExperiment)
+res <- applySCE(sce, perFeatureQCMetrics) |> futurize()
+  
+# Many more ...
 ```
+
+See **[futurize]** for full list of supported packages.
+Try it yourself in the [live demo](demo.html).
 
 :::
 
