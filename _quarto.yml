@@ -104,7 +104,7 @@ website:
   announcement: 
     icon: alarm
     dismissable: false
-    content: "July 6-9, 2026: Going to [useR! 2026](https://user2026.r-project.org/)? I'll be giving a [tutorial](/tutorials.html) and [talks](/talks.html) on Futureverse - come and say hi!"
+    content: "July 6-9, 2026: Going to [useR! 2026](https://user2026.r-project.org/)? Why not join the [tutorial](/tutorials.html) and come to the [talks](/talks.html) on Futureverse? ... or just say hi!"
     type: info
     position: below-navbar
 
