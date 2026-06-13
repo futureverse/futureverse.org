@@ -67,10 +67,6 @@ ys <- bplapply(xs, sqrt)
 ys <- bplapply(xs, sqrt) |> futurize()
 ```
 
-See **[futurize]** for full list of supported packages.
-Try it yourself in the [live demo](demo.html).
-
-
 ## **Domain-specific calls**
 
 ```r
@@ -105,10 +101,15 @@ res <- applySCE(sce, perFeatureQCMetrics) |> futurize()
 # Many more ...
 ```
 
+:::
+
+
 See **[futurize]** for full list of supported packages.
 Try it yourself in the [live demo](demo.html).
 
-:::
+Looking for **[future.apply]**, **[furrr]**, and **[doFuture]**? Don't
+worry, they're still around, but they are now the workhorses operating
+fully in the background helping **futurize**.
 
 <!--
 <style>
@@ -124,3 +125,6 @@ Try it yourself in the [live demo](demo.html).
 -->
 
 [futurize]: https://futurize.futureverse.org
+[future.apply]: https://future.apply.futureverse.org
+[furrr]: https://furrr.futureverse.org
+[doFuture]: https://doFuture.futureverse.org
