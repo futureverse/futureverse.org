@@ -6,3 +6,4 @@
 /.local/
 
 **/*.quarto_ipynb
+.osgrep

@@ -104,7 +104,7 @@ res <- applySCE(sce, perFeatureQCMetrics) |> futurize()
 :::
 
 
-See **[futurize]** for full list of supported packages.
+See **[futurize]** for a full list of supported packages.
 Try it yourself in the [live demo](demo.html).
 
 Looking for **[future.apply]**, **[furrr]**, and **[doFuture]**? Don't

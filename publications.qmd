@@ -25,7 +25,7 @@ Futureverse has contributed to your work. Another clear indication is
 if you see a call to `plan()` at the top of your scripts or dynamic
 documents.
 
-Here are two examples on how you can give credit to the Futureverse in
+Here are two examples of how you can give credit to the Futureverse in
 your articles:
 
 > We used the **future** framework in R (Bengtsson, 2021) to

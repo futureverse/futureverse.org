@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## About the project lead
 
-The project lead, Henrik Bengtsson, has a MSc in Computer Science and a PhD in Mathematical Statistics. He is an associate professor at the Department of Epidemiology & Biostatistics, at University of California San Francisco (UCSF) and affiliated with the UCSF Helen Diller Family Comprehensive Cancer Center.
+The project lead, Henrik Bengtsson, has an MSc in Computer Science and a PhD in Mathematical Statistics. He is an associate professor at the Department of Epidemiology & Biostatistics, at University of California San Francisco (UCSF) and affiliated with the UCSF Helen Diller Family Comprehensive Cancer Center.
 Henrik is co-director of the UCSF [Scientific Software Core](https://ssc.ucsf.edu/) and the UCSF [Open-Source Program Office](https://ssc.ucsf.edu/ospo.html) (OSPO).
 He has more than a decade of experience in supporting and managing large-scale high-performance compute (HPC) environments used by thousands of users.
 

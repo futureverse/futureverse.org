@@ -18,7 +18,7 @@ plan(multisession)
 
 After this, all of Futureverse, including **[futurize]**, as well as
 more explicit alternatives **[future.apply]**, **[furrr]**, and
-**[doFuture]**, and any package that use these, will run the code in
+**[doFuture]**, and any package that uses these, will run the code in
 parallel.
 
 To switch back to sequential processing, we can call:

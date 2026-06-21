@@ -29,7 +29,7 @@ academia.
 There are two major use cases of the future framework: (i) performance
 improvement through parallelization, and (ii) non-blocking,
 asynchronous user experience (UX).  Below are some prominent examples.
-More examples can be found on R-university, which lists [~1,600
+More examples can be found on R-universe, which lists [~1,600
 packages that need the **future**
 package](https://r-universe.dev/search?q=needs%3Afuture).
 
@@ -82,7 +82,7 @@ web application, e.g. [HuBMAP - NIH Human Biomolecular Atlas
 Project](https://azimuth.hubmapconsortium.org/)
 
 **Seurat** uses futures to speed up processing.  The future framework
-makes it possible to process large data sets and large number of
+makes it possible to process large data sets and a large number of
 samples in parallel on the local machine, distributed on multiple
 machines, or via large-scale high-performance compute (HPC)
 environments.  **Azimuth** uses futures to provide a non-blocking web
@@ -181,11 +181,11 @@ among end-users and package developers has grown steadily.  As of June
 CRAN (Figure 1) and there are ~500 packages (+35%/year) on CRAN that
 directly depend on it (Figure 2).  For map-reduce parallelization
 packages **future.apply** (top-0.8% most downloaded) and **furrr**
-(top 1.3%), the corresponding number of packages are ~300
+(top 1.3%), the corresponding number of packages is ~300
 (+55%/year) and ~180 (+25%/year), respectively.  
 
 If we consider recursive dependencies too, that is, packages that
-needs (depends or imports) the **future** package either directly or
+need (depends or imports) the **future** package either directly or
 indirectly via another package, then ~1,250 (5.2%) of all ~23,900 CRAN
 packages rely on the future framework for processing (June 2026). If
 we include soft (Suggests) dependencies as well, then ~90% of all CRAN
@@ -288,7 +288,7 @@ release.  It is not a competition because **foreach**, which
 combination with the future framework via **doFuture**.  The choice
 between **foreach** with **doFuture**, **future.apply**, and **furrr**
 is a matter of preference of coding style - they all rely on futures
-for parallelization. Since the introduction of **futurize**, user can
+for parallelization. Since the introduction of **futurize**, users can
 parallelize **foreach**, base-R apply, **purrr**, and much more as-is.
 
 [^2]: Because historical data for reverse dependencies on Bioconductor are hard to track down, Bioconductor packages are _not_ included in these graphs.

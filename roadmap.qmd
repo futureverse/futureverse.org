@@ -42,7 +42,7 @@ Below are some^[This list is manually curated and may not be comprehensive.  Ple
 * {{< bi square-half >}}<span>Profiling: Support for built-in _memory_ profiling, e.g. **autometrics** [[future#59]]</span>
 * {{< bi square-half >}}<span>Random number generation: Support for custom, alternative RNGs to the built-in L'Ecuyer-CMRG algorithm</span>
 * {{< bi square-half >}}<span>Marshaling: Make it possible to parallelize also some of the [object types that are currently "non-exportable"](https://future.futureverse.org/articles/future-4-non-exportable-objects.html), e.g. objects by packages such as **DBI**, **keras**, **ncdf4**, **rstan**, **sparklyr**, **xgboost**, and **xml2** (Project: **[marshal]** and R Consortium ISC **[Marshaling and Serialization in R]** Working Group)</span>
-* {{< bi square-half >}}<span>Shared memory: Support for low-memory sharing of globals among worker processes running on the same machine by leveraging the **mori** package)</span>
+* {{< bi square-half >}}<span>Shared memory: Support for low-memory sharing of globals among worker processes running on the same machine by leveraging the **mori** package</span>
 * {{< bi square >}}<span>Content-addressable shared memory, e.g. efficient local and remote caching</span>
 * {{< bi square-half >}}<span>Resources: Make it possible to declare "resources" that a future requires in order to be resolved, e.g. memory, runtime, CPUs, GPUs, networking & internet, files, sandboxing, etc. [~~[doFuture#FR63]~~, [future#FR181], [future#FR301], [future#FR346], [future#FR430], [future#FR450], ~~[parallelly#18]~~, [future.batchtools#FR75]]</span>
 * {{< bi square >}}<span>Scheduling: Add generic support for queuing such that futures can be queued on the local computer, on a remote scheduler, or in a peer-to-peer scheduler among collaborators [[future#FR256], [future.apply#FR63], [future.batchtools#FR23]]</span>
@@ -71,7 +71,7 @@ Below is a list of future backends that are worked on or in the plans:
 ::: {.list-unstyled}
 * {{< bi square-half >}}<span>**[future.p2p]** - a backend to resolve futures via a peer-to-peer network of trusted collaborators [available as of 2025-08-10]</span>
 * {{< bi square-half >}}<span>**future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, ...) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**</span>
-* {{< bi square >}}<span>**[future.clustermq]** - a backend to resolve futures on a HPC cluster via the **clustermq** package [[future#FR204], [future#FR267]]</span>
+* {{< bi square >}}<span>**[future.clustermq]** - a backend to resolve futures on an HPC cluster via the **clustermq** package [[future#FR204], [future#FR267]]</span>
 * {{< bi square >}}<span>**future.aws.lambda** - a backend to resolve futures via the Amazon AWS Lambda service. A group of several people is actively working on this since the end of 2020 [[future#FR423]]</span>
 * {{< bi square >}}<span>**future.aws.batch** - a backend to resolve futures via the Amazon AWS Batch service. We have a working group of several people actively working on this [[future#FR423]]</span>
 * {{< bi square >}}<span>**future.google.cloud.functions** - a backend to resolve futures via the Google Cloud Functions service. Work on this will start when a stable **future.aws.lambda** prototype has been established</span>

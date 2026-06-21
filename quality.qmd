@@ -9,7 +9,7 @@ Since correctness and reproducibility are essential to all data
 processing, validation is a top priority and part of the design and
 implementation throughout the future ecosystem. Several types of
 testing are performed. These rich sets of test suites assure, on a
-continuous bases, correctness throughout.
+continuous basis, correctness throughout.
 
 First, all the essential core packages part of the future framework,
 including **future**, **parallelly**, **globals**, and **listenv**,
@@ -89,7 +89,7 @@ continuously updated and improved while remaining 100% backward
 compatible. The policy is to fix bugs as soon as possible and avoid
 breaking updates to maintain full backward compatibility with existing
 R code in production that relies on futures.  In the very rare case
-when an existing feature had to be removed, it has been done via
+when an existing feature had to be removed, it has been done via a
 deprecation process taking place over several release cycles working
 closely with existing package developers to assure a smooth transition
 and with informative warning messages to end-users where needed.
