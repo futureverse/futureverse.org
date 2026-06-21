@@ -190,7 +190,7 @@ indirectly via another package, then ~1,250 (5.2%) of all ~23,900 CRAN
 packages rely on the future framework for processing (June 2026). If
 we include soft (Suggests) dependencies as well, then ~90% of all CRAN
 packages depend on the future framework. Bioconductor, which has
-~2,400 packages, show similar ratios.
+~2,400 packages, shows similar ratios.
 
 <!--
 repos <- getOption("repos")
