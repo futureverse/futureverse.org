@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.futureverse.org/roadmap.html</loc>
-    <lastmod>2026-06-21T18:15:26.327Z</lastmod>
+    <lastmod>2026-06-23T05:29:12.393Z</lastmod>
   </url>
   <url>
     <loc>https://www.futureverse.org/demo.html</loc>
@@ -10,59 +10,43 @@
   </url>
   <url>
     <loc>https://www.futureverse.org/about.html</loc>
-    <lastmod>2026-06-21T18:15:24.663Z</lastmod>
+    <lastmod>2026-06-23T05:29:12.373Z</lastmod>
   </url>
   <url>
-    <loc>https://www.futureverse.org/revdep-20260208b.html</loc>
-    <lastmod>2026-02-08T16:55:27.122Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/now.html</loc>
-    <lastmod>2025-12-20T17:59:04.993Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/study/methodology.html</loc>
-    <lastmod>2026-05-31T20:39:21.407Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/index.html</loc>
-    <lastmod>2026-06-23T05:03:27.866Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/quality.html</loc>
-    <lastmod>2026-06-21T18:15:26.042Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/publications.html</loc>
-    <lastmod>2026-06-21T18:15:32.348Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/revdep-20260208a.html</loc>
-    <lastmod>2026-02-08T16:45:14.645Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/statistics.html</loc>
-    <lastmod>2025-12-20T17:59:05.845Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.futureverse.org/talks.html</loc>
-    <lastmod>2026-06-05T20:12:17.740Z</lastmod>
+    <loc>https://www.futureverse.org/usage.html</loc>
+    <lastmod>2026-06-23T05:29:12.393Z</lastmod>
   </url>
   <url>
     <loc>https://www.futureverse.org/tutorials.html</loc>
     <lastmod>2026-06-05T20:09:15.714Z</lastmod>
   </url>
   <url>
-    <loc>https://www.futureverse.org/study/life_science_futureverse_deps.html</loc>
-    <lastmod>2026-05-31T20:36:27.295Z</lastmod>
+    <loc>https://www.futureverse.org/talks.html</loc>
+    <lastmod>2026-06-05T20:12:17.740Z</lastmod>
   </url>
   <url>
-    <loc>https://www.futureverse.org/usage.html</loc>
-    <lastmod>2026-06-21T18:15:25.133Z</lastmod>
+    <loc>https://www.futureverse.org/statistics.html</loc>
+    <lastmod>2025-12-20T17:59:05.845Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.futureverse.org/publications.html</loc>
+    <lastmod>2026-06-23T05:29:12.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.futureverse.org/quality.html</loc>
+    <lastmod>2026-06-23T05:29:12.393Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.futureverse.org/index.html</loc>
+    <lastmod>2026-06-23T05:29:12.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.futureverse.org/now.html</loc>
+    <lastmod>2025-12-20T17:59:04.993Z</lastmod>
   </url>
   <url>
     <loc>https://www.futureverse.org/backends.html</loc>
-    <lastmod>2026-06-21T18:15:25.243Z</lastmod>
+    <lastmod>2026-06-23T05:29:12.373Z</lastmod>
   </url>
   <url>
     <loc>https://www.futureverse.org/blog.html</loc>
@@ -70,6 +54,6 @@
   </url>
   <url>
     <loc>https://www.futureverse.org/packages-overview.html</loc>
-    <lastmod>2026-06-21T18:15:25.782Z</lastmod>
+    <lastmod>2026-06-23T05:29:12.392Z</lastmod>
   </url>
 </urlset>
