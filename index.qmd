@@ -80,7 +80,7 @@ library(glmnet)
 cv <- cv.glmnet(x, y) |> futurize()
 
 library(caret)
-ctrl <- trainControl(method = "cv", number = 1000)
+ctrl <- trainControl(method = "cv", number = 10)
 model <- train(Species ~ ., data = iris, trControl = ctrl) |> futurize()
 
 library(partykit)

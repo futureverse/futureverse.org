@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Presentations on futures with slides and recorded videos">
 
-<title>Talks – Futureverse</title>
+<title>methodology – Futureverse</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,33 +23,68 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/quarto-axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-axe/axe-check.js" type="module"></script>
 <script id="quarto-axe-checker-options" type="text/plain">eyJvdXRwdXQiOiJjb25zb2xlIn0=</script>
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-822d07a16a434e37f8a73cbea81c8ae7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-26f342b18eae3b542a66598836971a95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-822d07a16a434e37f8a73cbea81c8ae7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-822d07a16a434e37f8a73cbea81c8ae7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-26f342b18eae3b542a66598836971a95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-822d07a16a434e37f8a73cbea81c8ae7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,7 +124,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <link rel="me" href="https://mastodon.social/@henrikbengtsson">
 
 
-<link rel="stylesheet" href="assets/custom.css">
+<link rel="stylesheet" href="../assets/custom.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -271,11 +305,11 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/logo.png" alt="Return to the Futureverse front page" class="navbar-logo light-content">
-    <img src="./images/logo.png" alt="Return to the Futureverse front page" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/logo.png" alt="Return to the Futureverse front page" class="navbar-logo light-content">
+    <img src="../images/logo.png" alt="Return to the Futureverse front page" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Futureverse</span>
     </a>
   </div>
@@ -286,7 +320,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./demo.html"> 
+    <a class="nav-link" href="../demo.html"> 
 <span class="menu-text">Live Demo</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -295,7 +329,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-packages--docs">    
         <li>
-    <a class="dropdown-item" href="./packages-overview.html">
+    <a class="dropdown-item" href="../packages-overview.html">
  <span class="dropdown-text">Overview of All Packages</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
@@ -391,39 +425,39 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./backends.html"> 
+    <a class="nav-link" href="../backends.html"> 
 <span class="menu-text">Parallel Backends</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tutorials.html"> 
+    <a class="nav-link" href="../tutorials.html"> 
 <span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./talks.html" aria-current="page"> 
+    <a class="nav-link" href="../talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./usage.html"> 
+    <a class="nav-link" href="../usage.html"> 
 <span class="menu-text">Use &amp; Stats</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./quality.html"> 
+    <a class="nav-link" href="../quality.html"> 
 <span class="menu-text">Quality</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./roadmap.html"> 
+    <a class="nav-link" href="../roadmap.html"> 
 <span class="menu-text">Roadmap</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -434,461 +468,100 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
       </div> <!-- /container-fluid -->
     </nav>
   <div id="quarto-announcement" data-announcement-id="db68006672ef599b0a934f16d58b1818" class="alert alert-info hidden"><i class="bi bi-alarm quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>July 6-9, 2026: Going to <a href="https://user2026.r-project.org/">useR! 2026</a>? Why not join the <a href="./tutorials.html">tutorial</a> and come to the <a href="./talks.html">talks</a> on Futureverse? … or just say hi!</p>
+<p>July 6-9, 2026: Going to <a href="https://user2026.r-project.org/">useR! 2026</a>? Why not join the <a href="../tutorials.html">tutorial</a> and come to the <a href="../talks.html">talks</a> on Futureverse? … or just say hi!</p>
 </div></div>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#methodology-identifying-life-sciences-dependents-in-the-futureverse-ecosystem" id="toc-methodology-identifying-life-sciences-dependents-in-the-futureverse-ecosystem" class="nav-link active" data-scroll-target="#methodology-identifying-life-sciences-dependents-in-the-futureverse-ecosystem">Methodology: Identifying Life Sciences Dependents in the Futureverse Ecosystem</a>
+  <ul class="collapse">
+  <li><a href="#scope-target-packages" id="toc-scope-target-packages" class="nav-link" data-scroll-target="#scope-target-packages">1. Scope &amp; Target Packages</a></li>
+  <li><a href="#classification-strategy-defining-life-sciences" id="toc-classification-strategy-defining-life-sciences" class="nav-link" data-scroll-target="#classification-strategy-defining-life-sciences">2. Classification Strategy: Defining “Life Sciences”</a>
+  <ul class="collapse">
+  <li><a href="#a.-bioconductor-packages-natively-life-sciences" id="toc-a.-bioconductor-packages-natively-life-sciences" class="nav-link" data-scroll-target="#a.-bioconductor-packages-natively-life-sciences">A. Bioconductor Packages (Natively Life Sciences)</a></li>
+  <li><a href="#b.-cran-packages-text-based-metadata-classification" id="toc-b.-cran-packages-text-based-metadata-classification" class="nav-link" data-scroll-target="#b.-cran-packages-text-based-metadata-classification">B. CRAN Packages (Text-Based Metadata Classification)</a></li>
+  </ul></li>
+  <li><a href="#regular-expression-optimization-precision-handling" id="toc-regular-expression-optimization-precision-handling" class="nav-link" data-scroll-target="#regular-expression-optimization-precision-handling">3. Regular Expression Optimization &amp; Precision Handling</a>
+  <ul class="collapse">
+  <li><a href="#unicode-aware-boundary-modifier-ucp" id="toc-unicode-aware-boundary-modifier-ucp" class="nav-link" data-scroll-target="#unicode-aware-boundary-modifier-ucp">Unicode-Aware Boundary Modifier (<code>*UCP</code>)</a></li>
+  </ul></li>
+  <li><a href="#dependency-crawling-first-second-generation" id="toc-dependency-crawling-first-second-generation" class="nav-link" data-scroll-target="#dependency-crawling-first-second-generation">4. Dependency Crawling (First &amp; Second Generation)</a>
+  <ul class="collapse">
+  <li><a href="#first-generation-direct-dependents" id="toc-first-generation-direct-dependents" class="nav-link" data-scroll-target="#first-generation-direct-dependents">First-Generation (Direct Dependents)</a></li>
+  <li><a href="#second-generation-transitive-dependents" id="toc-second-generation-transitive-dependents" class="nav-link" data-scroll-target="#second-generation-transitive-dependents">Second-Generation (Transitive Dependents)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Talks</h1>
-</div>
-
-<div>
-  <div class="description">
-    Presentations on futures with slides and recorded videos
-  </div>
-</div>
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <span class="bi bi-clock-history" style="font-size: 100%; font-weight: bold; text-transform: uppercase;"> Upcoming</span>
-    <div class="itemHeader">
-      <div class="itemTitle">Futurize - Tearing Down Parallelization Barriers in R with Transpilers</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, useR! 2026</span>
-      <span class="itemDate">, 2026-07-08 (20 minutes)</span>
-    </div>
-    <a href="https://user2026.r-project.org/schedule/">Event</a>
-    <span>, </span>
-    <a href="publications.html">Preprint</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <span class="bi bi-clock-history" style="font-size: 100%; font-weight: bold; text-transform: uppercase;"> Upcoming</span>
-    <div class="itemHeader">
-      <div class="itemTitle">Evaluate Untrusted R Code Locally Isolated in a webR Sandbox?</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, useR! 2026</span>
-      <span class="itemDate">, 2026-07-09 (5 minutes)</span>
-    </div>
-    <a href="https://user2026.r-project.org/schedule/">Event</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Beyond Sequential: Scaling Existing Medical Pipelines with 'futurize'</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, R/Medicine 2026</span>
-      <span class="itemDate">, 2026-05-08 (20 minutes)</span>
-    </div>
-    <a href="https://henrikbengtsson.github.io/talk-rmedicine-2026-futurize/#/">HTML slides</a>
-    <span>, </span>
-    <a href="https://rconsortium.github.io/RMedicine_website/Abstracts.html#beyond-sequential-scaling-existing-medical-pipelines-with-fu">Abstract</a>
-    <span>, </span>
-    <a href="https://rconsortium.github.io/RMedicine_website/">Event</a>
-    <span>, </span>
-    <a href="publications.html">Preprint</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">future.p2p: Peer-to-Peer Compute Clusters in R</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, LatinR 2025</span>
-      <span class="itemDate">, 2025-12-03 (10 minutes)</span>
-    </div>
-    <a href="https://henrikbengtsson.github.io/talk-latinr2025-p2p/#/">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=KQGYaDpeXak">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2025/12/03/future.p2p-latinr2025-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Futureverse P2P: Peer-to-Peer Parallelization in R - Share compute among friends across the world</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, useR! 2025, Durham, NC, USA</span>
-      <span class="itemDate">, 2025-08-10 (18 minutes)</span>
-    </div>
-    <a href="https://henrikbengtsson.github.io/talk-user2025-p2p/#/">HTML slides</a>
-    <span>, </span>
-    <a href="https://raw.githubusercontent.com/HenrikBengtsson/talk-user2025-p2p/main/BengtssonH_20240810-future.p2p-useR2025.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=T0zbQp1hIEs">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2025/08/14/future.p2p-user2025-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">future.mirai: Use the Mirai Parallelization Framework in Futureverse - Easy!</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, useR! 2024, Salzburg, Austria</span>
-      <span class="itemDate">, 2024-07-09 (20 minutes)</span>
-    </div>
-    <a href="https://henrikbengtsson.github.io/talk-user2024-future.mirai/#/">HTML slides</a>
-    <span>, </span>
-    <a href="https://raw.githubusercontent.com/HenrikBengtsson/talk-user2024-future.mirai/main/BengtssonH_20240709-future.mirai-useR2024.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://user2024.r-project.org/">Event</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Futureverse - A Unifying Parallelization Framework in R for Everyone</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, Edmonton R User Group Meetup (YEGRUG) (virtual)</span>
-      <span class="itemDate">, 2023-05-22 (60 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/e/2PACX-1vQfbnVRHZhIkEAd3_pNG14N5JQqE0jqCohSq-m-uWAcA7StF-BuHdOz0IGDhcRI3K681DxoXoqA7pwp/pub?start=true&amp;loop=false&amp;delayms=60000">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/yegrug2023/BengtssonH_20230522-Futureverse-YEGRUG.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=6Dp6zMelrmg">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2023/05/22/future-yegrug-2023-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Futureverse: Profile Parallel Code</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, useR! 2022, worldwide (virtual)</span>
-      <span class="itemDate">, 2022-06-22 (25 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/e/2PACX-1vTnpyj7qvyKr-COHaJAYjoGveoOJPYrstTmvC4farFk2vdwWb8O79kA5tn7klTS67_uoJJdKFPgKNql/pub?start=true&amp;loop=false&amp;delayms=60000&amp;slide=id.gf778290f24_0_165">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/useR2022/BengtssonH_20220622-Future-useR2022.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=_lrPgNqT3SM&amp;t=2528s">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2022/06/23/future-user2022-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future - Simple, Scalable Parallelization in R for the Biomedical Community</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, CZI EOSS 2021, worldwide (virtual)</span>
-      <span class="itemDate">, 2021-11-02 (10 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/18gxBd5Bgn0GNDyl5MlCt_s7b6gTUEcJV9c2xSLC11Nk/view#slide=id.gf778290f24_0_165">HTML slides</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future: A Simple, Extendable, Generic Framework for Parallel Processing in R</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, European Bioconductor Meeting 2020, worldwide (virtual)</span>
-      <span class="itemDate">, 2020-12-19 (35 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/e/2PACX-1vTVyeaWRH251Pm8BfrlH1yK4Bd_YojEmo1I0VFxkoehnoxYJXglLdDf5T6_bTDv7lFJjwrXNYFBtfHT/pub?start=false&amp;loop=false&amp;delayms=10000">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/EuroBioc2020/BengtssonH_20201218-futures-EuroBioc2020.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=Ph8jItU7Dlo">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2020/12/19/future-eurobioc2020-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future: Simple, Friendly Parallel Processing for R</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, New York Open Statistical Programming Meetup, worldwide (virtual)</span>
-      <span class="itemDate">, 2020-11-12 (67 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/1E2Gcm33_uMrhQL7jLzodlMXUefnSshHUdYsoXWAkFYE/edit?usp=sharing">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/NYCMeetup2020/BengtssonH_20191109-futures-NYC.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://youtu.be/2ZlpFkFMy7E?t=630">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2020/11/12/future-nycmeetup-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Progressr: An Inclusive, Unifying API for Progress Updates</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, e-Rum 2020, worldwide (virtual)</span>
-      <span class="itemDate">, 2020-06-17 (15 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/11RymPwL90rPc0dQwpNCnw5KQC_76tuDK7uB7rq26oIg/present#slide=id.g88962cfdb7_0_0">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/eRum2020/BengtssonH_20200617-progressr-An_Inclusive,_Unifying_API_for_Progress_Updates.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=NwVOvfpGq4o&amp;t=3001s">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2020/07/04/progressr-erum2020-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future: Simple Async, Parallel &amp; Distributed Processing in R Why and What’s New?</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, rstudio::conf 2020, San Francisco, California, USA</span>
-      <span class="itemDate">, 2020-01-29 (18 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/1Wn5S91UGIOrc4IyXoV074ij5vGF8I0Km0tCfintyIa4/present?includes_info_params=1&amp;eisi=CM2mhIXwsecCFQyuJgodBQAJ8A#slide=id.p">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/rstudioconf2020/BengtssonH_20200129-future-rstudioconf2020.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://resources.rstudio.com/rstudio-conf-2020/future-simple-async-parallel-amp-distributed-processing-in-r-whats-next-henrik-bengtsson">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2020/02/01/future-rstudioconf2020-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future: Simple Parallel and Distributed Processing in R</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, useR! 2019, Toulouse, France</span>
-      <span class="itemDate">, 2019-07-12 (15 minutes)</span>
-    </div>
-    <a href="https://docs.google.com/presentation/d/e/2PACX-1vQDLsnzhfp03zAf-BG69mnwO6nqGyLP9Zuj5ShW0gbewY955wop6KO5bidbWxtrIydFj7lznwi1op__/pub?start=false&amp;loop=false&amp;delayms=60000">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/useR2019/BengtssonH_20190712-future-useR2019.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=4B3wPFL_Syo&amp;list=PL4IzsxWztPdliwImi5JLBC4BrvqxG-vcA&amp;index=69">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2019/07/12/future-user2019-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future: Friendly Parallel Processing in R for Everyone</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, satRday LA 2019, Los Angeles, USA</span>
-      <span class="itemDate">, 2019-04-06 (45 minutes)</span>
-    </div>
-    <a href="https://www.jottr.org/presentations/satrdayla2019/bengtssonh_20190406-satrdayla2019,flat">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/satRdayLA2019/BengtssonH_20190406-SatRdayLA2019,flat.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=KP3pgLfKr00&amp;list=PLQRHxIa9tfRvXYyaVS77zshvD0i17Y60s">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2019/05/16/future-satrdayla2019-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future: Friendly Parallel Processing in R for Everyone</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, satRday Paris 2019, Paris, France</span>
-      <span class="itemDate">, 2019-02-23 (50 minutes)</span>
-    </div>
-    <a href="https://www.jottr.org/presentations/satrdayparis2019/bengtssonh_20190223-satrdayparis2019">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/satRdayParis2019/BengtssonH_20190223-SatRdayParis2019.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2019/03/07/future-satrdayparis2019-slides/
-">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Future: Parallel &amp; Distributed Processing in R for Everyone</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, eRum 2018, Budapest, Hungary</span>
-      <span class="itemDate">, 2018-05-16 (20 minutes)</span>
-    </div>
-    <a href="https://www.jottr.org/presentations/erum2018/bengtssonh_20180516-erum2018">HTML slides</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/presentations/eRum2018/BengtssonH_20180516-eRum2018.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=doa7avxbptQ">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2018/06/18/future-erum2018-slides/
-">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">Futures in R: Atomic Building Blocks for Asynchronous Evaluation</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, R Consortium, Distributed Computing Working Group, worldwide (virtual)</span>
-      <span class="itemDate">, 2017-05-11 (60 minutes)</span>
-    </div>
-    <a href="https://wiki.r-consortium.org/images/2/25/BengtssonH_20170511-future%2CRConsortium%2Cflat.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://wiki.r-consortium.org/view/Distributed_Computing_Working_Group#05.2F11.2F2017">Event</a>
-  </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="listItem">
-  <div class="itemDetails">
-    <div class="itemHeader">
-      <div class="itemTitle">A Future for R</div>
-    </div>
-    <div class="itemMeta">
-      <span class="author">Henrik Bengtsson</span>
-      <span class="itemInfo">, useR! 2016, Stanford, California, USA</span>
-      <span class="itemDate">, 2016-06-28 (18 minutes)</span>
-    </div>
-    <a href="http://www.aroma-project.org/share/presentations/BengtssonH_20160628-useR2016/BengtssonH_20160628-A_Future_for_R,useR2016.html">HTML slides</a>
-    <span>, </span>
-    <a href="http://www.aroma-project.org/share/presentations/BengtssonH_20160628-useR2016/BengtssonH_20160628-A_Future_for_R,useR2016,flat.pdf">PDF slides</a>
-    <span>, </span>
-    <a href="https://www.youtube.com/watch?v=K8KYi9AFRlk">Video</a>
-    <span>, </span>
-    <a href="https://www.jottr.org/2016/07/02/future-user2016-slides/">Blog post</a>
-  </div>
-</div>
-</div>
-</div>
+<section id="methodology-identifying-life-sciences-dependents-in-the-futureverse-ecosystem" class="level1">
+<h1>Methodology: Identifying Life Sciences Dependents in the Futureverse Ecosystem</h1>
+<p>This document describes the systematic methodology used to identify, classify, and map CRAN and Bioconductor packages within the <strong>life sciences</strong> that depend on the <strong>Futureverse</strong> parallel processing ecosystem.</p>
+<hr>
+<section id="scope-target-packages" class="level2">
+<h2 class="anchored" data-anchor-id="scope-target-packages">1. Scope &amp; Target Packages</h2>
+<p>The analysis defines the <strong>Futureverse ecosystem</strong> as comprising the following core packages: * <code>future</code> (Core unified parallel and distributed processing framework) * <code>future.apply</code> (Parallel versions of base R apply functions) * <code>furrr</code> (Parallel versions of purrr mapping functions) * <code>doFuture</code> (Foreach parallel adapter using the future framework) * <code>progressr</code> (Inclusive, unifying API for progress updates) * <code>parallelly</code> (Utility functions enhancing R’s parallel package) * <code>globals</code> (Identify global objects in R expressions) * <code>listenv</code> (Environments behaving like lists) * <code>future.batchtools</code> (Future API on top of batchtools) * <code>future.callr</code> (Future API on top of callr) * <code>future.mirai</code> (Future API on top of mirai)</p>
+<hr>
+</section>
+<section id="classification-strategy-defining-life-sciences" class="level2">
+<h2 class="anchored" data-anchor-id="classification-strategy-defining-life-sciences">2. Classification Strategy: Defining “Life Sciences”</h2>
+<p>R packages are distributed across multiple repositories, two of which are the primary focus of this analysis: <strong>Bioconductor</strong> and <strong>CRAN</strong>. Different classification strategies were applied depending on the source repository:</p>
+<section id="a.-bioconductor-packages-natively-life-sciences" class="level3">
+<h3 class="anchored" data-anchor-id="a.-bioconductor-packages-natively-life-sciences">A. Bioconductor Packages (Natively Life Sciences)</h3>
+<p><strong>Bioconductor</strong> is a repository dedicated exclusively to the <em>“analysis and comprehension of high-throughput genomic and molecular biology data”</em> (e.g., genomics, transcriptomics, proteomics, clinical assays, flow cytometry). * <strong>Rule</strong>: Any package hosted on a Bioconductor repository (e.g., <code>BioCsoft</code>) that depends on a Futureverse package is automatically classified as a <strong>life sciences</strong> package. No keyword or text filtering is required, guaranteeing 100% precision for this source.</p>
+</section>
+<section id="b.-cran-packages-text-based-metadata-classification" class="level3">
+<h3 class="anchored" data-anchor-id="b.-cran-packages-text-based-metadata-classification">B. CRAN Packages (Text-Based Metadata Classification)</h3>
+<p><strong>CRAN</strong> is a general-purpose repository housing packages for all fields (finance, social sciences, machine learning, physics, etc.). To isolate CRAN packages within the life sciences, we implemented a <strong>metadata text classifier</strong>: 1. <strong>Metadata Retrieval</strong>: We fetched the full package metadata (including <strong>Title</strong> and <strong>Description</strong>) for every CRAN package that directly depends on the Futureverse ecosystem using R’s built-in database utility <code>tools::CRAN_package_db()</code>. 2. <strong>Curated Keyword Taxonomy</strong>: We defined a curated list of <strong>64 key terms and word stems</strong> representing the major sub-disciplines of the life sciences: * <strong>Genomics &amp; Molecular Biology</strong>: <code>gene(s)</code>, <code>genom(e/ic/ics)</code>, <code>genetics</code>, <code>dna</code>, <code>rna</code>, <code>transcriptom(e/ic)</code>, <code>proteom(e/ic)</code>, <code>metabolom(e/ic)</code>, <code>microbiom(e/ic)</code>, <code>chromatin</code>, <code>protein</code>, <code>peptide</code>, <code>nucleotide</code>, <code>cell(s/ular)</code>, <code>tissue</code> * <strong>Bioinformatics &amp; Methods</strong>: <code>phylo(genetic/geny)</code>, <code>sequence analysis</code>, <code>sequencing</code>, <code>scRNA</code>, <code>single-cell</code>, <code>bioinformatics</code>, <code>biostatistics</code>, <code>biomarker</code>, <code>biophysics</code>, <code>biochem(istry)</code> * <strong>Medical, Clinical &amp; Health Sciences</strong>: <code>clinical</code>, <code>epidemiol(ogy/ic)</code>, <code>biomedical</code>, <code>medical</code>, <code>medicine</code>, <code>patient</code>, <code>health(care)</code>, <code>disease</code>, <code>cancer</code>, <code>tumor</code>, <code>brains</code>, <code>neuro(science/logical)</code>, <code>cardio(vascular)</code>, <code>immun(ology)</code>, <code>pathogen</code>, <code>microb(e/ial)</code>, <code>drug</code>, <code>therapy</code>, <code>clinical trial</code>, <code>pharmacology</code>, <code>toxicology</code>, <code>oncology</code>, <code>pathology</code>, <code>virology</code> * <strong>Ecological &amp; Physiological Sciences</strong>: <code>metabol(ic/ism)</code>, <code>physiolog(y/ical)</code>, <code>anatomy</code>, <code>ecology</code></p>
+<hr>
+</section>
+</section>
+<section id="regular-expression-optimization-precision-handling" class="level2">
+<h2 class="anchored" data-anchor-id="regular-expression-optimization-precision-handling">3. Regular Expression Optimization &amp; Precision Handling</h2>
+<p>A naive keyword search (e.g., matching <code>"gene"</code>) often introduces substantial noise by matching unrelated words like <code>"general"</code>, <code>"generate"</code>, or <code>"congenial"</code>. To prevent this, strict word boundaries (<code>\b</code>) were enforced on both sides of the keywords.</p>
+<section id="unicode-aware-boundary-modifier-ucp" class="level3">
+<h3 class="anchored" data-anchor-id="unicode-aware-boundary-modifier-ucp">Unicode-Aware Boundary Modifier (<code>*UCP</code>)</h3>
+<p>In standard ASCII-based regex engines, accented characters (like the Spanish <code>í</code> in <code>"orígenes"</code>) are treated as non-word boundaries. This causes the trailing <code>"genes"</code> in <code>"orígenes"</code> to match the keyword <code>"gene"</code> because a word boundary is falsely detected between <code>í</code> and <code>g</code>. This leads to false positive matches in Spanish social science or political analysis packages.</p>
+<p>To achieve perfect precision, we leveraged an advanced PCRE (Perl-Compatible Regular Expression) modifier in R:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (*UCP) enables Unicode Character Properties</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (?i) enables case-insensitivity</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pattern <span class="ot">&lt;-</span> <span class="st">"(*UCP)(?i)</span><span class="sc">\\</span><span class="st">b(genes?|genom(e|es|ic|ics)?|...)</span><span class="sc">\\</span><span class="st">b"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>By prepending <strong><code>(*UCP)</code></strong>, we instructed the regular expression engine to treat accented letters and non-ASCII alphabetic characters as valid word characters. This ensured that word boundaries (<code>\b</code>) were computed correctly across multi-lingual descriptions, successfully eliminating false positive matches.</p>
+<hr>
+</section>
+</section>
+<section id="dependency-crawling-first-second-generation" class="level2">
+<h2 class="anchored" data-anchor-id="dependency-crawling-first-second-generation">4. Dependency Crawling (First &amp; Second Generation)</h2>
+<section id="first-generation-direct-dependents" class="level3">
+<h3 class="anchored" data-anchor-id="first-generation-direct-dependents">First-Generation (Direct Dependents)</h3>
+<p>We identified all packages on CRAN and Bioconductor that list any core Futureverse packages in their <code>Depends</code>, <code>Imports</code>, <code>Suggests</code>, or <code>LinkingTo</code> fields using R’s built-in dependency crawler:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tools<span class="sc">::</span><span class="fu">package_dependencies</span>(futureverse_pkgs, <span class="at">db =</span> db, <span class="at">which =</span> dep_types, <span class="at">reverse =</span> <span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Applying the repository and text-filtering rules described above yielded <strong>167 first-generation life sciences dependents</strong>.</p>
+</section>
+<section id="second-generation-transitive-dependents" class="level3">
+<h3 class="anchored" data-anchor-id="second-generation-transitive-dependents">Second-Generation (Transitive Dependents)</h3>
+<p>Using those 167 first-generation packages as seed packages, we ran another round of dependency crawling:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tools<span class="sc">::</span><span class="fu">package_dependencies</span>(first_gen_pkgs, <span class="at">db =</span> db, <span class="at">which =</span> dep_types, <span class="at">reverse =</span> <span class="cn">TRUE</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We captured all packages that directly depend on these scientific frameworks (such as <code>Seurat</code> or <code>GSVA</code>). After removing circular references (packages already in the first-generation list), this yielded <strong>306 second-generation dependents</strong> that rely transitively on the Futureverse parallel infrastructure.</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

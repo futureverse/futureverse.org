@@ -1,0 +1,3560 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>life_science_futureverse_deps – Futureverse</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-axe/axe-check.js" type="module"></script>
+<script id="quarto-axe-checker-options" type="text/plain">eyJvdXRwdXQiOiJjb25zb2xlIn0=</script>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-822d07a16a434e37f8a73cbea81c8ae7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-26f342b18eae3b542a66598836971a95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-822d07a16a434e37f8a73cbea81c8ae7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SB3EQSD9FR"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
+</script>
+<link rel="me" href="https://mastodon.social/@henrikbengtsson">
+
+
+<link rel="stylesheet" href="../assets/custom.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/logo.png" alt="Return to the Futureverse front page" class="navbar-logo light-content">
+    <img src="../images/logo.png" alt="Return to the Futureverse front page" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Futureverse</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../demo.html"> 
+<span class="menu-text">Live Demo</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-packages--docs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Packages &amp; Docs</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-packages--docs">    
+        <li>
+    <a class="dropdown-item" href="../packages-overview.html">
+ <span class="dropdown-text">Overview of All Packages</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Core Future API</li>
+        <li>
+    <a class="dropdown-item" href="https://future.futureverse.org">
+ <span class="dropdown-text">future (core of the future framework)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Map-Reduce Future APIs</li>
+        <li>
+    <a class="dropdown-item" href="https://futurize.futureverse.org">
+ <span class="dropdown-text">futurize 💫 (one-stop all-in-one solution)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://future.apply.futureverse.org">
+ <span class="dropdown-text">future.apply (base R apply with futures)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://furrr.futureverse.org">
+ <span class="dropdown-text">furrr (purrr with futures)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://doFuture.futureverse.org">
+ <span class="dropdown-text">doFuture (a foreach adapter)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Parallel Backends</li>
+        <li>
+    <a class="dropdown-item" href="https://future.futureverse.org">
+ <span class="dropdown-text">future (built-in, local &amp; remote parallelization)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://future.batchtools.futureverse.org">
+ <span class="dropdown-text">future.batchtools (use HPC scheduler)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://future.callr.futureverse.org">
+ <span class="dropdown-text">future.callr (local callr parallelization)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://future.mirai.futureverse.org">
+ <span class="dropdown-text">future.mirai (parallelize via mirai)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Progress Reporting</li>
+        <li>
+    <a class="dropdown-item" href="https://progressify.futureverse.org">
+ <span class="dropdown-text">progressify 💫 (one-stop all-in-one solution)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://progressr.futureverse.org">
+ <span class="dropdown-text">progressr (progress updates in parallel)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Utilities</li>
+        <li>
+    <a class="dropdown-item" href="https://listenv.futureverse.org">
+ <span class="dropdown-text">listenv (Use %&lt;-% for list-like structures)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://parallelly.futureverse.org">
+ <span class="dropdown-text">parallelly (enhances the parallel package)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">For low-level developers</li>
+        <li>
+    <a class="dropdown-item" href="https://globals.futureverse.org">
+ <span class="dropdown-text">globals (identify globals)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://future.tests.futureverse.org">
+ <span class="dropdown-text">future.tests (validate future backends)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Experimental</li>
+        <li>
+    <a class="dropdown-item" href="https://future.p2p.futureverse.org">
+ <span class="dropdown-text">future.p2p (peer-to-peer compute backend)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://future.tools.futureverse.org">
+ <span class="dropdown-text">future.tools (tools for working with futures)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://marshal.futureverse.org">
+ <span class="dropdown-text">marshal (export non-exportable objects)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rw.futureverse.org">
+ <span class="dropdown-text">rw (R interface to webR sandbox)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../backends.html"> 
+<span class="menu-text">Parallel Backends</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../usage.html"> 
+<span class="menu-text">Use &amp; Stats</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../quality.html"> 
+<span class="menu-text">Quality</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../roadmap.html"> 
+<span class="menu-text">Roadmap</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <div id="quarto-announcement" data-announcement-id="db68006672ef599b0a934f16d58b1818" class="alert alert-info hidden"><i class="bi bi-alarm quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>July 6-9, 2026: Going to <a href="https://user2026.r-project.org/">useR! 2026</a>? Why not join the <a href="../tutorials.html">tutorial</a> and come to the <a href="../talks.html">talks</a> on Futureverse? … or just say hi!</p>
+</div></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#life-sciences-packages-in-the-futureverse-ecosystem" id="toc-life-sciences-packages-in-the-futureverse-ecosystem" class="nav-link active" data-scroll-target="#life-sciences-packages-in-the-futureverse-ecosystem">Life Sciences Packages in the Futureverse Ecosystem</a>
+  <ul class="collapse">
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#part-1-first-generation-dependencies" id="toc-part-1-first-generation-dependencies" class="nav-link" data-scroll-target="#part-1-first-generation-dependencies">Part 1: First-Generation Dependencies</a>
+  <ul class="collapse">
+  <li><a href="#futureverse-package-popularity" id="toc-futureverse-package-popularity" class="nav-link" data-scroll-target="#futureverse-package-popularity">Futureverse Package Popularity</a></li>
+  <li><a href="#bioconductor-packages-1st-gen---32" id="toc-bioconductor-packages-1st-gen---32" class="nav-link" data-scroll-target="#bioconductor-packages-1st-gen---32">Bioconductor Packages (1st Gen - 32)</a></li>
+  <li><a href="#cran-packages-1st-gen---135" id="toc-cran-packages-1st-gen---135" class="nav-link" data-scroll-target="#cran-packages-1st-gen---135">CRAN Packages (1st Gen - 135)</a></li>
+  </ul></li>
+  <li><a href="#part-2-second-generation-dependencies" id="toc-part-2-second-generation-dependencies" class="nav-link" data-scroll-target="#part-2-second-generation-dependencies">Part 2: Second-Generation Dependencies</a>
+  <ul class="collapse">
+  <li><a href="#top-10-hub-packages-in-life-sciences-parallelization" id="toc-top-10-hub-packages-in-life-sciences-parallelization" class="nav-link" data-scroll-target="#top-10-hub-packages-in-life-sciences-parallelization">Top 10 ‘Hub’ Packages in Life Sciences Parallelization</a></li>
+  <li><a href="#full-list-of-second-generation-dependents-306" id="toc-full-list-of-second-generation-dependents-306" class="nav-link" data-scroll-target="#full-list-of-second-generation-dependents-306">Full List of Second-Generation Dependents (306)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<section id="life-sciences-packages-in-the-futureverse-ecosystem" class="level1">
+<h1>Life Sciences Packages in the Futureverse Ecosystem</h1>
+<blockquote class="blockquote">
+<p>[!NOTE] This report details CRAN and Bioconductor packages within the <strong>life sciences</strong> (bioinformatics, genomics, clinical research, epidemiology, pharmacology, ecology, etc.) that leverage the <strong>Futureverse</strong> parallel processing ecosystem. It covers <strong>First-Generation Dependencies</strong> (packages directly importing or suggesting Futureverse tools) and <strong>Second-Generation Dependencies</strong> (packages that build on top of those first-generation life science libraries, showcasing transitive ecosystem impact).</p>
+</blockquote>
+<section id="executive-summary" class="level2">
+<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Generation</th>
+<th style="text-align: left;">Total Packages</th>
+<th style="text-align: left;">Bioconductor</th>
+<th style="text-align: left;">CRAN</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1st Generation</strong></td>
+<td style="text-align: left;"><strong>167</strong></td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">135</td>
+<td style="text-align: left;">Direct reverse dependencies of Futureverse core packages</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2nd Generation</strong></td>
+<td style="text-align: left;"><strong>306</strong></td>
+<td style="text-align: left;">132</td>
+<td style="text-align: left;">174</td>
+<td style="text-align: left;">Transitive dependents (depend on 1st-gen life science packages)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Ecosystem Impact</strong></td>
+<td style="text-align: left;"><strong>473</strong></td>
+<td style="text-align: left;"><strong>164</strong></td>
+<td style="text-align: left;"><strong>309</strong></td>
+<td style="text-align: left;"><strong>Total combined unique packages influenced</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="part-1-first-generation-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-first-generation-dependencies">Part 1: First-Generation Dependencies</h2>
+<p>These packages directly depend on Futureverse packages for parallel computing.</p>
+<section id="futureverse-package-popularity" class="level3">
+<h3 class="anchored" data-anchor-id="futureverse-package-popularity">Futureverse Package Popularity</h3>
+<p>The table below shows which Futureverse packages are most frequently imported or suggested by life sciences packages:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Futureverse Package</th>
+<th style="text-align: left;">Dependents Count</th>
+<th style="text-align: left;">% of Life Science Dependents</th>
+<th style="text-align: left;">Core Purpose in Life Sciences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>future</code></td>
+<td style="text-align: left;">137</td>
+<td style="text-align: left;">82%</td>
+<td style="text-align: left;">Core unified parallel and distributed processing framework</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>future.apply</code></td>
+<td style="text-align: left;">66</td>
+<td style="text-align: left;">39.5%</td>
+<td style="text-align: left;">Parallel versions of base R apply functions (e.g.&nbsp;parallelized gene apply)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>furrr</code></td>
+<td style="text-align: left;">44</td>
+<td style="text-align: left;">26.3%</td>
+<td style="text-align: left;">Parallel versions of purrr mapping functions (e.g.&nbsp;parallelized map over patient samples)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>progressr</code></td>
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">21.6%</td>
+<td style="text-align: left;">Inclusive, unifying API for progress updates in long-running genomic runs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>parallelly</code></td>
+<td style="text-align: left;">31</td>
+<td style="text-align: left;">18.6%</td>
+<td style="text-align: left;">Utility functions for secure system/CPU resource allocation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>doFuture</code></td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">9%</td>
+<td style="text-align: left;">Foreach parallel adapter supporting legacy genomic pipelines</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>listenv</code></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1.8%</td>
+<td style="text-align: left;">Environments behaving like lists (often housing individual futures)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>globals</code></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1.2%</td>
+<td style="text-align: left;">Static analysis to automatically identify global biological datasets for worker nodes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>future.callr</code></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.6%</td>
+<td style="text-align: left;">Parallel backend using callr processes for robust worker isolation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>future.batchtools</code></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0%</td>
+<td style="text-align: left;">HPC cluster backend (Slurm, SGE, LSF, PBS, etc.) for massive datasets</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>future.mirai</code></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0%</td>
+<td style="text-align: left;">High-performance parallel backend using the mirai framework</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bioconductor-packages-1st-gen---32" class="level3">
+<h3 class="anchored" data-anchor-id="bioconductor-packages-1st-gen---32">Bioconductor Packages (1st Gen - 32)</h3>
+<p>Bioconductor software packages are naturally dedicated to genomics and molecular biology. The following packages rely on Futureverse:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/AlpsNMR">AlpsNMR</a></strong></td>
+<td style="text-align: left;">Automated spectraL Processing System for NMR</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/annoLinker">annoLinker</a></strong></td>
+<td style="text-align: left;">Annotating genomic regions through chromatin interaction links</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/beer">beer</a></strong></td>
+<td style="text-align: left;">Bayesian Enrichment Estimation in R</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ceRNAnetsim">ceRNAnetsim</a></strong></td>
+<td style="text-align: left;">Regulation Simulator of Interaction between miRNA and Competing RNAs (ceRNA)</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/chevreulShiny">chevreulShiny</a></strong></td>
+<td style="text-align: left;">Tools for managing SingleCellExperiment objects as projects</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ChromSCape">ChromSCape</a></strong></td>
+<td style="text-align: left;">Analysis of single-cell epigenomics datasets with a Shiny App</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/COTAN">COTAN</a></strong></td>
+<td style="text-align: left;">COexpression Tables ANalysis</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CrcBiomeScreen">CrcBiomeScreen</a></strong></td>
+<td style="text-align: left;">An R package for colorectal cancer screening and microbiome analysis</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>doFuture</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/dar">dar</a></strong></td>
+<td style="text-align: left;">Differential Abundance Analysis by Consensus</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/decoupleR">decoupleR</a></strong></td>
+<td style="text-align: left;">decoupleR: Ensemble of computational methods to infer biological activities from omics data</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/flowGraph">flowGraph</a></strong></td>
+<td style="text-align: left;">Identifying differential cell populations in flow cytometry data accounting for marker frequency</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/fRagmentomics">fRagmentomics</a></strong></td>
+<td style="text-align: left;">Extract Fragmentomics Features and Mutational Status</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/geomeTriD">geomeTriD</a></strong></td>
+<td style="text-align: left;">A R/Bioconductor package for interactive 3D plot of epigenetic data or single cell data</td>
+<td style="text-align: left;"><code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/GSVA">GSVA</a></strong></td>
+<td style="text-align: left;">Gene Set Variation Analysis for Microarray and RNA-Seq Data</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/IFAA">IFAA</a></strong></td>
+<td style="text-align: left;">Robust Inference for Absolute Abundance in Microbiome Analysis</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/infercnv">infercnv</a></strong></td>
+<td style="text-align: left;">Infer Copy Number Variation from Single-Cell RNA-Seq Data</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/InPAS">InPAS</a></strong></td>
+<td style="text-align: left;">Identify Novel Alternative PolyAdenylation Sites (PAS) from RNA-seq data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ISAnalytics">ISAnalytics</a></strong></td>
+<td style="text-align: left;">Analyze gene therapy vector insertion sites data identified from genomics next generation sequencing reads for clonal tracking studies</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/iscream">iscream</a></strong></td>
+<td style="text-align: left;">Make fast and memory efficient BED file queries, summaries and matrices</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/MAI">MAI</a></strong></td>
+<td style="text-align: left;">Mechanism-Aware Imputation</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/mistyR">mistyR</a></strong></td>
+<td style="text-align: left;">Multiview Intercellular SpaTial modeling framework</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/mslp">mslp</a></strong></td>
+<td style="text-align: left;">Predict synthetic lethal partners of tumour mutations</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/pgxRpi">pgxRpi</a></strong></td>
+<td style="text-align: left;">R wrapper for Progenetix</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/Prostar">Prostar</a></strong></td>
+<td style="text-align: left;">Provides a GUI for DAPAR</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/QDNAseq">QDNAseq</a></strong></td>
+<td style="text-align: left;">Quantitative DNA Sequencing for Chromosomal Aberrations</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SCArray.sat">SCArray.sat</a></strong></td>
+<td style="text-align: left;">Large-scale single-cell RNA-seq data analysis using GDS files and Seurat</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scLANE">scLANE</a></strong></td>
+<td style="text-align: left;">Model Gene Expression Dynamics with Spline-Based NB GLMs, GEEs, &amp; GLMMs</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scruff">scruff</a></strong></td>
+<td style="text-align: left;">Single Cell RNA-Seq UMI Filtering Facilitator (scruff)</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/Seqtometry">Seqtometry</a></strong></td>
+<td style="text-align: left;">Signature scoring for single cell analysis</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/signeR">signeR</a></strong></td>
+<td style="text-align: left;">Empirical Bayesian approach to mutational signature discovery</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>listenv</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/sRACIPE">sRACIPE</a></strong></td>
+<td style="text-align: left;">Systems biology tool to simulate gene regulatory circuits</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/synergyfinder">synergyfinder</a></strong></td>
+<td style="text-align: left;">Calculate and Visualize Synergy Scores for Drug Combinations</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cran-packages-1st-gen---135" class="level3">
+<h3 class="anchored" data-anchor-id="cran-packages-1st-gen---135">CRAN Packages (1st Gen - 135)</h3>
+<p>CRAN packages matching life sciences keywords (genomics, clinical research, epidemiology, pharmacology, oncology, ecology, etc.) that depend on Futureverse:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=activAnalyzer">activAnalyzer</a></strong></td>
+<td style="text-align: left;">A ‘Shiny’ App to Analyze Accelerometer-Measured Daily Physical Behavior Data</td>
+<td style="text-align: left;"><code>globals</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=AIPW">AIPW</a></strong></td>
+<td style="text-align: left;">Augmented Inverse Probability Weighting</td>
+<td style="text-align: left;"><code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=akin">akin</a></strong></td>
+<td style="text-align: left;">Functional Utilities for Data Processing</td>
+<td style="text-align: left;"><code>listenv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=AMR">AMR</a></strong></td>
+<td style="text-align: left;">Antimicrobial Resistance Data Analysis</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=aroma.cn">aroma.cn</a></strong></td>
+<td style="text-align: left;">Copy-Number Analysis of Large Microarray Data Sets</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=bamm">bamm</a></strong></td>
+<td style="text-align: left;">Species Distribution Models as a Function of Biotic, Abiotic and Movement Factors (BAM)</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=BayesPET">BayesPET</a></strong></td>
+<td style="text-align: left;">Bayesian Prediction of Event Times for Blinded Randomized Controlled Trials</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=bbknnR">bbknnR</a></strong></td>
+<td style="text-align: left;">Perform Batch Balanced KNN in R</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=bidser">bidser</a></strong></td>
+<td style="text-align: left;">Work with ‘BIDS’ (Brain Imaging Data Structure) Projects</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=bifrost">bifrost</a></strong></td>
+<td style="text-align: left;">Branch-Level Inference Framework for Recognizing Optimal Shifts in Traits</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=bigDM">bigDM</a></strong></td>
+<td style="text-align: left;">Scalable Bayesian Disease Mapping Models for High-Dimensional Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=bioLeak">bioLeak</a></strong></td>
+<td style="text-align: left;">Leakage-Safe Modeling and Auditing for Genomic and Clinical Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=bkmrhat">bkmrhat</a></strong></td>
+<td style="text-align: left;">Parallel Chain Tools for Bayesian Kernel Machine Regression</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=BPrinStratTTE">BPrinStratTTE</a></strong></td>
+<td style="text-align: left;">Causal Effects in Principal Strata Defined by Antidrug Antibodies</td>
+<td style="text-align: left;"><code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=BSET">BSET</a></strong></td>
+<td style="text-align: left;">A Bayesian Surrogate Evaluation Test</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CAESAR.Suite">CAESAR.Suite</a></strong></td>
+<td style="text-align: left;">CAESAR: a Cross-Technology and Cross-Resolution Framework for Spatial Omics Annotation</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=campsis">campsis</a></strong></td>
+<td style="text-align: left;">Generic PK/PD Simulation Platform Campsis</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=carts">carts</a></strong></td>
+<td style="text-align: left;">Simulation-Based Assessment of Covariate Adjustment in Randomized Trials</td>
+<td style="text-align: left;"><code>future</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=cellGeometry">cellGeometry</a></strong></td>
+<td style="text-align: left;">Geometric Single Cell Deconvolution</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Certara.RsNLME.ModelExecutor">Certara.RsNLME.ModelExecutor</a></strong></td>
+<td style="text-align: left;">Execute Pharmacometric Models Using ‘shiny’</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CimpleG">CimpleG</a></strong></td>
+<td style="text-align: left;">A Method to Identify Single CpG Sites for Classification and Deconvolution</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=coFAST">coFAST</a></strong></td>
+<td style="text-align: left;">Spatially-Aware Cell Clustering Algorithm with Cluster Significant Assessment</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=couplr">couplr</a></strong></td>
+<td style="text-align: left;">Optimal Pairing and Matching via Linear Assignment</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Coxmos">Coxmos</a></strong></td>
+<td style="text-align: left;">Cox MultiBlock Survival</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=crmPack">crmPack</a></strong></td>
+<td style="text-align: left;">Object-Oriented Implementation of Dose Escalation Designs</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=crystract">crystract</a></strong></td>
+<td style="text-align: left;">Crystallographic Information File (CIF) Data Processing Tools</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dagHMM">dagHMM</a></strong></td>
+<td style="text-align: left;">Directed Acyclic Graph HMM with TAN Structured Emissions</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dartR.popgen">dartR.popgen</a></strong></td>
+<td style="text-align: left;">Analysing ‘SNP’ and ‘Silicodart’ Data Generated by Genome-Wide Restriction Fragment Analysis</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dataquieR">dataquieR</a></strong></td>
+<td style="text-align: left;">Data Quality in Epidemiological Research</td>
+<td style="text-align: left;"><code>future</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dci">dci</a></strong></td>
+<td style="text-align: left;">Calculate the Dendritic Connectivity Index in River Networks</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DQAstats">DQAstats</a></strong></td>
+<td style="text-align: left;">Core Functions for Data Quality Assessment</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=drugdevelopR">drugdevelopR</a></strong></td>
+<td style="text-align: left;">Utility-Based Optimal Phase II/III Drug Development Planning</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DTEAssurance">DTEAssurance</a></strong></td>
+<td style="text-align: left;">Assurance Methods for Clinical Trials with a Delayed Treatment Effect</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ecocbo">ecocbo</a></strong></td>
+<td style="text-align: left;">Calculating Optimum Sampling Effort in Community Ecology</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ecodive">ecodive</a></strong></td>
+<td style="text-align: left;">Parallel and Memory-Efficient Ecological Diversity Metrics</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=eCV">eCV</a></strong></td>
+<td style="text-align: left;">Enhanced Coefficient of Variation and IDR Extensions for Reproducibility Assessment</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=envi">envi</a></strong></td>
+<td style="text-align: left;">Environmental Interpolation using Spatial Kernel Density Estimation</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=EpiForsk">EpiForsk</a></strong></td>
+<td style="text-align: left;">Code Sharing at the Department of Epidemiology Research at Statens Serum Institut</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=EpiModel">EpiModel</a></strong></td>
+<td style="text-align: left;">Mathematical Modeling of Infectious Disease Dynamics</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=episomer">episomer</a></strong></td>
+<td style="text-align: left;">Early Detection of Public Health Threats from Social Media Data</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=erah">erah</a></strong></td>
+<td style="text-align: left;">Automated Spectral Deconvolution, Alignment, and Metabolite Identification in GC/MS-Based Untargeted Metabolomics</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=fastbioclim">fastbioclim</a></strong></td>
+<td style="text-align: left;">Scalable and Flexible Derivation of Custom-Time Bioclimatic and Environmental Summary Variables</td>
+<td style="text-align: left;"><code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=FastJM">FastJM</a></strong></td>
+<td style="text-align: left;">Semi-Parametric Joint Modeling of Longitudinal and Survival Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=fb4package">fb4package</a></strong></td>
+<td style="text-align: left;">‘Fish Bioenergetics 4.0’ Model Implementation with High-Performance ‘TMB’ Backend</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=forestsearch">forestsearch</a></strong></td>
+<td style="text-align: left;">Exploratory Subgroup Identification in Clinical Trials with Survival Endpoints</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>doFuture</code>, <code>progressr</code>, <code>future.callr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=FracFixR">FracFixR</a></strong></td>
+<td style="text-align: left;">Compositional Statistical Framework for RNA Fractionation Analysis</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=fst4pg">fst4pg</a></strong></td>
+<td style="text-align: left;">Genetic Distance Segmentation for Population Genetics</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=gammaFuncModel">gammaFuncModel</a></strong></td>
+<td style="text-align: left;">Non-Linear Mixed Effects Model Based on the Gamma Function Form</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=genBaRcode">genBaRcode</a></strong></td>
+<td style="text-align: left;">Analysis and Visualization Tools for Genetic Barcode Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=geocmeans">geocmeans</a></strong></td>
+<td style="text-align: left;">Implementing Methods for Spatial Fuzzy Unsupervised Classification</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=geohabnet">geohabnet</a></strong></td>
+<td style="text-align: left;">Geographical Risk Analysis Based on Habitat Connectivity</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=greatR">greatR</a></strong></td>
+<td style="text-align: left;">Gene Registration from Expression and Time-Courses in R</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=greed">greed</a></strong></td>
+<td style="text-align: left;">Clustering and Model Selection with the Integrated Classification Likelihood</td>
+<td style="text-align: left;"><code>future</code>, <code>listenv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=healthbR">healthbR</a></strong></td>
+<td style="text-align: left;">Access Brazilian Public Health Data</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=iNEXT.beta3D">iNEXT.beta3D</a></strong></td>
+<td style="text-align: left;">Interpolation and Extrapolation with Beta Diversity for Three Dimensions of Biodiversity</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=jackknifeR">jackknifeR</a></strong></td>
+<td style="text-align: left;">Delete-d Jackknife for Point and Interval Estimation</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>doFuture</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=janusplot">janusplot</a></strong></td>
+<td style="text-align: left;">Asymmetric Smoothed-Association Matrices via GAM Fits</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=jpinfect">jpinfect</a></strong></td>
+<td style="text-align: left;">Acquiring and Processing Data from Japan Institute for Health Security</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=kmeRtone">kmeRtone</a></strong></td>
+<td style="text-align: left;">Multi-Purpose and Flexible k-Meric Enrichment Analysis Software</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=lava">lava</a></strong></td>
+<td style="text-align: left;">Latent Variable Models</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=LTFGRS">LTFGRS</a></strong></td>
+<td style="text-align: left;">Implementation of Several Phenotype-Based Family Genetic Risk Scores</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=LTFHPlus">LTFHPlus</a></strong></td>
+<td style="text-align: left;">Implementation of LT-FH++</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mapme.biodiversity">mapme.biodiversity</a></strong></td>
+<td style="text-align: left;">Efficient Monitoring of Global Biodiversity Portfolios</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=metaGE">metaGE</a></strong></td>
+<td style="text-align: left;">Meta-Analysis for Detecting Genotype x Environment Associations</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=metasnf">metasnf</a></strong></td>
+<td style="text-align: left;">Meta Clustering with Similarity Network Fusion</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mmrm">mmrm</a></strong></td>
+<td style="text-align: left;">Mixed Models for Repeated Measures</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=nebula">nebula</a></strong></td>
+<td style="text-align: left;">Negative Binomial Mixed Models Using Large-Sample Approximation for Differential Expression Analysis of ScRNA-Seq Data</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=netseer">netseer</a></strong></td>
+<td style="text-align: left;">Graph Prediction from a Graph Time Series</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=neuroim2">neuroim2</a></strong></td>
+<td style="text-align: left;">Data Structures for Brain Imaging Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=nevada">nevada</a></strong></td>
+<td style="text-align: left;">Network-Valued Data Analysis</td>
+<td style="text-align: left;"><code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=nlmixr2auto">nlmixr2auto</a></strong></td>
+<td style="text-align: left;">Automated Population Pharmacokinetic Modeling</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=nlmixr2autoinit">nlmixr2autoinit</a></strong></td>
+<td style="text-align: left;">Automatic Generation of Initial Estimates for Population Pharmacokinetic Modeling</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=OutSeekR">OutSeekR</a></strong></td>
+<td style="text-align: left;">Statistical Approach to Outlier Detection in RNA-Seq and Related Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=parseRPDR">parseRPDR</a></strong></td>
+<td style="text-align: left;">Parse and Manipulate Research Patient Data Registry (‘RPDR’) Text Queries</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code>, <code>progressr</code>, <code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=PathwayVote">PathwayVote</a></strong></td>
+<td style="text-align: left;">Robust Pathway Enrichment for DNA Methylation Studies Using Ensemble Voting</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=pcpr">pcpr</a></strong></td>
+<td style="text-align: left;">Principal Component Pursuit for Environmental Epidemiology</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=PeakSegDisk">PeakSegDisk</a></strong></td>
+<td style="text-align: left;">Disk-Based Constrained Change-Point Detection</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=pGRN">pGRN</a></strong></td>
+<td style="text-align: left;">Single-Cell RNA Sequencing Pseudo-Time Based Gene Regulatory Network Inference</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=phylolm">phylolm</a></strong></td>
+<td style="text-align: left;">Phylogenetic Linear Regression</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=phylopath">phylopath</a></strong></td>
+<td style="text-align: left;">Perform Phylogenetic Path Analysis</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=phylospatial">phylospatial</a></strong></td>
+<td style="text-align: left;">Spatial Phylogenetic Analysis</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=phyr">phyr</a></strong></td>
+<td style="text-align: left;">Model Based Phylogenetic Analysis</td>
+<td style="text-align: left;"><code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=pmartR">pmartR</a></strong></td>
+<td style="text-align: left;">Panomics Marketplace - Quality Control and Statistical Analysis for Panomics Data</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=poppr">poppr</a></strong></td>
+<td style="text-align: left;">Genetic Analysis of Populations with Mixed Reproduction</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ppseq">ppseq</a></strong></td>
+<td style="text-align: left;">Design Clinical Trials using Sequential Predictive Probability Monitoring</td>
+<td style="text-align: left;"><code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ProFAST">ProFAST</a></strong></td>
+<td style="text-align: left;">Probabilistic Factor Analysis for Spatially-Aware Dimension Reduction</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=protti">protti</a></strong></td>
+<td style="text-align: left;">Bottom-Up Proteomics and LiP-MS Quality Control and Data Analysis Tools</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=PSCBS">PSCBS</a></strong></td>
+<td style="text-align: left;">Analysis of Parent-Specific DNA Copy Numbers</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=qtl2pleio">qtl2pleio</a></strong></td>
+<td style="text-align: left;">Testing Pleiotropy in Multiparental Populations</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=RAINBOWR">RAINBOWR</a></strong></td>
+<td style="text-align: left;">Genome-Wide Association Study with SNP-Set Methods</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rangeMapper">rangeMapper</a></strong></td>
+<td style="text-align: left;">A Platform for the Study of Macro-Ecology of Life History Traits</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ravepipeline">ravepipeline</a></strong></td>
+<td style="text-align: left;">Reproducible Pipeline Infrastructure for Neuroscience</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>globals</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rBiasCorrection">rBiasCorrection</a></strong></td>
+<td style="text-align: left;">Correct Bias in DNA Methylation Analyses</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Rcurvep">Rcurvep</a></strong></td>
+<td style="text-align: left;">Concentration-Response Data Analysis using Curvep</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=readyomics">readyomics</a></strong></td>
+<td style="text-align: left;">Ready-to-Use Omics Formatting, Analysis, and Visualization Pipeline</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rechaRge">rechaRge</a></strong></td>
+<td style="text-align: left;">HydroBudget – Groundwater Recharge Model</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=reems">reems</a></strong></td>
+<td style="text-align: left;">Estimating Effective Migration Surfaces from Single Nucleotide Polymorphism Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=refineR">refineR</a></strong></td>
+<td style="text-align: left;">Reference Interval Estimation using Real-World Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Rfuzzycoco">Rfuzzycoco</a></strong></td>
+<td style="text-align: left;">Provides an R Interface to the ‘FuzzyCoCo’ C++ Library and Extends It</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=RMSTpowerBoost">RMSTpowerBoost</a></strong></td>
+<td style="text-align: left;">Power and Sample Size for Restricted Mean Survival Time Based Clinical Trials</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rosario">rosario</a></strong></td>
+<td style="text-align: left;">A Null Model Algorithm to Analyze Cyclical Data in Ecology</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SCdeconR">SCdeconR</a></strong></td>
+<td style="text-align: left;">Deconvolution of Bulk RNA-Seq Data using Single-Cell RNA-Seq Data as Reference</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scDiffCom">scDiffCom</a></strong></td>
+<td style="text-align: left;">Differential Analysis of Intercellular Communication from scRNA-Seq Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SCORPION">SCORPION</a></strong></td>
+<td style="text-align: left;">Single Cell Oriented Reconstruction of PANDA Individually Optimized Networks</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sctransform">sctransform</a></strong></td>
+<td style="text-align: left;">Variance Stabilizing Transformations for Single Cell UMI Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sdcTable">sdcTable</a></strong></td>
+<td style="text-align: left;">Methods for Statistical Disclosure Control in Tabular Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=seqimpute">seqimpute</a></strong></td>
+<td style="text-align: left;">Imputation of Missing Data in Sequence Analysis</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Seurat">Seurat</a></strong></td>
+<td style="text-align: left;">Tools for Single Cell Genomics</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SeuratObject">SeuratObject</a></strong></td>
+<td style="text-align: left;">Data Structures for Single Cell Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sharp">sharp</a></strong></td>
+<td style="text-align: left;">Stability-enHanced Approaches using Resampling Procedures</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SigBridgeRUtils">SigBridgeRUtils</a></strong></td>
+<td style="text-align: left;">Some Utilities &amp; Base Supports for ‘SigBridgeR’</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sigminer">sigminer</a></strong></td>
+<td style="text-align: left;">Extract, Analyze and Visualize Mutational Signatures for Genomic Variations</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Signac">Signac</a></strong></td>
+<td style="text-align: left;">Analysis of Single-Cell Chromatin Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=simaerep">simaerep</a></strong></td>
+<td style="text-align: left;">Detect Clinical Trial Sites Over- or Under-Reporting Clinical Events</td>
+<td style="text-align: left;"><code>furrr</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=simIDM">simIDM</a></strong></td>
+<td style="text-align: left;">Simulating Oncology Trials using an Illness-Death Model</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=simtrial">simtrial</a></strong></td>
+<td style="text-align: left;">Clinical Trial Simulation</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sleacr">sleacr</a></strong></td>
+<td style="text-align: left;">Simplified Lot Quality Assurance Sampling Evaluation of Access and Coverage (SLEAC) Tools</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SmCCNet">SmCCNet</a></strong></td>
+<td style="text-align: left;">Sparse Multiple Canonical Correlation Network Analysis Tool (‘SmCCNet’)</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=socialSim">socialSim</a></strong></td>
+<td style="text-align: left;">Simulate and Analyse Social Interaction Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=survex">survex</a></strong></td>
+<td style="text-align: left;">Explainable Machine Learning in Survival Analysis</td>
+<td style="text-align: left;"><code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=TaxaNorm">TaxaNorm</a></strong></td>
+<td style="text-align: left;">Feature-Wise Normalization for Microbiome Sequencing Data</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=tenm">tenm</a></strong></td>
+<td style="text-align: left;">Temporal Ecological Niche Models</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=tern.mmrm">tern.mmrm</a></strong></td>
+<td style="text-align: left;">Tables and Graphs for Mixed Models for Repeated Measures (MMRM)</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=tinyshinyserver">tinyshinyserver</a></strong></td>
+<td style="text-align: left;">Tiny ‘shiny’ Server - Lightweight Multi-App ‘shiny’ Proxy</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=tipmap">tipmap</a></strong></td>
+<td style="text-align: left;">Tipping Point Analysis for Bayesian Dynamic Borrowing</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Tivy">Tivy</a></strong></td>
+<td style="text-align: left;">Toolkit for Investigation and Visualization of Young Anchovies</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=topolow">topolow</a></strong></td>
+<td style="text-align: left;">Force-Directed Euclidean Embedding of Dissimilarity Data</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=TreeSearch">TreeSearch</a></strong></td>
+<td style="text-align: left;">Phylogenetic Analysis with Discrete Character Data</td>
+<td style="text-align: left;"><code>future</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=updog">updog</a></strong></td>
+<td style="text-align: left;">Flexible Genotyping for Polyploids</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code>, <code>parallelly</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=WARDEN">WARDEN</a></strong></td>
+<td style="text-align: left;">Workflows for Health Technology Assessments in R using Discrete EveNts</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code>, <code>progressr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=WeightedCluster">WeightedCluster</a></strong></td>
+<td style="text-align: left;">Clustering of Weighted Data</td>
+<td style="text-align: left;"><code>future</code>, <code>doFuture</code>, <code>progressr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=wingen">wingen</a></strong></td>
+<td style="text-align: left;">Continuous Mapping of Genetic Diversity</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=wru">wru</a></strong></td>
+<td style="text-align: left;">Who are You? Bayesian Prediction of Racial Category Using Surname, First Name, Middle Name, and Geolocation</td>
+<td style="text-align: left;"><code>future</code>, <code>furrr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=xega">xega</a></strong></td>
+<td style="text-align: left;">Extended Evolutionary and Genetic Algorithms</td>
+<td style="text-align: left;"><code>parallelly</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=xegaPopulation">xegaPopulation</a></strong></td>
+<td style="text-align: left;">Genetic Population Level Functions</td>
+<td style="text-align: left;"><code>future</code>, <code>future.apply</code>, <code>parallelly</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="part-2-second-generation-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-second-generation-dependencies">Part 2: Second-Generation Dependencies</h2>
+<p>Second-generation dependencies are packages that build directly upon our identified 1st-generation life sciences packages. This indicates a high level of transitive reliance on the Futureverse parallel infrastructure.</p>
+<section id="top-10-hub-packages-in-life-sciences-parallelization" class="level3">
+<h3 class="anchored" data-anchor-id="top-10-hub-packages-in-life-sciences-parallelization">Top 10 ‘Hub’ Packages in Life Sciences Parallelization</h3>
+<p>The following 1st-generation packages are the most popular frameworks that other life science packages depend on. Through these ‘hubs’, the Futureverse parallelization benefits a massive downstream audience:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Repository</th>
+<th style="text-align: left;">Downstream Dependents Count</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Seurat</strong></td>
+<td style="text-align: left;">CRAN</td>
+<td style="text-align: left;">167</td>
+<td style="text-align: left;">The premier R toolkit for single-cell genomics, extensively using <code>future</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SeuratObject</strong></td>
+<td style="text-align: left;">CRAN</td>
+<td style="text-align: left;">70</td>
+<td style="text-align: left;">Data structures for single-cell data, developed alongside Seurat</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>GSVA</strong></td>
+<td style="text-align: left;">Bioconductor</td>
+<td style="text-align: left;">29</td>
+<td style="text-align: left;">Gene Set Variation Analysis for pathway/microarray/RNA-Seq data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>lava</strong></td>
+<td style="text-align: left;">CRAN</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">Latent Variable Models</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>phylolm</strong></td>
+<td style="text-align: left;">CRAN</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">Phylogenetic Generalized Linear Models</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>mmrm</strong></td>
+<td style="text-align: left;">CRAN</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Mixed Model for Repeated Measures in Clinical Trials</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>decoupleR</strong></td>
+<td style="text-align: left;">Bioconductor</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Computational methods to infer biological activities from omics data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>WeightedCluster</strong></td>
+<td style="text-align: left;">CRAN</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Clustering sequences of biological/social states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>QDNAseq</strong></td>
+<td style="text-align: left;">Bioconductor</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Quantitative DNA Sequencing for Chromosomal Aberrations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>updog</strong></td>
+<td style="text-align: left;">CRAN</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Flexible Genotyping for Polyploids</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="full-list-of-second-generation-dependents-306" class="level3">
+<h3 class="anchored" data-anchor-id="full-list-of-second-generation-dependents-306">Full List of Second-Generation Dependents (306)</h3>
+<p>Click the sections below to expand and view the detailed tables of all second-generation dependents on CRAN and Bioconductor.</p>
+<details>
+<summary>
+<b>View 132 Bioconductor Second-Generation Packages (Genomics &amp; Bioinformatics)</b>
+</summary>
+<p>These packages build directly on top of Bioconductor 1st-generation dependencies like <code>Seurat</code>, <code>GSVA</code>, <code>Signac</code>, <code>decoupleR</code>, or <code>QDNAseq</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Relies on 1st Gen Hubs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ACE">ACE</a></strong></td>
+<td style="text-align: left;">Absolute Copy Number Estimation from Low-coverage Whole Genome Sequencing</td>
+<td style="text-align: left;"><code>QDNAseq</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/anglemania">anglemania</a></strong></td>
+<td style="text-align: left;">Feature Extraction for scRNA-seq Dataset Integration</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/anndataR">anndataR</a></strong></td>
+<td style="text-align: left;">AnnData interoperability in R</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/APL">APL</a></strong></td>
+<td style="text-align: left;">Association Plots</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ASURAT">ASURAT</a></strong></td>
+<td style="text-align: left;">Functional annotation-driven unsupervised clustering for single-cell data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/atacInferCnv">atacInferCnv</a></strong></td>
+<td style="text-align: left;">Call CNV from single cell ATAC-seq data based on InferCNV adaptation</td>
+<td style="text-align: left;"><code>infercnv</code>, <code>Seurat</code>, <code>Signac</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/Banksy">Banksy</a></strong></td>
+<td style="text-align: left;">Spatial transcriptomic clustering</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/BatChef">BatChef</a></strong></td>
+<td style="text-align: left;">Single-cell RNA-seq batch effects correction methods interface</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/BayesSpace">BayesSpace</a></strong></td>
+<td style="text-align: left;">Clustering and Resolution Enhancement of Spatial Transcriptomes</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/benchdamic">benchdamic</a></strong></td>
+<td style="text-align: left;">Benchmark of differential abundance methods on microbiome data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/biscuiteer">biscuiteer</a></strong></td>
+<td style="text-align: left;">Convenience Functions for Biscuit</td>
+<td style="text-align: left;"><code>QDNAseq</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/blase">blase</a></strong></td>
+<td style="text-align: left;">Bulk Linking Analysis for Single-cell Experiments</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CatsCradle">CatsCradle</a></strong></td>
+<td style="text-align: left;">This package provides methods for analysing spatial transcriptomics data and for discovering gene clusters</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CDI">CDI</a></strong></td>
+<td style="text-align: left;">Clustering Deviation Index (CDI)</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CelliD">CelliD</a></strong></td>
+<td style="text-align: left;">Unbiased Extraction of Single Cell gene signatures using Multiple Correspondence Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CellMentor">CellMentor</a></strong></td>
+<td style="text-align: left;">Supervised Non-negative Matrix Factorization for Dimensional Reduction in Single-Cell Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/cfdnakit">cfdnakit</a></strong></td>
+<td style="text-align: left;">Fragmen-length analysis package from high-throughput sequencing of cell-free DNA (cfDNA)</td>
+<td style="text-align: left;"><code>QDNAseq</code>, <code>PSCBS</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ClusterFoldSimilarity">ClusterFoldSimilarity</a></strong></td>
+<td style="text-align: left;">Calculate similarity of clusters from different single cell samples using foldchanges</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ClusterGVis">ClusterGVis</a></strong></td>
+<td style="text-align: left;">One-Step to Cluster and Visualize Gene Expression Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/clustifyr">clustifyr</a></strong></td>
+<td style="text-align: left;">Classifier for Single-cell RNA-seq Using Cell Clusters</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/clustifyrdatahub">clustifyrdatahub</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CoGAPS">CoGAPS</a></strong></td>
+<td style="text-align: left;">Coordinated Gene Activity in Pattern Sets</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/compcodeR">compcodeR</a></strong></td>
+<td style="text-align: left;">RNAseq data simulation, differential expression analysis and performance comparison of differential expression methods</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/consensusOV">consensusOV</a></strong></td>
+<td style="text-align: left;">Gene expression-based subtype classification for high-grade serous ovarian cancer</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/consICA">consICA</a></strong></td>
+<td style="text-align: left;">consensus Independent Component Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/cosmosR">cosmosR</a></strong></td>
+<td style="text-align: left;">COSMOS (Causal Oriented Search of Multi-Omic Space)</td>
+<td style="text-align: left;"><code>decoupleR</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CSOA">CSOA</a></strong></td>
+<td style="text-align: left;">Calculate per-cell gene signature scores in scRNA-seq data using cell set overlaps</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/CuratedAtlasQueryR">CuratedAtlasQueryR</a></strong></td>
+<td style="text-align: left;">Queries the Human Cell Atlas</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/DCATS">DCATS</a></strong></td>
+<td style="text-align: left;">Differential Composition Analysis Transformed by a Similarity matrix</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/decontX">decontX</a></strong></td>
+<td style="text-align: left;">Decontamination of single cell genomics data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/demuxSNP">demuxSNP</a></strong></td>
+<td style="text-align: left;">scRNAseq demultiplexing using cell hashing and SNPs</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/Dino">Dino</a></strong></td>
+<td style="text-align: left;">Normalization of Single-Cell mRNA Sequencing Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/dittoSeq">dittoSeq</a></strong></td>
+<td style="text-align: left;">User Friendly Single-Cell and Bulk RNA Sequencing Visualization</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/dominoSignal">dominoSignal</a></strong></td>
+<td style="text-align: left;">Cell Communication Analysis for Single Cell RNA Sequencing</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/dorothea">dorothea</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>decoupleR</code>, <code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/DOtools">DOtools</a></strong></td>
+<td style="text-align: left;">Convenient functions to streamline your single cell data analysis workflow</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/easier">easier</a></strong></td>
+<td style="text-align: left;">Estimate Systems Immune Response from RNA-seq data</td>
+<td style="text-align: left;"><code>decoupleR</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/EasyCellType">EasyCellType</a></strong></td>
+<td style="text-align: left;">Annotate cell types for scRNA-seq data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/edgeR">edgeR</a></strong></td>
+<td style="text-align: left;">Empirical Analysis of Digital Gene Expression Data in R</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/EGSEA">EGSEA</a></strong></td>
+<td style="text-align: left;">Ensemble of Gene Set Enrichment Analyses</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/EMTscoreData">EMTscoreData</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/EpiMix">EpiMix</a></strong></td>
+<td style="text-align: left;">EpiMix: an integrative tool for the population-level analysis of DNA methylation</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/escape">escape</a></strong></td>
+<td style="text-align: left;">Easy single cell analysis platform for enrichment</td>
+<td style="text-align: left;"><code>GSVA</code>, <code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/escheR">escheR</a></strong></td>
+<td style="text-align: left;">Unified multi-dimensional visualizations with Gestalt principles</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/EWCE">EWCE</a></strong></td>
+<td style="text-align: left;">Expression Weighted Celltype Enrichment</td>
+<td style="text-align: left;"><code>sctransform</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/FEAST">FEAST</a></strong></td>
+<td style="text-align: left;">FEAture SelcTion (FEAST) for Single-cell clustering</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/fgsea">fgsea</a></strong></td>
+<td style="text-align: left;">Fast Gene Set Enrichment Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/GeneBreak">GeneBreak</a></strong></td>
+<td style="text-align: left;">Gene Break Detection</td>
+<td style="text-align: left;"><code>QDNAseq</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/GeomxTools">GeomxTools</a></strong></td>
+<td style="text-align: left;">NanoString GeoMx Tools</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ggsc">ggsc</a></strong></td>
+<td style="text-align: left;">Visualizing Single Cell and Spatial Transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/GSABenchmark">GSABenchmark</a></strong></td>
+<td style="text-align: left;">Tools for benchmarking single-cell gene set analysis methods</td>
+<td style="text-align: left;"><code>decoupleR</code>, <code>GSVA</code>, <code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/HCATonsilData">HCATonsilData</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>Signac</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/HVP">HVP</a></strong></td>
+<td style="text-align: left;">Hierarchical Variance Partitioning</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/Ibex">Ibex</a></strong></td>
+<td style="text-align: left;">Methods for BCR single-cell embedding</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/jazzPanda">jazzPanda</a></strong></td>
+<td style="text-align: left;">Finding spatially relevant marker genes in image based spatial transcriptomics data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/looking4clusters">looking4clusters</a></strong></td>
+<td style="text-align: left;">Interactive Visualization of scRNA-Seq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/M3Drop">M3Drop</a></strong></td>
+<td style="text-align: left;">Michaelis-Menten Modelling of Dropouts in single-cell RNASeq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/mastR">mastR</a></strong></td>
+<td style="text-align: left;">Markers Automated Screening Tool in R</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/MCbiclust">MCbiclust</a></strong></td>
+<td style="text-align: left;">Massive correlating biclusters for gene expression data and associated methods</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/mia">mia</a></strong></td>
+<td style="text-align: left;">Microbiome analysis</td>
+<td style="text-align: left;"><code>ecodive</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/mitology">mitology</a></strong></td>
+<td style="text-align: left;">Study of mitochondrial activity from RNA-seq data</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/MOFA2">MOFA2</a></strong></td>
+<td style="text-align: left;">Multi-Omics Factor Analysis v2</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/monocle">monocle</a></strong></td>
+<td style="text-align: left;">Clustering, differential expression, and trajectory analysis for single- cell RNA-Seq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/MOSim">MOSim</a></strong></td>
+<td style="text-align: left;">Multi-Omics Simulation (MOSim)</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>Signac</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/muscat">muscat</a></strong></td>
+<td style="text-align: left;">Multi-sample multi-group scRNA-seq data analysis tools</td>
+<td style="text-align: left;"><code>sctransform</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/muscData">muscData</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/Nebulosa">Nebulosa</a></strong></td>
+<td style="text-align: left;">Single-Cell Data Visualisation Using Kernel Gene-Weighted Density Estimation</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/nipalsMCIA">nipalsMCIA</a></strong></td>
+<td style="text-align: left;">Multiple Co-Inertia Analysis via the NIPALS Method</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/octad">octad</a></strong></td>
+<td style="text-align: left;">Open Cancer TherApeutic Discovery (OCTAD)</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/oppar">oppar</a></strong></td>
+<td style="text-align: left;">Outlier profile and pathway analysis in R</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/partCNV">partCNV</a></strong></td>
+<td style="text-align: left;">Infer locally aneuploid cells using single cell RNA-seq data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/pathMED">pathMED</a></strong></td>
+<td style="text-align: left;">Scoring Personalized Molecular Portraits</td>
+<td style="text-align: left;"><code>decoupleR</code>, <code>GSVA</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/pipeComp">pipeComp</a></strong></td>
+<td style="text-align: left;">pipeComp pipeline benchmarking framework</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/PIUMA">PIUMA</a></strong></td>
+<td style="text-align: left;">Phenotypes Identification Using Mapper from topological data Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/plaid">plaid</a></strong></td>
+<td style="text-align: left;">PLAID ultrafast gene set enrichment scoring</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/progeny">progeny</a></strong></td>
+<td style="text-align: left;">Pathway RespOnsive GENes for activity inference from gene expression</td>
+<td style="text-align: left;"><code>decoupleR</code>, <code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/projectR">projectR</a></strong></td>
+<td style="text-align: left;">Functions for the projection of weights from PCA, CoGAPS, NMF, correlation, and clustering</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/PureCN">PureCN</a></strong></td>
+<td style="text-align: left;">Copy number calling and SNV classification using targeted short read sequencing</td>
+<td style="text-align: left;"><code>PSCBS</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/QDNAseq.hg19">QDNAseq.hg19</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>QDNAseq</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/QDNAseq.mm10">QDNAseq.mm10</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>QDNAseq</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/RankMap">RankMap</a></strong></td>
+<td style="text-align: left;">Rank-based reference mapping for fast and robust cell type annotation in spatial and single-cell transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ReactomeGSA">ReactomeGSA</a></strong></td>
+<td style="text-align: left;">Client for the Reactome Analysis Service for comparative multi-omics gene set analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/ReactomeGSA.data">ReactomeGSA.data</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/RegionalST">RegionalST</a></strong></td>
+<td style="text-align: left;">Investigating regions of interest and performing regional cell type-specific analysis with spatial transcriptomics data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/rSWeeP">rSWeeP</a></strong></td>
+<td style="text-align: left;">Spaced Words Projection (SWeeP)</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scAnnotatR">scAnnotatR</a></strong></td>
+<td style="text-align: left;">Pretrained learning models for cell type prediction on single cell RNA-sequencing data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scBFA">scBFA</a></strong></td>
+<td style="text-align: left;">A dimensionality reduction tool using gene detection pattern to mitigate noisy expression profile of scRNA-seq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scBubbletree">scBubbletree</a></strong></td>
+<td style="text-align: left;">Quantitative visual exploration of scRNA-seq data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scCB2">scCB2</a></strong></td>
+<td style="text-align: left;">CB2 improves power of cell detection in droplet-based single-cell RNA sequencing data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/sccomp">sccomp</a></strong></td>
+<td style="text-align: left;">Differential Composition and Variability Analysis for Single-Cell Data</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scDataviz">scDataviz</a></strong></td>
+<td style="text-align: left;">scDataviz: single cell dataviz and downstream analyses</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scDotPlot">scDotPlot</a></strong></td>
+<td style="text-align: left;">Cluster a Single-cell RNA-seq Dot Plot</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scECODA">scECODA</a></strong></td>
+<td style="text-align: left;">Single-Cell Exploratory Compositional Data Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scFeatures">scFeatures</a></strong></td>
+<td style="text-align: left;">scFeatures: Multi-view representations of single-cell and spatial data for disease outcome prediction</td>
+<td style="text-align: left;"><code>GSVA</code>, <code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scGraphVerse">scGraphVerse</a></strong></td>
+<td style="text-align: left;">scGraphVerse: A Gene Network Analysis Package</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/schex">schex</a></strong></td>
+<td style="text-align: left;">Hexbin plots for single cell omics data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scLang">scLang</a></strong></td>
+<td style="text-align: left;">A unified language for interacting with Seurat and SingleCellExperiment</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scPassport">scPassport</a></strong></td>
+<td style="text-align: left;">Passport System for Single-Cell Objects</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scQTLtools">scQTLtools</a></strong></td>
+<td style="text-align: left;">scQTLtools: an R/Bioconductor package for comprehensive identification and visualization of single-cell eQTLs</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scRepertoire">scRepertoire</a></strong></td>
+<td style="text-align: left;">A toolkit for single-cell immune receptor profiling</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scRNAseqApp">scRNAseqApp</a></strong></td>
+<td style="text-align: left;">A single-cell RNAseq Shiny app-package</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scTensor">scTensor</a></strong></td>
+<td style="text-align: left;">Detection of cell-cell interaction from single-cell RNA-seq dataset by tensor decomposition</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scTreeViz">scTreeViz</a></strong></td>
+<td style="text-align: left;">R/Bioconductor package to interactively explore and visualize single cell RNA-seq datasets with hierarhical annotations</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/scTypeEval">scTypeEval</a></strong></td>
+<td style="text-align: left;">Evaluation of cell type classifications in single-cell transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SETA">SETA</a></strong></td>
+<td style="text-align: left;">Single Cell Ecological Taxonomic Analysis</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SFEData">SFEData</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/signifinder">signifinder</a></strong></td>
+<td style="text-align: left;">Collection and implementation of public transcriptional cancer signatures</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SimBenchData">SimBenchData</a></strong></td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SimBu">SimBu</a></strong></td>
+<td style="text-align: left;">Simulate Bulk RNA-seq Datasets from Single-Cell Datasets</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/singIST">singIST</a></strong></td>
+<td style="text-align: left;">comparative single-cell transcriptomics between disease models and a human condition</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/singleCellTK">singleCellTK</a></strong></td>
+<td style="text-align: left;">Comprehensive and Interactive Analysis of Single Cell RNA-Seq Data</td>
+<td style="text-align: left;"><code>GSVA</code>, <code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SmartPhos">SmartPhos</a></strong></td>
+<td style="text-align: left;">A phosphoproteomics data analysis package with an interactive ShinyApp</td>
+<td style="text-align: left;"><code>decoupleR</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/Spaniel">Spaniel</a></strong></td>
+<td style="text-align: left;">Spatial Transcriptomics Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SpaNorm">SpaNorm</a></strong></td>
+<td style="text-align: left;">Spatially-aware normalisation for spatial transcriptomics data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/sparrow">sparrow</a></strong></td>
+<td style="text-align: left;">Take command of set enrichment analyses through a unified interface</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SpatialDecon">SpatialDecon</a></strong></td>
+<td style="text-align: left;">Deconvolution of mixed cells from spatial and/or bulk gene expression data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SpatialFeatureExperiment">SpatialFeatureExperiment</a></strong></td>
+<td style="text-align: left;">Integrating SpatialExperiment with Simple Features in sf</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/spatialHeatmap">spatialHeatmap</a></strong></td>
+<td style="text-align: left;">spatialHeatmap: Visualizing Spatial Assays in Anatomical Images and Large-Scale Data Extensions</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/speckle">speckle</a></strong></td>
+<td style="text-align: left;">Statistical methods for analysing single cell RNA-seq data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SpNeigh">SpNeigh</a></strong></td>
+<td style="text-align: left;">Spatial Neighborhood Modeling and Differential Expression Analysis for Transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SPONGE">SPONGE</a></strong></td>
+<td style="text-align: left;">Sparse Partial Correlations On Gene Expression</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SpotClean">SpotClean</a></strong></td>
+<td style="text-align: left;">SpotClean adjusts for spot swapping in spatial transcriptomics data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/stJoincount">stJoincount</a></strong></td>
+<td style="text-align: left;">stJoincount - Join count statistic for quantifying spatial correlation between clusters</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/stPipe">stPipe</a></strong></td>
+<td style="text-align: left;">Upstream pre-processing for Sequencing-Based Spatial Transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/SuperCellCyto">SuperCellCyto</a></strong></td>
+<td style="text-align: left;">SuperCell For Cytometry Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/TAPseq">TAPseq</a></strong></td>
+<td style="text-align: left;">Targeted scRNA-seq primer design for TAP-seq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/TBSignatureProfiler">TBSignatureProfiler</a></strong></td>
+<td style="text-align: left;">Profile RNA-Seq Data Using TB Pathway Signatures</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/TCGAbiolinks">TCGAbiolinks</a></strong></td>
+<td style="text-align: left;">TCGAbiolinks: An R/Bioconductor package for integrative analysis with GDC data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/tidybulk">tidybulk</a></strong></td>
+<td style="text-align: left;">Brings transcriptomics to the tidyverse</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/tricycle">tricycle</a></strong></td>
+<td style="text-align: left;">tricycle: Transferable Representation and Inference of cell cycle</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/UCell">UCell</a></strong></td>
+<td style="text-align: left;">Rank-based signature enrichment analysis for single-cell data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://bioconductor.org/packages/visiumStitched">visiumStitched</a></strong></td>
+<td style="text-align: left;">Enable downstream analysis of Visium capture areas stitched together with Fiji</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<b>View 174 CRAN Second-Generation Packages (Clinical, Medical &amp; Ecological)</b>
+</summary>
+<p>These packages build on top of CRAN 1st-generation dependencies like <code>AMR</code>, <code>brms</code>, <code>mmrm</code>, <code>PKNCA</code>, <code>MuMIn</code>, or <code>healthyR</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Relies on 1st Gen Hubs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=adegenet">adegenet</a></strong></td>
+<td style="text-align: left;">Exploratory Analysis of Genetic and Genomic Data</td>
+<td style="text-align: left;"><code>poppr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=AlleleShift">AlleleShift</a></strong></td>
+<td style="text-align: left;">Predict and Visualize Population-Level Changes in Allele Frequencies in Response to Climate Change</td>
+<td style="text-align: left;"><code>poppr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=AnanseSeurat">AnanseSeurat</a></strong></td>
+<td style="text-align: left;">Construct ANANSE GRN-Analysis Seurat</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>Signac</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=APackOfTheClones">APackOfTheClones</a></strong></td>
+<td style="text-align: left;">Visualization of Clonal Expansion for Single Cell Immune Profiles</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=aroma.core">aroma.core</a></strong></td>
+<td style="text-align: left;">Core Methods and Classes Used by ’aroma.*’ Packages Part of the Aroma Framework</td>
+<td style="text-align: left;"><code>PSCBS</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=atime">atime</a></strong></td>
+<td style="text-align: left;">Asymptotic Timing</td>
+<td style="text-align: left;"><code>PeakSegDisk</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=autoGO">autoGO</a></strong></td>
+<td style="text-align: left;">Auto-GO: Reproducible, Robust and High Quality Ontology Enrichment Visualizations</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=BiasCorrector">BiasCorrector</a></strong></td>
+<td style="text-align: left;">A GUI to Correct Measurement Bias in DNA Methylation Analyses</td>
+<td style="text-align: left;"><code>rBiasCorrection</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=birdie">birdie</a></strong></td>
+<td style="text-align: left;">Bayesian Instrumental Regression for Disparity Estimation</td>
+<td style="text-align: left;"><code>wru</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=brms.mmrm">brms.mmrm</a></strong></td>
+<td style="text-align: left;">Bayesian MMRMs using ‘brms’</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=broom.helpers">broom.helpers</a></strong></td>
+<td style="text-align: left;">Helpers for Model Coefficients Tibbles</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=BuyseTest">BuyseTest</a></strong></td>
+<td style="text-align: left;">Generalized Pairwise Comparisons</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Canek">Canek</a></strong></td>
+<td style="text-align: left;">Batch Correction of Single Cell Transcriptome Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=cauphy">cauphy</a></strong></td>
+<td style="text-align: left;">Trait Evolution on Phylogenies Using the Cauchy Process</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CellDEEP">CellDEEP</a></strong></td>
+<td style="text-align: left;">Cell DiffErential Expression by Pooling (‘CellDEEP’)</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=cellKey">cellKey</a></strong></td>
+<td style="text-align: left;">Consistent Perturbation of Statistical Frequency- And Magnitude Tables</td>
+<td style="text-align: left;"><code>sdcTable</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CellWindX">CellWindX</a></strong></td>
+<td style="text-align: left;">Marker Gene Analysis and Visualization for Single-Cell Data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CIARA">CIARA</a></strong></td>
+<td style="text-align: left;">Cluster Independent Algorithm for Rare Cell Types Identification</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=cinaR">cinaR</a></strong></td>
+<td style="text-align: left;">A Computational Pipeline for Bulk ‘ATAC-Seq’ Profiles</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=clubSandwich">clubSandwich</a></strong></td>
+<td style="text-align: left;">Cluster-Robust (Sandwich) Variance Estimators with Small-Sample Corrections</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ClustAssess">ClustAssess</a></strong></td>
+<td style="text-align: left;">Tools for Assessing Clustering</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=clustermole">clustermole</a></strong></td>
+<td style="text-align: left;">Unbiased Single-Cell Transcriptomic Data Cell Type Identification</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ClusterStability">ClusterStability</a></strong></td>
+<td style="text-align: left;">Assessment of Stability of Individual Objects or Clusters in Partitioning Solutions</td>
+<td style="text-align: left;"><code>WeightedCluster</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=clustree">clustree</a></strong></td>
+<td style="text-align: left;">Visualise Clusterings at Different Resolutions</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=combiroc">combiroc</a></strong></td>
+<td style="text-align: left;">Selection and Ranking of Omics Biomarkers Combinations Made Easy</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CongreveLamsdell2016">CongreveLamsdell2016</a></strong></td>
+<td style="text-align: left;">Distance Metrics for Trees Generated by Congreve and Lamsdell</td>
+<td style="text-align: left;"><code>TreeSearch</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=conos">conos</a></strong></td>
+<td style="text-align: left;">Clustering on Network of Samples</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=countland">countland</a></strong></td>
+<td style="text-align: left;">Analysis of Biological Count Data, Especially from Single-Cell RNA-Seq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CRMetrics">CRMetrics</a></strong></td>
+<td style="text-align: left;">Cell Ranger Output Filtering and Metrics Visualization</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=CytoSimplex">CytoSimplex</a></strong></td>
+<td style="text-align: left;">Simplex Visualization of Cell Fate Similarity in Single-Cell Data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DamageDetective">DamageDetective</a></strong></td>
+<td style="text-align: left;">Detecting Damaged Cells in Single-Cell RNA Sequencing Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dartR">dartR</a></strong></td>
+<td style="text-align: left;">Importing and Analysing ‘SNP’ and ‘Silicodart’ Data Generated by Genome-Wide Restriction Fragment Analysis</td>
+<td style="text-align: left;"><code>poppr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dartR.base">dartR.base</a></strong></td>
+<td style="text-align: left;">Analysing ‘SNP’ and ‘Silicodart’ Data - Basic Functions</td>
+<td style="text-align: left;"><code>poppr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dartR.sim">dartR.sim</a></strong></td>
+<td style="text-align: left;">Computer Simulations of ‘SNP’ Data</td>
+<td style="text-align: left;"><code>dartR.popgen</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dartRverse">dartRverse</a></strong></td>
+<td style="text-align: left;">Install and Load the ‘dartRverse’ Suits of Packages</td>
+<td style="text-align: left;"><code>dartR.popgen</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DHARMa">DHARMa</a></strong></td>
+<td style="text-align: left;">Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DIRMR">DIRMR</a></strong></td>
+<td style="text-align: left;">Distributed Imputation for Random Effects Models with Missing Responses</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DIscBIO">DIscBIO</a></strong></td>
+<td style="text-align: left;">A User-Friendly Pipeline for Biomarker Discovery in Single-Cell Transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dispRity">dispRity</a></strong></td>
+<td style="text-align: left;">Measuring Disparity</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DoseFinding">DoseFinding</a></strong></td>
+<td style="text-align: left;">Planning and Analyzing Dose Finding Experiments</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DQAgui">DQAgui</a></strong></td>
+<td style="text-align: left;">Graphical User Interface for Data Quality Assessment</td>
+<td style="text-align: left;"><code>DQAstats</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DR.SC">DR.SC</a></strong></td>
+<td style="text-align: left;">Joint Dimension Reduction and Spatial Clustering</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DRviaSPCN">DRviaSPCN</a></strong></td>
+<td style="text-align: left;">Drug Repurposing in Cancer via a Subpathway Crosstalk Network</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dsem">dsem</a></strong></td>
+<td style="text-align: left;">Dynamic Structural Equation Models</td>
+<td style="text-align: left;"><code>phylopath</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dTBM">dTBM</a></strong></td>
+<td style="text-align: left;">Multi-Way Spherical Clustering via Degree-Corrected Tensor Block Models</td>
+<td style="text-align: left;"><code>WeightedCluster</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=DWLS">DWLS</a></strong></td>
+<td style="text-align: left;">Gene Expression Deconvolution Using Dampened Weighted Least Squares</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=dyngen">dyngen</a></strong></td>
+<td style="text-align: left;">A Multi-Modal Simulator for Spearheading Single-Cell Omics Analyses</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=easybio">easybio</a></strong></td>
+<td style="text-align: left;">Comprehensive Single-Cell Annotation and Transcriptomic Analysis Toolkit</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=easySdcTable">easySdcTable</a></strong></td>
+<td style="text-align: left;">Easy Interface to the Statistical Disclosure Control Package ‘sdcTable’ Extended with Own Implementation of ‘GaussSuppression’</td>
+<td style="text-align: left;"><code>sdcTable</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=FIRM">FIRM</a></strong></td>
+<td style="text-align: left;">Flexible Integration of Single-Cell RNA-Seq Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=FunctanSNP">FunctanSNP</a></strong></td>
+<td style="text-align: left;">Functional Analysis (with Interactions) for Dense SNP Data</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=futurize">futurize</a></strong></td>
+<td style="text-align: left;">Parallelize Common Functions via One Magic Function</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=fuzzySim">fuzzySim</a></strong></td>
+<td style="text-align: left;">Fuzzy Similarity in Species Distributions</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=gedi2">gedi2</a></strong></td>
+<td style="text-align: left;">Gene Expression Decomposition and Integration</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=GeneNMF">GeneNMF</a></strong></td>
+<td style="text-align: left;">Non-Negative Matrix Factorization for Single-Cell Omics</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=grandR">grandR</a></strong></td>
+<td style="text-align: left;">Comprehensive Analysis of Nucleotide Conversion Sequencing Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=gsDesign2">gsDesign2</a></strong></td>
+<td style="text-align: left;">Group Sequential Design with Non-Constant Effect</td>
+<td style="text-align: left;"><code>simtrial</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=gsDesignNB">gsDesignNB</a></strong></td>
+<td style="text-align: left;">Sample Size and Simulation for Negative Binomial Outcomes</td>
+<td style="text-align: left;"><code>simtrial</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=GSEMA">GSEMA</a></strong></td>
+<td style="text-align: left;">Gene Set Enrichment Meta-Analysis</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=harmony">harmony</a></strong></td>
+<td style="text-align: left;">Fast, Sensitive, and Accurate Integration of Single Cell Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=HetSeq">HetSeq</a></strong></td>
+<td style="text-align: left;">Identifying Modulators of Cellular Responses Leveraging Intercellular Heterogeneity</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=highMLR">highMLR</a></strong></td>
+<td style="text-align: left;">Machine Learning Feature Selection for High Dimensional Survival Data</td>
+<td style="text-align: left;"><code>survex</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=hwep">hwep</a></strong></td>
+<td style="text-align: left;">Hardy-Weinberg Equilibrium in Polyploids</td>
+<td style="text-align: left;"><code>updog</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=immundata">immundata</a></strong></td>
+<td style="text-align: left;">A Unified Data Layer for Large-Scale Single-Cell, Spatial and Bulk Immunomics</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=influential">influential</a></strong></td>
+<td style="text-align: left;">Identification and Classification of the Most Influential Nodes</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=insight">insight</a></strong></td>
+<td style="text-align: left;">Easy Access to Model Information for Various Model Objects</td>
+<td style="text-align: left;"><code>mmrm</code>, <code>phylolm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=IOBR">IOBR</a></strong></td>
+<td style="text-align: left;">Immune Oncology Biological Research</td>
+<td style="text-align: left;"><code>GSVA</code>, <code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=JMbdirect">JMbdirect</a></strong></td>
+<td style="text-align: left;">Joint Model for Longitudinal and Multiple Time to Events Data</td>
+<td style="text-align: left;"><code>FastJM</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=jmBIG">jmBIG</a></strong></td>
+<td style="text-align: left;">Joint Longitudinal and Survival Model for Big Data</td>
+<td style="text-align: left;"><code>FastJM</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=jointseg">jointseg</a></strong></td>
+<td style="text-align: left;">Joint Segmentation of Multivariate (Copy Number) Signals</td>
+<td style="text-align: left;"><code>PSCBS</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=junco">junco</a></strong></td>
+<td style="text-align: left;">Create Common Tables and Listings Used in Clinical Trials</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=lavaSearch2">lavaSearch2</a></strong></td>
+<td style="text-align: left;">Tools for Model Specification in the Latent Variable Framework</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ldsep">ldsep</a></strong></td>
+<td style="text-align: left;">Linkage Disequilibrium Shrinkage Estimation for Polyploids</td>
+<td style="text-align: left;"><code>updog</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=LISTO">LISTO</a></strong></td>
+<td style="text-align: left;">Performing Comprehensive Overlap Assessments</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=LMMstar">LMMstar</a></strong></td>
+<td style="text-align: left;">Repeated Measurement Models for Discrete Times</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=LRQVB">LRQVB</a></strong></td>
+<td style="text-align: left;">Low Rank Correction Quantile Variational Bayesian Algorithm for Multi-Source Heterogeneous Models</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=LSAMBA">LSAMBA</a></strong></td>
+<td style="text-align: left;">Lasso-SAMBA Algorithm</td>
+<td style="text-align: left;"><code>sharp</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mappoly">mappoly</a></strong></td>
+<td style="text-align: left;">Genetic Linkage Maps in Autopolyploids</td>
+<td style="text-align: left;"><code>updog</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=marginaleffects">marginaleffects</a></strong></td>
+<td style="text-align: left;">Predictions, Comparisons, Slopes, Marginal Means, and Hypothesis Tests</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mascarade">mascarade</a></strong></td>
+<td style="text-align: left;">Generating Cluster Masks for Single-Cell Dimensional Reduction Plots</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=MCseqReplic">MCseqReplic</a></strong></td>
+<td style="text-align: left;">Monte Carlo Simulations of Time Changes in Sequences</td>
+<td style="text-align: left;"><code>WeightedCluster</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=MEDseq">MEDseq</a></strong></td>
+<td style="text-align: left;">Mixtures of Exponential-Distance Models with Covariates</td>
+<td style="text-align: left;"><code>WeightedCluster</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mets">mets</a></strong></td>
+<td style="text-align: left;">Analysis of Multivariate Event Times</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=MIC">MIC</a></strong></td>
+<td style="text-align: left;">Analysis of Antimicrobial Minimum Inhibitory Concentration Data</td>
+<td style="text-align: left;"><code>AMR</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=MIMER">MIMER</a></strong></td>
+<td style="text-align: left;">Data Wrangling for Antimicrobial Resistance Studies</td>
+<td style="text-align: left;"><code>AMR</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mixhvg">mixhvg</a></strong></td>
+<td style="text-align: left;">Mixture of Multiple Highly Variable Feature Selection Methods</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mLLMCelltype">mLLMCelltype</a></strong></td>
+<td style="text-align: left;">Cell Type Annotation Using Large Language Models</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=multipleOutcomes">multipleOutcomes</a></strong></td>
+<td style="text-align: left;">Joint Covariance and Treatment-Effect Tests for Multiple Outcomes</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=mxfda">mxfda</a></strong></td>
+<td style="text-align: left;">A Functional Data Analysis Package for Spatial Single Cell Data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=myTAI">myTAI</a></strong></td>
+<td style="text-align: left;">Evolutionary Transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=NMMIPW">NMMIPW</a></strong></td>
+<td style="text-align: left;">Inverse Probability Weighting under Non-Monotone Missing</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=OUwie">OUwie</a></strong></td>
+<td style="text-align: left;">Analysis of Evolutionary Rates in an OU Framework</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=parameters">parameters</a></strong></td>
+<td style="text-align: left;">Processing of Model Parameters</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=pec">pec</a></strong></td>
+<td style="text-align: left;">Prediction Error Curves for Risk Prediction Models in Survival Analysis</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=phylolm.hp">phylolm.hp</a></strong></td>
+<td style="text-align: left;">Hierarchical Partitioning of R2 for Phylogenetic Linear Regression</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=phylosem">phylosem</a></strong></td>
+<td style="text-align: left;">Phylogenetic Structural Equation Model</td>
+<td style="text-align: left;"><code>phylolm</code>, <code>phylopath</code>, <code>phyr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=poissonsuperlearner">poissonsuperlearner</a></strong></td>
+<td style="text-align: left;">Poisson Super Learner</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=polle">polle</a></strong></td>
+<td style="text-align: left;">Policy Learning</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=polymapR">polymapR</a></strong></td>
+<td style="text-align: left;">Linkage Analysis in Outcrossing Polyploids</td>
+<td style="text-align: left;"><code>updog</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=POMS">POMS</a></strong></td>
+<td style="text-align: left;">Phylogenetic Organization of Metagenomic Signals</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=PopComm">PopComm</a></strong></td>
+<td style="text-align: left;">Population-Level Cell-Cell Communication Analysis Tools</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=PoweREST">PoweREST</a></strong></td>
+<td style="text-align: left;">A Bootstrap-Based Power Estimation Tool for Spatial Transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=PRECAST">PRECAST</a></strong></td>
+<td style="text-align: left;">Embedding and Clustering with Alignment for Spatial Omics Datasets</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=prodlim">prodlim</a></strong></td>
+<td style="text-align: left;">Product-Limit Estimation for Censored Event History Analysis</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=psSubpathway">psSubpathway</a></strong></td>
+<td style="text-align: left;">Flexible Identification of Phenotype-Specific Subpathways</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Publish">Publish</a></strong></td>
+<td style="text-align: left;">Format Output of Various Routines in a Suitable Way for Reports and Publication</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Qploidy">Qploidy</a></strong></td>
+<td style="text-align: left;">Estimation of Ploidy and Detection of Aneuploidy Using Genotyping Data</td>
+<td style="text-align: left;"><code>updog</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ratematrix">ratematrix</a></strong></td>
+<td style="text-align: left;">Bayesian Estimation of the Evolutionary Rate Matrix</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ravecore">ravecore</a></strong></td>
+<td style="text-align: left;">Core File Structures and Workflows for ‘RAVE’</td>
+<td style="text-align: left;"><code>ravepipeline</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rbiom">rbiom</a></strong></td>
+<td style="text-align: left;">Integrated Analysis and Visualization of Microbiome Data</td>
+<td style="text-align: left;"><code>ecodive</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rbmi">rbmi</a></strong></td>
+<td style="text-align: left;">Reference Based Multiple Imputation</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=RepeatedHighDim">RepeatedHighDim</a></strong></td>
+<td style="text-align: left;">Methods for High-Dimensional Repeated Measures Data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ReporterScore">ReporterScore</a></strong></td>
+<td style="text-align: left;">Generalized Reporter Score-Based Enrichment Analysis for Omics Data</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=RESET">RESET</a></strong></td>
+<td style="text-align: left;">Reconstruction Set Test</td>
+<td style="text-align: left;"><code>sctransform</code>, <code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=riskRegression">riskRegression</a></strong></td>
+<td style="text-align: left;">Risk Regression Models and Prediction Scores for Survival Analysis with Competing Risks</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rliger">rliger</a></strong></td>
+<td style="text-align: left;">Linked Inference of Genomic Experimental Relationships</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=RobinCar">RobinCar</a></strong></td>
+<td style="text-align: left;">Robust Inference for Covariate Adjustment in Randomized Clinical Trials</td>
+<td style="text-align: left;"><code>AIPW</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rPanglaoDB">rPanglaoDB</a></strong></td>
+<td style="text-align: left;">Download and Merge Single-Cell RNA-Seq Data from the PanglaoDB Database</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=Rphylopars">Rphylopars</a></strong></td>
+<td style="text-align: left;">Phylogenetic Comparative Tools for Missing Data and Within-Species Variation</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=rr2">rr2</a></strong></td>
+<td style="text-align: left;">R2s for Regression Models</td>
+<td style="text-align: left;"><code>phylolm</code>, <code>phyr</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=RRphylo">RRphylo</a></strong></td>
+<td style="text-align: left;">Phylogenetic Ridge Regression Methods for Comparative Studies</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scAnnotate">scAnnotate</a></strong></td>
+<td style="text-align: left;">An Automated Cell Type Annotation Tool for Single-Cell RNA-Sequencing Data</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scaper">scaper</a></strong></td>
+<td style="text-align: left;">Single Cell Transcriptomics-Level Cytokine Activity Prediction and Estimation</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sccca">sccca</a></strong></td>
+<td style="text-align: left;">Single-Cell Correlation Based Cell Type Annotation</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sccore">sccore</a></strong></td>
+<td style="text-align: left;">Core Utilities for Single-Cell RNA-Seq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scCustomize">scCustomize</a></strong></td>
+<td style="text-align: left;">Custom Visualizations &amp; Functions for Streamlined Analyses of Single Cell Sequencing</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scGate">scGate</a></strong></td>
+<td style="text-align: left;">Marker-Based Cell Type Purification for Single-Cell Sequencing Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scGOclust">scGOclust</a></strong></td>
+<td style="text-align: left;">Measuring Cell Type Similarity with Gene Ontology in Single-Cell RNA-Seq</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scMappR">scMappR</a></strong></td>
+<td style="text-align: left;">Single Cell Mapper</td>
+<td style="text-align: left;"><code>GSVA</code>, <code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scMetaTraj">scMetaTraj</a></strong></td>
+<td style="text-align: left;">Metabolic State Space and Trajectory Analysis for Single-Cell Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scOntoMatch">scOntoMatch</a></strong></td>
+<td style="text-align: left;">Aligning Ontology Annotation Across Single Cell Datasets with ‘scOntoMatch’</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scPairs">scPairs</a></strong></td>
+<td style="text-align: left;">Identifying Synergistic Gene Pairs in Single-Cell and Spatial Transcriptomics</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scperturbR">scperturbR</a></strong></td>
+<td style="text-align: left;">E-Statistics for Seurat Objects</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scpoisson">scpoisson</a></strong></td>
+<td style="text-align: left;">Single Cell Poisson Probability Paradigm</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SCpubr">SCpubr</a></strong></td>
+<td style="text-align: left;">Generate Publication Ready Visualizations of Single Cell Transcriptomics Data</td>
+<td style="text-align: left;"><code>decoupleR</code>, <code>infercnv</code>, <code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scregclust">scregclust</a></strong></td>
+<td style="text-align: left;">Reconstructing the Regulatory Programs of Target Genes in scRNA-Seq Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=scRNAstat">scRNAstat</a></strong></td>
+<td style="text-align: left;">A Pipeline to Process Single Cell RNAseq Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=segtest">segtest</a></strong></td>
+<td style="text-align: left;">Tests for Segregation Distortion in Polyploids</td>
+<td style="text-align: left;"><code>updog</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=sensiPhy">sensiPhy</a></strong></td>
+<td style="text-align: left;">Sensitivity Analysis for Comparative Methods</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=seqhandbook">seqhandbook</a></strong></td>
+<td style="text-align: left;">Miscellaneous Tools for Sequence Analysis</td>
+<td style="text-align: left;"><code>WeightedCluster</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SeuratExplorer">SeuratExplorer</a></strong></td>
+<td style="text-align: left;">An ‘Shiny’ App for Exploring scRNA-seq Data Processed in ‘Seurat’</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code>, <code>Signac</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=ShiVa">ShiVa</a></strong></td>
+<td style="text-align: left;">Detection of Evolutionary Shifts in Both Optimal Value and Variance</td>
+<td style="text-align: left;"><code>phylolm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SIGN">SIGN</a></strong></td>
+<td style="text-align: left;">Similarity Identification in Gene Expression</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SignacX">SignacX</a></strong></td>
+<td style="text-align: left;">Cell Type Identification and Discovery from Single Cell Gene Expression Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SingleCellComplexHeatMap">SingleCellComplexHeatMap</a></strong></td>
+<td style="text-align: left;">Complex Heatmaps for Single Cell Expression Data with Dual Information Display</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=singleCellHaystack">singleCellHaystack</a></strong></td>
+<td style="text-align: left;">A Universal Differential Expression Prediction Tool for Single-Cell and Spatial Genomics Data</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SlideCNA">SlideCNA</a></strong></td>
+<td style="text-align: left;">Calls Copy Number Alterations from Slide-Seq Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SlimR">SlimR</a></strong></td>
+<td style="text-align: left;">Adaptive Machine Learning-Powered, Context-Matching Tool for Single-Cell and Spatial Transcriptomics Annotation</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SMDIC">SMDIC</a></strong></td>
+<td style="text-align: left;">Identification of Somatic Mutation-Driven Immune Cells</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SmoothHazard">SmoothHazard</a></strong></td>
+<td style="text-align: left;">Estimation of Smooth Hazard Models for Interval-Censored Data</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SoupX">SoupX</a></strong></td>
+<td style="text-align: left;">Single Cell mRNA Soup eXterminator</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SpaCCI">SpaCCI</a></strong></td>
+<td style="text-align: left;">Spatially Aware Cell-Cell Interaction Analysis</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SPACO">SPACO</a></strong></td>
+<td style="text-align: left;">Spatial Component Analysis for Spatial Sequencing Data</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=spatialGE">spatialGE</a></strong></td>
+<td style="text-align: left;">Visualization and Analysis of Spatial Heterogeneity in Spatially-Resolved Gene Expression</td>
+<td style="text-align: left;"><code>GSVA</code>, <code>sctransform</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SpaTopic">SpaTopic</a></strong></td>
+<td style="text-align: left;">Topic Inference to Identify Tissue Architecture in Multiplexed Images</td>
+<td style="text-align: left;"><code>SeuratObject</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SPECK">SPECK</a></strong></td>
+<td style="text-align: left;">Receptor Abundance Estimation using Reduced Rank Reconstruction and Clustered Thresholding</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=splinetrials">splinetrials</a></strong></td>
+<td style="text-align: left;">Facilitate Clinical Trials Analysis Using Natural Cubic Splines</td>
+<td style="text-align: left;"><code>mmrm</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=statnet">statnet</a></strong></td>
+<td style="text-align: left;">Software Tools for the Statistical Analysis of Network Data</td>
+<td style="text-align: left;"><code>EpiModel</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=STREAK">STREAK</a></strong></td>
+<td style="text-align: left;">Receptor Abundance Estimation using Feature Selection and Gene Set Scoring</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SubtypeDrug">SubtypeDrug</a></strong></td>
+<td style="text-align: left;">Prioritization of Candidate Cancer Subtype Specific Drugs</td>
+<td style="text-align: left;"><code>GSVA</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SuperCell">SuperCell</a></strong></td>
+<td style="text-align: left;">Simplification of scRNA-Seq Data by Merging Together Similar Cells</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>WeightedCluster</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=SuperSurv">SuperSurv</a></strong></td>
+<td style="text-align: left;">A Unified Framework for Machine Learning Ensembles in Survival Analysis</td>
+<td style="text-align: left;"><code>survex</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=targeted">targeted</a></strong></td>
+<td style="text-align: left;">Targeted Inference</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=teal.modules.clinical">teal.modules.clinical</a></strong></td>
+<td style="text-align: left;">‘teal’ Modules for Standard Clinical Outputs</td>
+<td style="text-align: left;"><code>tern.mmrm</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=tergmLite">tergmLite</a></strong></td>
+<td style="text-align: left;">Fast Simulation of Simple Temporal Exponential Random Graph Models</td>
+<td style="text-align: left;"><code>EpiModel</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=tidyseurat">tidyseurat</a></strong></td>
+<td style="text-align: left;">Brings Seurat to the Tidyverse</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=timereg">timereg</a></strong></td>
+<td style="text-align: left;">Flexible Regression Models for Survival Data</td>
+<td style="text-align: left;"><code>lava</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=TraMineR">TraMineR</a></strong></td>
+<td style="text-align: left;">Trajectory Miner: a Sequence Analysis Toolkit</td>
+<td style="text-align: left;"><code>WeightedCluster</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=TreeDist">TreeDist</a></strong></td>
+<td style="text-align: left;">Calculate and Map Distances Between Phylogenetic Trees</td>
+<td style="text-align: left;"><code>TreeSearch</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=treefit">treefit</a></strong></td>
+<td style="text-align: left;">The First Software for Quantitative Trajectory Inference</td>
+<td style="text-align: left;"><code>Seurat</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=TreeTools">TreeTools</a></strong></td>
+<td style="text-align: left;">Create, Modify and Analyse Phylogenetic Trees</td>
+<td style="text-align: left;"><code>TreeSearch</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=VAM">VAM</a></strong></td>
+<td style="text-align: left;">Variance-Adjusted Mahalanobis</td>
+<td style="text-align: left;"><code>sctransform</code>, <code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=vcfR">vcfR</a></strong></td>
+<td style="text-align: left;">Manipulate and Visualize VCF Data</td>
+<td style="text-align: left;"><code>poppr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><a href="https://cran.r-project.org/package=XYomics">XYomics</a></strong></td>
+<td style="text-align: left;">Analysis of Sex Differences in Omics Data for Complex Diseases</td>
+<td style="text-align: left;"><code>Seurat</code>, <code>SeuratObject</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr>
+<p><em>Report generated on 2026-05-31 using R 4.6.0 and automated parsing of CRAN &amp; Bioconductor metadata.</em></p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.futureverse\.org");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
