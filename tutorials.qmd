@@ -52,7 +52,7 @@ tutorial(
     author = "Henrik Bengtsson",
   location = "useR! 2026",
       date = "2026-07-06",
-       url = "https://user2026.r-project.org/schedule/"
+       url = "https://events.digital-research.academy/event/109/contributions/375/"
 )
 ```
 

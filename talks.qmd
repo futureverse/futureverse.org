@@ -60,10 +60,10 @@ talk(
     author = "Henrik Bengtsson",
   location = "useR! 2026",
       date = "2026-07-08",
-    duration = "20 minutes",
+    duration = "16 minutes",
       urls = c(
 #         "HTML slides" = "",
-#         Abstract = "",
+         Abstract = "https://events.digital-research.academy/event/109/contributions/513/",
         "Event" = "https://user2026.r-project.org/schedule/",
         "Preprint" = "publications.html"
       )
@@ -80,7 +80,7 @@ talk(
     duration = "5 minutes",
       urls = c(
 #         "HTML slides" = "",
-#         Abstract = "",
+         Abstract = "https://events.digital-research.academy/event/109/contributions/524/",
         "Event" = "https://user2026.r-project.org/schedule/"
       )
 )
