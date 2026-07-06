@@ -26,8 +26,6 @@ tutorial <- function(title, author, info = NULL, location = NULL, date, url) {
         tags$span(class="bi bi-clock-history", style="font-size: 100%; font-weight: bold; text-transform: uppercase;", " Upcoming")
       } else if (upcoming > 0) {
         tags$span(class="bi bi-alarm", style="font-size: 150%; font-weight: bold; text-transform: uppercase;", " Soon!")
-      } else if (upcoming <= 0) {
-        tags$span(class="bi bi-alarm", style="font-size: 150%; font-weight: bold; text-transform: uppercase;", " Now!")
       },
       
       tags$div(class = "itemHeader",
