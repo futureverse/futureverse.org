@@ -52,7 +52,7 @@ tutorial(
     author = "Henrik Bengtsson",
   location = "useR! 2026",
       date = "2026-07-06",
-       url = "https://now.futureverse.org/"
+       url = "https://henrikbengtsson.github.io/futureverse-tutorial-user2026/"
 )
 ```
 
