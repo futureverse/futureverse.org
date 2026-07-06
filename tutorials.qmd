@@ -26,6 +26,8 @@ tutorial <- function(title, author, info = NULL, location = NULL, date, url) {
         tags$span(class="bi bi-clock-history", style="font-size: 100%; font-weight: bold; text-transform: uppercase;", " Upcoming")
       } else if (upcoming > 0) {
         tags$span(class="bi bi-alarm", style="font-size: 150%; font-weight: bold; text-transform: uppercase;", " Soon!")
+      } else if (upcoming <= 0) {
+        tags$span(class="bi bi-alarm", style="font-size: 150%; font-weight: bold; text-transform: uppercase;", " Now!")
       },
       
       tags$div(class = "itemHeader",
@@ -52,7 +54,7 @@ tutorial(
     author = "Henrik Bengtsson",
   location = "useR! 2026",
       date = "2026-07-06",
-       url = "https://events.digital-research.academy/event/109/contributions/375/"
+       url = "https://now.futureverse.org/"
 )
 ```
 
