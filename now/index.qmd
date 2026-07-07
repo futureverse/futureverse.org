@@ -1,0 +1,6 @@
+# Now
+
+## useR! 2026 talks
+
+* <a href="futurize.html">Futurize talk</a> (20 minutes), Wed July 8, 13:00-14:30 (14:00-14:20), Aula Glowna
+* <a href="rw.html">RW talk</a> (5 minutes), Thur July 9, 10:30-12:00 (11:55-12:00), Aula Glowna
