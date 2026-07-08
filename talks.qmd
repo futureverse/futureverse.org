@@ -56,6 +56,23 @@ talk <- function(title, author, info = NULL, location = NULL, duration = NULL, d
 ```{r}
 #| echo: false
 talk(
+     title = "Evaluate Untrusted R Code Locally Isolated in a webR Sandbox?",
+    author = "Henrik Bengtsson",
+  location = "useR! 2026",
+      date = "2026-07-09",
+    duration = "5 minutes",
+      urls = c(
+#         "HTML slides" = "",
+         Abstract = "https://events.digital-research.academy/event/109/contributions/524/",
+        "Event" = "https://user2026.r-project.org/schedule/"
+      )
+)
+```
+
+
+```{r}
+#| echo: false
+talk(
      title = "Futurize - Tearing Down Parallelization Barriers in R with Transpilers",
     author = "Henrik Bengtsson",
   location = "useR! 2026",
@@ -66,22 +83,6 @@ talk(
          Abstract = "https://events.digital-research.academy/event/109/contributions/513/",
         "Event" = "https://user2026.r-project.org/schedule/",
         "Preprint" = "publications.html"
-      )
-)
-```
-
-```{r}
-#| echo: false
-talk(
-     title = "Evaluate Untrusted R Code Locally Isolated in a webR Sandbox?",
-    author = "Henrik Bengtsson",
-  location = "useR! 2026",
-      date = "2026-07-09",
-    duration = "5 minutes",
-      urls = c(
-#         "HTML slides" = "",
-         Abstract = "https://events.digital-research.academy/event/109/contributions/524/",
-        "Event" = "https://user2026.r-project.org/schedule/"
       )
 )
 ```
