@@ -62,8 +62,8 @@ talk(
       date = "2026-07-09",
     duration = "5 minutes",
       urls = c(
-#         "HTML slides" = "",
-         Abstract = "https://events.digital-research.academy/event/109/contributions/524/",
+         "HTML slides" = "https://henrikbengtsson.github.io/talk-user2026-rw/#/",
+#         Abstract = "https://events.digital-research.academy/event/109/contributions/524/",
         "Event" = "https://user2026.r-project.org/schedule/"
       )
 )
@@ -80,7 +80,7 @@ talk(
     duration = "18 minutes",
       urls = c(
          "HTML slides" = "https://henrikbengtsson.github.io/talk-user2026-futurize/#/",
-         Abstract = "https://events.digital-research.academy/event/109/contributions/513/",
+#         Abstract = "https://events.digital-research.academy/event/109/contributions/513/",
         "Event" = "https://user2026.r-project.org/schedule/",
         "Preprint" = "publications.html"
       )
