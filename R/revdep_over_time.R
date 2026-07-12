@@ -9,6 +9,11 @@ suppressPackageStartupMessages({
 source("R/gg_modify.R")
 options(width = 120)
 
+snapshot_source <- Sys.getenv("R_REVDEPCHECK_EXTRAS_SNAPSHOT_SOURCE", "")
+if (nzchar(snapshot_source)) {
+  options(revdepcheck.extras.snapshot.source = snapshot_source)
+}
+
 future::plan("multicore")
 
 handlers(global = TRUE)
