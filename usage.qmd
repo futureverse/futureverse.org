@@ -187,10 +187,7 @@ packages **future.apply** (top-0.8% most downloaded) and **furrr**
 If we consider recursive dependencies too, that is, packages that
 need (depends or imports) the **future** package either directly or
 indirectly via another package, then ~1,250 (5.2%) of all ~23,900 CRAN
-packages rely on the future framework for processing (June 2026). If
-we include soft (Suggests) dependencies as well, then ~90% of all CRAN
-packages depend on the future framework. Bioconductor, which has
-~2,400 packages, shows similar ratios.
+packages rely on the future framework for processing (June 2026).
 
 <!--
 repos <- getOption("repos")
