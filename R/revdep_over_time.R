@@ -52,7 +52,26 @@ until <- Sys.Date()
 #until <- as.Date("2023-10-31")
 
 dates <- c(seq(from, until, by = 7), until)
-stats <- revdep_over_time(dates, pkgs = pkgs)
+
+# EverCRAN failed after 2026-06, but PPPM lacks data before 2017-10.
+# We split the dates to get the full history from both mirrors.
+cutoff_date <- as.Date("2026-07-01")
+dates_early <- dates[dates < cutoff_date]
+dates_late <- dates[dates >= cutoff_date]
+
+stats_early <- NULL
+if (length(dates_early) > 0) {
+  options(revdepcheck.extras.snapshot.source = "EverCRAN")
+  stats_early <- revdep_over_time(dates_early, pkgs = pkgs)
+}
+
+stats_late <- NULL
+if (length(dates_late) > 0) {
+  options(revdepcheck.extras.snapshot.source = "PPPM")
+  stats_late <- revdep_over_time(dates_late, pkgs = pkgs)
+}
+
+stats <- rbind(stats_early, stats_late)
 stats0 <- stats
 for (kk in which(sapply(stats, FUN = is.integer))) {
   x <- stats[[kk]]
