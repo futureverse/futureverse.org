@@ -48,14 +48,15 @@ first_release <- as.Date(c(
 pkgs <- all_pkgs
 
 from <- first_release[["future"]]
-until <- Sys.Date()
+until <- Sys.Date() - 1
 #until <- as.Date("2023-10-31")
 
 dates <- c(seq(from, until, by = 7), until)
 
 # EverCRAN failed after 2026-06, but PPPM lacks data before 2017-10.
 # We split the dates to get the full history from both mirrors.
-cutoff_date <- as.Date("2026-07-01")
+# Using PPPM from 2017-11-01 onwards prevents a large discontinuity in 2026.
+cutoff_date <- as.Date("2017-11-01")
 dates_early <- dates[dates < cutoff_date]
 dates_late <- dates[dates >= cutoff_date]
 
