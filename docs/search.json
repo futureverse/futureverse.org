@@ -116,7 +116,7 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, The R Journal (2021) 13:2, pages 208-227 [abstract, how-to-cite, HTML, PDF]\nH. Bengtsson, A Unified Approach to Concurrent, Parallel Map-Reduce in R using Futures, arXiv preprint, (2026) [abstract, how-to-cite, HTML, PDF]\nH. Bengtsson. Futureverse - Worry-Free Parallelization in R, Biometric Bulletin (2023), 40:3: pages 8–10 [PDF]"
+    "text": "H. Bengtsson, A Unifying Framework for Parallel and Distributed Processing in R using Futures, The R Journal (2021) 13:2, pages 208-227, doi:10.32614/RJ-2021-048 [abstract, how-to-cite, HTML, PDF]\nH. Bengtsson, A Unified Approach to Concurrent, Parallel Map-Reduce in R using Futures, arXiv preprint, (2026), doi:10.48550/arXiv.2601.17578 [abstract, how-to-cite, HTML, PDF]\nH. Bengtsson. Futureverse - Worry-Free Parallelization in R, Biometric Bulletin (2023), 40:3: pages 8–10 [PDF]"
   },
   {
     "objectID": "publications.html#how-to-cite",
