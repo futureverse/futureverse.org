@@ -1,9 +1,8 @@
 suppressPackageStartupMessages({
   library(revdepcheck.extras)
-  library(future.apply)
-  library(progressr)
+  library(futurize)
+  library(progressify)
 })
-source("R/progressr_progressify.R")
 
 plan(multicore)
 handlers(global = TRUE)
@@ -24,7 +23,7 @@ for (kk in seq_len(n_generations)) {
       pkgs <- deps[[kk-1]]
     }
   
-    pkgs <- future_lapply(pkgs, revdep_children) %progressify% TRUE
+    pkgs <- lapply(pkgs, revdepcheck.extras::revdep_children) |> progressify() |> futurize()
     pkgs <- sort(unique(unlist(pkgs)))
     deps[[kk]] <- pkgs
   }
