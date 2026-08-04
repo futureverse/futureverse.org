@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A Unifying Parallelization Framework in R for Everyone">
+<meta name="description" content="Parallelize your R code by changing one line - and run it anywhere">
 
 <title>Futureverse</title>
 <style>
@@ -151,7 +151,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <link rel="stylesheet" href="assets/custom.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -499,9 +499,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -513,7 +511,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    A Unifying Parallelization Framework in R for Everyone
+    Parallelize your R code by changing one line - and run it anywhere
   </div>
 </div>
 
@@ -530,88 +528,192 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </header>
 
 
-<div>
 <p><img src="images/logo.png" alt="The hexlogo of the future package. A left-facing arrow with the text future underneath - both in bold style filled with yellow-to-orange vertical gradient. The background is dark blue with teeny star-shaped symbols in distance resembling looking deep out in the universe. The hexlogo is surrounded by a light-blue border." style="width: 15ex; padding-left: 2ex; padding-top: 1ex; padding-bottom: 1ex; float: right;"></p>
-<p>The <strong>future</strong> framework makes it easy to parallelize existing R code - often with only a minor change of code. The goal is to lower the barriers so that anyone can safely speed up their existing R code in a worry-free manner. As it is a cross-platform solution that requires no additional setups or technical skills, anyone can be up and running within a few minutes.</p>
-<p>The future framework <em>removes common hurdles and protects against pitfalls</em> that follow from adding parallelization. Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem. Just as with sequential R code, <em>output, messages, warnings, and errors work as expected</em> and can be handled using traditional R techniques - regardless of how the code is parallelized.</p>
-<p>It is designed so that you as a developer can <em>stay with your favorite coding style</em>, whether it be base R or tidyverse. If you prefer <code>lapply()</code>, <code>map()</code> of <strong>purrr</strong>, or <code>foreach()</code> of <strong>foreach</strong>, there is <em>no</em> need to switch away from that, e.g.&nbsp;<code>ys &lt;- map(xs, fcn) |&gt; futurize()</code>.</p>
-<p>In addition to map-reduce calls, the framework supports a large number of domain-specific packages on CRAN and Bioconductor, e.g.&nbsp;<code>b &lt;- boot(city, ratio, R = 999) |&gt; futurize()</code> and <code>ds &lt;- DESeq(ds) |&gt; futurize()</code>.</p>
-<p>Regardless of how you use futures in your code, the user can, with a single setting, switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on a high-performance compute (HPC) cluster.</p>
-<p>Futures make your web interface asynchronous, e.g.&nbsp;a blocking Shiny application can easily be turned into a non-blocking experience by using futures. For further details and motivations of the <strong>future</strong> ecosystem, see <span class="citation" data-cites="bengtsson-future">Bengtsson (<a href="#ref-bengtsson-future" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="bengtsson-futurize">Bengtsson (<a href="#ref-bengtsson-futurize" role="doc-biblioref">2026</a>)</span>.</p>
+<p><strong>Futureverse</strong> makes your existing R code run in parallel - on your own computer, across machines on your local network, in the cloud, or on a high-performance compute (HPC) cluster. You do not have to restructure your code, and you do not have to think about workers, exporting global variables, or parallel random number generation.</p>
+<p>The goal is to lower the barrier so that anyone can speed up their existing R code in a worry-free manner. It is cross-platform and needs no additional setup: the same code runs on MS Windows, macOS, and Linux.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession)                        <span class="co"># once, at the top of your script</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, slow_fcn)                <span class="co"># sequential, as before</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, slow_fcn) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()  <span class="co"># the same, now in parallel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That is the whole idea: <strong>you keep your code, and you decide where it runs.</strong></p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-body-container">
+<p>No installation needed to try it: run Futureverse in your browser in the <a href="demo.html">live demo</a>.</p>
+</div>
+</div>
+</div>
+<section id="what-you-get" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-get">What you get</h2>
+<section id="your-code-stays-your-code" class="level3">
+<h3 class="anchored" data-anchor-id="your-code-stays-your-code">Your code stays your code</h3>
+<p>Whether you write base R, tidyverse, or <strong><a href="https://cran.r-project.org/package=foreach">foreach</a></strong>, there is <em>no</em> need to switch style or adopt a new set of functions. <code>lapply()</code>, <code>purrr::map()</code>, and <code>foreach() %do% { ... }</code> all parallelize the same way, and so do 47 domain-specific packages on CRAN and Bioconductor, e.g.&nbsp;<code>boot()</code>, <code>glmnet()</code>, and <code>DESeq()</code>:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><strong>Map-reduce calls</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><strong>Domain-specific calls</strong></a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><strong>Map-reduce calls</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><strong>Domain-specific calls</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href=""><strong>Low-level futures</strong></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(futurize)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession) <span class="co"># parallelize on local computer</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate an R expression sequentially</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">slow_fcn</span>(X[<span class="dv">1</span>])</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate it in parallel in the background</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">future</span>(<span class="fu">slow_fcn</span>(X[<span class="dv">1</span>]))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">value</span>(f)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of base R apply</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">lapply</span>(X, slow_fcn)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">lapply</span>(X, slow_fcn) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of purrr map</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X <span class="sc">|&gt;</span> <span class="fu">map</span>(slow_fcn)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X <span class="sc">|&gt;</span> <span class="fu">map</span>(slow_fcn) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of foreach</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%do%</span> <span class="fu">slow_fcn</span>(x)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%do%</span> <span class="fu">slow_fcn</span>(x) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of plyr</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">llply</span>(xs, sqrt)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">llply</span>(xs, sqrt) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of BiocParallel</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BiocParallel)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">bplapply</span>(xs, sqrt)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">bplapply</span>(xs, sqrt) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(futurize)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession) <span class="co"># parallelize on local computer</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">boot</span>(city, ratio, <span class="at">R =</span> <span class="dv">999</span>) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>, <span class="at">number =</span> <span class="dv">10</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris, <span class="at">trControl =</span> ctrl) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(partykit)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>cf <span class="ot">&lt;-</span> <span class="fu">cforest</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stars)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">st_apply</span>(s, <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="at">FUN =</span> mean) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>md <span class="ot">&lt;-</span> <span class="fu">mrpp</span>(dune, Management) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of base R apply</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">lapply</span>(X, slow_fcn)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">lapply</span>(X, slow_fcn) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of purrr map</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X <span class="sc">|&gt;</span> <span class="fu">map</span>(slow_fcn)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X <span class="sc">|&gt;</span> <span class="fu">map</span>(slow_fcn) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of foreach</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreach)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%do%</span> <span class="fu">slow_fcn</span>(x)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">x =</span> X) <span class="sc">%do%</span> <span class="fu">slow_fcn</span>(x) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of plyr</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">llply</span>(xs, sqrt)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">llply</span>(xs, sqrt) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">DESeq</span>(ds) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SingleCellExperiment)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">applySCE</span>(sce, perFeatureQCMetrics) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Many more ...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential and parallel version of BiocParallel</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BiocParallel)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">bplapply</span>(xs, sqrt)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">bplapply</span>(xs, sqrt) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(futurize)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession) <span class="co"># parallelize on local computer</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">boot</span>(city, ratio, <span class="at">R =</span> <span class="dv">999</span>) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>, <span class="at">number =</span> <span class="dv">10</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris, <span class="at">trControl =</span> ctrl) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(partykit)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>cf <span class="ot">&lt;-</span> <span class="fu">cforest</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stars)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">st_apply</span>(s, <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="at">FUN =</span> mean) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>md <span class="ot">&lt;-</span> <span class="fu">mrpp</span>(dune, Management) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">DESeq</span>(ds) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SingleCellExperiment)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">applySCE</span>(sce, perFeatureQCMetrics) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Many more ...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession) <span class="co"># parallelize on local computer</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate an R expression sequentially</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">slow_fcn</span>(X[<span class="dv">1</span>])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate it in parallel in the background</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">future</span>(<span class="fu">slow_fcn</span>(X[<span class="dv">1</span>]))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">value</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
-<p>See <strong><a href="https://futurize.futureverse.org">futurize</a></strong> for a full list of supported packages. Try it yourself in the <a href="demo.html">live demo</a>.</p>
-<p>Looking for <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>, <strong><a href="https://furrr.futureverse.org">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong>? Don’t worry, they’re still around, but they are now the workhorses operating fully in the background helping <strong>futurize</strong>.</p>
+<p>See <strong><a href="https://futurize.futureverse.org">futurize</a></strong> for the full list of supported packages.</p>
+</section>
+<section id="it-behaves-like-r-not-like-a-parallel-framework" class="level3">
+<h3 class="anchored" data-anchor-id="it-behaves-like-r-not-like-a-parallel-framework">It behaves like R, not like a parallel framework</h3>
+<p>Adding parallelization normally means new ways for things to go wrong. Futureverse <em>removes those hurdles and protects against the common pitfalls</em> at the core of the ecosystem, instead of leaving them to developers and end-users:</p>
+<ul>
+<li>Output, messages, warnings, and errors work as expected and can be handled with traditional R techniques - regardless of how the code is parallelized</li>
+<li>Global variables and package dependencies are identified and exported automatically</li>
+<li>Parallel random number generation is statistically sound, so results are reproducible</li>
+<li>Progress can be reported in near real-time, even from parallel workers, via <strong><a href="https://progressify.futureverse.org">progressify</a></strong> and <strong><a href="https://progressr.futureverse.org">progressr</a></strong></li>
+</ul>
+</section>
+<section id="you-decide-where-it-runs---not-the-package-author" class="level3">
+<h3 class="anchored" data-anchor-id="you-decide-where-it-runs---not-the-package-author">You decide where it runs - not the package author</h3>
+<p>The same code runs anywhere. Switching is a <em>single line</em>, and it applies to all future-based code in your session, including code inside packages you did not write, e.g.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(sequential)                            <span class="co"># in the current R session</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession)                          <span class="co"># background R sessions, this machine</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(cluster, <span class="at">workers =</span> <span class="fu">c</span>(<span class="st">"n1"</span>, <span class="st">"n2"</span>))      <span class="co"># other machines, via SSH</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(future.batchtools<span class="sc">::</span>batchtools_slurm)   <span class="co"># an HPC job scheduler</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>See <a href="backends.html">Parallel Backends</a> for all available backends, e.g.&nbsp;<strong><a href="https://future.callr.futureverse.org">future.callr</a></strong>, <strong><a href="https://future.mirai.futureverse.org">future.mirai</a></strong>, and <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong>.</p>
+<p>Every backend must pass the <em>Future API</em> conformance tests in <strong><a href="https://future.tests.futureverse.org">future.tests</a></strong> before it can call itself one. Switching backend never changes your results, only where they are computed.</p>
+</section>
+<section id="it-is-not-only-about-speed" class="level3">
+<h3 class="anchored" data-anchor-id="it-is-not-only-about-speed">It is not only about speed</h3>
+<p>Futures also make web interfaces asynchronous: a blocking <strong><a href="https://shiny.posit.co/">shiny</a></strong> application can be turned into a non-blocking, responsive experience by resolving expensive computations in the background.</p>
+</section>
+</section>
+<section id="proven-in-the-wild" class="level2">
+<h2 class="anchored" data-anchor-id="proven-in-the-wild">Proven in the wild</h2>
+<p>Futureverse is not new, and it is not niche. Since the first CRAN release of <strong><a href="https://future.futureverse.org">future</a></strong> in June 2015, it has become part of the foundation that a large share of the R ecosystem is built on.</p>
+<div class="stats-grid">
+<div class="stat">
+<p><span class="stat-value">~1,250</span> <span class="stat-label">CRAN packages rely on <strong>future</strong>, directly or indirectly - 5.2% of all of CRAN</span></p>
+</div>
+<div class="stat">
+<p><span class="stat-value">top-0.6%</span> <span class="stat-label">most downloaded package on CRAN</span></p>
+</div>
+<div class="stat">
+<p><span class="stat-value">&gt;500</span> <span class="stat-label">direct reverse dependencies re-checked before every single release</span></p>
+</div>
+<div class="stat">
+<p><span class="stat-value">since 2015</span> <span class="stat-label">and 100% backward compatible - no breaking updates</span></p>
+</div>
+</div>
+<p><span class="stat-note">As of July 2026, from the <strong>future</strong> reverse-dependency checks and CRAN download logs.</span></p>
+<p>It is used across statistics, machine learning, forecasting, genomics, epidemiology, clinical trials, ecology, finance, and geospatial analysis - by packages such as <strong><a href="https://satijalab.org/seurat/">Seurat</a></strong>, <strong><a href="https://mlr3.mlr-org.com/">mlr3</a></strong>, <strong><a href="https://docs.ropensci.org/targets/">targets</a></strong>, <strong><a href="https://epiforecasts.io/EpiNow2/">EpiNow2</a></strong>, and <strong>shiny</strong>.</p>
+<p>See <a href="usage.html">Real-World Use &amp; Statistics</a> for examples, and <a href="quality.html">Quality, Validation &amp; Maintenance</a> for how correctness is validated.</p>
+</section>
+<section id="which-part-is-for-you" class="level2">
+<h2 class="anchored" data-anchor-id="which-part-is-for-you">Which part is for you?</h2>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p><strong>If you analyze data</strong></p>
+<p>Add <code>plan(multisession)</code> and <code>|&gt; futurize()</code> and your existing scripts run in parallel. If a package you use already builds on futures, a single <code>plan()</code> call is enough - no code change at all.</p>
+<p><a href="tutorials.html">Start with the tutorials →</a></p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><strong>If you write packages</strong></p>
+<p>Write your parallel code once against the <em>Future API</em> and it runs on every backend - present and future - without you testing against any of them. Backend authors validate their own backends against the <strong>future.tests</strong> conformance suite, so you do not have to.</p>
+<p><a href="packages-overview.html">Overview of all packages →</a></p>
+</div>
+</div>
+</section>
+<section id="get-started" class="level2">
+<h2 class="anchored" data-anchor-id="get-started">Get started</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"futurize"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then:</p>
+<ul>
+<li>Try it in your browser, no installation required - <a href="demo.html">live demo</a></li>
+<li>Work through a <a href="tutorials.html">tutorial</a> or watch a <a href="talks.html">talk</a></li>
+<li>Read the papers behind the framework <span class="citation" data-cites="bengtsson-future bengtsson-futurize">(<a href="#ref-bengtsson-future" role="doc-biblioref">Bengtsson 2021</a>, <a href="#ref-bengtsson-futurize" role="doc-biblioref">2026</a>)</span></li>
+</ul>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Already using <strong>future.apply</strong>, <strong>furrr</strong>, or <strong>doFuture</strong>?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>They are still here, fully supported, and are not going anywhere. <strong><a href="https://future.apply.futureverse.org">future.apply</a></strong>, <strong><a href="https://furrr.futureverse.org">furrr</a></strong>, and <strong><a href="https://doFuture.futureverse.org">doFuture</a></strong> are now the workhorses operating in the background for <strong>futurize</strong>, so you can keep using them directly, adopt <code>futurize()</code>, or mix both.</p>
+</div>
+</div>
+</div>
 <!--
 <style>
   d-title {
@@ -627,6 +729,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-bengtsson-future" class="csl-entry" role="listitem">

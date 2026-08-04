@@ -97,7 +97,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <link rel="stylesheet" href="assets/custom.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -445,23 +445,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#real-world-use" id="toc-real-world-use" class="nav-link active" data-scroll-target="#real-world-use">Real-World Use</a>
-  <ul class="collapse">
-  <li><a href="#epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters" id="toc-epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters" class="nav-link" data-scroll-target="#epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters">EpiNow2: Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters</a></li>
-  <li><a href="#seurat-large-scale-single-cell-genomics" id="toc-seurat-large-scale-single-cell-genomics" class="nav-link" data-scroll-target="#seurat-large-scale-single-cell-genomics">Seurat: Large-Scale Single-Cell Genomics</a></li>
-  <li><a href="#shiny-scalable-asynchronous-ux" id="toc-shiny-scalable-asynchronous-ux" class="nav-link" data-scroll-target="#shiny-scalable-asynchronous-ux">Shiny: Scalable, Asynchronous UX</a></li>
-  <li><a href="#mlr3-next-generation-machine-learning" id="toc-mlr3-next-generation-machine-learning" class="nav-link" data-scroll-target="#mlr3-next-generation-machine-learning">Mlr3: Next-Generation Machine Learning</a></li>
-  <li><a href="#targets-pipeline-toolkit-for-reproducible-computation-at-scale" id="toc-targets-pipeline-toolkit-for-reproducible-computation-at-scale" class="nav-link" data-scroll-target="#targets-pipeline-toolkit-for-reproducible-computation-at-scale">Targets: Pipeline Toolkit for Reproducible Computation at Scale</a></li>
-  </ul></li>
-  <li><a href="#cran-statistics" id="toc-cran-statistics" class="nav-link" data-scroll-target="#cran-statistics">CRAN Statistics</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -562,8 +546,8 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </section>
 <section id="cran-statistics" class="level1">
 <h1>CRAN Statistics</h1>
-<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. As of June 2026, <strong>future</strong> is among the top-0.6% most downloaded packages on CRAN (Figure 1) and there are ~500 packages (+35%/year) on CRAN that directly depend on it (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages is ~300 (+55%/year) and ~180 (+25%/year), respectively.</p>
-<p>If we consider recursive dependencies too, that is, packages that need (depends or imports) the <strong>future</strong> package either directly or indirectly via another package, then ~1,250 (5.2%) of all ~23,900 CRAN packages rely on the future framework for processing (June 2026).</p>
+<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. As of July 2026, <strong>future</strong> is among the top-0.6% most downloaded packages on CRAN (Figure 1) and there are ~500 packages (+35%/year) on CRAN that list it as a direct dependency (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages is ~300 (+55%/year) and ~180 (+25%/year), respectively.</p>
+<p>If we consider recursive dependencies too, that is, packages that need (depends or imports) the <strong>future</strong> package either directly or indirectly via another package, then ~1,250 (5.2%) of all ~23,900 CRAN packages rely on the future framework for processing (July 2026).</p>
 <!--
 repos <- getOption("repos")
 repos <- repos[c("CRAN", "BioCsoft")]

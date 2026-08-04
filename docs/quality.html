@@ -97,7 +97,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <link rel="stylesheet" href="assets/custom.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -445,9 +445,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -478,7 +476,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 
 <p>Since correctness and reproducibility are essential to all data processing, validation is a top priority and part of the design and implementation throughout the future ecosystem. Several types of testing are performed. These rich sets of test suites assure, on a continuous basis, correctness throughout.</p>
 <p>First, all the essential core packages part of the future framework, including <strong>future</strong>, <strong>parallelly</strong>, <strong>globals</strong>, and <strong>listenv</strong>, implement a rich set of package tests. These are validated regularly across the wide-range of operating systems (Linux, macOS, and MS Windows) and R versions available on CRAN, on continuous integration (CI) services (GitHub Actions), and on R-hub. The core packages are also tested with non-English locale settings, including Korean, Simplified Chinese (China) and Traditional Chinese (Taiwan). They are also verified to work with single-core and dual-core machines, which may be the case for some free, cloud services that provide R.</p>
-<p>Second, for each new release, these packages undergo full reverse-package dependency checks using <strong>revdepcheck</strong>. As of May 2026, the <strong>future</strong> package is tested against &gt; 500 direct reverse-package dependencies available on CRAN and Bioconductor. These checks are performed on Linux with both the default settings and when forcing tests to use multisession workers (SOCK clusters), which further validates that globals and packages are identified correctly. We also test with <code>NOT_CRAN = true</code>, to further increase the test coverage.</p>
+<p>Second, for each new release, these packages undergo full reverse-package dependency checks using <strong>revdepcheck</strong>. As of July 2026, the <strong>future</strong> package is tested against &gt; 500 direct reverse-package dependencies available on CRAN and Bioconductor. These checks are performed on Linux with both the default settings and when forcing tests to use multisession workers (SOCK clusters), which further validates that globals and packages are identified correctly. We also test with <code>NOT_CRAN = true</code>, to further increase the test coverage.</p>
 <div>
 <p><img src="images/future.tests-screencast.gif" alt="A screencast
 animation of future.tests running in the terminal. It starts with the
