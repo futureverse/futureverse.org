@@ -43,6 +43,8 @@ website:
             href: https://doFuture.futureverse.org
           - text: "---"
           - text: "Parallel Backends"
+          - text: "Overview of All Backends"
+            href: backends.qmd
           - text: "future (built-in, local & remote parallelization)"
             href: https://future.futureverse.org
           - text: "future.batchtools (use HPC scheduler)"
@@ -80,32 +82,31 @@ website:
           - text: "rw (R interface to webR sandbox)"
             href: https://rw.futureverse.org
 
-      - text: "Parallel Backends"
-        href: backends.qmd
-        
-      - text: "Tutorials"
-        href: tutorials.qmd
-        
-      - text: "Talks"
-        href: talks.qmd
-        
-      - text: "Use & Stats"
-        href: usage.qmd
-        
-      - text: "Quality"
-        href: quality.qmd
-        
+      - text: "Learn"
+        menu:
+          - text: "Tutorials"
+            href: tutorials.qmd
+          - text: "Talks"
+            href: talks.qmd
+
       - text: "Blog"
         href: blog.qmd
-        
-      - text: "Publications"
-        href: publications.qmd
-        
-      - text: "Roadmap"
-        href: roadmap.qmd
-        
-      - text: "About"
-        href: about.qmd
+
+      - text: "Track Record"
+        menu:
+          - text: "Real-World Use & Statistics"
+            href: usage.qmd
+          - text: "Quality, Validation & Maintenance"
+            href: quality.qmd
+          - text: "Publications"
+            href: publications.qmd
+
+      - text: "Project"
+        menu:
+          - text: "Roadmap"
+            href: roadmap.qmd
+          - text: "About"
+            href: about.qmd
 
   announcement: 
     icon: alarm
