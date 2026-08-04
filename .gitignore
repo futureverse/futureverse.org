@@ -4,6 +4,6 @@
 /cranlogs/
 /.quarto/
 /.local/
-
 **/*.quarto_ipynb
 .osgrep
+*.HIDE
