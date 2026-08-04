@@ -1,6 +1,9 @@
 SHELL=bash
 
-FILES ?= about.qmd backends.qmd blog.qmd index.qmd packages-overview.qmd publications.qmd roadmap.qmd talks.qmd usage.qmd quality.qmd tutorials.qmd now.qmd
+## Globbed rather than listed by hand, so that added, renamed, and removed
+## pages are picked up automatically.  '?=' keeps this lazily expanded, so a
+## generated blog.qmd is included as long as it exists by the time it is used.
+FILES ?= $(wildcard *.qmd) $(wildcard now/*.qmd) $(wildcard roadmap/*.qmd)
 
 PACKAGES ?= doFuture future futurize future.apply future.batchtools future.callr future.mirai future.mapreduce future.p2p future.tests future.tools futureverse globals listenv marshal parallelly progressify progressr rw
 
