@@ -13,8 +13,6 @@ DOMAIN ?= futureverse.org
 all: spell build
 
 update_extensions:
-	quarto update extension julia-engine
-	quarto update extension orange-book
 	quarto update extension shafayetShafee/bsicons
 	quarto update extension EmilHvitfeldt/timeline
 	quarto update extension r-wasm/quarto-live
