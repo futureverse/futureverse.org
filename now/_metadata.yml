@@ -1,0 +1,5 @@
+# Pages under now/ are time-bound (conference weeks, "what I'm doing now").
+# Marking them drafts keeps them reachable by direct URL but excludes them
+# from search.json, sitemap.xml, and listings. Requires draft-mode: unlinked
+# in _quarto.yml -- the project default is 'gone', which would unpublish them.
+draft: true

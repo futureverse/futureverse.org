@@ -9,6 +9,12 @@ website:
   description: "Futureverse"
   google-analytics: "G-SB3EQSD9FR"
 
+  ## Draft pages (see now/_metadata.yml) still render and stay reachable by
+  ## direct URL, but are dropped from search, the sitemap, and listings.
+  ## Without this, the default outside 'quarto preview' is 'gone', which
+  ## would unpublish them instead.
+  draft-mode: unlinked
+
   navbar:
     logo: "images/logo.png"
     logo-alt: "Return to the Futureverse front page"

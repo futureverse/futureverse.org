@@ -49,20 +49,6 @@
     "text": "Footnotes\n\n\nThis list is manually curated and may not be comprehensive. Please see the issue trackers and milestones of the different package repositories for a more up-to-date view, e.g. https://github.com/futureverse/future/milestones.↩︎"
   },
   {
-    "objectID": "now/futurize.html",
-    "href": "now/futurize.html",
-    "title": "\nFutureverse Right Here, Right Now!\n",
-    "section": "",
-    "text": "Futureverse Right Here, Right Now!\n\n\n\n\nFutureverse Right Here, Right Now!\n\n\nThis page will redirect to my next presentation or tutorial when the time comes.\n\n\nIf you are not redirected automatically, go to “https://henrikbengtsson.github.io/talk-user2026-futurize/.\n\n\nStay tuned!\n\n\nHenrik"
-  },
-  {
-    "objectID": "now/rw.html",
-    "href": "now/rw.html",
-    "title": "\nFutureverse Right Here, Right Now!\n",
-    "section": "",
-    "text": "Futureverse Right Here, Right Now!\n\n\n\n\nFutureverse Right Here, Right Now!\n\n\nThis page will redirect to my next presentation or tutorial when the time comes.\n\n\nIf you are not redirected automatically, go to “https://henrikbengtsson.github.io/talk-user2026-rw/.\n\n\nStay tuned!\n\n\nHenrik"
-  },
-  {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "Blog Posts",
@@ -250,20 +236,6 @@
     "title": "Try Futureverse in the Browser",
     "section": "",
     "text": "You can try the future ecosystem in the below R WebAssembly (“webR”) widget. The “only” thing is that WebAssembly does not support parallel processing, so everything will run sequentially. Also, the widget buffers all output until everything has finished running.\n\nfuturize 💫Pre-futurize\n\n\nThe futurize() function rewrites the expression to use the corresponding future.apply, furrr, and doFuture expression. It is part of the futurize package released in January 2026."
-  },
-  {
-    "objectID": "now/index.html",
-    "href": "now/index.html",
-    "title": "Now",
-    "section": "",
-    "text": "Futurize talk (20 minutes), Wed July 8, 13:00-14:30 (14:00-14:20), Aula Glowna\nRW talk (5 minutes), Thur July 9, 10:30-12:00 (11:55-12:00), Aula Glowna"
-  },
-  {
-    "objectID": "now/index.html#user-2026-talks",
-    "href": "now/index.html#user-2026-talks",
-    "title": "Now",
-    "section": "",
-    "text": "Futurize talk (20 minutes), Wed July 8, 13:00-14:30 (14:00-14:20), Aula Glowna\nRW talk (5 minutes), Thur July 9, 10:30-12:00 (11:55-12:00), Aula Glowna"
   },
   {
     "objectID": "packages-overview.html",
