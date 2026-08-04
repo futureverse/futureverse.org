@@ -1,6 +1,6 @@
 ---
 title: Futureverse
-description: A Unifying Parallelization Framework in R for Everyone
+description: Parallelize your R code by changing one line - and run it anywhere
 preview: images/site_preview.png
 bibliography: futureverse.bib
 format: html
@@ -8,24 +8,51 @@ format: html
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+
+## Number of packages that futurize() can parallelize. Computed at render
+## time when 'futurize' is available, with a conservative fallback.
+n_futurize_pkgs <- tryCatch({
+  length(futurize::futurize_supported_packages())
+}, error = function(e) 45L)
 ```
 
-<div>
-<img src="images/logo.png" alt="The hexlogo of the future package. A left-facing arrow with the text future underneath - both in bold style filled with yellow-to-orange vertical gradient. The background is dark blue with teeny star-shaped symbols in distance resembling looking deep out in the universe. The hexlogo is surrounded by a light-blue border." style="width: 15ex; padding-left: 2ex; padding-top: 1ex; padding-bottom: 1ex; float: right;"/> 
+<img src="images/logo.png" alt="The hexlogo of the future package. A left-facing arrow with the text future underneath - both in bold style filled with yellow-to-orange vertical gradient. The background is dark blue with teeny star-shaped symbols in distance resembling looking deep out in the universe. The hexlogo is surrounded by a light-blue border." style="width: 15ex; padding-left: 2ex; padding-top: 1ex; padding-bottom: 1ex; float: right;"/>
 
-The **future** framework makes it easy to parallelize existing R code - often with only a minor change of code.  The goal is to lower the barriers so that anyone can safely speed up their existing R code in a worry-free manner.  As it is a cross-platform solution that requires no additional setups or technical skills, anyone can be up and running within a few minutes.
+**Futureverse** makes your existing R code run in parallel - on your
+own computer, across machines on your local network, in the cloud, or
+on a high-performance compute (HPC) cluster.  You do not have to
+restructure your code, and you do not have to think about workers,
+exporting global variables, or parallel random number generation.
 
-The future framework _removes common hurdles and protects against pitfalls_ that follow from adding parallelization.  Instead of leaving it to the developers and end-users to be aware of and deal with these problems, they are handled at the core of the highly-validated future ecosystem.
-Just as with sequential R code, _output, messages, warnings, and errors work as expected_ and can be handled using traditional R techniques - regardless of how the code is parallelized.
+The goal is to lower the barrier so that anyone can speed up their
+existing R code in a worry-free manner.  It is cross-platform and
+needs no additional setup: the same code runs on MS Windows, macOS,
+and Linux.
 
-It is designed so that you as a developer can _stay with your favorite coding style_, whether it be base R or tidyverse.  If you prefer `lapply()`, `map()` of **purrr**, or `foreach()` of **foreach**, there is _no_ need to switch away from that, e.g. `ys <- map(xs, fcn) |> futurize()`.
+```r
+plan(multisession)                        # once, at the top of your script
 
-In addition to map-reduce calls, the framework supports a large number of domain-specific packages on CRAN and Bioconductor, e.g. `b <- boot(city, ratio, R = 999) |> futurize()` and `ds <- DESeq(ds) |> futurize()`.
+ys <- lapply(xs, slow_fcn)                # sequential, as before
+ys <- lapply(xs, slow_fcn) |> futurize()  # the same, now in parallel
+```
 
-Regardless of how you use futures in your code, the user can, with a single setting, switch from running your code sequentially to running it in parallel on their local computer, across multiple machines on their local area network, in the cloud, or distributed on a high-performance compute (HPC) cluster.
+That is the whole idea: **you keep your code, and you decide where it runs.**
 
-Futures make your web interface asynchronous, e.g. a blocking Shiny application can easily be turned into a non-blocking experience by using futures. For further details and motivations of the **future** ecosystem, see @bengtsson-future and @bengtsson-futurize.
-</div>
+::: {.callout-tip appearance="simple"}
+No installation needed to try it: run Futureverse in your browser in
+the [live demo](demo.html).
+:::
+
+
+## What you get
+
+### Your code stays your code
+
+Whether you write base R, tidyverse, or **[foreach]**, there is _no_
+need to switch style or adopt a new set of functions.  `lapply()`,
+`purrr::map()`, and `foreach() %do% { ... }` all parallelize the same
+way, and so do `r n_futurize_pkgs` domain-specific packages on CRAN and
+Bioconductor, e.g. `boot()`, `glmnet()`, and `DESeq()`:
 
 ::: {.panel-tabset}
 
@@ -34,13 +61,6 @@ Futures make your web interface asynchronous, e.g. a blocking Shiny application 
 ```r
 library(futurize)
 plan(multisession) # parallelize on local computer
-
-# Evaluate an R expression sequentially
-y <- slow_fcn(X[1])
-
-# Evaluate it in parallel in the background
-f <- future(slow_fcn(X[1]))
-y <- value(f)
 
 # Sequential and parallel version of base R apply
 y <- lapply(X, slow_fcn)
@@ -97,19 +117,159 @@ ds <- DESeq(ds) |> futurize()
 
 library(SingleCellExperiment)
 res <- applySCE(sce, perFeatureQCMetrics) |> futurize()
-  
+
 # Many more ...
+```
+
+## **Low-level futures**
+
+```r
+library(future)
+plan(multisession) # parallelize on local computer
+
+# Evaluate an R expression sequentially
+y <- slow_fcn(X[1])
+
+# Evaluate it in parallel in the background
+f <- future(slow_fcn(X[1]))
+y <- value(f)
 ```
 
 :::
 
+See **[futurize]** for the full list of supported packages.
 
-See **[futurize]** for a full list of supported packages.
-Try it yourself in the [live demo](demo.html).
 
-Looking for **[future.apply]**, **[furrr]**, and **[doFuture]**? Don't
-worry, they're still around, but they are now the workhorses operating
-fully in the background helping **futurize**.
+### It behaves like R, not like a parallel framework
+
+Adding parallelization normally means new ways for things to go wrong.
+Futureverse _removes those hurdles and protects against the common
+pitfalls_ at the core of the ecosystem, instead of leaving them to
+developers and end-users:
+
+* Output, messages, warnings, and errors work as expected and can be
+  handled with traditional R techniques - regardless of how the code
+  is parallelized
+* Global variables and package dependencies are identified and
+  exported automatically
+* Parallel random number generation is statistically sound, so results
+  are reproducible
+* Progress can be reported in near real-time, even from parallel
+  workers, via **[progressify]** and **[progressr]**
+
+
+### You decide where it runs - not the package author
+
+The same code runs anywhere.  Switching is a _single line_, and it
+applies to all future-based code in your session, including code
+inside packages you did not write, e.g.
+
+```r
+plan(sequential)                            # in the current R session
+plan(multisession)                          # background R sessions, this machine
+plan(cluster, workers = c("n1", "n2"))      # other machines, via SSH
+plan(future.batchtools::batchtools_slurm)   # an HPC job scheduler
+```
+
+See [Parallel Backends](backends.html) for all available backends,
+e.g. **[future.callr]**, **[future.mirai]**, and
+**[future.batchtools]**.
+
+Every backend must pass the _Future API_ conformance tests in
+**[future.tests]** before it can call itself one.  Switching backend
+never changes your results, only where they are computed.
+
+
+### It is not only about speed
+
+Futures also make web interfaces asynchronous: a blocking **[shiny]**
+application can be turned into a non-blocking, responsive experience
+by resolving expensive computations in the background.
+
+
+## Proven in the wild
+
+Futureverse is not new, and it is not niche.  Since the first CRAN
+release of **[future]** in June 2015, it has become part of the
+foundation that a large share of the R ecosystem is built on.
+
+::: {.stats-grid}
+::: {.stat}
+[~1,250]{.stat-value}
+[CRAN packages rely on **future**, directly or indirectly - 5.2% of all of CRAN]{.stat-label}
+:::
+::: {.stat}
+[top-0.6%]{.stat-value}
+[most downloaded package on CRAN]{.stat-label}
+:::
+::: {.stat}
+[>500]{.stat-value}
+[direct reverse dependencies re-checked before every single release]{.stat-label}
+:::
+::: {.stat}
+[since 2015]{.stat-value}
+[and 100% backward compatible - no breaking updates]{.stat-label}
+:::
+:::
+
+[As of July 2026, from the **future** reverse-dependency checks and CRAN download logs.]{.stat-note}
+
+It is used across statistics, machine learning, forecasting,
+genomics, epidemiology, clinical trials, ecology, finance, and
+geospatial analysis - by packages such as **[Seurat]**, **[mlr3]**,
+**[targets]**, **[EpiNow2]**, and **shiny**.
+
+See [Real-World Use & Statistics](usage.html) for examples, and
+[Quality, Validation & Maintenance](quality.html) for how correctness
+is validated.
+
+
+## Which part is for you?
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+**If you analyze data**
+
+Add `plan(multisession)` and `|> futurize()` and your existing scripts
+run in parallel.  If a package you use already builds on futures, a
+single `plan()` call is enough - no code change at all.
+
+[Start with the tutorials &rarr;](tutorials.html)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+**If you write packages**
+
+Write your parallel code once against the _Future API_ and it runs on
+every backend - present and future - without you testing against any
+of them.  Backend authors validate their own backends against the
+**future.tests** conformance suite, so you do not have to.
+
+[Overview of all packages &rarr;](packages-overview.html)
+:::
+:::
+
+
+## Get started
+
+```r
+install.packages("futurize")
+```
+
+Then:
+
+* Try it in your browser, no installation required - [live demo](demo.html)
+* Work through a [tutorial](tutorials.html) or watch a [talk](talks.html)
+* Read the papers behind the framework [@bengtsson-future; @bengtsson-futurize]
+
+::: {.callout-note appearance="simple" collapse="true"}
+## Already using **future.apply**, **furrr**, or **doFuture**?
+
+They are still here, fully supported, and are not going anywhere.
+**[future.apply]**, **[furrr]**, and **[doFuture]** are now the
+workhorses operating in the background for **futurize**, so you can
+keep using them directly, adopt `futurize()`, or mix both.
+:::
 
 <!--
 <style>
@@ -124,7 +284,20 @@ fully in the background helping **futurize**.
 </style>
 -->
 
-[futurize]: https://futurize.futureverse.org
-[future.apply]: https://future.apply.futureverse.org
-[furrr]: https://furrr.futureverse.org
 [doFuture]: https://doFuture.futureverse.org
+[EpiNow2]: https://epiforecasts.io/EpiNow2/
+[foreach]: https://cran.r-project.org/package=foreach
+[furrr]: https://furrr.futureverse.org
+[future]: https://future.futureverse.org
+[future.apply]: https://future.apply.futureverse.org
+[future.batchtools]: https://future.batchtools.futureverse.org
+[future.callr]: https://future.callr.futureverse.org
+[future.mirai]: https://future.mirai.futureverse.org
+[future.tests]: https://future.tests.futureverse.org
+[futurize]: https://futurize.futureverse.org
+[mlr3]: https://mlr3.mlr-org.com/
+[progressify]: https://progressify.futureverse.org
+[progressr]: https://progressr.futureverse.org
+[Seurat]: https://satijalab.org/seurat/
+[shiny]: https://shiny.posit.co/
+[targets]: https://docs.ropensci.org/targets/
