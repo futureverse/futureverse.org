@@ -56,6 +56,23 @@ talk <- function(title, author, info = NULL, location = NULL, duration = NULL, d
 ```{r}
 #| echo: false
 talk(
+     title = "Parallelize Your R Code with a Single Tweak - Easier than Ever Before",
+    author = "Henrik Bengtsson",
+  location = "COMPUTE! 2026, Paris",
+      date = "2026-11-25",
+    duration = "25 minutes",
+      urls = c(
+         "HTML slides" = NULL,
+#         Abstract = "https://compute.events/paris2026/schedule.html",
+        "Event" = "https://compute.events/paris2026/schedule.html"
+      )
+)
+```
+
+
+```{r}
+#| echo: false
+talk(
      title = "Evaluate Untrusted R Code Locally Isolated in a webR Sandbox?",
     author = "Henrik Bengtsson",
   location = "useR! 2026",
