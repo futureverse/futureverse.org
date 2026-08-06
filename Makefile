@@ -35,12 +35,30 @@ preview:
 view:
 	xdg-open docs/index.html
 
-stats: stats-revdep-over-time stats-downloads
+stats: stats-revdep-over-time stats-parallel-frameworks stats-parallel-paradigms \
+       stats-parallel-families stats-parallel-hard-vs-soft stats-downloads
 
 ## Takes 5-15 minutes to download if starting out fresh
 stats-revdep-over-time:
 	@Rscript -e "if (!requireNamespace('revdepcheck.extras', quietly = TRUE)) remotes::install_github('HenrikBengtsson/revdepcheck.extras')"
 	R_PROGRESSR_ENABLE=true Rscript R/revdep_over_time.R
+
+## Takes ~5 minutes to download if starting out fresh
+stats-parallel-frameworks:
+	@Rscript -e "pkgs <- c('readr', 'jsonlite', 'tidyr', 'ggrepel', 'scales'); avail <- sapply(pkgs, requireNamespace, quietly = TRUE); pkgs <- pkgs[!avail]; if (length(pkgs) > 0) install.packages(pkgs)"
+	R_PROGRESSR_ENABLE=true Rscript R/parallel_frameworks_over_time.R
+
+## Shares the CRAN snapshot cache with stats-parallel-frameworks
+stats-parallel-paradigms:
+	R_PROGRESSR_ENABLE=true Rscript R/parallel_paradigms_over_time.R
+
+## Shares the CRAN snapshot cache with stats-parallel-frameworks
+stats-parallel-families:
+	R_PROGRESSR_ENABLE=true Rscript R/parallel_families_over_time.R
+
+## Shares the CRAN snapshot cache with stats-parallel-frameworks
+stats-parallel-hard-vs-soft:
+	R_PROGRESSR_ENABLE=true Rscript R/parallel_hard_vs_soft_over_time.R
 
 ## Takes ~5 hours to download and compute if starting out fresh
 stats-downloads:
