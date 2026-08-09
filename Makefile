@@ -36,7 +36,8 @@ view:
 	xdg-open docs/index.html
 
 stats: stats-revdep-over-time stats-parallel-frameworks stats-parallel-paradigms \
-       stats-parallel-families stats-parallel-hard-vs-soft stats-downloads
+       stats-parallel-families stats-parallel-hard-vs-soft \
+       stats-downloads stats-parallel-downloads
 
 ## Takes 5-15 minutes to download if starting out fresh
 stats-revdep-over-time:
@@ -55,6 +56,10 @@ stats-parallel-paradigms:
 ## Shares the CRAN snapshot cache with stats-parallel-frameworks
 stats-parallel-families:
 	R_PROGRESSR_ENABLE=true Rscript R/parallel_families_over_time.R
+
+## Reuses the weekly download cache built by stats-downloads
+stats-parallel-downloads:
+	R_PROGRESSR_ENABLE=true Rscript R/parallel_families_downloads_over_time.R
 
 ## Shares the CRAN snapshot cache with stats-parallel-frameworks
 stats-parallel-hard-vs-soft:

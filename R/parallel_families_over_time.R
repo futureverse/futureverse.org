@@ -15,63 +15,9 @@
 ## (Suggests), on a shared zoomed y-axis so the pair can be read side by side.
 
 source("R/cran_snapshots.R")
+source("R/parallel_families.R")   ## family map, families, colors, surface, image_dims
 
 
-## ---------------------------------------------------------------------
-## The families, bottom-up in roughly the order they arrived on CRAN
-##
-## 'foreach' and 'doRNG' are left out: neither parallelizes on its own, it is
-## the do*() backends that do.  'nanonext' is a transport layer, and
-## 'RhpcBLASctl'/'OpenMPController' control thread counts rather than provide
-## parallelism.
-## ---------------------------------------------------------------------
-family <- c(
-  snow             = "snow era",
-  snowfall         = "snow era",
-  Rmpi             = "snow era",
-  multicore        = "snow era",
-  nws              = "snow era",
-
-  parallel         = "parallel (base R)",
-
-  doParallel       = "foreach backends",
-  doMC             = "foreach backends",
-  doSNOW           = "foreach backends",
-  doMPI            = "foreach backends",
-  doRedis          = "foreach backends",
-  doAzureParallel  = "foreach backends",
-
-  batchtools       = "HPC schedulers",
-  BatchJobs        = "HPC schedulers",
-  clustermq        = "HPC schedulers",
-  rslurm           = "HPC schedulers",
-  batch            = "HPC schedulers",
-  parallelMap      = "HPC schedulers",
-
-  RcppParallel     = "C++ threading",
-  RcppThread       = "C++ threading",
-
-  mirai            = "mirai",
-  crew             = "mirai",
-  crew.cluster     = "mirai",
-
-  future             = "Futureverse",
-  future.apply       = "Futureverse",
-  furrr              = "Futureverse",
-  doFuture           = "Futureverse",
-  parallelly         = "Futureverse",
-  future.batchtools  = "Futureverse",
-  future.callr       = "Futureverse",
-  future.mirai       = "Futureverse",
-  future.mapreduce   = "Futureverse",
-  futureverse        = "Futureverse"
-)
-
-## doFuture and future.batchtools bridge two worlds; they are counted as
-## Futureverse, since that is the API the author programs against.
-
-families <- c("snow era", "parallel (base R)", "foreach backends",
-              "HPC schedulers", "C++ threading", "mirai", "Futureverse")
 levels <- c(families, "no dependency")
 
 data <- filter(data, framework %in% names(family))
@@ -131,34 +77,13 @@ write_tsv(bind_rows(counts_by_kind),
           file = file.path(path, "parallel_families_over_time.tsv"))
 
 
-## ---------------------------------------------------------------------
-## Plot
-##
-## Seven hues, validated for colour-vision deficiency on the pairs that touch
-## in the stack: worst adjacent CVD dE 16.2, normal-vision dE 22.9 (OKLab
-## x100, light surface).  Three of them are held at the colour their leading
-## package carries in the per-package figure - parallel amber, foreach green,
-## Futureverse red - so the two figures can be read together.
-## ---------------------------------------------------------------------
-colors <- c(
-  "snow era"          = "#2A78D6",
-  "parallel (base R)" = "#EDA100",
-  "foreach backends"  = "#008300",
-  "HPC schedulers"    = "#5B8DEF",
-  "C++ threading"     = "#1BAF7A",
-  "mirai"             = "#4A3AA7",
-  "Futureverse"       = "#E34948",
-  "no dependency"     = "#E7E5E0"
-)
-
-surface <- "#FCFCFB"
-image_dims <- c(10.0, 6.0)
-
 caption <- paste0(
   "Within a family a dependent package is counted once, so importing future, ",
   "future.apply and furrr is one unit of Futureverse, not three. A package ",
-  "reaching into several families counts once in each. 'foreach' and 'doRNG' ",
-  "are left out: it is the do*() backends that parallelize, not they."
+  "reaching into several families counts once in each. Multi-threading ",
+  "(RcppParallel, RcppThread) is excluded - these are the multi-process ",
+  "ecosystems. 'foreach' and 'doRNG' are left out too: it is the do*() ",
+  "backends that parallelize, not they."
 )
 caption <- paste(strwrap(caption, width = 132), collapse = "\n")
 
@@ -171,7 +96,25 @@ label_at <- function(data, min_fraction) {
     mutate(label = sprintf("%s  %.1f%%", family, 100 * fraction))
 }
 
-gg_base <- function(data, labels, kind) {
+## Recomputed from the data - the membership/package gap moves as families
+## are added or excluded, so it must not be hardcoded
+rel_stats <- local({
+  latest <- filter(counts_by_kind[["hard"]], date == max(date))
+  list(memberships = sum(latest$packages, na.rm = TRUE),
+       packages = filter(latest, family == "no dependency")$any)
+})
+caption_rel <- paste0(
+  "Multi-threading (RcppParallel, RcppThread) is excluded: these are the ",
+  "multi-process ecosystems. Denominator is family memberships, not packages: ",
+  "a package in two families is counted in both, so the bands can fill 100%. ",
+  sprintf("Today that is %d memberships across %d distinct packages, ",
+          rel_stats$memberships, rel_stats$packages),
+  sprintf("because %d belong to more than one family.",
+          rel_stats$memberships - rel_stats$packages)
+)
+caption_rel <- paste(strwrap(caption_rel, width = 132), collapse = "\n")
+
+gg_base <- function(data, labels, kind, relative = FALSE) {
   gg <- ggplot(data, aes(x = date, y = fraction, fill = family))
   gg <- gg + geom_area(position = position_stack(reverse = TRUE),
                        colour = surface, linewidth = 0.25)
@@ -190,9 +133,15 @@ gg_base <- function(data, labels, kind) {
   )
   gg <- gg + scale_colour_manual(values = colors, guide = "none")
   gg <- gg + labs(
-    x = NULL, y = "Fraction of all CRAN packages",
-    title = sprintf("Parallel ecosystems on CRAN, by %s", kind_label[[kind]]),
-    caption = caption
+    x = NULL,
+    y = if (relative) "Share of multi-process ecosystem use"
+        else "Fraction of all CRAN packages",
+    title = if (relative)
+      sprintf("Which multi-process ecosystem do CRAN packages reach for? (%s)",
+              kind_short[[kind]])
+    else
+      sprintf("Multi-process ecosystems on CRAN, by %s", kind_label[[kind]]),
+    caption = if (relative) caption_rel else caption
   )
   gg <- gg + guides(fill = guide_legend(title = "Ecosystem:"))
   gg <- gg + theme_minimal(base_size = 15)
@@ -260,6 +209,18 @@ make_charts <- function(kind) {
                                 limits = c(0, 1.02 * zoom_ymax))
   pathname <- ggsave(
     gg, filename = sprintf("parallel_families_over_time_on_CRAN%s-zoom.png", suffix),
+    width = image_dims[1], height = image_dims[2], dpi = 300, bg = surface)
+  message("Wrote: ", pathname)
+
+  ## Relative: each family as a share of all parallel-using packages, so the
+  ## stack fills 100% and the bands are ecosystem market share rather than
+  ## penetration of CRAN
+  rel <- zoom |> mutate(fraction = share)
+  gg <- gg_base(rel, label_at(rel, min_fraction = 0.02), kind, relative = TRUE)
+  gg <- gg + scale_y_continuous(labels = scales::percent, expand = expansion(0),
+                                breaks = seq(0, 1, by = 0.25))
+  pathname <- ggsave(
+    gg, filename = sprintf("parallel_families_over_time_on_CRAN%s-relative.png", suffix),
     width = image_dims[1], height = image_dims[2], dpi = 300, bg = surface)
   message("Wrote: ", pathname)
 }
