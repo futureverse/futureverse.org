@@ -578,7 +578,12 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="ideally-everything-is-hidden-away">Ideally, everything is hidden away</h2>
 <p>If <code>cv.glmnet()</code> declares its own needs, <code>futurize()</code> can pick them up too. Code that already works today would then become resource aware, protect against overuse, and optimize scheduling - all without any code changes:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fits <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, <span class="at">FUN =</span> cv.glmnet, <span class="at">y =</span> y) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Memory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way. Feedback and suggestions are welcome on the <a href="https://github.com/orgs/futureverse/discussions">Futureverse Discussions</a> forum.</p>
+</section>
+<section id="much-more" class="level2">
+<h2 class="anchored" data-anchor-id="much-more">Much more</h2>
+<p>Memory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way.</p>
+<p>See the <a href="../roadmap.html#resource-management-and-scheduling">Roadmap</a> for other features related to this project.</p>
+<p>Feedback and suggestions are welcome on the <a href="https://github.com/orgs/futureverse/discussions">Futureverse Discussions</a> forum.</p>
 
 
 </section>

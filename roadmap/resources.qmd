@@ -78,10 +78,17 @@ If `cv.glmnet()` declares its own needs, `futurize()` can pick them up too.  Cod
 fits <- lapply(xs, FUN = cv.glmnet, y = y) |> futurize()
 ```
 
-Memory is only the beginning.  Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way.  Feedback and suggestions are welcome on the [Futureverse Discussions] forum.
+## Much more
+
+Memory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way.
+
+See the [Roadmap] for other features related to this project.
+
+Feedback and suggestions are welcome on the [Futureverse Discussions] forum.
 
 
 [glmnet]: https://glmnet.stanford.edu/
 [futurize]: https://futurize.futureverse.org
 [future.batchtools]: https://future.batchtools.futureverse.org
 [Futureverse Discussions]: https://github.com/orgs/futureverse/discussions
+[Roadmap]: /roadmap.html#resource-management-and-scheduling
