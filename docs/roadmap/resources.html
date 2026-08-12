@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Declare what your code needs, so R can check it before the work starts">
 
 <title>Roadmap: Resource Specifications – Futureverse</title>
 <style>
@@ -25,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -475,6 +511,11 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <h1 class="title">Roadmap: Resource Specifications</h1>
 </div>
 
+<div>
+  <div class="description">
+    Declare what your code needs, so R can check it before the work starts
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -489,10 +530,58 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </header>
 
 
-<meta http-equiv="refresh" content="0; url=/roadmap.html">
-<p>If you are not redirected automatically, go to <a href="../roadmap.html">/roadmap.html</a>.</p>
+<p>Some calls need far more memory than the objects you pass to them, and nothing in your script says so. Fitting a cross-validated elastic net with <code>cv.glmnet(x, y)</code> of the <strong><a href="https://glmnet.stanford.edu/">glmnet</a></strong> package needs roughly four times the size of <code>x</code>. When that memory is not there, the error arrives long after the work started, or the operating system kills the R process outright:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> fit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> cannot allocate vector of size <span class="fl">1.7</span> Gb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The goal of the <em>Resource Project</em> is to give memory and other types of resource requirements a home - a <em>resource specification</em>, written in R next to the code that knows it. The same declaration is meant to do two jobs: checked before the work starts, it fails fast instead of hours later, and handed to a parallel framework, it also decides how many tasks can run at the same time.</p>
+<p>The examples below are excerpts from the blog post <a href="https://www.jottr.org/2026/08/11/roadmap-resources-memory/">The Resource Project: Tell R How Much Memory You Need</a>, which explains them in full.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This is a proposal. With one exception - <code>futurize()</code>, which is on CRAN today - none of the features below are implemented.</p>
+</div>
+</div>
+</div>
+<section id="declare-what-a-call-needs" class="level2">
+<h2 class="anchored" data-anchor-id="declare-what-a-call-needs">Declare what a call needs</h2>
+<p>An <code>expr |&gt; resources(...)</code> pipe leaves the original code and logic as-is, while declaring requirements that R can act on:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y) <span class="sc">|&gt;</span> <span class="fu">resources</span>(<span class="fu">memory</span>(<span class="dv">4</span> <span class="sc">*</span> <span class="fu">object.size</span>(x)))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: UnmetResourceError: cv.glmnet(x, y) requires memory 7.5 GiB, available 3.1 GiB</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="fail-fast-for-a-whole-batch" class="level2">
+<h2 class="anchored" data-anchor-id="fail-fast-for-a-whole-batch">Fail fast for a whole batch</h2>
+<p>When the declaration is a function of the data, it can be checked for <em>all</em> elements before the first model is fit, e.g.&nbsp;so that ten assay-specific fits do not waste effort on the first three before failing on the fourth:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fits <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, <span class="cf">function</span>(assay) <span class="fu">cv.glmnet</span>(assay, y)) <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">resources</span>(<span class="cf">function</span>(assay) <span class="fu">memory</span>(<span class="dv">4</span> <span class="sc">*</span> <span class="fu">object.size</span>(assay)))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: UnmetResourceError: cv.glmnet(assay, y) requires memory 7.5 GiB for xs[[4]], available 3.1 GiB</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="let-the-function-declare-its-own-needs" class="level2">
+<h2 class="anchored" data-anchor-id="let-the-function-declare-its-own-needs">Let the function declare its own needs</h2>
+<p>Nobody should have to investigate what <code>cv.glmnet()</code> needs. The function maintainer, or you yourself for code you do not maintain, can attach the specification to the function:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">resources</span>(cv.glmnet) <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) <span class="fu">memory</span>(<span class="dv">4</span> <span class="sc">*</span> <span class="fu">object.size</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>With that in place, the caller declares nothing:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y) <span class="sc">|&gt;</span> <span class="fu">resources</span>()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: UnmetResourceError: cv.glmnet(x, y) requires memory 7.5 GiB, available 3.1 GiB</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-same-declaration-schedules-parallel-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="the-same-declaration-schedules-parallel-tasks">The same declaration schedules parallel tasks</h2>
+<p>Without memory protection, there is a great risk that you run out of memory before you run out of CPU cores. The plan is for <strong><a href="https://futurize.futureverse.org">futurize</a></strong> to use the very same specification to limit how many memory-hungry tasks run concurrently:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fits <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, <span class="cf">function</span>(assay) <span class="fu">cv.glmnet</span>(assay, y)) <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">resources</span>(<span class="cf">function</span>(assay) <span class="fu">memory</span>(<span class="dv">4</span> <span class="sc">*</span> <span class="fu">object.size</span>(assay))) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">futurize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On a high-performance compute (HPC) cluster, <strong><a href="https://future.batchtools.futureverse.org">future.batchtools</a></strong> could translate each calculated requirement into a job-scheduler declaration, e.g.&nbsp;Slurm’s <code>--mem=10G</code>, so that every task lands in an appropriately sized slot.</p>
+</section>
+<section id="ideally-everything-is-hidden-away" class="level2">
+<h2 class="anchored" data-anchor-id="ideally-everything-is-hidden-away">Ideally, everything is hidden away</h2>
+<p>If <code>cv.glmnet()</code> declares its own needs, <code>futurize()</code> can pick them up too. Code that already works today would then become resource aware, protect against overuse, and optimize scheduling - all without any code changes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fits <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, <span class="at">FUN =</span> cv.glmnet, <span class="at">y =</span> y) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Memory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way. Feedback and suggestions are welcome on the <a href="https://github.com/orgs/futureverse/discussions">Futureverse Discussions</a> forum.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

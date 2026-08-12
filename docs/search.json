@@ -18,7 +18,7 @@
     "href": "roadmap.html#resource-management-and-scheduling",
     "title": "Project Roadmap",
     "section": "Resource Management and Scheduling",
-    "text": "Resource Management and Scheduling\n\n\nProfiling: Support for built-in time profiling to identify bottlenecks and improve overall performance [future#142, future#FR437]\nProfiling: Support for built-in memory profiling, e.g. autometrics [future#59]\nRandom number generation: Support for custom, alternative RNGs to the built-in L’Ecuyer-CMRG algorithm\nMarshaling: Make it possible to parallelize also some of the object types that are currently “non-exportable”, e.g. objects by packages such as DBI, keras, ncdf4, rstan, sparklyr, xgboost, and xml2 (Project: marshal and R Consortium ISC Marshaling and Serialization in R Working Group)\nShared memory: Support for low-memory sharing of globals among worker processes running on the same machine by leveraging the mori package\nContent-addressable shared memory, e.g. efficient local and remote caching\nResources: Make it possible to declare “resources” that a future requires in order to be resolved, e.g. memory, runtime, CPUs, GPUs, networking & internet, files, sandboxing, etc. [doFuture#FR63, future#FR181, future#FR301, future#FR346, future#FR430, future#FR450, parallelly#18, future.batchtools#FR75]\nScheduling: Add generic support for queuing such that futures can be queued on the local computer, on a remote scheduler, or in a peer-to-peer scheduler among collaborators [future#FR256, future.apply#FR63, future.batchtools#FR23]\nMultiple backends: Send different futures to different backends, based on which parallel backend can provide the requested resources\nObservability: Support for OpenTelemetry (when the otel stack has matured)"
+    "text": "Resource Management and Scheduling\nThe below features are part of the bigger Resource Specifications Project.\n\n\nProfiling: Support for built-in time profiling to identify bottlenecks and improve overall performance [future#142, future#FR437]\nProfiling: Support for built-in memory profiling, e.g. autometrics [future#59]\nRandom number generation: Support for custom, alternative RNGs to the built-in L’Ecuyer-CMRG algorithm\nMarshaling: Make it possible to parallelize also some of the object types that are currently “non-exportable”, e.g. objects by packages such as DBI, keras, ncdf4, rstan, sparklyr, xgboost, and xml2 (Project: marshal and R Consortium ISC Marshaling and Serialization in R Working Group)\nShared memory: Support for low-memory sharing of globals among worker processes running on the same machine by leveraging the mori package\nContent-addressable shared memory, e.g. efficient local and remote caching\nResources: Make it possible to declare “resources” that a future requires in order to be resolved, e.g. memory, runtime, CPUs, GPUs, networking & internet, files, sandboxing, etc. [doFuture#FR63, future#FR181, future#FR301, future#FR346, future#FR430, future#FR450, parallelly#18, future.batchtools#FR75]\nScheduling: Add generic support for queuing such that futures can be queued on the local computer, on a remote scheduler, or in a peer-to-peer scheduler among collaborators [future#FR256, future.apply#FR63, future.batchtools#FR23]\nMultiple backends: Send different futures to different backends, based on which parallel backend can provide the requested resources\nObservability: Support for OpenTelemetry (when the otel stack has matured)"
   },
   {
     "objectID": "roadmap.html#map-reduce-future-api",
@@ -60,7 +60,42 @@
     "href": "roadmap/resources.html",
     "title": "Roadmap: Resource Specifications",
     "section": "",
-    "text": "If you are not redirected automatically, go to /roadmap.html."
+    "text": "Some calls need far more memory than the objects you pass to them, and nothing in your script says so. Fitting a cross-validated elastic net with cv.glmnet(x, y) of the glmnet package needs roughly four times the size of x. When that memory is not there, the error arrives long after the work started, or the operating system kills the R process outright:\nThe goal of the Resource Project is to give memory and other types of resource requirements a home - a resource specification, written in R next to the code that knows it. The same declaration is meant to do two jobs: checked before the work starts, it fails fast instead of hours later, and handed to a parallel framework, it also decides how many tasks can run at the same time.\nThe examples below are excerpts from the blog post The Resource Project: Tell R How Much Memory You Need, which explains them in full."
+  },
+  {
+    "objectID": "roadmap/resources.html#declare-what-a-call-needs",
+    "href": "roadmap/resources.html#declare-what-a-call-needs",
+    "title": "Roadmap: Resource Specifications",
+    "section": "Declare what a call needs",
+    "text": "Declare what a call needs\nAn expr |&gt; resources(...) pipe leaves the original code and logic as-is, while declaring requirements that R can act on:\nfit &lt;- cv.glmnet(x, y) |&gt; resources(memory(4 * object.size(x)))\n#&gt; Error: UnmetResourceError: cv.glmnet(x, y) requires memory 7.5 GiB, available 3.1 GiB"
+  },
+  {
+    "objectID": "roadmap/resources.html#fail-fast-for-a-whole-batch",
+    "href": "roadmap/resources.html#fail-fast-for-a-whole-batch",
+    "title": "Roadmap: Resource Specifications",
+    "section": "Fail fast for a whole batch",
+    "text": "Fail fast for a whole batch\nWhen the declaration is a function of the data, it can be checked for all elements before the first model is fit, e.g. so that ten assay-specific fits do not waste effort on the first three before failing on the fourth:\nfits &lt;- lapply(xs, function(assay) cv.glmnet(assay, y)) |&gt;\n  resources(function(assay) memory(4 * object.size(assay)))\n#&gt; Error: UnmetResourceError: cv.glmnet(assay, y) requires memory 7.5 GiB for xs[[4]], available 3.1 GiB"
+  },
+  {
+    "objectID": "roadmap/resources.html#let-the-function-declare-its-own-needs",
+    "href": "roadmap/resources.html#let-the-function-declare-its-own-needs",
+    "title": "Roadmap: Resource Specifications",
+    "section": "Let the function declare its own needs",
+    "text": "Let the function declare its own needs\nNobody should have to investigate what cv.glmnet() needs. The function maintainer, or you yourself for code you do not maintain, can attach the specification to the function:\nresources(cv.glmnet) &lt;- function(x, ...) memory(4 * object.size(x))\nWith that in place, the caller declares nothing:\nfit &lt;- cv.glmnet(x, y) |&gt; resources()\n#&gt; Error: UnmetResourceError: cv.glmnet(x, y) requires memory 7.5 GiB, available 3.1 GiB"
+  },
+  {
+    "objectID": "roadmap/resources.html#the-same-declaration-schedules-parallel-tasks",
+    "href": "roadmap/resources.html#the-same-declaration-schedules-parallel-tasks",
+    "title": "Roadmap: Resource Specifications",
+    "section": "The same declaration schedules parallel tasks",
+    "text": "The same declaration schedules parallel tasks\nWithout memory protection, there is a great risk that you run out of memory before you run out of CPU cores. The plan is for futurize to use the very same specification to limit how many memory-hungry tasks run concurrently:\nfits &lt;- lapply(xs, function(assay) cv.glmnet(assay, y)) |&gt;\n  resources(function(assay) memory(4 * object.size(assay))) |&gt;\n  futurize()\nOn a high-performance compute (HPC) cluster, future.batchtools could translate each calculated requirement into a job-scheduler declaration, e.g. Slurm’s --mem=10G, so that every task lands in an appropriately sized slot."
+  },
+  {
+    "objectID": "roadmap/resources.html#ideally-everything-is-hidden-away",
+    "href": "roadmap/resources.html#ideally-everything-is-hidden-away",
+    "title": "Roadmap: Resource Specifications",
+    "section": "Ideally, everything is hidden away",
+    "text": "Ideally, everything is hidden away\nIf cv.glmnet() declares its own needs, futurize() can pick them up too. Code that already works today would then become resource aware, protect against overuse, and optimize scheduling - all without any code changes:\nfits &lt;- lapply(xs, FUN = cv.glmnet, y = y) |&gt; futurize()\nMemory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way. Feedback and suggestions are welcome on the Futureverse Discussions forum."
   },
   {
     "objectID": "backends.html",

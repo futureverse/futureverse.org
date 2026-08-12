@@ -1,11 +1,87 @@
 ---
 title: "Roadmap: Resource Specifications"
-description: ""
+description: "Declare what your code needs, so R can check it before the work starts"
 format: html
 ---
 
+Some calls need far more memory than the objects you pass to them, and nothing in your script says so.  Fitting a cross-validated elastic net with `cv.glmnet(x, y)` of the **[glmnet]** package needs roughly four times the size of `x`.  When that memory is not there, the error arrives long after the work started, or the operating system kills the R process outright:
 
-<meta http-equiv="refresh" content="0; url=/roadmap.html">
+```r
+> fit <- cv.glmnet(x, y)
+Error: cannot allocate vector of size 1.7 Gb
+```
 
-If you are not redirected automatically, go to <a href="/roadmap.html">/roadmap.html</a>.
+The goal of the _Resource Project_ is to give memory and other types of resource requirements a home - a _resource specification_, written in R next to the code that knows it.  The same declaration is meant to do two jobs: checked before the work starts, it fails fast instead of hours later, and handed to a parallel framework, it also decides how many tasks can run at the same time.
 
+The examples below are excerpts from the blog post [The Resource Project: Tell R How Much Memory You Need](https://www.jottr.org/2026/08/11/roadmap-resources-memory/), which explains them in full.
+
+::: {.callout-note appearance="simple"}
+This is a proposal.  With one exception - `futurize()`, which is on CRAN today - none of the features below are implemented.
+:::
+
+
+## Declare what a call needs
+
+An `expr |> resources(...)` pipe leaves the original code and logic as-is, while declaring requirements that R can act on:
+
+```r
+fit <- cv.glmnet(x, y) |> resources(memory(4 * object.size(x)))
+#> Error: UnmetResourceError: cv.glmnet(x, y) requires memory 7.5 GiB, available 3.1 GiB
+```
+
+
+## Fail fast for a whole batch
+
+When the declaration is a function of the data, it can be checked for _all_ elements before the first model is fit, e.g. so that ten assay-specific fits do not waste effort on the first three before failing on the fourth:
+
+```r
+fits <- lapply(xs, function(assay) cv.glmnet(assay, y)) |>
+  resources(function(assay) memory(4 * object.size(assay)))
+#> Error: UnmetResourceError: cv.glmnet(assay, y) requires memory 7.5 GiB for xs[[4]], available 3.1 GiB
+```
+
+
+## Let the function declare its own needs
+
+Nobody should have to investigate what `cv.glmnet()` needs.  The function maintainer, or you yourself for code you do not maintain, can attach the specification to the function:
+
+```r
+resources(cv.glmnet) <- function(x, ...) memory(4 * object.size(x))
+```
+
+With that in place, the caller declares nothing:
+
+```r
+fit <- cv.glmnet(x, y) |> resources()
+#> Error: UnmetResourceError: cv.glmnet(x, y) requires memory 7.5 GiB, available 3.1 GiB
+```
+
+
+## The same declaration schedules parallel tasks
+
+Without memory protection, there is a great risk that you run out of memory before you run out of CPU cores.  The plan is for **[futurize]** to use the very same specification to limit how many memory-hungry tasks run concurrently:
+
+```r
+fits <- lapply(xs, function(assay) cv.glmnet(assay, y)) |>
+  resources(function(assay) memory(4 * object.size(assay))) |>
+  futurize()
+```
+
+On a high-performance compute (HPC) cluster, **[future.batchtools]** could translate each calculated requirement into a job-scheduler declaration, e.g. Slurm's `--mem=10G`, so that every task lands in an appropriately sized slot.
+
+
+## Ideally, everything is hidden away
+
+If `cv.glmnet()` declares its own needs, `futurize()` can pick them up too.  Code that already works today would then become resource aware, protect against overuse, and optimize scheduling - all without any code changes:
+
+```r
+fits <- lapply(xs, FUN = cv.glmnet, y = y) |> futurize()
+```
+
+Memory is only the beginning.  Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way.  Feedback and suggestions are welcome on the [Futureverse Discussions] forum.
+
+
+[glmnet]: https://glmnet.stanford.edu/
+[futurize]: https://futurize.futureverse.org
+[future.batchtools]: https://future.batchtools.futureverse.org
+[Futureverse Discussions]: https://github.com/orgs/futureverse/discussions

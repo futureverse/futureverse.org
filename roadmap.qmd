@@ -37,6 +37,8 @@ Below are some^[This list is manually curated and may not be comprehensive.  Ple
 
 ## Resource Management and Scheduling
 
+The below features are part of the bigger **[Resource Specifications]** Project.
+
 ::: {.list-unstyled}
 * {{< bi square-fill >}}<span>Profiling: Support for built-in _time_ profiling to identify bottlenecks and improve overall performance [~~[future#142]~~, ~~[future#FR437]~~]</span>
 * {{< bi square-half >}}<span>Profiling: Support for built-in _memory_ profiling, e.g. **autometrics** [[future#59]]</span>
@@ -150,3 +152,5 @@ Below is a list of future backends that are worked on or in the plans:
 [future.redis]: https://github.com/bwlewis/future.redis
 
 [Marshaling and Serialization in R]: https://github.com/RConsortium/marshalling-wg
+
+[Resource Specifications]: roadmap/resources.html
