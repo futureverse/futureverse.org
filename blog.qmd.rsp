@@ -125,6 +125,14 @@ if (nzchar(image)) {
  
 
 <% blog_post(
+        title = "The Resource Project: Tell R How Much Memory You Need",
+          url = "https://www.jottr.org/2026/08/11/roadmap-resources-memory/",
+         date = "2026-08-11",
+        image = "https://www.jottr.org/post/oom-dialog-macos.png",
+    image_alt = "A macOS-style alert dialog with an R application icon marked by a red exclamation badge. The heading reads 'Out of memory' and the message below reads 'R cannot allocate a vector of size 7.5 GiB.' A blue OK button sits at the bottom."
+) %>
+
+<% blog_post(
         title = "futurize: Parallelize Common Functions via a \"Magic\" Touch 🪄",
           url = "https://www.jottr.org/2026/01/22/futurize-0.1.0/",
          date = "2026-01-22",
