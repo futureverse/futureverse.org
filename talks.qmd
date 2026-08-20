@@ -99,7 +99,8 @@ talk(
          "HTML slides" = "https://henrikbengtsson.github.io/talk-user2026-futurize/#/",
 #         Abstract = "https://events.digital-research.academy/event/109/contributions/513/",
         "Event" = "https://user2026.r-project.org/schedule/",
-        "Preprint" = "publications.html"
+        "Preprint" = "publications.html",
+        "Blog post" = "https://www.jottr.org/2026/08/20/futurize-user2026-slides/"
       )
 )
 ```
