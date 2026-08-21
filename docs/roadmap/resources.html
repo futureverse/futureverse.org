@@ -534,6 +534,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> fit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> cannot allocate vector of size <span class="fl">1.7</span> Gb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The goal of the <em>Resource Project</em> is to give memory and other types of resource requirements a home - a <em>resource specification</em>, written in R next to the code that knows it. The same declaration is meant to do two jobs: checked before the work starts, it fails fast instead of hours later, and handed to a parallel framework, it also decides how many tasks can run at the same time.</p>
+<p><strong>Ultimately, the outcome of this project is not only reduced amounts of wasted compute resources, but also reduced amounts of wasted human resources from troubleshooting.</strong></p>
 <p>The examples below are excerpts from the blog post <a href="https://www.jottr.org/2026/08/11/roadmap-resources-memory/">The Resource Project: Tell R How Much Memory You Need</a>, which explains them in full.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -579,6 +580,11 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <p>If <code>cv.glmnet()</code> declares its own needs, <code>futurize()</code> can pick them up too. Code that already works today would then become resource aware, protect against overuse, and optimize scheduling - all without any code changes:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fits <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xs, <span class="at">FUN =</span> cv.glmnet, <span class="at">y =</span> y) <span class="sc">|&gt;</span> <span class="fu">futurize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="why-this-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters">Why this matters</h2>
+<p>Compute resources such as CPU, GPU, and memory are scarce and expensive. For example, <em>memory prices have risen ~350% in the last year</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and <em>up to 10x the lowest price</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. In other words, the cost of blindly over-requesting memory for an analysis to protect against memory errors increases as well. Requesting twice as much memory as actually needed translates to a real monetary cost, e.g.&nbsp;more expensive hardware investments or cloud compute. Simplified and improved methods for declaring resource needs help mitigate such costs.</p>
+<p>Another example is high-performance compute (HPC) clusters where shared resources are wasted due to both under- and over-specified resource needs. For instance, a job that over-specifies how many CPU cores it needs will result in CPU cores sitting idle, instead of being available to other jobs stuck in the queue. Similarly, a job that under-specifies how much memory or run-time it needs will fail to complete, resulting in wasted compute resources. As an example, a utilization study of a UCSF high-performance compute (HPC) cluster shared by thousands of researchers shows that ~27% of all CPU time was consumed by failed jobs running out of run-time or memory.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Compensating for that loss would cost hundreds of thousands of USD in new hardware investments. Better and easier resource specifications with good feedback can help mitigate these hidden costs.</p>
+</section>
 <section id="much-more" class="level2">
 <h2 class="anchored" data-anchor-id="much-more">Much more</h2>
 <p>Memory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way.</p>
@@ -588,7 +594,15 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>As of August 2026, memory prices have risen 345% since September 2025 to a new high, and a 32 GB DDR5 kit that cost 84-126 EUR in September 2025 cost 400-539 EUR in August 2026 (<a href="https://www.computerbase.de/news/storage/speicherpreise-im-check-ein-neuer-hoechststand-ist-erreicht.98854/">ComputerBase</a>, August 2026).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In the US, a 128 GB DDR5 kit is listed at 3,399 USD, up to 10x the lowest price ever tracked (<a href="https://www.tomshardware.com/pc-components/ram/memory-prices-climb-500-percent-in-12-months-up-to-10x-the-lowest-ever-tracked-prices-128gb-of-ddr5-now-usd3-399">Tom’s Hardware</a>, August 2026).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Two ordinary weeks of SGE accounting data from UCSF’s Wynton HPC cluster show ~100,000 failed jobs (1.85% of all jobs) that were killed by the scheduler for running out of run-time or memory, consuming 26.9% of all CPU time. That works out to 8.4 CPU-years of compute burned every day, on one university cluster, during two ordinary weeks - results that have been reproduced over the years (see the <a href="https://ucsf-wynton.github.io/wyntonquery/reference/read_sge_accounting.html"><code>read_sge_accounting()</code></a> reference examples).<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

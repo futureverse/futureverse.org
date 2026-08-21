@@ -60,7 +60,7 @@
     "href": "roadmap/resources.html",
     "title": "Roadmap: Resource Specifications",
     "section": "",
-    "text": "Some calls need far more memory than the objects you pass to them, and nothing in your script says so. Fitting a cross-validated elastic net with cv.glmnet(x, y) of the glmnet package needs roughly four times the size of x. When that memory is not there, the error arrives long after the work started, or the operating system kills the R process outright:\nThe goal of the Resource Project is to give memory and other types of resource requirements a home - a resource specification, written in R next to the code that knows it. The same declaration is meant to do two jobs: checked before the work starts, it fails fast instead of hours later, and handed to a parallel framework, it also decides how many tasks can run at the same time.\nThe examples below are excerpts from the blog post The Resource Project: Tell R How Much Memory You Need, which explains them in full."
+    "text": "Some calls need far more memory than the objects you pass to them, and nothing in your script says so. Fitting a cross-validated elastic net with cv.glmnet(x, y) of the glmnet package needs roughly four times the size of x. When that memory is not there, the error arrives long after the work started, or the operating system kills the R process outright:\nThe goal of the Resource Project is to give memory and other types of resource requirements a home - a resource specification, written in R next to the code that knows it. The same declaration is meant to do two jobs: checked before the work starts, it fails fast instead of hours later, and handed to a parallel framework, it also decides how many tasks can run at the same time.\nUltimately, the outcome of this project is not only reduced amounts of wasted compute resources, but also reduced amounts of wasted human resources from troubleshooting.\nThe examples below are excerpts from the blog post The Resource Project: Tell R How Much Memory You Need, which explains them in full."
   },
   {
     "objectID": "roadmap/resources.html#declare-what-a-call-needs",
@@ -98,11 +98,25 @@
     "text": "Ideally, everything is hidden away\nIf cv.glmnet() declares its own needs, futurize() can pick them up too. Code that already works today would then become resource aware, protect against overuse, and optimize scheduling - all without any code changes:\nfits &lt;- lapply(xs, FUN = cv.glmnet, y = y) |&gt; futurize()"
   },
   {
+    "objectID": "roadmap/resources.html#why-this-matters",
+    "href": "roadmap/resources.html#why-this-matters",
+    "title": "Roadmap: Resource Specifications",
+    "section": "Why this matters",
+    "text": "Why this matters\nCompute resources such as CPU, GPU, and memory are scarce and expensive. For example, memory prices have risen ~350% in the last year1 and up to 10x the lowest price2. In other words, the cost of blindly over-requesting memory for an analysis to protect against memory errors increases as well. Requesting twice as much memory as actually needed translates to a real monetary cost, e.g. more expensive hardware investments or cloud compute. Simplified and improved methods for declaring resource needs help mitigate such costs.\nAnother example is high-performance compute (HPC) clusters where shared resources are wasted due to both under- and over-specified resource needs. For instance, a job that over-specifies how many CPU cores it needs will result in CPU cores sitting idle, instead of being available to other jobs stuck in the queue. Similarly, a job that under-specifies how much memory or run-time it needs will fail to complete, resulting in wasted compute resources. As an example, a utilization study of a UCSF high-performance compute (HPC) cluster shared by thousands of researchers shows that ~27% of all CPU time was consumed by failed jobs running out of run-time or memory.3 Compensating for that loss would cost hundreds of thousands of USD in new hardware investments. Better and easier resource specifications with good feedback can help mitigate these hidden costs."
+  },
+  {
     "objectID": "roadmap/resources.html#much-more",
     "href": "roadmap/resources.html#much-more",
     "title": "Roadmap: Resource Specifications",
     "section": "Much more",
     "text": "Much more\nMemory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way.\nSee the Roadmap for other features related to this project.\nFeedback and suggestions are welcome on the Futureverse Discussions forum."
+  },
+  {
+    "objectID": "roadmap/resources.html#footnotes",
+    "href": "roadmap/resources.html#footnotes",
+    "title": "Roadmap: Resource Specifications",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAs of August 2026, memory prices have risen 345% since September 2025 to a new high, and a 32 GB DDR5 kit that cost 84-126 EUR in September 2025 cost 400-539 EUR in August 2026 (ComputerBase, August 2026).↩︎\nIn the US, a 128 GB DDR5 kit is listed at 3,399 USD, up to 10x the lowest price ever tracked (Tom’s Hardware, August 2026).↩︎\nTwo ordinary weeks of SGE accounting data from UCSF’s Wynton HPC cluster show ~100,000 failed jobs (1.85% of all jobs) that were killed by the scheduler for running out of run-time or memory, consuming 26.9% of all CPU time. That works out to 8.4 CPU-years of compute burned every day, on one university cluster, during two ordinary weeks - results that have been reproduced over the years (see the read_sge_accounting() reference examples).↩︎"
   },
   {
     "objectID": "backends.html",

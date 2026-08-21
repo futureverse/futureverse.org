@@ -13,6 +13,8 @@ Error: cannot allocate vector of size 1.7 Gb
 
 The goal of the _Resource Project_ is to give memory and other types of resource requirements a home - a _resource specification_, written in R next to the code that knows it.  The same declaration is meant to do two jobs: checked before the work starts, it fails fast instead of hours later, and handed to a parallel framework, it also decides how many tasks can run at the same time.
 
+**Ultimately, the outcome of this project is not only reduced amounts of wasted compute resources, but also reduced amounts of wasted human resources from troubleshooting.**
+
 The examples below are excerpts from the blog post [The Resource Project: Tell R How Much Memory You Need](https://www.jottr.org/2026/08/11/roadmap-resources-memory/), which explains them in full.
 
 ::: {.callout-note appearance="simple"}
@@ -78,6 +80,19 @@ If `cv.glmnet()` declares its own needs, `futurize()` can pick them up too.  Cod
 fits <- lapply(xs, FUN = cv.glmnet, y = y) |> futurize()
 ```
 
+## Why this matters
+
+Compute resources such as CPU, GPU, and memory are scarce and expensive. For example, _memory prices have risen ~350% in the last year_[^ref-computerbase] and _up to 10x the lowest price_[^ref-tomshardware]. In other words, the cost of blindly over-requesting memory for an analysis to protect against memory errors increases as well. Requesting twice as much memory as actually needed translates to a real monetary cost, e.g. more expensive hardware investments or cloud compute. Simplified and improved methods for declaring resource needs help mitigate such costs.
+
+[^ref-computerbase]: As of August 2026, memory prices have risen 345% since September 2025 to a new high, and a 32 GB DDR5 kit that cost 84-126 EUR in September 2025 cost 400-539 EUR in August 2026 ([ComputerBase], August 2026).
+
+[^ref-tomshardware]: In the US, a 128 GB DDR5 kit is listed at 3,399 USD, up to 10x the lowest price ever tracked ([Tom's Hardware], August 2026).
+
+Another example is high-performance compute (HPC) clusters where shared resources are wasted due to both under- and over-specified resource needs. For instance, a job that over-specifies how many CPU cores it needs will result in CPU cores sitting idle, instead of being available to other jobs stuck in the queue. Similarly, a job that under-specifies how much memory or run-time it needs will fail to complete, resulting in wasted compute resources. As an example, a utilization study of a UCSF high-performance compute (HPC) cluster shared by thousands of researchers shows that ~27% of all CPU time was consumed by failed jobs running out of run-time or memory.[^ref-wynton] Compensating for that loss would cost hundreds of thousands of USD in new hardware investments. Better and easier resource specifications with good feedback can help mitigate these hidden costs.
+
+[^ref-wynton]: Two ordinary weeks of SGE accounting data from UCSF's Wynton HPC cluster show ~100,000 failed jobs (1.85% of all jobs) that were killed by the scheduler for running out of run-time or memory, consuming 26.9% of all CPU time. That works out to 8.4 CPU-years of compute burned every day, on one university cluster, during two ordinary weeks - results that have been reproduced over the years (see the [`read_sge_accounting()`] reference examples).
+
+
 ## Much more
 
 Memory is only the beginning. Walltime, scratch space, graphics processing unit (GPU) cores, and GPU memory limit us in the same way.
@@ -92,3 +107,6 @@ Feedback and suggestions are welcome on the [Futureverse Discussions] forum.
 [future.batchtools]: https://future.batchtools.futureverse.org
 [Futureverse Discussions]: https://github.com/orgs/futureverse/discussions
 [Roadmap]: /roadmap.html#resource-management-and-scheduling
+[ComputerBase]: https://www.computerbase.de/news/storage/speicherpreise-im-check-ein-neuer-hoechststand-ist-erreicht.98854/
+[Tom's Hardware]: https://www.tomshardware.com/pc-components/ram/memory-prices-climb-500-percent-in-12-months-up-to-10x-the-lowest-ever-tracked-prices-128gb-of-ddr5-now-usd3-399
+[`read_sge_accounting()`]: https://ucsf-wynton.github.io/wyntonquery/reference/read_sge_accounting.html
