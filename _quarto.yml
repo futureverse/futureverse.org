@@ -111,7 +111,7 @@ website:
   announcement: 
     icon: alarm
     dismissable: false
-    content: "I'll present at [COMPUTE! 2026 Paris](/talks.html). My Futureverse [tutorial](/tutorials.html) and [talks](/talks.html) from [useR! 2026](https://user2026.r-project.org/) are now online"
+    content: "I'll present at [COMPUTE! 2026 Paris](/talks.html). The Futureverse [tutorial](/tutorials.html) and [talks](/talks.html) from [useR! 2026](https://user2026.r-project.org/) are now online"
     type: info
     position: below-navbar
 
