@@ -82,7 +82,9 @@ fits <- lapply(xs, FUN = cv.glmnet, y = y) |> futurize()
 
 ## Why this matters
 
-Compute resources such as CPU, GPU, and memory are scarce and expensive. For example, _memory prices have risen ~350% in the last year_[^ref-computerbase] and _up to 10x the lowest price_[^ref-tomshardware]. In other words, the cost of blindly over-requesting memory for an analysis to protect against memory errors increases as well. Requesting twice as much memory as actually needed translates to a real monetary cost, e.g. more expensive hardware investments or cloud compute. Simplified and improved methods for declaring resource needs help mitigate such costs.
+A long-running script failing due to out-of-memory errors is never fun. Even an experienced developer might end up spending hours troubleshooting the problem, identifying the root cause, and coming up with a fix - and if the retry fails too, even more time is lost. It is better to fail fast, because the resource specification was provided upfront.
+
+Also, compute resources such as CPU, GPU, and memory are scarce and expensive. For example, _memory prices have risen ~350% in the last year_[^ref-computerbase] and _up to 10x the lowest price_[^ref-tomshardware]. In other words, the cost of blindly over-requesting memory for an analysis to protect against memory errors increases as well. Requesting twice as much memory as actually needed translates to a real monetary cost, e.g. more expensive hardware investments or cloud compute. Simplified and improved methods for declaring resource needs help mitigate such costs.
 
 [^ref-computerbase]: As of August 2026, memory prices have risen 345% since September 2025 to a new high, and a 32 GB DDR5 kit that cost 84-126 EUR in September 2025 cost 400-539 EUR in August 2026 ([ComputerBase], August 2026).
 
