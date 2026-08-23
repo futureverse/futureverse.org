@@ -105,6 +105,8 @@ website:
         menu:
           - text: "Roadmap"
             href: roadmap.qmd
+          - text: "Resource Specification Project"
+            href: roadmap/resources.qmd
           - text: "About"
             href: about.qmd
 

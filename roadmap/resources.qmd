@@ -1,5 +1,5 @@
 ---
-title: "Roadmap: Resource Specifications"
+title: "Resource Specification Project"
 description: "Declare what your code needs, so R can check it before the work starts"
 format: html
 ---
