@@ -107,6 +107,8 @@ website:
             href: roadmap.qmd
           - text: "Resource Specification Project"
             href: roadmap/resources.qmd
+          - text: "Contributing Guide"
+            href: contributing.qmd
           - text: "Code of Conduct"
             href: code-of-conduct.qmd
           - text: "About"
