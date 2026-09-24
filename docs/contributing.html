@@ -508,7 +508,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 
 
 <p>Thank you for considering contributing to the Futureverse ecosystem of R packages, which are developed under the <a href="https://github.com/futureverse">futureverse</a> GitHub organization.</p>
-<p>This page describes conventions that apply to all Futureverse packages. Individual repositories may add their own <code>CONTRIBUTING.md</code> with package-specific details (e.g.&nbsp;testing instructions); where one exists, follow it in addition to this guide.</p>
+<p>This page describes conventions that apply to all Futureverse packages.</p>
 <section id="branching-model" class="level2">
 <h2 class="anchored" data-anchor-id="branching-model">Branching model</h2>
 <p>Most Futureverse repositories use the <a href="https://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a> branching model (the <a href="https://github.com/petervanderdoes/gitflow-avh"><code>git flow</code></a> extension is useful for this):</p>
@@ -516,12 +516,12 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <li><code>develop</code> contains the latest contributions and other code that will appear in the next release.</li>
 <li><code>master</code>/<code>main</code> contains the code of the latest release — exactly what is currently on CRAN.</li>
 </ul>
-<p>Unless a repository’s own <code>CONTRIBUTING.md</code> says otherwise, target <strong><code>develop</code></strong> with your pull request, not <code>master</code>/<code>main</code>.</p>
+<p>Please target <strong><code>develop</code></strong> with your pull request, not <code>master</code>/<code>main</code>.</p>
 </section>
 <section id="how-to-contribute" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-contribute">How to contribute</h2>
 <ol type="1">
-<li>Check existing <a href="https://github.com/futureverse">issues</a> in the relevant repository before opening a new one, to avoid duplicates.</li>
+<li>Check existing issues in the relevant repository before opening a new one, to avoid duplicates.</li>
 <li>For non-trivial changes, open an issue first to discuss the approach before investing time in a pull request.</li>
 <li>Fork the repository and create a branch off <code>develop</code>.</li>
 <li>Make your changes, following the existing code style in the package.</li>

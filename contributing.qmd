@@ -3,37 +3,33 @@ title: Contributing Guide
 description: How to contribute to the Futureverse packages
 ---
 
-Thank you for considering contributing to the Futureverse ecosystem of R
-packages, which are developed under the
+Thank you for considering contributing to the Futureverse ecosystem of
+R packages, which are developed under the
 [futureverse](https://github.com/futureverse) GitHub organization.
 
-This page describes conventions that apply to all Futureverse packages. Individual repositories
-may add their own `CONTRIBUTING.md` with package-specific details (e.g. testing instructions);
-where one exists, follow it in addition to this guide.
+This page describes conventions that apply to all Futureverse packages.
 
 ## Branching model
 
-Most Futureverse repositories use the
-[Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) branching model (the
-[`git flow`](https://github.com/petervanderdoes/gitflow-avh) extension is useful for this):
+Most Futureverse repositories use the [Git Flow] branching model (the
+[`git flow`] extension is useful for this):
 
 * `develop` contains the latest contributions and other code that will appear in the next release.
 * `master`/`main` contains the code of the latest release — exactly what is currently on CRAN.
 
-Unless a repository's own `CONTRIBUTING.md` says otherwise, target **`develop`** with your pull
-request, not `master`/`main`.
+Please target **`develop`** with your pull request, not `master`/`main`.
 
 ## How to contribute
 
-1. Check existing [issues](https://github.com/futureverse) in the relevant repository before
-   opening a new one, to avoid duplicates.
-2. For non-trivial changes, open an issue first to discuss the approach before investing time in
-   a pull request.
+1. Check existing issues in the relevant repository before opening a
+   new one, to avoid duplicates.
+2. For non-trivial changes, open an issue first to discuss the
+   approach before investing time in a pull request.
 3. Fork the repository and create a branch off `develop`.
 4. Make your changes, following the existing code style in the package.
 5. Add or update tests and documentation (roxygen2 comments, `NEWS.md`) as appropriate.
-6. Open a pull request against `develop`. Your PR should pass `R CMD check --as-cran`, which is
-   also verified by GitHub Actions.
+6. Open a pull request against `develop`. Your PR should pass `R CMD
+   check --as-cran`, which is also verified by GitHub Actions.
 
 ## Code of Conduct
 
@@ -44,3 +40,8 @@ By participating in this project, you agree to abide by the
 
 If you're unsure where to start, open an issue in the specific package repository you're
 interested in, or see the [Overview of All Packages](packages-overview.qmd).
+
+
+[Git Flow]: https://nvie.com/posts/a-successful-git-branching-model/
+[`git flow`]: https://github.com/petervanderdoes/gitflow-avh
+

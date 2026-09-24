@@ -137,14 +137,14 @@
     "href": "contributing.html",
     "title": "Contributing Guide",
     "section": "",
-    "text": "Thank you for considering contributing to the Futureverse ecosystem of R packages, which are developed under the futureverse GitHub organization.\nThis page describes conventions that apply to all Futureverse packages. Individual repositories may add their own CONTRIBUTING.md with package-specific details (e.g. testing instructions); where one exists, follow it in addition to this guide."
+    "text": "Thank you for considering contributing to the Futureverse ecosystem of R packages, which are developed under the futureverse GitHub organization.\nThis page describes conventions that apply to all Futureverse packages."
   },
   {
     "objectID": "contributing.html#branching-model",
     "href": "contributing.html#branching-model",
     "title": "Contributing Guide",
     "section": "Branching model",
-    "text": "Branching model\nMost Futureverse repositories use the Git Flow branching model (the git flow extension is useful for this):\n\ndevelop contains the latest contributions and other code that will appear in the next release.\nmaster/main contains the code of the latest release — exactly what is currently on CRAN.\n\nUnless a repository’s own CONTRIBUTING.md says otherwise, target develop with your pull request, not master/main."
+    "text": "Branching model\nMost Futureverse repositories use the Git Flow branching model (the git flow extension is useful for this):\n\ndevelop contains the latest contributions and other code that will appear in the next release.\nmaster/main contains the code of the latest release — exactly what is currently on CRAN.\n\nPlease target develop with your pull request, not master/main."
   },
   {
     "objectID": "contributing.html#how-to-contribute",
