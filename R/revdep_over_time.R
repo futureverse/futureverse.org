@@ -120,7 +120,7 @@ gg <- gg + theme(legend.position = if (npkgs == 1L) "none" else "inside")
 image_dims <- attr(gg, "image_dims")
 gg <- gg + scale_colour_manual(values = colors[-1], aesthetics = c("color"))
 gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
-pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN.png", width = image_dims[1], height = image_dims[2])
+pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN.png", path = ".local", create.dir = TRUE, width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
 
 
@@ -133,7 +133,7 @@ gg <- gg_modify(gg, legend = "lower-right")
 gg <- gg + theme(legend.position = if (npkgs == 1L) "none" else "inside")
 gg <- gg + theme(plot.margin = margin(t = 5, r = 20, b = -15, l = 5, unit = "pt"))
 image_dims <- attr(gg, "image_dims")
-pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", width = image_dims[1], height = image_dims[2])
+pathname <- ggsave(gg, filename = "revdep_over_time_on_CRAN-log.png", path = ".local", create.dir = TRUE, width = image_dims[1], height = image_dims[2])
 message("Wrote: ", pathname)
 
 for (duration in c(53L, 12L)) {

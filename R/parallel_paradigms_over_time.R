@@ -234,6 +234,7 @@ make_charts <- function(kind) {
                                 breaks = seq(0, 1, by = 0.25))
   pathname <- ggsave(
     gg, filename = sprintf("parallel_paradigms_over_time_on_CRAN%s.png", suffix),
+    path = ".local", create.dir = TRUE,
     width = image_dims[1], height = image_dims[2], dpi = 300, bg = surface)
   message("Wrote: ", pathname)
 
@@ -244,6 +245,7 @@ make_charts <- function(kind) {
                                 limits = c(0, 1.02 * zoom_ymax))
   pathname <- ggsave(
     gg, filename = sprintf("parallel_paradigms_over_time_on_CRAN%s-zoom.png", suffix),
+    path = ".local", create.dir = TRUE,
     width = image_dims[1], height = image_dims[2], dpi = 300, bg = surface)
   message("Wrote: ", pathname)
 }

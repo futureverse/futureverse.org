@@ -138,11 +138,13 @@ make_split <- function(zoom) {
 
 pathname <- ggsave(make_split(FALSE),
                    filename = "parallel_hard_vs_soft_over_time_on_CRAN.png",
+                   path = ".local", create.dir = TRUE,
                    width = image_dims[1], height = image_dims[2], dpi = 300,
                    bg = surface)
 message("Wrote: ", pathname)
 pathname <- ggsave(make_split(TRUE),
                    filename = "parallel_hard_vs_soft_over_time_on_CRAN-zoom.png",
+                   path = ".local", create.dir = TRUE,
                    width = image_dims[1], height = image_dims[2], dpi = 300,
                    bg = surface)
 message("Wrote: ", pathname)
@@ -243,6 +245,7 @@ gg <- gg + theme(
   panel.spacing = unit(14, "pt")
 )
 pathname <- ggsave(gg, filename = "parallel_soft_share_over_time_on_CRAN.png",
+                   path = ".local", create.dir = TRUE,
                    width = image_dims[1], height = image_dims[2], dpi = 300,
                    bg = surface)
 message("Wrote: ", pathname)

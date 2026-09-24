@@ -235,6 +235,7 @@ gg <- gg + labs(x = NULL, y = "Median daily downloads",
                 title = "Downloads of the multi-process parallel ecosystems on CRAN",
                 caption = caption_abs)
 pathname <- ggsave(gg, filename = "parallel_families_downloads_over_time_on_CRAN.png",
+                   path = ".local", create.dir = TRUE,
                    width = image_dims[1], height = image_dims[2], dpi = 300,
                    bg = surface)
 message("Wrote: ", pathname)
@@ -249,6 +250,7 @@ gg <- gg + labs(x = NULL, y = "Share of ecosystem downloads",
                 title = "Which multi-process parallel ecosystem is being downloaded?",
                 caption = caption_rel)
 pathname <- ggsave(gg, filename = "parallel_families_downloads_over_time_on_CRAN-relative.png",
+                   path = ".local", create.dir = TRUE,
                    width = image_dims[1], height = image_dims[2], dpi = 300,
                    bg = surface)
 message("Wrote: ", pathname)
