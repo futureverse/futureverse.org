@@ -195,15 +195,15 @@ foundation that a large share of the R ecosystem is built on.
 
 ::: {.stats-grid}
 ::: {.stat}
-[~1,250]{.stat-value}
-[CRAN packages rely on **future**, directly or indirectly - 5.2% of all of CRAN]{.stat-label}
+[~1,300]{.stat-value}
+[CRAN packages rely on **future**, directly or indirectly - 5.1% of all of CRAN]{.stat-label}
 :::
 ::: {.stat}
-[top-0.6%]{.stat-value}
+[top-0.7%]{.stat-value}
 [most downloaded package on CRAN]{.stat-label}
 :::
 ::: {.stat}
-[>500]{.stat-value}
+[>550]{.stat-value}
 [direct reverse dependencies re-checked before every single release]{.stat-label}
 :::
 ::: {.stat}
@@ -212,7 +212,7 @@ foundation that a large share of the R ecosystem is built on.
 :::
 :::
 
-[As of July 2026, from the **future** reverse-dependency checks and CRAN download logs.]{.stat-note}
+[As of October 2026, from the **future** reverse-dependency checks and CRAN download logs.]{.stat-note}
 
 It is used across statistics, machine learning, forecasting,
 genomics, epidemiology, clinical trials, ecology, finance, and

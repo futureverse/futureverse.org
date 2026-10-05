@@ -510,7 +510,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 <section id="real-world-use" class="level1">
 <h1>Real-World Use</h1>
 <p>If we look at our two main R package repositories, <a href="https://cran.r-project.org/">CRAN</a> and <a href="https://bioconductor.org">Bioconductor</a>, we find that the future framework is used by R packages spanning a wide range of areas, e.g.&nbsp;statistics, modeling &amp; prediction, time-series analysis &amp; forecasting, life sciences, drug analysis, clinical trials, disease modeling, cancer research, computational biology, genomics, bioinformatics, biomarker discovery, epidemiology, ecology, economics &amp; finance, spatial, geospatial &amp; satellite analysis, and natural language processing. That is just a sample based on published R packages - we can only guess how futures are used by users at the R prompt, in users’ R scripts, non-published R packages, Shiny applications, and R pipelines running internally in the industry and academia.</p>
-<p>There are two major use cases of the future framework: (i) performance improvement through parallelization, and (ii) non-blocking, asynchronous user experience (UX). Below are some prominent examples. More examples can be found on R-universe, which lists <a href="https://r-universe.dev/search?q=needs%3Afuture">~1,600 packages that need the <strong>future</strong> package</a>.</p>
+<p>There are two major use cases of the future framework: (i) performance improvement through parallelization, and (ii) non-blocking, asynchronous user experience (UX). Below are some prominent examples. More examples can be found on R-universe, which lists <a href="https://r-universe.dev/search?q=needs%3Afuture">~1,700 packages that need the <strong>future</strong> package</a>.</p>
 <section id="epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="epinow2-estimate-real-time-case-counts-and-time-varying-epidemiological-parameters">EpiNow2: Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -579,8 +579,8 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </section>
 <section id="cran-statistics" class="level1">
 <h1>CRAN Statistics</h1>
-<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. As of July 2026, <strong>future</strong> is among the top-0.6% most downloaded packages on CRAN (Figure 1) and there are ~500 packages (+35%/year) on CRAN that list it as a direct dependency (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages is ~300 (+55%/year) and ~180 (+25%/year), respectively.</p>
-<p>If we consider recursive dependencies too, that is, packages that need (depends or imports) the <strong>future</strong> package either directly or indirectly via another package, then ~1,250 (5.2%) of all ~23,900 CRAN packages rely on the future framework for processing (July 2026).</p>
+<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. As of October 2026, <strong>future</strong> is among the top-0.7% most downloaded packages on CRAN (Figure 1) and there are ~550 packages (+40%/year) on CRAN that list it as a direct dependency (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages is ~325 (+50%/year) and ~195 (+30%/year), respectively.</p>
+<p>If we consider recursive dependencies too, that is, packages that need (depends or imports) the <strong>future</strong> package either directly or indirectly via another package, then ~1,300 (5.1%) of all ~25,300 CRAN packages rely on the future framework for processing (October 2026).</p>
 <!--
 repos <- getOption("repos")
 repos <- repos[c("CRAN", "BioCsoft")]
@@ -588,8 +588,8 @@ db <- as.data.frame(available.packages(repos = repos))
 all_pkgs <- unique(db$Package)
 n_all <- length(all_pkgs)
 message("Number of packages: ", n_all)
-## Number of packages: 23853 (CRAN only)
-## Number of packages: 26236 (CRAN+Bioconductor)
+## Number of packages: 25291 (CRAN only)
+## Number of packages: 27675 (CRAN+Bioconductor)
 
 pkg <- "future"
 
@@ -601,8 +601,8 @@ first <- tools::package_dependencies(
 first <- intersect(first, all_pkgs)
 n <- length(first)
 message(sprintf("Direct reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## Direct reverse dependencies: 495 (2.1%) of 23853 (CRAN only)
-## Direct reverse dependencies: 520 (2.0%) of 26236 (CRAN+Bioconductor)
+## Direct reverse dependencies: 555 (2.2%) of 25291 (CRAN only)
+## Direct reverse dependencies: 580 (2.1%) of 27675 (CRAN+Bioconductor)
 
 ## Hard reverse deps ("needs")
 hard <- tools::package_dependencies(
@@ -611,8 +611,8 @@ hard <- tools::package_dependencies(
 )[[pkg]]
 n <- length(hard)
 message(sprintf("Hard reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## Hard reverse dependencies: 1249 (5.2%) of 23853 (CRAN only)
-## Hard reverse dependencies: 1400 (5.3%) of 26236 (CRAN+Bioconductor)
+## Hard reverse dependencies: 1298 (5.1%) of 25291 (CRAN only)
+## Hard reverse dependencies: 1445 (5.2%) of 27675 (CRAN+Bioconductor)
 
 ## All, incl. Suggests (inflates; what you computed)
 alld <- tools::package_dependencies(
@@ -622,23 +622,23 @@ alld <- tools::package_dependencies(
 alld <- intersect(alld, all_pkgs)
 n <- length(alld)
 message(sprintf("All (incl. Suggests) reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## All (incl. Suggests) reverse dependencies: 21736 (91.1%) of 23853 (CRAN only)
-## All (incl. Suggests) reverse dependencies: 24093 (91.8%) of 26236 (CRAN+Bioconductor)
+## All (incl. Suggests) reverse dependencies: 23160 (91.6%) of 25291 (CRAN only)
+## All (incl. Suggests) reverse dependencies: 25517 (92.2%) of 27675 (CRAN+Bioconductor)
 -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/downloads_over_time_on_CRAN.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="A line graph with 'Date' on the horizontal axis and 'Download rates on CRAN (four-week averages)' on the vertical axis. The dates goes from mid 2015 to 2026 and the ranks for 0 to 20%. Lines for package 'doParallel', 'future', 'future.apply', and 'furrr' are displayed in different colors. The 'future' and 'future.apply' surpassed 'doParallel' early 2022, and 'furrr' in 2026."></p>
+<p><img src="figures/downloads_over_time_on_CRAN.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="A line graph with 'Date' on the horizontal axis and 'Download relative rank (4-week avg.)' on the vertical axis. The dates go from mid 2015 to late 2026 and the ranks from 0 to 20%. Lines for package 'doParallel', 'future', 'future.apply', and 'furrr' are displayed in different colors. The 'future' and 'future.apply' surpassed 'doParallel' early 2022, whereas 'furrr' remains just behind 'doParallel'."></p>
 </figure>
 </div>
-<p><em>Figure 1: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doParallel</strong> averaged every four weeks. <strong>future</strong> is among the top-0.6% most downloaded packages on CRAN. The data are based on the Posit CRAN mirror logs. There are approximately 200 million package downloads per month from the Posit CRAN mirror alone. Since none of the other CRAN mirrors provide statistics, it is impossible to know the total amount of package installations.</em></p>
+<p><em>Figure 1: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doParallel</strong> averaged every four weeks. <strong>future</strong> is among the top-0.7% most downloaded packages on CRAN. The data are based on the Posit CRAN mirror logs. There are approximately 200 million package downloads per month from the Posit CRAN mirror alone. Since none of the other CRAN mirrors provide statistics, it is impossible to know the total amount of package installations.</em></p>
 <!-- [https://cranlogs.r-pkg.org/downloads/total/last-month] -->
-<p>As a reference<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the popular <strong>doParallel</strong>, released in 2011, which is commonly used together with <strong>foreach</strong>, released in 2009, was among the top-1.2% most downloaded packages during the same period and it has 1,050 reverse package dependencies (+7%/year) on CRAN. The number of users that download <strong>future</strong> has grown rapidly whereas the same number has stabilized for the <strong>doParallel</strong> package (Figure 1). Similarly, the number of reverse package dependencies on <strong>future</strong> grows significantly faster than for <strong>doParallel</strong> (Figure 2).</p>
+<p>As a reference<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the popular <strong>doParallel</strong>, released in 2011, which is commonly used together with <strong>foreach</strong>, released in 2009, was among the top-1.1% most downloaded packages during the same period and it has ~850 reverse package dependencies (+3%/year) on CRAN. The number of users that download <strong>future</strong> has grown rapidly whereas the same number has stabilized for the <strong>doParallel</strong> package (Figure 1). Similarly, the number of reverse package dependencies on <strong>future</strong> grows significantly faster than for <strong>doParallel</strong> (Figure 2).</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/revdep_over_time_on_CRAN.png" class="img-fluid figure-img" alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2025. The y-axis ranges from 0 to 500 dependencies. The 'future' package (green) rises steeply after 2018 and 470 by end of 2025; 'future.apply' (blue) grows steadily to 250; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 180."></p>
+<p><img src="figures/revdep_over_time_on_CRAN.png" class="img-fluid figure-img" alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2026. The y-axis ranges from 0 to about 550 dependencies. The 'future' package (green) rises steeply after 2018 and reaches 550 by late 2026; 'future.apply' (blue) grows steadily to 325; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 195."></p>
 <figcaption>Package counts on the linear scale.</figcaption>
 </figure>
 </div>
@@ -646,7 +646,7 @@ message(sprintf("All (incl. Suggests) reverse dependencies: %d (%.1f%%) of %d", 
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/revdep_over_time_on_CRAN-log.png" class="img-fluid figure-img" alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'doParallel', 'future', 'future.apply', and 'furrr' from 2015 to 2026. The y-axis spans roughly 10 to 1,000 dependencies. 'doParallel' (olive) leads throughout, rising smoothly from 90 to over 1,000. 'future' (green) increases from a few dependencies in 2015 to 500 by early 2026. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 300 and 200, respectively."></p>
+<p><img src="figures/revdep_over_time_on_CRAN-log.png" class="img-fluid figure-img" alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'doParallel', 'future', 'future.apply', and 'furrr' from 2015 to 2026. The y-axis spans roughly 10 to 1,000 dependencies. 'doParallel' (olive) leads throughout, rising from 90 to about 850, where it has leveled off since 2025. 'future' (green) increases from a few dependencies in 2015 to 550 by late 2026. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 325 and 195, respectively."></p>
 <figcaption>Package counts on the logarithmic scale.</figcaption>
 </figure>
 </div>
