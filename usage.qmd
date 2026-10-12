@@ -180,7 +180,7 @@ cloud via the future framework.
 Since the first CRAN release of **future** in June 2015, its uptake
 among end-users and package developers has grown steadily.  As of October
 2026, **future** is among the top-0.7% most downloaded packages on
-CRAN (Figure 1) and there are ~550 packages (+40%/year) on CRAN that
+CRAN (Figure 1) and there are ~560 packages (+40%/year) on CRAN that
 list it as a direct dependency (Figure 2).  For map-reduce
 parallelization packages **future.apply** (top-0.8% most downloaded)
 and **furrr** (top 1.3%), the corresponding number of packages is ~325
@@ -198,8 +198,8 @@ db <- as.data.frame(available.packages(repos = repos))
 all_pkgs <- unique(db$Package)
 n_all <- length(all_pkgs)
 message("Number of packages: ", n_all)
-## Number of packages: 25291 (CRAN only)
-## Number of packages: 27675 (CRAN+Bioconductor)
+## Number of packages: 25284 (CRAN only)
+## Number of packages: 27669 (CRAN+Bioconductor)
 
 pkg <- "future"
 
@@ -211,8 +211,8 @@ first <- tools::package_dependencies(
 first <- intersect(first, all_pkgs)
 n <- length(first)
 message(sprintf("Direct reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## Direct reverse dependencies: 555 (2.2%) of 25291 (CRAN only)
-## Direct reverse dependencies: 580 (2.1%) of 27675 (CRAN+Bioconductor)
+## Direct reverse dependencies: 561 (2.2%) of 25284 (CRAN only)
+## Direct reverse dependencies: 586 (2.1%) of 27669 (CRAN+Bioconductor)
 
 ## Hard reverse deps ("needs")
 hard <- tools::package_dependencies(
@@ -221,8 +221,8 @@ hard <- tools::package_dependencies(
 )[[pkg]]
 n <- length(hard)
 message(sprintf("Hard reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## Hard reverse dependencies: 1298 (5.1%) of 25291 (CRAN only)
-## Hard reverse dependencies: 1445 (5.2%) of 27675 (CRAN+Bioconductor)
+## Hard reverse dependencies: 1297 (5.1%) of 25284 (CRAN only)
+## Hard reverse dependencies: 1444 (5.2%) of 27669 (CRAN+Bioconductor)
 
 ## All, incl. Suggests (inflates; what you computed)
 alld <- tools::package_dependencies(
@@ -232,8 +232,8 @@ alld <- tools::package_dependencies(
 alld <- intersect(alld, all_pkgs)
 n <- length(alld)
 message(sprintf("All (incl. Suggests) reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## All (incl. Suggests) reverse dependencies: 23160 (91.6%) of 25291 (CRAN only)
-## All (incl. Suggests) reverse dependencies: 25517 (92.2%) of 27675 (CRAN+Bioconductor)
+## All (incl. Suggests) reverse dependencies: 23168 (91.6%) of 25284 (CRAN only)
+## All (incl. Suggests) reverse dependencies: 25525 (92.3%) of 27669 (CRAN+Bioconductor)
 -->
 
 ![](figures/downloads_over_time_on_CRAN.png){
@@ -266,11 +266,11 @@ grows significantly faster than for **doParallel** (Figure 2).
 
 ::: {layout-ncol=2}
 ![Package counts on the linear scale.](figures/revdep_over_time_on_CRAN.png){
-  fig-alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2026. The y-axis ranges from 0 to about 550 dependencies. The 'future' package (green) rises steeply after 2018 and reaches 550 by late 2026; 'future.apply' (blue) grows steadily to 325; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 195."
+  fig-alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2026. The y-axis ranges from 0 to about 560 dependencies. The 'future' package (green) rises steeply after 2018 and reaches 560 by late 2026; 'future.apply' (blue) grows steadily to 325; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 195."
 }  
 
 ![Package counts on the logarithmic scale.](figures/revdep_over_time_on_CRAN-log.png){
-  fig-alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'doParallel', 'future', 'future.apply', and 'furrr' from 2015 to 2026. The y-axis spans roughly 10 to 1,000 dependencies. 'doParallel' (olive) leads throughout, rising from 90 to about 850, where it has leveled off since 2025. 'future' (green) increases from a few dependencies in 2015 to 550 by late 2026. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 325 and 195, respectively."
+  fig-alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'doParallel', 'future', 'future.apply', and 'furrr' from 2015 to 2026. The y-axis spans roughly 10 to 1,000 dependencies. 'doParallel' (olive) leads throughout, rising from 90 to about 850, where it has leveled off since 2025. 'future' (green) increases from a few dependencies in 2015 to 560 by late 2026. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 325 and 195, respectively."
 }
 :::
 
