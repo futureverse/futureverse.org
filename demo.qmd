@@ -32,7 +32,7 @@ plan(multisession)
 
 slow_fcn <- function(x) {
   message("x = ", x)
-  Sys.sleep(1.0)  # emulate slow processing
+  Sys.sleep(0.2)  # emulate slow processing
   x^2
 }
 
@@ -66,7 +66,7 @@ plan(multisession)
 
 slow_fcn <- function(x) {
   message("x = ", x)
-  Sys.sleep(1.0)  # emulate slow processing
+  Sys.sleep(0.2)  # emulate slow processing
   x^2
 }
 
