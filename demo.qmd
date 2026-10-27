@@ -36,26 +36,26 @@ slow_fcn <- function(x) {
   x^2
 }
 
-X <- 1:3
+xs <- 1:3
 
-message("Evaluate it in parallel in the background")
-f <- future(slow_fcn(X[1]))
+message("Evaluate function call concurrently in the background")
+f <- future(slow_fcn(xs[1]))
 y <- value(f)
 print(y)
 
 message("Futurized version of base R apply")
-y <- lapply(X, slow_fcn) |> futurize()
-str(y)
+ys <- lapply(xs, slow_fcn) |> futurize()
+str(ys)
 
 message("Futurized version of purrr map")
 library(purrr)
-y <- X |> map(slow_fcn) |> futurize()
-str(y)
+ys <- xs |> map(slow_fcn) |> futurize()
+str(ys)
 
 message("Futurized version of foreach")
 library(foreach)
-y <- foreach(x = X) %do% slow_fcn(x) |> futurize()
-str(y)
+ys <- foreach(x = xs) %do% slow_fcn(x) |> futurize()
+str(ys)
 ```
 
 ## Pre-**futurize**
@@ -70,34 +70,34 @@ slow_fcn <- function(x) {
   x^2
 }
 
-X <- 1:3
+xs <- 1:3
 
-message("Evaluate it in parallel in the background")
-f <- future(slow_fcn(X[1]))
+message("Evaluate function call concurrently in the background")
+f <- future(slow_fcn(xs[1]))
 y <- value(f)
 print(y)
 
 message("Futurized version of base R apply via future.apply")
 library(future.apply)
-y <- future_lapply(X, slow_fcn)
-str(y)
+ys <- future_lapply(xs, slow_fcn)
+str(ys)
 
 message("Futurized version of purrr via furrr")
 library(furrr)
-y <- X |> future_map(slow_fcn)
-str(y)
+ys <- xs |> future_map(slow_fcn)
+str(ys)
 
 message("Futurized version of foreach via doFuture (modern)")
 library(foreach)
 library(doFuture)
-y <- foreach(x = X) %dofuture% slow_fcn(x)
-str(y)
+ys <- foreach(x = xs) %dofuture% slow_fcn(x)
+str(ys)
 
 message("Futurized version of foreach via doFuture (traditional)")
 library(foreach)
 doFuture::registerDoFuture()
-y <- foreach(x = X) %dopar% slow_fcn(x)
-str(y)
+ys <- foreach(x = xs) %dopar% slow_fcn(x)
+str(ys)
 ```
 
 :::

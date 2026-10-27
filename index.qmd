@@ -147,12 +147,12 @@ xs <- 1:10
 
 # Evaluate an R expression sequentially
 x <- xs[1]
-ys <- slow_fcn(x)
+y <- slow_fcn(x)
 
 # Evaluate it in parallel in the background
 x <- xs[1]
 f <- future(slow_fcn(x))
-ys <- value(f)
+y <- value(f)
 ```
 
 :::
