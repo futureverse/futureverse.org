@@ -73,6 +73,7 @@ The below features are part of the bigger **[Resource Specifications]** Project.
 Below is a list of future backends that are worked on or in the plans:
 
 ::: {.list-unstyled}
+* {{< bi square >}}<span>**future.mizu** - a planned backend, powered by **mizu**</span>
 * {{< bi square-half >}}<span>**[future.p2p]** - a backend to resolve futures via a peer-to-peer network of trusted collaborators [available as of 2025-08-10]</span>
 * {{< bi square-half >}}<span>**future.sandbox** - a backend to resolve untrusted futures via locked-down, sandboxed Linux containers (Docker, Singularity, ...) without access to the hosts file system or network. This can already be partially achieved by low-level container setups via **parallelly**</span>
 * {{< bi square >}}<span>**[future.clustermq]** - a backend to resolve futures on an HPC cluster via the **clustermq** package [[future#FR204], [future#FR267]]</span>
