@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0ae969d3293726db143f6e9eb89af930.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/quarto-axe/axe.min.js"></script>
 <script src="site_libs/quarto-axe/axe-check.js" type="module"></script>
 <script id="quarto-axe-checker-options" type="text/plain">eyJvdXRwdXQiOiJjb25zb2xlIn0=</script>
@@ -579,8 +579,8 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 </section>
 <section id="cran-statistics" class="level1">
 <h1>CRAN Statistics</h1>
-<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. As of October 2026, <strong>future</strong> is among the top-0.7% most downloaded packages on CRAN (Figure 1) and there are ~560 packages (+40%/year) on CRAN that list it as a direct dependency (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages is ~325 (+50%/year) and ~195 (+30%/year), respectively.</p>
-<p>If we consider recursive dependencies too, that is, packages that need (depends or imports) the <strong>future</strong> package either directly or indirectly via another package, then ~1,300 (5.1%) of all ~25,300 CRAN packages rely on the future framework for processing (October 2026).</p>
+<p>Since the first CRAN release of <strong>future</strong> in June 2015, its uptake among end-users and package developers has grown steadily. As of November 2026, <strong>future</strong> is among the top-0.6% most downloaded packages on CRAN (Figure 1) and there are ~575 packages (+40%/year) on CRAN that list it as a direct dependency (Figure 2). For map-reduce parallelization packages <strong>future.apply</strong> (top-0.8% most downloaded) and <strong>furrr</strong> (top 1.3%), the corresponding number of packages is ~335 (+45%/year) and ~195 (+25%/year), respectively.</p>
+<p>If we consider recursive dependencies too, that is, packages that need (depends or imports) the <strong>future</strong> package either directly or indirectly via another package, then ~1,300 (5.1%) of all ~25,700 CRAN packages rely on the future framework for processing (November 2026).</p>
 <!--
 repos <- getOption("repos")
 repos <- repos[c("CRAN", "BioCsoft")]
@@ -588,8 +588,8 @@ db <- as.data.frame(available.packages(repos = repos))
 all_pkgs <- unique(db$Package)
 n_all <- length(all_pkgs)
 message("Number of packages: ", n_all)
-## Number of packages: 25284 (CRAN only)
-## Number of packages: 27669 (CRAN+Bioconductor)
+## Number of packages: 25722 (CRAN only)
+## Number of packages: 28107 (CRAN+Bioconductor)
 
 pkg <- "future"
 
@@ -601,8 +601,8 @@ first <- tools::package_dependencies(
 first <- intersect(first, all_pkgs)
 n <- length(first)
 message(sprintf("Direct reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## Direct reverse dependencies: 561 (2.2%) of 25284 (CRAN only)
-## Direct reverse dependencies: 586 (2.1%) of 27669 (CRAN+Bioconductor)
+## Direct reverse dependencies: 574 (2.2%) of 25722 (CRAN only)
+## Direct reverse dependencies: 599 (2.1%) of 28107 (CRAN+Bioconductor)
 
 ## Hard reverse deps ("needs")
 hard <- tools::package_dependencies(
@@ -611,8 +611,8 @@ hard <- tools::package_dependencies(
 )[[pkg]]
 n <- length(hard)
 message(sprintf("Hard reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## Hard reverse dependencies: 1297 (5.1%) of 25284 (CRAN only)
-## Hard reverse dependencies: 1444 (5.2%) of 27669 (CRAN+Bioconductor)
+## Hard reverse dependencies: 1310 (5.1%) of 25722 (CRAN only)
+## Hard reverse dependencies: 1457 (5.2%) of 28107 (CRAN+Bioconductor)
 
 ## All, incl. Suggests (inflates; what you computed)
 alld <- tools::package_dependencies(
@@ -622,23 +622,23 @@ alld <- tools::package_dependencies(
 alld <- intersect(alld, all_pkgs)
 n <- length(alld)
 message(sprintf("All (incl. Suggests) reverse dependencies: %d (%.1f%%) of %d",  n, 100*n/n_all, n_all))
-## All (incl. Suggests) reverse dependencies: 23168 (91.6%) of 25284 (CRAN only)
-## All (incl. Suggests) reverse dependencies: 25525 (92.3%) of 27669 (CRAN+Bioconductor)
+## All (incl. Suggests) reverse dependencies: 23602 (91.8%) of 25722 (CRAN only)
+## All (incl. Suggests) reverse dependencies: 25959 (92.4%) of 28107 (CRAN+Bioconductor)
 -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/downloads_over_time_on_CRAN.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="A line graph with 'Date' on the horizontal axis and 'Download relative rank (4-week avg.)' on the vertical axis. The dates go from mid 2015 to late 2026 and the ranks from 0 to 20%. Lines for package 'doParallel', 'future', 'future.apply', and 'furrr' are displayed in different colors. The 'future' and 'future.apply' surpassed 'doParallel' early 2022, whereas 'furrr' remains just behind 'doParallel'."></p>
 </figure>
 </div>
-<p><em>Figure 1: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doParallel</strong> averaged every four weeks. <strong>future</strong> is among the top-0.7% most downloaded packages on CRAN. The data are based on the Posit CRAN mirror logs. There are approximately 200 million package downloads per month from the Posit CRAN mirror alone. Since none of the other CRAN mirrors provide statistics, it is impossible to know the total amount of package installations.</em></p>
+<p><em>Figure 1: The download percentile ranks for <strong>future</strong>, <strong>future.apply</strong>, <strong>furrr</strong>, and <strong>doParallel</strong> averaged every four weeks. <strong>future</strong> is among the top-0.6% most downloaded packages on CRAN. The data are based on the Posit CRAN mirror logs. There are approximately 200 million package downloads per month from the Posit CRAN mirror alone. Since none of the other CRAN mirrors provide statistics, it is impossible to know the total amount of package installations.</em></p>
 <!-- [https://cranlogs.r-pkg.org/downloads/total/last-month] -->
-<p>As a reference<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the popular <strong>doParallel</strong>, released in 2011, which is commonly used together with <strong>foreach</strong>, released in 2009, was among the top-1.1% most downloaded packages during the same period and it has ~850 reverse package dependencies (+3%/year) on CRAN. The number of users that download <strong>future</strong> has grown rapidly whereas the same number has stabilized for the <strong>doParallel</strong> package (Figure 1). Similarly, the number of reverse package dependencies on <strong>future</strong> grows significantly faster than for <strong>doParallel</strong> (Figure 2).</p>
+<p>As a reference<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the popular <strong>doParallel</strong>, released in 2011, which is commonly used together with <strong>foreach</strong>, released in 2009, was among the top-1.1% most downloaded packages during the same period and it has ~845 reverse package dependencies (+2%/year) on CRAN. The number of users that download <strong>future</strong> has grown rapidly whereas the same number has stabilized for the <strong>doParallel</strong> package (Figure 1). Similarly, the number of reverse package dependencies on <strong>future</strong> grows significantly faster than for <strong>doParallel</strong> (Figure 2).</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/revdep_over_time_on_CRAN.png" class="img-fluid figure-img" alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2026. The y-axis ranges from 0 to about 560 dependencies. The 'future' package (green) rises steeply after 2018 and reaches 560 by late 2026; 'future.apply' (blue) grows steadily to 325; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 195."></p>
+<p><img src="figures/revdep_over_time_on_CRAN.png" class="img-fluid figure-img" alt="A line chart showing the growth in the number of reverse dependencies on CRAN for three R packages, 'future', 'future.apply', and 'furrr', from 2015 to 2026. The y-axis ranges from 0 to 600 dependencies. The 'future' package (green) rises steeply after 2018 and reaches 575 by late 2026; 'future.apply' (blue) grows steadily to 335; and 'furrr' (purple) follows a similar but slightly slower trajectory, ending near 195."></p>
 <figcaption>Package counts on the linear scale.</figcaption>
 </figure>
 </div>
@@ -646,7 +646,7 @@ message(sprintf("All (incl. Suggests) reverse dependencies: %d (%.1f%%) of %d", 
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/revdep_over_time_on_CRAN-log.png" class="img-fluid figure-img" alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'doParallel', 'future', 'future.apply', and 'furrr' from 2015 to 2026. The y-axis spans roughly 10 to 1,000 dependencies. 'doParallel' (olive) leads throughout, rising from 90 to about 850, where it has leveled off since 2025. 'future' (green) increases from a few dependencies in 2015 to 560 by late 2026. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 325 and 195, respectively."></p>
+<p><img src="figures/revdep_over_time_on_CRAN-log.png" class="img-fluid figure-img" alt="A logarithmic-scale line chart comparing CRAN reverse-dependency growth for 'doParallel', 'future', 'future.apply', and 'furrr' from 2015 to 2026. The y-axis spans roughly 10 to 1,000 dependencies. 'doParallel' (olive) leads throughout, rising from 90 to about 845, where it has leveled off since 2025. 'future' (green) increases from a few dependencies in 2015 to 575 by late 2026. 'future.apply' (blue) and 'furrr' (purple) start around 2018 and reach 335 and 195, respectively."></p>
 <figcaption>Package counts on the logarithmic scale.</figcaption>
 </figure>
 </div>

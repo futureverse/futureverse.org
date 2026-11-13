@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0ae969d3293726db143f6e9eb89af930.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/quarto-axe/axe.min.js"></script>
 <script src="site_libs/quarto-axe/axe-check.js" type="module"></script>
 <script id="quarto-axe-checker-options" type="text/plain">eyJvdXRwdXQiOiJjb25zb2xlIn0=</script>
@@ -509,7 +509,7 @@ gtag('config', 'G-SB3EQSD9FR', { 'anonymize_ip': true});
 
 <p>Since correctness and reproducibility are essential to all data processing, validation is a top priority and part of the design and implementation throughout the future ecosystem. Several types of testing are performed. These rich sets of test suites assure, on a continuous basis, correctness throughout.</p>
 <p>First, all the essential core packages part of the future framework, including <strong>future</strong>, <strong>parallelly</strong>, <strong>globals</strong>, and <strong>listenv</strong>, implement a rich set of package tests. These are validated regularly across the wide-range of operating systems (Linux, macOS, and MS Windows) and R versions available on CRAN, on continuous integration (CI) services (GitHub Actions), and on R-hub. The core packages are also tested with non-English locale settings, including Korean, Simplified Chinese (China) and Traditional Chinese (Taiwan). They are also verified to work with single-core and dual-core machines, which may be the case for some free, cloud services that provide R.</p>
-<p>Second, for each new release, these packages undergo full reverse-package dependency checks using <strong>revdepcheck</strong>. As of October 2026, the <strong>future</strong> package is tested against &gt; 550 direct reverse-package dependencies available on CRAN and Bioconductor. These checks are performed on Linux with both the default settings and when forcing tests to use multisession workers (SOCK clusters), which further validates that globals and packages are identified correctly. We also test with <code>NOT_CRAN = true</code>, to further increase the test coverage.</p>
+<p>Second, for each new release, these packages undergo full reverse-package dependency checks using <strong>revdepcheck</strong>. As of November 2026, the <strong>future</strong> package is tested against &gt; 550 direct reverse-package dependencies available on CRAN and Bioconductor. These checks are performed on Linux with both the default settings and when forcing tests to use multisession workers (SOCK clusters), which further validates that globals and packages are identified correctly. We also test with <code>NOT_CRAN = true</code>, to further increase the test coverage.</p>
 <div>
 <p><img src="images/future.tests-screencast.gif" alt="A screencast
 animation of future.tests running in the terminal. It starts with the
