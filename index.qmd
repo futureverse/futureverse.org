@@ -223,7 +223,7 @@ foundation that a large share of the R ecosystem is built on.
 [most downloaded package on CRAN]{.stat-label}
 :::
 ::: {.stat}
-[>550]{.stat-value}
+[~600]{.stat-value}
 [direct reverse dependencies re-checked before every single release]{.stat-label}
 :::
 ::: {.stat}
