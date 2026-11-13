@@ -219,7 +219,7 @@ foundation that a large share of the R ecosystem is built on.
 [CRAN packages rely on **future**, directly or indirectly - 5.1% of all of CRAN]{.stat-label}
 :::
 ::: {.stat}
-[top-0.7%]{.stat-value}
+[top-0.6%]{.stat-value}
 [most downloaded package on CRAN]{.stat-label}
 :::
 ::: {.stat}
@@ -232,7 +232,7 @@ foundation that a large share of the R ecosystem is built on.
 :::
 :::
 
-[As of October 2026, from the **future** reverse-dependency checks and CRAN download logs.]{.stat-note}
+[As of November 2026, from the **future** reverse-dependency checks and CRAN download logs.]{.stat-note}
 
 It is used across statistics, machine learning, forecasting,
 genomics, epidemiology, clinical trials, ecology, finance, and
